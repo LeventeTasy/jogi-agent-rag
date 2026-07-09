@@ -1,13 +1,19 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
+from dotenv import load_dotenv
+import os
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
+load_dotenv()
+
 @CrewBase
 class JogiAgent():
     """JogiAgent crew"""
+
+    is_verbose = os.getenv("CREWAI_VERBOSE_ENABLED", "True").lower() == "true"
 
     agents: list[BaseAgent]
     tasks: list[Task]
@@ -23,7 +29,7 @@ class JogiAgent():
     def jogi_strategist(self) -> Agent:
         return Agent(
             config=self.agents_config['jogi_strategist'],  # type: ignore[index]
-            verbose=False,
+            verbose=self.is_verbose,
             temperature=0.1
         )
 
@@ -31,7 +37,7 @@ class JogiAgent():
     def jogi_researcher(self) -> Agent:
         return Agent(
             config=self.agents_config['jogi_researcher'], # type: ignore[index]
-            verbose=False,
+            verbose=self.is_verbose,
             temperature=0.1
         )
 
@@ -39,7 +45,7 @@ class JogiAgent():
     def jogi_grounding_verifier(self) -> Agent:
         return Agent(
             config=self.agents_config['jogi_grounding_verifier'],  # type: ignore[index]
-            verbose=False,
+            verbose=self.is_verbose,
             temperature=0.1
         )
 
@@ -47,7 +53,7 @@ class JogiAgent():
     def jogi_advisor(self) -> Agent:
         return Agent(
             config=self.agents_config['jogi_advisor'], # type: ignore[index]
-            verbose=False,
+            verbose=self.is_verbose,
             temperature = 0.1
         )
 
@@ -90,6 +96,6 @@ class JogiAgent():
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
-            verbose=0,
+            verbose=self.is_verbose,
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
