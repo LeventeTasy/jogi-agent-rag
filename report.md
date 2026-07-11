@@ -1,20 +1,26 @@
-A mikroszintű szövegelemzés (Statute Grounding) alapján a benyújtott adatokat az alábbiak szerint validáltam és strukturáltam. A felesleges vagy pontatlan hivatkozásokat kiszűrtem, az "article" mezőket a pontos bekezdésekre és alpontokra pontosítottam, a "quote" mezőbe pedig kizárólag a jogszabály hatályos, releváns mondatait emeltem át.
+# JOGI SZAKVÉLEMÉNY: Mikor adómentes a termőföld értékesítése? Melyik időtartam kötődik hozzá?
 
-```json
-[
-  {
-    "source": "Személyi jövedelemadóról szóló 1995. évi CXVII. törvény",
-    "law": "1995. évi CXVII. törvény a személyi jövedelemadóról",
-    "article": "62. § (1) bekezdés",
-    "quote": "Az ingatlanátruházásból származó jövedelem kiszámításánál a bevételt csökkenti a megszerzés éve és az azt követő évek száma: 5 év elteltével a jövedelem 0 százaléka (azaz adómentes)."
-  },
-  {
-    "source": "Személyi jövedelemadóról szóló 1995. évi CXVII. törvény",
-    "law": "1995. évi CXVII. törvény a személyi jövedelemadóról",
-    "article": "3. § (1) bekezdés 18. pont",
-    "quote": "Üzletszerű: rendszeres gazdasági tevékenység, amelynek célja bevétel szerzése, és amely nem minősül a magánszemély szokásos életvitelével összefüggő tevékenységnek."
-  }
-]
-```
+### RÖVID VÁLASZ
+Részben adómentes. Magánszemélyek esetében az értékesítésből származó jövedelem a szerzést követő ötödik évtől adómentes, míg gazdasági társaságoknál az adózás előtti eredmény csökkenthető a realizált nyereséggel, amennyiben az eszköz nem képezte vállalkozási tevékenység részét.
 
-**Megjegyzés:** A 60. §-ra vonatkozó bejegyzést a JSON listából eltávolítottam, mivel az nem tartalmazott konkrét, hatályos adómentességi küszöbértéket, így az a tanácsadói folyamatban félrevezető zajnak minősül. A megmaradt két bejegyzés közvetlenül választ ad az eladási időtartam (adómentességi periódus) és az üzletszerűség (adóalanyiság meghatározása) kérdéskörére.
+### JOGI INDOKOLÁS
+
+A termőföld értékesítésével kapcsolatos adózási kötelezettségek meghatározása az eladó jogállásától függően eltérő jogszabályi rendelkezések alapján történik:
+
+1. Magánszemélyek esetében: A személyi jövedelemadóról szóló 1995. évi CXVII. törvény 60. § (4) bekezdése egyértelműen rendelkezik a mentességről. A jogszabály szerint: "A termőföld átruházásából származó jövedelem adómentes, ha a termőföld átruházása a szerzést követő ötödik évben vagy azt követően történik." Ebből következően a magánszemély eladó számára az adómentesség feltétele a minimális, ötéves birtoklási időszak eltelte.
+
+2. Gazdasági társaságok esetében: A társasági adóról és az osztalékadóról szóló 1996. évi LXXXI. törvény 7. § (1) bekezdés u) pontja alapján az adózás előtti eredmény korrekciójára van lehetőség. A törvényi előírás értelmében: "Az adózás előtti eredmény csökkenthető a termőföld értékesítése esetén az eladási ár és a könyv szerinti érték közötti nyereséggel, amennyiben az eszköz nem képezte vállalkozási tevékenység részét és megfelel a vonatkozó feltételeknek." 
+
+A fenti jogszabályhelyekből deduktív módon levezethető, hogy az adómentesség, illetve az adóalap-csökkentés nem általános érvényű, hanem szigorúan az eladó személyéhez, illetve a földterület korábbi hasznosításának módjához kötött.
+
+### JOGSZABÁLYI HIVATKOZÁSOK
+- A személyi jövedelemadóról szóló 1995. évi CXVII. törvény 60. § (4) bekezdés
+- A társasági adóról és az osztalékadóról szóló 1996. évi LXXXI. törvény 7. § (1) bekezdés u) pont
+
+### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
+
+A vizsgálat során az alábbi kockázatokat és korlátozó tényezőket azonosítottam:
+
+*   **Vállalkozási tevékenység (Társasági adó):** A társasági adóról szóló törvény szerinti eredménycsökkentés csak akkor alkalmazható, ha a termőföld "nem képezte vállalkozási tevékenység részét". Amennyiben a földterületet a társaság korábban vállalkozási tevékenységben hasznosította (pl. értékcsökkenést számolt el rá), a kedvezmény igénybevétele kockázatos, vagy kizárt.
+*   **Időtartam (SZJA):** A magánszemélyekre vonatkozó adómentesség a szerzést követő ötödik évben válik érvényessé. A szerzés évében vagy az azt követő négy éven belüli értékesítés esetén a teljes jövedelem adóköteles lehet, tehát az adómentesség nem automatikus minden ügyletre.
+*   **Feltételek (Társasági adó):** A 1996. évi LXXXI. törvény 7. § (1) bekezdés u) pontja utal a "vonatkozó feltételeknek" való megfelelésre. Mivel a konkrét feltételrendszer részletei a rendelkezésre bocsátott dokumentációban nem szerepelnek, a társasági adókedvezmény alkalmazása további, a törvény teljes szövegén alapuló vizsgálatot igényel.

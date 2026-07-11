@@ -1,7 +1,6 @@
-from crewai import Agent, Crew, Process, Task, Memory
+from crewai import Agent, Crew, Process, Task, Memory, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
 import os
 # If you want to run a snippet of code before or after the crew starts,
@@ -15,6 +14,7 @@ class JogiAgent():
     """JogiAgent crew"""
 
     is_verbose = os.getenv("CREWAI_VERBOSE_ENABLED", "True").lower() == "true"
+    api_key = os.getenv("GOOGLE_API_KEY")
 
     agents: list[BaseAgent]
     tasks: list[Task]
@@ -26,13 +26,6 @@ class JogiAgent():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
 
-    def get_embedding_function(self):
-        load_dotenv()
-        api_key = os.getenv("GOOGLE_API_KEY")
-        return GoogleGenerativeAIEmbeddings(
-            model="models/gemini-embedding-001",
-            api_key=api_key
-        )
 
     @agent
     def jogi_strategist(self) -> Agent:
@@ -111,6 +104,13 @@ class JogiAgent():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=self.is_verbose,
-            memory=Memory(embedder=self.get_embedding_function)
+            memory=Memory(
+                llm=LLM(model="gemini/gemini-3.1-flash-lite"),
+                embedder={
+            "provider": "google-generativeai",
+            "config": {
+                "model_name": "gemini-embedding-001",
+            }
+        })
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )

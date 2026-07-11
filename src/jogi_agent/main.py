@@ -29,9 +29,12 @@ def run():
         }
 
         try:
-            result = JogiAgent().crew().kickoff(inputs=inputs)
+            crew = JogiAgent().crew()
+            crew.reset_memories(command_type="memory")  # <-- ide
+            resp = crew.kickoff(inputs=inputs)
+            #print(resp.raw)
 
-            formatted_markdown = Markdown(str(result.raw))
+            formatted_markdown = Markdown(str(resp.raw))
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
             console.print(formatted_markdown)
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
@@ -78,8 +81,10 @@ def test():
         }
 
         try:
-            result = JogiAgent().crew().kickoff(inputs=inputs)
-            print(result.raw)
+            crew = JogiAgent().crew()
+            crew.reset_memories(command_type="memory")  # <-- ide
+            resp = crew.kickoff(inputs=inputs)
+            print(resp.raw)
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
 
