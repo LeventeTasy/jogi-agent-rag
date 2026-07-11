@@ -1,31 +1,36 @@
 jogi_strategiai_tervezes_feladat:
   description: >
-    Elemezze a felhasználó által feltett kérdést a(z) {topic} témakörben. 
-    Határozza meg a releváns jogterületeket és a kérdés dogmatikai típusát (pl. definíció, hatálybeli korlátozás, kivétel keresése). 
-    Állítson össze egy célzott kulcsszó-listát a RAG keresőmotor számára, amely alkalmas a kontextuális zaj minimalizálására.
+    Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
+    
+    - Vizsgáld meg, hogy a kérdés elég pontos-e, és minden szükséges háttérinformáció (pl. szerződés típusa, státusz, konkrét élethelyzet) rendelkezésre áll-e a pontos jogi válaszhoz. 
+    - HA (Hiányos/Homályos a szituáció): Állítsd le a folyamatot! A kimeneted kizárólag egy udvarias, célzott kérdéssor legyen a felhasználó felé, amiben bekéred a hiányzó részleteket.
+    - EGYÉBKÉNT (Elég az információ): Bontsd fel a komplex problémát 2-4 specifikus, különálló rész-kérdésre a különböző érintett jogterületek (Ptk., GDPR, Mt. stb.) szerint. Minden rész-kérdést úgy fogalmazz meg, mint egy önálló, célzott jogi keresést, amely alkalmas a RAG keresőmotor számára.
   expected_output: >
-    Egy strukturált stratégiai terv, amely tartalmazza a kérdés jogi besorolását, a fókuszba veendő törvényeket és a javasolt keresőszavakat.
+    - Ha hiányzik információ: Egy közvetlen kérdéssor a felhasználónak.
+    - Ha elegendő az információ: Egy számozott lista, amely KIZÁRÓLAG az optimalizált rész-kérdéseket tartalmazza egymás után, magyarázó szöveg nélkül (pl. "1. [Rész-kérdés a Ptk-hoz] \n 2. [Rész-kérdés a GDPR-hoz]").
   agent: jogi_strategist
 
 jogi_kutatasi_feladat:
   description: >
-    A javasolt kulcsszavak alapján futtassa le a Jogi RAG Kereső Eszközt. 
-        Gyűjtse ki a legrelevánsabb jogszabályi helyeket. 
-        SZIGORÚ UTASÍTÁS: A kinyert adatokat másolja a megadott JSON formátumba. A "raw_text" mezőbe 
-        MAXIMUM 3-4 releváns mondatot másolhat be a kontextusból. Tilos a teljes szövegblokkokat kritikátlanul bemásolni, 
-        és szigorúan tilos szavakat vagy mondatrészeket indokolatlanul ismételni!
+      Kaptál egy listát az optimalizált rész-kérdésekkel vagy kulcsszavakkal a Jogi Stratégától.
+
+      - KÖTELEZŐ ITERATÍV UTASÍTÁS: Menj végig a kapott rész-kérdések listáján egyenként! A "Jogi adatbázis" toolt 
+      - MINDEN EGYES RÉSZ-KÉRDÉSRE KÜLÖN-KÜLÖN, egymás után hívd meg! Ne feltétlenül elégedj meg egyetlen kereséssel! 
+      - Futtasd le a toolt az első al-kérdésre, majd a másodikra, és így tovább, hogy minden érintett jogterületet (pl. Ptk., GDPR, Mt.) külön feltérképezz.
+      - Az összes lefutott keresés eredményét gyűjtsd össze, és változtatás nélkül, karakterre pontosan másold át a megadott JSON formátumba a háttér-ellenőrzéshez.
+
   expected_output: >
-    Egy érvényes JSON lista, amely magyarázó szöveg nélkül tartalmazza a megtalált jogszabályi hivatkozásokat az alábbi mezőkkel:
-    [
-      {{
-        "source": "A forrásfájl neve",
-        "law": "A törvény pontos megnevezése",
-        "page": "Az oldalszám",
-        "article": "A szakasz vagy cikk azonosítója",
-        "raw_text": "A teljes kinyert szövegblokk",
-        "distance": "A vektoros távolság pontszáma"
-      }}
-    ]
+      Egy érvényes, tiszta JSON lista (markdown kódblokk és magyarázó szöveg nélkül), amely az összes különálló keresés során megtalált jogszabályi hivatkozást tartalmazza az alábbi mezőkkel:
+      [
+        {{
+          "source": "A forrásfájl neve",
+          "law": "A törvény pontos megnevezése",
+          "page": "Az oldalszám",
+          "article": "A szakasz vagy cikk azonosítója",
+          "raw_text": "A teljes kinyert szövegblokk",
+          "distance": "A vektoros távolság pontszáma"
+        }}
+      ]
   agent: jogi_researcher
 
 jogszabalyi_megalapozottsag_feladat:

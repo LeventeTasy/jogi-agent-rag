@@ -15,7 +15,7 @@ class JogiKeresoInput(BaseModel):
 class MyCustomTool(BaseTool):
     name: str = "Jogi adatbázis"
     description: str = (
-        "Használd ezt a szerszámot, ha a Munka Törvénykönyve, Ptk vagy GDPR kapcsán kell keresned."
+        "Használd ezt a toolt, ha a Munka Törvénykönyve, Ptk vagy GDPR kapcsán kell keresned."
     )
     args_schema: Type[BaseModel] = JogiKeresoInput
 
