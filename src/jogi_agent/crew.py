@@ -14,6 +14,7 @@ class JogiAgent():
     """JogiAgent crew"""
 
     is_verbose = os.getenv("CREWAI_VERBOSE_ENABLED", "True").lower() == "true"
+    is_memory = os.getenv("CREWAI_HISTORY_ENABLED", "True").lower() == "true"
     api_key = os.getenv("GOOGLE_API_KEY")
 
     agents: list[BaseAgent]
@@ -99,18 +100,26 @@ class JogiAgent():
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
-        return Crew(
-            agents=self.agents, # Automatically created by the @agent decorator
-            tasks=self.tasks, # Automatically created by the @task decorator
-            process=Process.sequential,
-            verbose=self.is_verbose,
-            memory=Memory(
-                llm=LLM(model="gemini/gemini-3.1-flash-lite"),
-                embedder={
-            "provider": "google-generativeai",
-            "config": {
-                "model_name": "gemini-embedding-001",
-            }
-        })
-            # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
-        )
+        if self.is_memory:
+            return Crew(
+                agents=self.agents, # Automatically created by the @agent decorator
+                tasks=self.tasks, # Automatically created by the @task decorator
+                process=Process.sequential,
+                verbose=self.is_verbose,
+                memory=Memory(
+                    llm=LLM(model="gemini/gemini-3.1-flash-lite"),
+                    embedder={
+                "provider": "google-generativeai",
+                "config": {
+                    "model_name": "gemini-embedding-001",
+                }
+            })
+                # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            )
+        else:
+            return Crew(
+                agents=self.agents,
+                tasks=self.tasks,
+                process=Process.sequential,
+                verbose=self.is_verbose
+            )

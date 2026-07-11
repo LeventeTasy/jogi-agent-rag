@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 import sys
 import warnings
-
+import os, dotenv
 from datetime import datetime
+from dotenv import load_dotenv
 from rich.console import Console
 from rich.markdown import Markdown
 from jogi_agent.crew import JogiAgent
@@ -18,6 +19,8 @@ def run():
     """
     Run the crew.
     """
+    load_dotenv()
+    is_memory = os.getenv("CREWAI_HISTORY_ENABLED", "True").lower() == "true"
     console = Console()
 
     question = input(": ")
@@ -30,7 +33,8 @@ def run():
 
         try:
             crew = JogiAgent().crew()
-            crew.reset_memories(command_type="memory")  # <-- ide
+            if is_memory:
+                crew.reset_memories(command_type="memory")
             resp = crew.kickoff(inputs=inputs)
             #print(resp.raw)
 
@@ -49,6 +53,9 @@ def test():
     """
         Run the crew on test questions.
     """
+    load_dotenv()
+    is_memory = os.getenv("CREWAI_HISTORY_ENABLED", "True").lower() == "true"
+
     test_questions = [
         # --- GDPR jogok (csapda: túl általános + összekeverhető cikkek) ---
         "Felsorolható-e a GDPR alapján az 'információhoz való jog' mint önálló érintetti jog, és melyik cikk szabályozza pontosan?",
@@ -82,7 +89,8 @@ def test():
 
         try:
             crew = JogiAgent().crew()
-            crew.reset_memories(command_type="memory")  # <-- ide
+            if is_memory:
+                crew.reset_memories(command_type="memory")  # <-- ide
             resp = crew.kickoff(inputs=inputs)
             print(resp.raw)
         except Exception as e:
