@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from rich.console import Console
 from rich.markdown import Markdown
 from jogi_agent.crew import JogiAgent
+from jogi_agent.utils import get_config
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -19,8 +20,9 @@ def run():
     """
     Run the crew.
     """
-    load_dotenv()
-    is_memory = os.getenv("CREWAI_HISTORY_ENABLED", "True").lower() == "true"
+    config = get_config()
+    is_memory = config["is_memory"]
+
     console = Console()
 
     question = input(": ")
@@ -53,8 +55,8 @@ def test():
     """
         Run the crew on test questions.
     """
-    load_dotenv()
-    is_memory = os.getenv("CREWAI_HISTORY_ENABLED", "True").lower() == "true"
+    config = get_config()
+    is_memory = config["is_memory"]
 
     test_questions = [
         # --- GDPR jogok (csapda: túl általános + összekeverhető cikkek) ---

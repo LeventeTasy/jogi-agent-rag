@@ -2,6 +2,8 @@ from crewai import Agent, Crew, Process, Task, Memory, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from dotenv import load_dotenv
+from jogi_agent.utils import get_config
+
 import os
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -13,9 +15,11 @@ load_dotenv()
 class JogiAgent():
     """JogiAgent crew"""
 
-    is_verbose = os.getenv("CREWAI_VERBOSE_ENABLED", "True").lower() == "true"
-    is_memory = os.getenv("CREWAI_HISTORY_ENABLED", "True").lower() == "true"
     api_key = os.getenv("GOOGLE_API_KEY")
+    config = get_config()
+
+    is_verbose = config["is_verbose"]
+    is_memory = config["is_memory"]
 
     agents: list[BaseAgent]
     tasks: list[Task]
