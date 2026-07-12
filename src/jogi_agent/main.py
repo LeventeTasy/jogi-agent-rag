@@ -93,13 +93,15 @@ def test():
         }
 
         try:
-            crew = JogiAgent().crew()
+            flow = JogiFlow()
+            flow.state["inputs"] = inputs
             if is_memory:
-                crew.reset_memories(command_type="memory")  # <-- ide
-            resp = crew.kickoff(inputs=inputs)
-            print(resp.raw)
+                JogiAgent().crew().reset_memories(command_type="memory")
+            resp = flow.kickoff()
+            print(resp)
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
+        break
 
 
 
