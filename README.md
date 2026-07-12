@@ -70,7 +70,6 @@ A jogi dokumentumok hagyományos beágyazása és darabolása gyakran elmossa a 
 ```
 jogi-agent/
 ├── chroma_db/               # A beágyazott jogi szövegek lokális vektoros adatbázisa
-├── knowledge/               # Lokális tudásbázis elemek (user_preference.txt)
 ├── pdf/                     # A feldolgozott forrásdokumentumok (PTK, SZJA, GDPR, MT)
 ├── src/                     # A forráskódot tartalmazó főkönyvtár
 │   ├── jogi_agent/          
@@ -80,12 +79,16 @@ jogi-agent/
 │   │   │   └── custom_tool.py
 │   │   ├── __init__.py
 │   │   ├── crew.py          # Az ágensek és feladatok logikai összekapcsolása (CrewAI definíció)
-│   │   ├── main.py          # **A Crew futtatásáért és CLI felületéért felelős belépési pont**
-│   │   └── report.md        # Mentett kimeneti jelentés fájl
+│   │   ├── flow.py          # CrewAI Flow implementáció (irányítja a korrekciós hurkot)
+│   │   ├── main.py          # **A Flow indításáért és a CLI felületért felelős belépési pont**
+│   │   └── utils.py         # Segédfüggvények a konfigurációk betöltéséhez
+│   ├── create_config.py     # Segédszkript a config.ini legenerálásához
 │   └── rag.py               # A RAG pipeline és a ChromaDB építésének/lekérdezésének implementációja
 ├── .env.example             # Környezeti változók sablonja az API integrációhoz
 ├── .gitignore               # Verziókezelésből kizárt fájlok listája
+├── log.xlsx                 # A futtatások, kérdések és ellenőrzési eredmények naplófájlja Excel formátumban
 ├── pyproject.toml           # Projekt metaadatok, függőségek és futtató scriptek definíciója
+├── report.md                # A generált jogi szakvélemény kimeneti fájlja
 └── uv.lock                  # Az uv dependency manager zárolási fájlja
 ```
 
