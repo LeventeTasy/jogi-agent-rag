@@ -60,6 +60,7 @@ def test():
     """
     config = get_config()
     is_memory = config["is_memory"]
+    console = Console()
 
     test_questions = [
         # --- GDPR jogok (csapda: túl általános + összekeverhető cikkek) ---
@@ -98,7 +99,11 @@ def test():
             if is_memory:
                 JogiAgent().crew().reset_memories(command_type="memory")
             resp = flow.kickoff()
-            print(resp)
+
+            formatted_markdown = Markdown(str(resp))
+            console.print("\n" + "=" * 60 + "\n", style="bold blue")
+            console.print(formatted_markdown)
+            console.print("\n" + "=" * 60 + "\n", style="bold blue")
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
         break
