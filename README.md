@@ -28,7 +28,8 @@ graph TD
     Researcher --> |Nyers Találatok JSON| Verifier[3. Szövegellenőrző Auditor]
     Verifier --> |Statute Grounding / Pontos Idézetek| Advisor[4. Jogi Megfelelőségi Tanácsadó]
     Advisor --> |Szakvélemény| FactChecker[5. Jogi Tényellenőrző]
-    FactChecker --> |Hallucináció-szűrés| FinalReport[Végső Markdown Szakvélemény]
+    FactChecker --> |"HIBA ÉSZLELVE! (Visszadobás javításra)"| Advisor
+    FactChecker --> |"SIKER, ELLENŐZÉS BEFEJEZVE"| FinalReport[Végső Markdown Szakvélemény]
 ```
 
 ### 1. Többágenses Koordináció (CrewAI keretrendszer)
