@@ -8,7 +8,7 @@ def create_config():
         'HISTORY_ENABLED': 'False'
     }
 
-    with open('config.ini', 'w') as configfile:
+    with open('jogi_agent/config/config.ini', 'w') as configfile:
         config.write(configfile)
 
 if __name__ == "__main__":
