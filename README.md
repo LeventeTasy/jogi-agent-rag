@@ -27,27 +27,35 @@ graph TD
     VectorDB --> |Releváns bekezdések / cikkek| Researcher
     Researcher --> |Nyers Találatok JSON| Verifier[3. Szövegellenőrző Auditor]
     Verifier --> |Statute Grounding / Pontos Idézetek| Advisor[4. Jogi Megfelelőségi Tanácsadó]
-    Advisor --> |Kockázati Szűrés / Risk Scan| FinalReport[Végső Markdown Szakvélemény]
+    Advisor --> |Szakvélemény| FactChecker[5. Jogi Tényellenőrző]
+    FactChecker --> |Hallucináció-szűrés| FinalReport[Végső Markdown Szakvélemény]
 ```
 
 ### 1. Többágenses Koordináció (CrewAI keretrendszer)
 
-A válaszadási folyamat elosztott intelligenciára épül. Négy specializált ágens működik együtt szigorú, egymásra épülő feladatsor mentén:
+A válaszadási folyamat elosztott intelligenciára épül. Öt specializált ágens működik együtt szigorú, egymásra épülő feladatsor mentén:
 
 *   **Jogi Stratégiai Tervező és Kulcsszó-optimalizáló (`jogi_strategist`)**:
-    *   **Szerep**: A felhasználói kérdés strukturális elemzése.
-    *   **Feladat**: Azonosítja a releváns jogterületeket és a kérdés dogmatikai típusát (pl. definíció, hatálybeli korlátozás, kivétel). Olyan zajmentes kulcsszó-listát állít össze, amely minimalizálja az irreleváns találatokat (embedding drift).
+    *   **Szerep**: A felhasználói kérdés strukturális elemzése és iteratív feldolgozása.
+    *   **Feladat**: Azonosítja a releváns jogterületeket. Ha a kérdés hiányos, **megállítja a folyamatot és kérdéseket tesz fel**. Ha elegendő az információ, optimális, zajmentes kulcsszó-listát állít össze a RAG motor számára.
 *   **Szenior Jogi Adatbányász és RAG Specialista (`jogi_researcher`)**:
-    *   **Szerep**: A RAG pipeline-ból történő adatkinyerés.
-    *   **Feladat**: Futtatja a keresőeszközt és kigyűjti a legrelevánsabb jogszabályi helyeket. A kimenetet szigorú, változtatásmentes JSON formátumban adja tovább.
+    *   **Szerep**: A RAG pipeline-ból történő iteratív adatkinyerés.
+    *   **Feladat**: Futtatja a keresőeszközt minden egyes rész-kérdésre külön-külön (iteratív keresés), és kigyűjti a legrelevánsabb jogszabályi helyeket. A kimenetet szigorú, változtatásmentes JSON formátumban adja tovább.
 *   **Jogszabályi Megalapozottsági és Szövegellenőrző Auditor (`jogi_grounding_verifier`)**:
     *   **Szerep**: Precíz szövegellenőrzés (Statute Grounding).
     *   **Feladat**: Elemezi az adatbányász által átadott szövegeket, kiszűri a felesleges kontextuális zajt, és azonosítja a pontos bekezdéseket, alpontokat, valamint a szó szerinti, hitelesített idézeteket.
 *   **Vezető Jogi Megfelelőségi Tanácsadó és Kockázatelemző (`jogi_advisor`)**:
     *   **Szerep**: Végső szakvélemény elkészítése és kockázatvizsgálat.
-    *   **Feladat**: Hivatalos jogi szakvéleményt készít Markdown formátumban. Végrehajt egy **kockázati szűrést (Risk Scan)**: ellenőrzi a megfogalmazásokban az abszolút állításokat (pl. „mindig”, „soha”), összevetve azokat a jogszabályi kivételekkel.
+    *   **Feladat**: Hivatalos jogi szakvéleményt készít Markdown formátumban. Végrehajt egy **kockázati szűrést (Risk Scan)**.
+*   **Jogi Tényellenőrző (`jogi_fact_checker`)**:
+    *   **Szerep**: Szigorú tényellenőrzés és hallucináció-szűrés.
+    *   **Feladat**: Mikroszintű szöveg-összehasonlítást végez a szakvélemény és a RAG adatbázis nyers szövegei között. Garantálja, hogy a válasz kizárólag a kinyert törvényszövegeken alapul.
 
-### 2. Jogi Szövegekre Optimalizált RAG Pipeline (`src/rag.py`)
+### 2. CrewAI Memória Integráció (Újdonság!)
+
+A projekt legújabb verziója támogatja a kontextuális memóriát (`config.ini`-ből vezérelve). Az ágensek emlékeznek az előző interakciókra és visszamenőleg is képesek hivatkozni az eddig megbeszéltekre.
+
+### 3. Jogi Szövegekre Optimalizált RAG Pipeline (`src/rag.py`)
 
 A jogi dokumentumok hagyományos beágyazása és darabolása gyakran elmossa a paragrafusok és cikkek határait. Emiatt a projekt egy **egyedi chunking pipeline**-t használ:
 *   **Szemantikus Darabolás (Regex-alapú)**: A dokumentumokat a magyar jogszabályok szerkezetének megfelelően (pl. `12. cikk`, `45. §` vagy `152. §`) darabolja fel, így egy chunk pontosan egy jogi egységet fed le.
@@ -66,7 +74,7 @@ jogi-agent/
 ├── pdf/                     # A feldolgozott forrásdokumentumok (PTK, SZJA, GDPR, MT)
 ├── src/                     # A forráskódot tartalmazó főkönyvtár
 │   ├── jogi_agent/          
-│   │   ├── config/          # Az ágensek és feladatok YAML konfigurációs fájljai (agents.yaml, tasks.yaml)
+│   │   ├── config/          # Konfigurációs fájlok (agents.yaml, tasks.yaml, config.ini)
 │   │   ├── tools/           # Egyedi ágens-eszközök (custom_tool.py - a RAG kereső eszköz)
 │   │   │   ├── __init__.py
 │   │   │   └── custom_tool.py
