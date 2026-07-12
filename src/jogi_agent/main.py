@@ -106,7 +106,6 @@ def test():
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
-        break
 
 
 
