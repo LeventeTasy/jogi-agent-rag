@@ -5,7 +5,7 @@ def get_config():
     config = configparser.ConfigParser()
     current_dir = Path(__file__).parent
 
-    config_path = current_dir.parent / 'config.ini'
+    config_path = current_dir / 'config/config.ini'
     read_files = config.read(config_path)
 
     if not read_files:
