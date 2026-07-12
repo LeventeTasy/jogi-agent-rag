@@ -29,7 +29,7 @@ graph TD
     Verifier --> |Statute Grounding / Pontos Idézetek| Advisor[4. Jogi Megfelelőségi Tanácsadó]
     Advisor --> |Szakvélemény| FactChecker[5. Jogi Tényellenőrző]
     FactChecker --> |"Visszadobás javításra"| Advisor
-    FactChecker --> |"Siker, ellenőzés befejezve"| FinalReport[Végső Markdown Szakvélemény]
+    FactChecker --> |"Ellenőzés befejezve"| FinalReport[Végső Markdown Szakvélemény]
 ```
 
 ### 1. Többágenses Koordináció (CrewAI keretrendszer)
