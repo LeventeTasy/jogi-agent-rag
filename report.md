@@ -1,24 +1,22 @@
-# JOGI SZAKVÉLEMÉNY: Ha egy adatot közérdekből kezelnek, akkor kérhető-e annak törlése a GDPR szerint?
+# JOGI SZAKVÉLEMÉNY: Ha egy magánszemély visszavonja a hozzájárulását egy webshopban, és kéri az elfeledtetéshez való jog alapján az összes vásárlási adatának és számlájának azonnali törlését, a webshop köteles-e ennek eleget tenni a GDPR szerint?
 
 ### RÖVID VÁLASZ
-Részben; az adatkezelés törlése nem kérhető abban az esetben, ha az adatkezelés alapja uniós vagy tagállami jog szerinti kötelezettség teljesítése, vagy ha a törlés a közérdekű archiválási, tudományos, történelmi kutatási vagy statisztikai célok megvalósulását valószínűsíthetően lehetetlenné tenné vagy komolyan veszélyeztetné.
+Részben. A webshop nem köteles és nem is jogosult a jogszabályi kötelezettség alapján őrzött adatok (pl. számlák) azonnali törlésére, azonban a hozzájáruláson alapuló vagy már nem szükséges egyéb adatokat (pl. hűségprogram, profiladatok) törölnie kell.
 
 ### JOGI INDOKOLÁS
-Az általános adatvédelmi rendelet (GDPR) 17. cikke rögzíti az érintett törléshez való jogát (az elfeledtetéshez való jogot). Ugyanakkor e cikk (3) bekezdése explicite meghatározza azokat a körülményeket, amelyek fennállása esetén az adatkezelő mentesül a törlési kötelezettség alól.
+A GDPR 17. cikk (1) bekezdése értelmében az érintett jogosult arra, hogy kérésére az adatkezelő indokolatlan késedelem nélkül törölje a rá vonatkozó személyes adatokat. Ugyanezen cikk (3) bekezdés b) pontja azonban egyértelmű kivételt fogalmaz meg: a törlési kötelezettség nem alkalmazandó, amennyiben az adatkezelés „a személyes adatok kezelését előíró, az adatkezelőre alkalmazandó uniós vagy tagállami jog szerinti kötelezettség teljesítése céljából szükséges.”
 
-A GDPR 17. cikk (3) bekezdésének b) pontja alapján a törléshez való jog nem érvényesíthető, amennyiben az adatkezelés „a személyes adatok kezelését előíró, az adatkezelőre alkalmazandó uniós vagy tagállami jog szerinti kötelezettség teljesítése céljából” történik. Ebből következően, ha az adatkezelés közérdeken alapuló, jogszabályban előírt kötelezettségen nyugszik, az érintett törlési kérelme ezen jogalapra hivatkozással elutasítható.
+Magyarországon a számviteli bizonylatok (számlák) megőrzését a 2000. évi C. törvény (Számviteli törvény) 169. § (2) bekezdése írja elő, amely kimondja, hogy a bizonylatokat legalább 8 évig kell olvasható formában megőrizni. Ezt egészíti ki a 2007. évi CXXVII. törvény (Áfa törvény) 233. § (1) bekezdése, amely a megőrzési kötelezettséget az adó megállapításához való jog elévüléséig rendeli el. Mivel ezen törvényi előírások „az adatkezelőre alkalmazandó tagállami jog szerinti kötelezettségnek” minősülnek, ezek elsőbbséget élveznek a GDPR 17. cikk szerinti törlési kérelemmel szemben.
 
-Továbbá, a 17. cikk (3) bekezdés d) pontja további korlátozást fogalmaz meg a közérdekű archiválás, tudományos vagy történelmi kutatás, illetve statisztikai célú adatkezelés esetén. Amennyiben a személyes adatok törlése „valószínűsíthetően lehetetlenné tenné vagy komolyan veszélyeztetné” az említett közérdekű célok elérését, az adatkezelő szintén nem köteles a törlési igénynek helyt adni. 
-
-A fenti rendelkezésekből deduktív módon következik, hogy a törléshez való jog nem abszolút, és a közérdekű adatkezelés elsőbbséget élvez az érintett rendelkezési jogával szemben, amennyiben az adatkezelés jogalapja konkrét törvényi vagy uniós jogi felhatalmazáson alapul, vagy közérdekű kutatási/statisztikai célt szolgál.
+A NAIH tájékoztatója (IV. fejezet) alapján az adatkezelő a törlési kérelem teljesítése során köteles a jogszabályi kötelezettség alá eső adatokat zárolni, azaz megtiltani az adatok további, a megőrzési kötelezettségen túli célú kezelését. Ezzel szemben a kifejezetten hozzájáruláson alapuló adatok (pl. hűségprogram, marketingprofil) vonatkozásában a GDPR 7. cikk (3) bekezdése irányadó: a hozzájárulás visszavonása nem érinti a visszavonás előtti adatkezelés jogszerűségét, de a visszavonást követően ezen adatokat törölni kell, amennyiben az adatkezelésnek nincs más jogalapja (pl. szerződés teljesítése).
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-* Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 17. cikk (3) bekezdés b) pont
-* Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 17. cikk (3) bekezdés d) pont
+- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 7. cikk (3) bekezdés, 17. cikk (1) és (3) bekezdés b) pont.
+- 2000. évi C. törvény a számvitelről 169. § (2) bekezdés.
+- 2007. évi CXXVII. törvény az általános forgalmi adóról 233. § (1) bekezdés.
+- NAIH tájékoztató a személyes adatok kezeléséről, IV. fejezet.
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szabályozás kockázatelemzése alapján az alábbi korlátozások azonosíthatók:
-
-1. Nem abszolút érvényű a törlési jog: A "törléshez való jog" nem tekinthető korlátlannak. A kockázatot az jelenti, ha az adatkezelő nem tudja igazolni az adatkezelés mögött álló konkrét jogszabályi kötelezettséget (pl. jogszabályi hivatkozás hiánya a belső nyilvántartásban).
-2. "Valószínűsíthetően" kitétel kockázata: A 17. cikk (3) bekezdés d) pontjában szereplő "valószínűsíthetően lehetetlenné tenné" fordulat szubjektív mérlegelést igényel. A jogi kockázatot az jelenti, hogy az adatkezelőnek minden egyes esetben dokumentálnia kell, miért ítéli a kutatási/statisztikai cél veszélyeztetettségét komolynak, különben a döntés jogilag támadhatóvá válik.
-3. Alapjogok ütközése: Az elfeledtetéshez való jog korlátozása csak akkor jogszerű, ha az adatkezelő bizonyítani tudja, hogy a közérdekű cél elérése és a személyes adat kezelése között elválaszthatatlan logikai és jogi kapcsolat áll fenn.
+1. **Adatkezelési cél elkülönítése:** Kockázatot jelent, ha az adatkezelő nem választja szét a törölni kötelező adatokat (pl. marketing profil) a megőrizni köteles adatoktól (pl. számlázási bizonylatok). A teljes adatbázis megőrzése a törlési kérelem után a GDPR megsértését eredményezheti.
+2. **Zárolási kötelezettség:** A jogszabályi kötelezettség fennállása nem jogosít fel az adatok korlátlan kezelésére. Az adatkezelőnek biztosítania kell, hogy a megőrzési idő alatt az adatokat „zárolja”, azaz azokat kizárólag a jogi kötelezettség teljesítésére használja, és minden egyéb (pl. analitikai, marketing) célú felhasználást megszüntessen.
+3. **Abszolút kijelentések:** Az "azonnali" törlés nem értelmezhető úgy, hogy a jogszabályi megőrzési kötelezettség alatt álló adatok törölhetők lennének; a törlés a jogi kötelezettséggel nem érintett adatkörre vonatkozik.

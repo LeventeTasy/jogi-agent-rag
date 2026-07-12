@@ -69,6 +69,15 @@ class JogiAgent():
             max_retries=5
         )
 
+    @agent
+    def jogi_fact_checker(self) -> Agent:
+        return Agent(
+            config=self.agents_config['jogi_fact_checker'],  # type: ignore[index]
+            verbose=self.is_verbose,
+            temperature=0.1,
+            max_retries=5
+        )
+
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
@@ -96,6 +105,12 @@ class JogiAgent():
         return Task(
             config=self.tasks_config['jogi_tanacsadoi_feladat'], # type: ignore[index]
             output_file='report.md'
+        )
+
+    @task
+    def jogszabalyi_ellenőzési_feladat(self) -> Task:
+        return Task(
+            config=self.tasks_config['jogszabalyi_ellenőzési_feladat']  # type: ignore[index]
         )
 
     @crew
