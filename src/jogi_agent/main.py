@@ -8,6 +8,7 @@ from rich.console import Console
 from rich.markdown import Markdown
 from jogi_agent.crew import JogiAgent
 from jogi_agent.utils import get_config
+from jogi_agent.flow import JogiFlow
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -34,16 +35,18 @@ def run():
         }
 
         try:
-            crew = JogiAgent().crew()
+            flow = JogiFlow()
+            flow.state["inputs"] = inputs
             if is_memory:
-                crew.reset_memories(command_type="memory")
-            resp = crew.kickoff(inputs=inputs)
+                JogiAgent().crew().reset_memories(command_type="memory")
+            resp = flow.kickoff()
             #print(resp.raw)
 
-            formatted_markdown = Markdown(str(resp.raw))
+            formatted_markdown = Markdown(str(resp))
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
             console.print(formatted_markdown)
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
+            #flow.plot()
 
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
@@ -57,6 +60,7 @@ def test():
     """
     config = get_config()
     is_memory = config["is_memory"]
+    console = Console()
 
     test_questions = [
         # --- GDPR jogok (csapda: túl általános + összekeverhető cikkek) ---
@@ -90,11 +94,16 @@ def test():
         }
 
         try:
-            crew = JogiAgent().crew()
+            flow = JogiFlow()
+            flow.state["inputs"] = inputs
             if is_memory:
-                crew.reset_memories(command_type="memory")  # <-- ide
-            resp = crew.kickoff(inputs=inputs)
-            print(resp.raw)
+                JogiAgent().crew().reset_memories(command_type="memory")
+            resp = flow.kickoff()
+
+            formatted_markdown = Markdown(str(resp))
+            console.print("\n" + "=" * 60 + "\n", style="bold blue")
+            console.print(formatted_markdown)
+            console.print("\n" + "=" * 60 + "\n", style="bold blue")
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
 

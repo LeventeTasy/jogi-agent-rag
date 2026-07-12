@@ -73,3 +73,23 @@ jogi_tanacsadoi_feladat:
     
     A formázás során kódblokk (```) jelölések használata a teljes szövegre tilos!
   agent: jogi_advisor
+
+jogszabalyi_ellenőzési_feladat:
+  description: >
+    Végezz mikroszintű szöveg-összehasonlítást (Statute Grounding) a Jogi Tanácsadó ágens 
+    által generált szakvélemény és a Kutató ágens által a RAG adatbázisból kinyert nyers 
+    törvényszövegek (contexts) között. 
+    Ellenőrizd, hogy a szakvéleményben szereplő minden egyes állítás, dátum, időtartam és 
+    törvényi hivatkozás karakterre pontosan megalapozott-e a forrásadatok által. 
+    
+    STRUKTÚRÁLT KIVÁLASZTÁSI SZABÁLY:
+    - Amennyiben a válasz 100%-ban pontos, nem tartalmaz hallucinációt vagy kiegészítést, 
+      a kimeneted KIZÁRÓLAG ezzel a mondattal kezdődjön: "SIKER, ELLENŐZÉS BEFEJEZVE".
+    - Amennyiben bármilyen tárgyi tévedést, nem létező hivatkozást, vagy a forrásszöveg által 
+      nem alátámasztott állítást találsz, a kimeneted kötelezően ezzel a kulcsszóval kezdődjön: 
+      "HIBA ÉSZLELVE!", majd pontokba szedve listázd ki a konkrét kifogásokat és a javítási javaslatokat 
+      a Tanácsadó ágens számára.
+  expected_output: >
+    Egy szöveges audit jelentés, amely kötelezően a "SIKER, ELLENŐZÉS BEFEJEZVE" vagy "HIBA ÉSZLELVE!" kulcsszóval kezdődik, 
+    és tartalmazza a részletes hallucináció-ellenőrzési jegyzőkönyvet.
+  agent: jogi_fact_checker

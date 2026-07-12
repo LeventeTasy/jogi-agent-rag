@@ -1,25 +1,24 @@
-# JOGI SZAKVÉLEMÉNY: Online, előfizetéses jogi információs szolgáltatás megfelelőségi keretrendszere
+# JOGI SZAKVÉLEMÉNY: Felsorolható-e a GDPR alapján az 'információhoz való jog' mint önálló érintetti jog, és melyik cikk szabályozza pontosan?
 
 ### RÖVID VÁLASZ
-Részben. A szolgáltatás nyújtása szigorú jogszabályi keretek között lehetséges: a "jogi tanácsadás" mint tevékenység kizárólag jogi diplomához és kamarai tagsághoz kötött (ügyvédi tevékenység), így a rendszernek információs szolgáltatásként kell pozicionálnia magát, a felelősség kizárásáról szóló egyértelmű tájékoztatás mellett.
+Nem; az „információhoz való jog” nem egy önálló, a rendelet által nevesített érintetti jog, hanem az adatkezelő által teljesítendő előzetes tájékoztatási kötelezettség (GDPR 13. és 14. cikk), amely az érintettek átlátható tájékoztatáshoz fűződő elvi jogának érvényesülését szolgálja.
 
 ### JOGI INDOKOLÁS
+A hatályos uniós adatvédelmi rendelet (GDPR) szövegezése alapján az érintetti jogok rendszertana szigorúan elhatárolja az adatkezelő proaktív tájékoztatási kötelezettségét és az érintett kérelmére megnyíló hozzáférési jogot.
 
-1. A jogi tanácsadás kizárólagossága: Az ügyvédi tevékenységről szóló 2017. évi LXXVIII. törvény (a továbbiakban: Üttv.) 3. § (1) bekezdése értelmében „ügyvédi tevékenységet – törvényben meghatározott kivételekkel – kizárólag az ügyvéd folytathat”. Az Üttv. 2. § (1) bekezdés a) pontja szerint ügyvédi tevékenységnek minősül „a jogi képviselet ellátása és a jogi tanácsadás”. Ebből következően, amennyiben az Ön rendszere egyedi ügyekre szabott jogi iránymutatást ad, fennáll a veszélye az ügyvédi tevékenység jogosulatlan gyakorlásának.
+1. A tájékoztatási kötelezettség (13. és 14. cikk): A GDPR 13. cikk (1) bekezdése és a 14. cikk (1) bekezdése az adatkezelőt terhelő kötelezettséget határozza meg, amelynek értelmében az adatkezelőnek a személyes adatok megszerzésének időpontjában (vagy az érintettől való eltérő forrás esetén meghatározott módon) tájékoztatnia kell az érintettet az adatkezelés céljáról, jogalapjáról és a kapcsolódó adatokról. Ez a kötelezettség az adatkezelő részéről elvárt aktív magatartás, nem pedig az érintett által gyakorolt, kérelmezhető „jogosultság” a szó szoros, érintetti jogi értelmében.
 
-2. Fogyasztóvédelmi és információs kötelezettségek: A szolgáltatásnak meg kell felelnie a 2001. évi CVIII. törvény (Eker. tv.) rendelkezéseinek. Az Eker. tv. 4. §-a előírja, hogy a szolgáltató köteles a szolgáltatás igénybevételét megelőzően és az igénybevétele során folyamatosan biztosítani a felhasználó számára a jogszabályban meghatározott azonosító és tevékenységi adatokhoz való hozzáférést.
+2. A hozzáféréshez való jog (15. cikk): Ezzel szemben a 15. cikk (1) bekezdése kifejezetten az érintett „jogosultságát” nevesíti, miszerint az érintett „jogosult arra, hogy az adatkezelőtől visszajelzést kapjon” az adatkezelés tényéről, illetve a 15. cikk (3) bekezdése alapján „az adatkezelés tárgyát képező személyes adatok másolatát” az adatkezelő az érintett rendelkezésére bocsátja. Ez a hozzáférési jog tehát az érintett kezdeményezéséhez kötött, szemben a 13-14. cikk szerinti, az adatkezelő által ex lege (törvény erejénél fogva) teljesítendő tájékoztatással.
 
-3. Adatkezelési megfelelés: Mivel a rendszer jogi adatbázisokon alapul, a GDPR (2016/679/EU rendelet) alapján a felhasználói kérdések feldolgozása során kezelt adatok kezelése során biztosítani kell az átláthatóságot és a célhoz kötöttséget. Amennyiben az AI rendszer személyes adatokat dolgoz fel a lekérdezések során, a 2011. évi CXII. törvény (Infotv.) szerinti adatkezelési tájékoztató közzététele kötelező.
+3. Kontextuális egység: A GDPR 12. cikk (1) bekezdése összefoglalóan kezeli a 13. és 14. cikk szerinti „információkat” és a 15–22. cikk szerinti „tájékoztatásokat”, amikor rögzíti, hogy az adatkezelőnek ezeket „tömör, átlátható, érthető és könnyen hozzáférhető formában” kell nyújtania. A jogalkotói terminológia tehát az információkat mint az adatkezelői megfelelés tárgyát, a 15. cikket pedig mint az érintetti jogosultság alapját nevesíti.
 
-4. Felelősségkizárás: A rendszer által generált válaszok jogi státuszát a felhasználási feltételekben (ÁSZF) egyértelműen "jogi információs szolgáltatásként" kell definiálni. A Polgári Törvénykönyvről szóló 2013. évi V. törvény (Ptk.) 6:152. § alapján a szerződésben a kártérítési felelősség korlátozható, ugyanakkor a szándékosan okozott, továbbá az emberi életet, testi épséget vagy egészséget megkárosító szerződésszegésért való felelősség korlátozása semmis.
-
-### JOGSZABÁLYI HIVATKOZÁSOK
-- Ügyvédi tevékenységről szóló 2017. évi LXXVIII. törvény [2. § (1) bekezdés a) pont; 3. § (1) bekezdés]
-- Az elektronikus kereskedelmi szolgáltatásokról szóló 2001. évi CVIII. törvény [4. §]
-- A Polgári Törvénykönyvről szóló 2013. évi V. törvény [6:152. §]
-- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR)
+### JOGSZABÁLYI HIVATKOZÁSOK - Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR)
+- 12. cikk (1) bekezdés
+- 13. cikk (1) bekezdés
+- 14. cikk (1) bekezdés
+- 15. cikk (1) és (3) bekezdés
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-1. Kockázat: Az AI által generált válaszok "tanácsadásnak" minősülhetnek, ha a rendszer személyre szabott, konkrét jogi helyzetre ad megoldási javaslatot. Ez az Üttv. alapján jogellenes lehet.
-2. Kivétel: A jogszabályokhoz való hozzáférés biztosítása, azaz a "keresőmotor" funkció, önmagában nem minősül ügyvédi tevékenységnek, amennyiben az interpretációt a felhasználó végzi, és a rendszer nem vonható felelősségre a jogalkalmazásért.
-3. Kockázati figyelmeztetés: A Ptk. 6:152. § szerinti felelősségkizárás "teljes mértékű" alkalmazása nem lehetséges, mivel a jogszabály meghatározott esetekben (pl. szándékos károkozás) semmissé teszi a kizárást. A felelősségkorlátozás nem mentesít az információszolgáltatás hitelességéért való helytállás alól.
+A szabály alkalmazhatósága kapcsán az alábbi jogi korlátokat kell figyelembe venni:
+1. Kivétel a tájékoztatási kötelezettség alól: A 14. cikk (1) bekezdése explicit módon rögzíti, hogy az adatkezelő mentesül a tájékoztatási kötelezettség alól, ha „az érintett már rendelkezik az információkkal, vagy az információk rendelkezésre bocsátása lehetetlennek bizonyul vagy aránytalanul nagy erőfeszítést igényelne”. Ezen kitétel miatt nem jelenthető ki, hogy az adatkezelőnek minden esetben abszolút kötelezettsége az adatgyűjtést követő tájékoztatás.
+2. Terminológiai kockázat: Az „információhoz való jog” kifejezés jogi szaknyelvben való használata megtévesztő lehet, mivel összemossa az adatkezelői kötelezettséget (13-14. cikk) az érintetti joggal (15. cikk), ami a jogalkalmazás során a jogalapok téves azonosításához vezethet.

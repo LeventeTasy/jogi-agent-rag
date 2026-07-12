@@ -27,27 +27,36 @@ graph TD
     VectorDB --> |Releváns bekezdések / cikkek| Researcher
     Researcher --> |Nyers Találatok JSON| Verifier[3. Szövegellenőrző Auditor]
     Verifier --> |Statute Grounding / Pontos Idézetek| Advisor[4. Jogi Megfelelőségi Tanácsadó]
-    Advisor --> |Kockázati Szűrés / Risk Scan| FinalReport[Végső Markdown Szakvélemény]
+    Advisor --> |Szakvélemény| FactChecker[5. Jogi Tényellenőrző]
+    FactChecker --> |"Visszadobás javításra"| Advisor
+    FactChecker --> |"Ellenőzés befejezve"| FinalReport[Végső Markdown Szakvélemény]
 ```
 
 ### 1. Többágenses Koordináció (CrewAI keretrendszer)
 
-A válaszadási folyamat elosztott intelligenciára épül. Négy specializált ágens működik együtt szigorú, egymásra épülő feladatsor mentén:
+A válaszadási folyamat elosztott intelligenciára épül. Öt specializált ágens működik együtt szigorú, egymásra épülő feladatsor mentén:
 
 *   **Jogi Stratégiai Tervező és Kulcsszó-optimalizáló (`jogi_strategist`)**:
-    *   **Szerep**: A felhasználói kérdés strukturális elemzése.
-    *   **Feladat**: Azonosítja a releváns jogterületeket és a kérdés dogmatikai típusát (pl. definíció, hatálybeli korlátozás, kivétel). Olyan zajmentes kulcsszó-listát állít össze, amely minimalizálja az irreleváns találatokat (embedding drift).
+    *   **Szerep**: A felhasználói kérdés strukturális elemzése és iteratív feldolgozása.
+    *   **Feladat**: Azonosítja a releváns jogterületeket. Ha a kérdés hiányos, **megállítja a folyamatot és kérdéseket tesz fel**. Ha elegendő az információ, optimális, zajmentes kulcsszó-listát állít össze a RAG motor számára.
 *   **Szenior Jogi Adatbányász és RAG Specialista (`jogi_researcher`)**:
-    *   **Szerep**: A RAG pipeline-ból történő adatkinyerés.
-    *   **Feladat**: Futtatja a keresőeszközt és kigyűjti a legrelevánsabb jogszabályi helyeket. A kimenetet szigorú, változtatásmentes JSON formátumban adja tovább.
+    *   **Szerep**: A RAG pipeline-ból történő iteratív adatkinyerés.
+    *   **Feladat**: Futtatja a keresőeszközt minden egyes rész-kérdésre külön-külön (iteratív keresés), és kigyűjti a legrelevánsabb jogszabályi helyeket. A kimenetet szigorú, változtatásmentes JSON formátumban adja tovább.
 *   **Jogszabályi Megalapozottsági és Szövegellenőrző Auditor (`jogi_grounding_verifier`)**:
     *   **Szerep**: Precíz szövegellenőrzés (Statute Grounding).
     *   **Feladat**: Elemezi az adatbányász által átadott szövegeket, kiszűri a felesleges kontextuális zajt, és azonosítja a pontos bekezdéseket, alpontokat, valamint a szó szerinti, hitelesített idézeteket.
 *   **Vezető Jogi Megfelelőségi Tanácsadó és Kockázatelemző (`jogi_advisor`)**:
     *   **Szerep**: Végső szakvélemény elkészítése és kockázatvizsgálat.
-    *   **Feladat**: Hivatalos jogi szakvéleményt készít Markdown formátumban. Végrehajt egy **kockázati szűrést (Risk Scan)**: ellenőrzi a megfogalmazásokban az abszolút állításokat (pl. „mindig”, „soha”), összevetve azokat a jogszabályi kivételekkel.
+    *   **Feladat**: Hivatalos jogi szakvéleményt készít Markdown formátumban. Végrehajt egy **kockázati szűrést (Risk Scan)**.
+*   **Jogi Tényellenőrző (`jogi_fact_checker`)**:
+    *   **Szerep**: Szigorú tényellenőrzés és hallucináció-szűrés.
+    *   **Feladat**: Mikroszintű szöveg-összehasonlítást végez a szakvélemény és a RAG adatbázis nyers szövegei között. Garantálja, hogy a válasz kizárólag a kinyert törvényszövegeken alapul.
 
-### 2. Jogi Szövegekre Optimalizált RAG Pipeline (`src/rag.py`)
+### 2. CrewAI Memória Integráció (Újdonság!)
+
+A projekt legújabb verziója támogatja a kontextuális memóriát (`config.ini`-ből vezérelve). Az ágensek emlékeznek az előző interakciókra és visszamenőleg is képesek hivatkozni az eddig megbeszéltekre.
+
+### 3. Jogi Szövegekre Optimalizált RAG Pipeline (`src/rag.py`)
 
 A jogi dokumentumok hagyományos beágyazása és darabolása gyakran elmossa a paragrafusok és cikkek határait. Emiatt a projekt egy **egyedi chunking pipeline**-t használ:
 *   **Szemantikus Darabolás (Regex-alapú)**: A dokumentumokat a magyar jogszabályok szerkezetének megfelelően (pl. `12. cikk`, `45. §` vagy `152. §`) darabolja fel, így egy chunk pontosan egy jogi egységet fed le.
@@ -62,22 +71,25 @@ A jogi dokumentumok hagyományos beágyazása és darabolása gyakran elmossa a 
 ```
 jogi-agent/
 ├── chroma_db/               # A beágyazott jogi szövegek lokális vektoros adatbázisa
-├── knowledge/               # Lokális tudásbázis elemek (user_preference.txt)
 ├── pdf/                     # A feldolgozott forrásdokumentumok (PTK, SZJA, GDPR, MT)
 ├── src/                     # A forráskódot tartalmazó főkönyvtár
 │   ├── jogi_agent/          
-│   │   ├── config/          # Az ágensek és feladatok YAML konfigurációs fájljai (agents.yaml, tasks.yaml)
+│   │   ├── config/          # Konfigurációs fájlok (agents.yaml, tasks.yaml, config.ini)
 │   │   ├── tools/           # Egyedi ágens-eszközök (custom_tool.py - a RAG kereső eszköz)
 │   │   │   ├── __init__.py
 │   │   │   └── custom_tool.py
 │   │   ├── __init__.py
 │   │   ├── crew.py          # Az ágensek és feladatok logikai összekapcsolása (CrewAI definíció)
-│   │   ├── main.py          # **A Crew futtatásáért és CLI felületéért felelős belépési pont**
-│   │   └── report.md        # Mentett kimeneti jelentés fájl
+│   │   ├── flow.py          # CrewAI Flow implementáció (irányítja a korrekciós hurkot)
+│   │   ├── main.py          # **A Flow indításáért és a CLI felületért felelős belépési pont**
+│   │   └── utils.py         # Segédfüggvények a konfigurációk betöltéséhez
+│   ├── create_config.py     # Segédszkript a config.ini legenerálásához
 │   └── rag.py               # A RAG pipeline és a ChromaDB építésének/lekérdezésének implementációja
 ├── .env.example             # Környezeti változók sablonja az API integrációhoz
 ├── .gitignore               # Verziókezelésből kizárt fájlok listája
+├── log.xlsx                 # A futtatások, kérdések és ellenőrzési eredmények naplófájlja Excel formátumban
 ├── pyproject.toml           # Projekt metaadatok, függőségek és futtató scriptek definíciója
+├── report.md                # A generált jogi szakvélemény kimeneti fájlja
 └── uv.lock                  # Az uv dependency manager zárolási fájlja
 ```
 
@@ -118,9 +130,11 @@ cp .env.example .env
 
 Nyissa meg a `.env` fájlt, és adja meg a szükséges konfigurációkat:
 ```env
-GOOGLE_API_KEY=az-on-api-kulcsa       # Google Gemini API kulcs a RAG-hoz és a modellekhez
-MODEL=gemini/gemini-2.5-flash-lite    # Az LLM modell, amit a CrewAI használ
-CREWAI_TRACING_ENABLED=false          # CrewAI nyomkövetés (igény szerint bekapcsolható)
+GOOGLE_API_KEY=az-on-api-kulcsa                          # Google Gemini API kulcs a RAG-hoz és a modellekhez
+MODEL=gemini/gemini-3.1-flash-lite                       # A használni kívánt fő LLM modell (pl. gemini-3.1-flash-lite)
+EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME=gemini-embedding-001  # A RAG beágyazásokhoz használt Google AI modell
+CREWAI_MAX_RPM=10                                        # Percenkénti kérések maximális száma (max requests per minute)
+CREWAI_TRACING_ENABLED=false                             # CrewAI nyomkövetés (igény szerint bekapcsolható)
 ```
 
 ---
