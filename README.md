@@ -28,7 +28,7 @@ graph TD
     Researcher --> |Nyers Találatok JSON| Verifier[3. Szövegellenőrző Auditor]
     Verifier --> |Statute Grounding / Pontos Idézetek| Advisor[4. Jogi Megfelelőségi Tanácsadó]
     Advisor --> |Szakvélemény| FactChecker[5. Jogi Tényellenőrző]
-    FactChecker --> |"Eltérés észlelve! (Visszadobás javításra)"| Advisor
+    FactChecker --> |"Visszadobás javításra"| Advisor
     FactChecker --> |"Siker, ellenőzés befejezve"| FinalReport[Végső Markdown Szakvélemény]
 ```
 
