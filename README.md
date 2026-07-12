@@ -129,9 +129,11 @@ cp .env.example .env
 
 Nyissa meg a `.env` fájlt, és adja meg a szükséges konfigurációkat:
 ```env
-GOOGLE_API_KEY=az-on-api-kulcsa       # Google Gemini API kulcs a RAG-hoz és a modellekhez
-MODEL=gemini/gemini-2.5-flash-lite    # Az LLM modell, amit a CrewAI használ
-CREWAI_TRACING_ENABLED=false          # CrewAI nyomkövetés (igény szerint bekapcsolható)
+GOOGLE_API_KEY=az-on-api-kulcsa                          # Google Gemini API kulcs a RAG-hoz és a modellekhez
+MODEL=gemini/gemini-3.1-flash-lite                       # A használni kívánt fő LLM modell (pl. gemini-3.1-flash-lite)
+EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME=gemini-embedding-001  # A RAG beágyazásokhoz használt Google AI modell
+CREWAI_MAX_RPM=10                                        # Percenkénti kérések maximális száma (max requests per minute)
+CREWAI_TRACING_ENABLED=false                             # CrewAI nyomkövetés (igény szerint bekapcsolható)
 ```
 
 ---
