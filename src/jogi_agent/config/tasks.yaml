@@ -93,20 +93,27 @@ jogi_tanacsadoi_feladat:
 
 jogszabalyi_ellenőzési_feladat:
   description: >
-    Végezz mikroszintű szöveg-összehasonlítást (Statute Grounding) a Jogi Tanácsadó ágens 
-    által generált szakvélemény és a Kutató ágens által a RAG adatbázisból kinyert nyers 
+    Végezz kíméletlen, mikroszintű karakter- és számonkénti szöveg-összehasonlítást (Statute Grounding) 
+    a Jogi Tanácsadó ágens által generált szakvélemény és a RAG adatbázisból kinyert nyers 
     törvényszövegek (contexts) között. 
-    Ellenőrizd, hogy a szakvéleményben szereplő minden egyes állítás, dátum, időtartam és 
-    törvényi hivatkozás karakterre pontosan megalapozott-e a forrásadatok által. 
+    
+    KÖTELEZŐ ELLENŐRZÉSI LÉPÉSEK (AUDIT PROTOKOLL):
+    1. PARAGRAFUS- ÉS BEKEZDÉSSZÁMOK: Egyenként vesd össze az összes törvényhely számát! Ha a kontextusban 
+       '285. §' szerepel, de a Tanácsadó '28. §'-t írt, vagy ha az (1) bekezdés helyett (2)-est használt, 
+       az kritikus hivatkozási hiba!
+    2. SZOGSZABÁLYI TERMINOLÓGIA: Ellenőrizd a pontos jogi kifejezéseket! Ha a forrásszöveg 'alapbér'-t 
+       ír, de a Tanácsadó saját szakállára 'távolléti díj'-nak nevezi, vagy bármilyen szinonimát használ, 
+       ami karakterre pontosan nem egyezik a törvénnyel, az hallucinációnak minősül!
+    3. EXKLUZÍV FORRÁSALAPÚSÁG: Bármilyen jogi magyarázat vagy következtetés, amely elméletileg igaz lehet, 
+       de szó szerint nem vezethető le a megadott nyers RAG kontextusokból, tiltott kiegészítés!
     
     STRUKTÚRÁLT KIVÁLASZTÁSI SZABÁLY:
-    - Amennyiben a válasz 100%-ban pontos, nem tartalmaz hallucinációt vagy kiegészítést, 
-      a kimeneted KIZÁRÓLAG ezzel a mondattal kezdődjön: "SIKER, ELLENŐZÉS BEFEJEZVE".
-    - Amennyiben bármilyen tárgyi tévedést, nem létező hivatkozást, vagy a forrásszöveg által 
-      nem alátámasztott állítást találsz, a kimeneted kötelezően ezzel a kulcsszóval kezdődjön: 
-      "HIBA ÉSZLELVE!", majd pontokba szedve listázd ki a konkrét kifogásokat és a javítási javaslatokat 
-      a Tanácsadó ágens számára.
+    - Amennyiben a szakvélemény 100%-ban pontos, minden szám, betű és fogalom karakterre pontosan megegyezik 
+      a RAG forrásokkal, a kimeneted KIZÁRÓLAG ezzel a mondattal kezdődjön: "SIKER, ELLENŐZÉS BEFEJEZVE".
+    - Amennyiben bármilyen számelírást, terminológiai pontatlanságot, vagy forráson túli kiegészítést találsz, 
+      a kimeneted kötelezően ezzel a kulcsszóval kezdődjön: "HIBA ÉSZLELVE!", majd pontokba szedve listázd ki 
+      a konkrét hivatkozási hibákat (pontos paragrafusszámmal) és a javítási javaslatokat a Tanácsadó ágens számára.
   expected_output: >
-    Egy szöveges audit jelentés, amely kötelezően a "SIKER, ELLENŐZÉS BEFEJEZVE" vagy "HIBA ÉSZLELVE!" kulcsszóval kezdődik, 
-    és tartalmazza a részletes hallucináció-ellenőrzési jegyzőkönyvet.
+    Egy kőkemény jogi audit jelentés, amely kötelezően a "SIKER, ELLENŐZÉS BEFEJEZVE" vagy "HIBA ÉSZLELVE!" kulcsszóval kezdődik, 
+    és tartalmazza a számonkénti és kifejezésenkénti hallucináció-ellenőrzési jegyzőkönyvet.
   agent: jogi_fact_checker
