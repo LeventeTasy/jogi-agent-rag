@@ -17,7 +17,7 @@ class JogiAgent():
     """JogiAgent crew"""
 
     api_key = os.getenv("GOOGLE_API_KEY")
-    llm_model = os.getenv("MODEL")
+    llm_model = str(os.getenv("MODEL"))
 
     config = get_config()
 
