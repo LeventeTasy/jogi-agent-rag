@@ -21,10 +21,10 @@ deep_analysis_feladat:
 jogi_strategiai_tervezes_feladat:
   description: >
     Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
+    Kérlek, vedd figyelembe a felhasználó által megadott plusz körülményeket és részleteket is: "{details}"
     - Bontsd fel a komplex problémát 2-4 specifikus, különálló rész-kérdésre a különböző érintett jogterületek (Ptk., GDPR, Mt. stb.) szerint. Minden rész-kérdést úgy fogalmazz meg, mint egy önálló, célzott jogi keresést, amely alkalmas a RAG keresőmotor számára.
   expected_output: >
-    - Ha hiányzik információ: Egy közvetlen kérdéssor a felhasználónak.
-    - Ha elegendő az információ: Egy számozott lista, amely KIZÁRÓLAG az optimalizált rész-kérdéseket tartalmazza egymás után, magyarázó szöveg nélkül (pl. "1. [Rész-kérdés a Ptk-hoz] \n 2. [Rész-kérdés a GDPR-hoz]").
+    - Egy számozott lista, amely KIZÁRÓLAG az optimalizált rész-kérdéseket tartalmazza egymás után, magyarázó szöveg nélkül (pl. "1. [Rész-kérdés a Ptk-hoz] \n 2. [Rész-kérdés a GDPR-hoz]").
   agent: jogi_strategist
 
 jogi_kutatasi_feladat:

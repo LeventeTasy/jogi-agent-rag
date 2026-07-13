@@ -45,7 +45,12 @@ class JogiFlow(Flow):
 
         if result.feedback:  # Ha adott meg plusz infót
             # print(f"Bekerülő új infó: {result.feedback}")
-            self.state["inputs"]["topic"] += f"\nFelhasználó kiegészítése: {result.feedback}"
+            jelenlegi_details = self.state["inputs"].get("details", "")
+
+            if jelenlegi_details:
+                self.state["inputs"]["details"] = jelenlegi_details + f"\nTovábbi pontosítás: {result.feedback}"
+            else:
+                self.state["inputs"]["details"] = f"Felhasználó kiegészítése: {result.feedback}"
         # else:
         # print("A felhasználó kihagyta a válaszadást (Enter).")
 

@@ -1,24 +1,24 @@
-# JOGI SZAKVÉLEMÉNY: A GDPR szerint a hozzájárulás visszavonása érinti-e a korábbi adatkezelés jogszerűségét?
+# JOGI SZAKVÉLEMÉNY: A cégünknél az egyik pénztáros kolléga ellen belső vizsgálat indult, mert hiány van a kasszában. A vezetőség úgy döntött, hogy egy rejtett kamerát szerel fel a kassza fölé, hogy tetten érhessük, ha újra megpróbálja. Emellett a biztonság kedvéért a jövő héttől bevezetjük, hogy minden dolgozónak ujjlenyomattal kell igazolnia magát a belépéskor. Jogszerű ez így a GDPR szerint, vagy kell valami extra hozzá?
 
 ### RÖVID VÁLASZ
-Nem. A hozzájárulás visszavonása nem érinti a visszavonást megelőző adatkezelési műveletek jogszerűségét.
+A tervezett intézkedések jelen formájukban nem jogszerűek, mivel az adatkezelés alapvető feltételei (különösen a biometrikus adatok tilalma és a kötelező hatásvizsgálat hiánya) nem teljesülnek. A rejtett megfigyelés és az ujjlenyomat-alapú beléptetés bevezetése komoly jogszabályi kockázatokat hordoz.
 
 ### JOGI INDOKOLÁS
 
-A jogi helyzet megítéléséhez az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 7. cikk (3) bekezdése az irányadó. A hivatkozott jogszabályi rendelkezés kategorikusan kimondja: „A hozzájárulás visszavonása nem érinti a hozzájáruláson alapuló, a visszavonás előtti adatkezelés jogszerűségét.”
+1. **Rejtett kamerás megfigyelés:** A Munka Törvénykönyve (Mt.) 9. § (2) bekezdése értelmében a munkavállaló személyiségi joga csak akkor korlátozható, ha az „a munkaviszony rendeltetésével közvetlenül összefüggő okból feltétlenül szükséges és a cél elérésével arányos”. A rejtett megfigyelés kivételes eszköz, amelynek jogszerűsége megkérdőjelezhető, amennyiben az kevésbé invazív módszerekkel is elérhető. Emellett az Mt. 9. § (2) bekezdése előírja, hogy a korlátozásról a munkavállalót előzetesen írásban tájékoztatni kell, ami a „rejtett” jellegű megfigyeléssel szemben áll. Az Mt. 11. § (1) bekezdése továbbá rögzíti, hogy az ellenőrzés csak a munkaviszonnyal összefüggő magatartás körére terjedhet ki.
 
-A levezetés logikai menete a következő:
-1. Az adatkezelés jogszerűségét a GDPR 6. cikk (1) bekezdés a) pontja alapozza meg, amely szerint az adatkezelés jogszerűnek minősül, ha az érintett hozzájárulását adta személyes adatainak kezeléséhez.
-2. A hozzájárulás visszavonása a jövőre nézve szünteti meg az adatkezelés ezen jogalapját, azonban a GDPR 7. cikk (3) bekezdése kifejezett jogalkotói szándékkal védi a korábbi adatkezelési műveletek jogszerűségét, megakadályozva a visszaható hatályú jogsértés megállapítását.
+2. **Biometrikus azonosítás:** A GDPR 9. cikk (1) bekezdése főszabályként tiltja a természetes személyek egyedi azonosítását célzó biometrikus adatok kezelését. Az ujjlenyomat-olvasó bevezetése csak kivételesen szűk körben, arányos módon és a szükséges biztosítékok mellett képzelhető el, amelyeket a munkáltatónak kell igazolnia. Az alá-fölérendeltségi viszony miatt a „hozzájárulás” mint jogalap önmagában nem tekinthető megfelelőnek.
 
-A Polgári Törvénykönyv (Ptk.) általános szabályai támogatják ezt az értelmezést. A Ptk. 1:3. § (2) bekezdése alapján a „jogviszonyok biztonsága érdekében a visszaható hatályú joghátrányok kizártak”, kivéve, ha a jogszabály eltérően rendelkezik. A GDPR 7. cikk (3) bekezdése éppen a jogviszonyok stabilitását biztosítja azzal, hogy az adatkezelő jóhiszemű, a hozzájáruláson alapuló eljárását mentesíti az utólagos jogsértés megállapítása alól. Mivel az adatkezelő a Ptk. 2:43. §-a értelmében köteles a jóhiszeműség és tisztesség követelménye szerint eljárni, a hozzájárulás visszavonásának pillanatáig jogszerűen végzett adatkezelés a visszavonást követően sem válik jogellenessé.
+3. **Adatvédelmi hatásvizsgálat (DPIA):** A GDPR 35. cikk (1) bekezdése alapján, amennyiben az adatkezelés „valószínűsíthetően magas kockázattal jár a természetes személyek jogaira és szabadságaira nézve”, az adatkezelőnek kötelező adatvédelmi hatásvizsgálatot végeznie az adatkezelést megelőzően. A munkahelyi megfigyelőrendszerek és a biometrikus azonosítók bevezetése ilyen magas kockázatúnak minősül.
+
+4. **Tájékoztatási kötelezettség:** Az Mt. 264. § (1) bekezdése kifejezetten előírja a munkáltató számára, hogy a munkavállalók ellenőrzésére irányuló rendszerek bevezetése esetén köteles az üzemi tanácsot vagy szakszervezetet előzetesen tájékoztatni és velük konzultálni. Ennek elmulasztása jogszabálysértő.
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-* Az Európai Parlament és a Tanács (EU) 2016/679 rendelete: 6. cikk (1) bekezdés a) pont, 7. cikk (3) bekezdés
-* Polgári Törvénykönyvről szóló 2013. évi V. törvény: 1:3. § (1) és (2) bekezdés, 2:43. §
+- 2012. évi I. törvény a munka törvénykönyvéről: 9. § (2) bekezdés, 11. § (1) bekezdés, 264. § (1) bekezdés.
+- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR): 9. cikk (1) bekezdés, 35. cikk (1) bekezdés.
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szakvéleményben alkalmazott megállapítások az adatkezelő jogszerű (a hozzájárulás hatálya alatt végzett) tevékenységére vonatkoznak. 
-Kockázatot jelenthet és kivételt képezhet:
-1. Amennyiben az adatkezelő a hozzájárulás visszavonását követően is folytatja az adatkezelést, az már nem a hozzájáruláson, hanem egyéb, a 6. cikk szerinti jogalapon kell, hogy nyugodjon. A hozzájárulás visszavonása utáni további adatkezelés már nem élvezi a 7. cikk (3) bekezdése szerinti védettséget.
-2. A Ptk. 1:3. § (2) bekezdése alapján a visszaható hatályú joghátrányok kizártsága nem abszolút, amennyiben „a jogszabály kifejezetten rendelkezik erről”. A jelenlegi adatvédelmi keretrendszerben ilyen rendelkezés a hozzájárulás visszavonásával kapcsolatban nem áll fenn, azonban az adatkezelőnek mindenkor igazolnia kell az adatkezelés visszavonás előtti jogszerűségét (elszámoltathatóság elve).
+- **Magas kockázat:** A rejtett kamera alkalmazása szinte minden esetben sérti a munkavállalói tájékoztatási kötelezettséget (Mt. 9. § (2) bekezdés), ezért az súlyos munkaügyi és adatvédelmi bírságot vonhat maga után.
+- **Biometrikus tilalom:** A GDPR 9. cikk szerinti biometrikus adatkezelés tilalma alól csak akkor mentesülhet a cég, ha igazolja, hogy a biometrikus azonosítás feltétlenül szükséges, arányos, és nincs más, a személyiségi jogokat kevésbé korlátozó megoldás.
+- **DPIA hiánya:** A 35. cikk szerinti hatásvizsgálat elvégzése nélkül bármilyen új, magas kockázatú technológia bevezetése automatikusan jogsértőnek minősül.
+- **Kivétel:** Az Mt. 264. § (1) bekezdése szerinti tájékoztatási kötelezettség alól nincs kivétel, amennyiben munkavállalók nagyobb csoportját érintő intézkedésről van szó. A „rejtett” megfigyelés nem mentesít a belső szabályzatok és a munkavállalói képviselet felé fennálló kötelezettségek alól.
