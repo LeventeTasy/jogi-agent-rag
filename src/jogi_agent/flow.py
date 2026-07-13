@@ -101,19 +101,21 @@ class JogiFlow(Flow):
         correction_task = jogi_seged.jogszabalyi_ellenőzési_feladat()
 
         # Frissitjuk az advisor promptot dinamikusan
-        advisor_task.description += \
-            f"""
-            Javítsd ki a korábbi jogi válaszodat!
-
-            A nyers törvényi kontextus (RAG chunks): 
-            {self.state['rag_chunks']}
-
-            Az ellenőrző ágens az alábbi hibákat találta a válaszodban, ezeket KÖTELEZŐ javítanod:
-            {self.state['verifier_feedback']}
-
-            Kérlek, generálj egy új, javított szakvéleményt! 
-            FONTOS: Válaszodban csak a RAG chunkokra hagyadkozz!
-            """
+        advisor_task.description = f"""
+        KÖTELEZŐ JAVÍTÁSI FELADAT! A korábbi jogi válaszod elbukott az ellenőrzésen.
+        
+        Itt van a KORÁBBI (HIBÁS) VÁLASZOD, amit ki kell javítanod:
+        {self.state['final_answer']}
+        
+        AZ ELLENŐRZŐ ÁGENS JELENTÉSE (Ezeket a hibákat kell kijavítanod a fenti szövegben):
+        {self.state['verifier_feedback']}
+        
+        A HITELES RAG FORRÁSSZÖVEGEK (Csak és kizárólag ezekre támaszkodhatsz):
+        {self.state['rag_chunks']}
+        
+        FONTOS: Ne találj ki új törvényeket, ne csonkíts idézeteket! 
+        Módosítsd a korábbi válaszodat a jelentés alapján, és generáld le a tökéletesen javított, végleges verziót!
+        """
 
         if self.state["correction_retries"] < self.state["max_retries"]:
 
