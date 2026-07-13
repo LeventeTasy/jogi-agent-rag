@@ -124,6 +124,13 @@ class JogiFlow(Flow):
                 process=Process.sequential,
                 verbose=self.state["is_verbose"]
             )
+
+            mini_crew_result = mini_crew.kickoff()
+            self.state["final_answer"] = mini_crew_result.tasks_output[0].raw
+            self.state["verifier_feedback"] = mini_crew_result.raw
+
+            self.correction()
+
         else:
             # Megjegyzés: Memory-ra későbbiekben lehet szükség lesz
             mini_crew = Crew(
@@ -133,7 +140,7 @@ class JogiFlow(Flow):
                 verbose=self.state["is_verbose"]
             )
 
-        self.state["final_answer"] = mini_crew.kickoff().raw
+            self.state["final_answer"] = mini_crew.kickoff().raw
 
     @listen("undecidable")
     def warning_undecidable(self):
