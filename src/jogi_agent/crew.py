@@ -1,6 +1,7 @@
 from crewai import Agent, Crew, Process, Task, Memory, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
+from crewai.tasks.conditional_task import ConditionalTask
 from dotenv import load_dotenv
 from jogi_agent.utils import get_config
 
@@ -16,10 +17,13 @@ class JogiAgent():
     """JogiAgent crew"""
 
     api_key = os.getenv("GOOGLE_API_KEY")
+    llm_model = str(os.getenv("MODEL"))
+
     config = get_config()
 
     is_verbose = config["is_verbose"]
     is_memory = config["is_memory"]
+    is_deep_analysis = config["is_deep_analysis_enabled"]
 
     agents: list[BaseAgent]
     tasks: list[Task]
@@ -81,6 +85,20 @@ class JogiAgent():
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
+
+    @task
+    def inditasi_feladat(self) -> Task:
+        return Task(
+            config=self.tasks_config['inditasi_feladat']  # type: ignore[index]
+        )
+
+    @task
+    def deep_analysis_feladat(self) -> Task:
+        return ConditionalTask(
+            config=self.tasks_config['deep_analysis_feladat'],  # type: ignore[index]
+            condition=lambda context: self.is_deep_analysis
+        )
+
     @task
     def jogi_strategiai_tervezes_feladat(self) -> Task:
         return Task(
@@ -126,7 +144,7 @@ class JogiAgent():
                 process=Process.sequential,
                 verbose=self.is_verbose,
                 memory=Memory(
-                    llm=LLM(model="gemini/gemini-3.1-flash-lite"),
+                    llm=LLM(model=self.llm_model),
                     embedder={
                 "provider": "google-generativeai",
                 "config": {

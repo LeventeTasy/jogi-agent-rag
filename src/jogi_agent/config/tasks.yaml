@@ -1,13 +1,30 @@
+inditasi_feladat:
+  description: >
+    Indítsd el a folyamatot.
+  expected_output: >
+    Kizrárólag ennyit írj outputba: "OK"
+  agent: jogi_strategist
+
+deep_analysis_feladat:
+  description: >
+    Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
+
+    - Vizsgáld meg, hogy a kérdés elég pontos-e, és minden szükséges háttérinformáció (pl. szerződés típusa, státusz, konkrét élethelyzet) rendelkezésre áll-e a pontos jogi válaszhoz. 
+    - Hiányos/Homályos a szituáció: A kimeneted kizárólag egy udvarias, célzott kérdéssor legyen a felhasználó felé, amiben bekéred a hiányzó/homályos részleteket, hogy később pontosabban tudjanak a következő ágensek válaszolni.
+    - FONTOS: az outputban semmiképpen se adj választ a kérdésre, ne magyarázd meg, ne adj hivatkozásokat, csak az esetleges kérdéseket tedd fel
+
+  expected_output: >
+    - FONTOS: az outputban semmiképpen se adj választ a kérdésre, ne magyarázd meg, ne adj hivatkozásokat, csak az esetleges kérdéseket tedd fel
+    - "Kérem adjon meg részleteket a leírt szituációról:" majd pedig hozzáteszel egy közvetlen kérdéssort a felhasználónak.
+  agent: jogi_strategist
+
 jogi_strategiai_tervezes_feladat:
   description: >
     Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
-    
-    - Vizsgáld meg, hogy a kérdés elég pontos-e, és minden szükséges háttérinformáció (pl. szerződés típusa, státusz, konkrét élethelyzet) rendelkezésre áll-e a pontos jogi válaszhoz. 
-    - HA (Hiányos/Homályos a szituáció): Állítsd le a folyamatot! A kimeneted kizárólag egy udvarias, célzott kérdéssor legyen a felhasználó felé, amiben bekéred a hiányzó részleteket.
-    - EGYÉBKÉNT (Elég az információ): Bontsd fel a komplex problémát 2-4 specifikus, különálló rész-kérdésre a különböző érintett jogterületek (Ptk., GDPR, Mt. stb.) szerint. Minden rész-kérdést úgy fogalmazz meg, mint egy önálló, célzott jogi keresést, amely alkalmas a RAG keresőmotor számára.
+    Kérlek, vedd figyelembe a felhasználó által megadott plusz körülményeket és részleteket is: "{details}"
+    - Bontsd fel a komplex problémát 2-4 specifikus, különálló rész-kérdésre a különböző érintett jogterületek (Ptk., GDPR, Mt. stb.) szerint. Minden rész-kérdést úgy fogalmazz meg, mint egy önálló, célzott jogi keresést, amely alkalmas a RAG keresőmotor számára.
   expected_output: >
-    - Ha hiányzik információ: Egy közvetlen kérdéssor a felhasználónak.
-    - Ha elegendő az információ: Egy számozott lista, amely KIZÁRÓLAG az optimalizált rész-kérdéseket tartalmazza egymás után, magyarázó szöveg nélkül (pl. "1. [Rész-kérdés a Ptk-hoz] \n 2. [Rész-kérdés a GDPR-hoz]").
+    - Egy számozott lista, amely KIZÁRÓLAG az optimalizált rész-kérdéseket tartalmazza egymás után, magyarázó szöveg nélkül (pl. "1. [Rész-kérdés a Ptk-hoz] \n 2. [Rész-kérdés a GDPR-hoz]").
   agent: jogi_strategist
 
 jogi_kutatasi_feladat:
@@ -20,7 +37,8 @@ jogi_kutatasi_feladat:
       - Az összes lefutott keresés eredményét gyűjtsd össze, és változtatás nélkül, karakterre pontosan másold át a megadott JSON formátumba a háttér-ellenőrzéshez.
 
   expected_output: >
-      Egy érvényes, tiszta JSON lista (markdown kódblokk és magyarázó szöveg nélkül), amely az összes különálló keresés során megtalált jogszabályi hivatkozást tartalmazza az alábbi mezőkkel:
+      Egy érvényes, tiszta JSON lista (markdown kódblokk és magyarázó szöveg nélkül), amely KÜLÖNÁLLÓ fejezetekre van bontva az 1., 2., 3. és 4. rész-kérdés szerint. 
+      Minden egyes rész-kérdéshez TARTOZNIA KELL legalább egy egyedi, külön lefutott keresési eredménynek!:
       [
         {{
           "source": "A forrásfájl neve",
@@ -76,20 +94,27 @@ jogi_tanacsadoi_feladat:
 
 jogszabalyi_ellenőzési_feladat:
   description: >
-    Végezz mikroszintű szöveg-összehasonlítást (Statute Grounding) a Jogi Tanácsadó ágens 
-    által generált szakvélemény és a Kutató ágens által a RAG adatbázisból kinyert nyers 
+    Végezz kíméletlen, mikroszintű karakter- és számonkénti szöveg-összehasonlítást (Statute Grounding) 
+    a Jogi Tanácsadó ágens által generált szakvélemény és a RAG adatbázisból kinyert nyers 
     törvényszövegek (contexts) között. 
-    Ellenőrizd, hogy a szakvéleményben szereplő minden egyes állítás, dátum, időtartam és 
-    törvényi hivatkozás karakterre pontosan megalapozott-e a forrásadatok által. 
+    
+    KÖTELEZŐ ELLENŐRZÉSI LÉPÉSEK (AUDIT PROTOKOLL):
+    1. PARAGRAFUS- ÉS BEKEZDÉSSZÁMOK: Egyenként vesd össze az összes törvényhely számát! Ha a kontextusban 
+       '285. §' szerepel, de a Tanácsadó '28. §'-t írt, vagy ha az (1) bekezdés helyett (2)-est használt, 
+       az kritikus hivatkozási hiba!
+    2. SZOGSZABÁLYI TERMINOLÓGIA: Ellenőrizd a pontos jogi kifejezéseket! Ha a forrásszöveg 'alapbér'-t 
+       ír, de a Tanácsadó saját szakállára 'távolléti díj'-nak nevezi, vagy bármilyen szinonimát használ, 
+       ami karakterre pontosan nem egyezik a törvénnyel, az hallucinációnak minősül!
+    3. EXKLUZÍV FORRÁSALAPÚSÁG: Bármilyen jogi magyarázat vagy következtetés, amely elméletileg igaz lehet, 
+       de szó szerint nem vezethető le a megadott nyers RAG kontextusokból, tiltott kiegészítés!
     
     STRUKTÚRÁLT KIVÁLASZTÁSI SZABÁLY:
-    - Amennyiben a válasz 100%-ban pontos, nem tartalmaz hallucinációt vagy kiegészítést, 
-      a kimeneted KIZÁRÓLAG ezzel a mondattal kezdődjön: "SIKER, ELLENŐZÉS BEFEJEZVE".
-    - Amennyiben bármilyen tárgyi tévedést, nem létező hivatkozást, vagy a forrásszöveg által 
-      nem alátámasztott állítást találsz, a kimeneted kötelezően ezzel a kulcsszóval kezdődjön: 
-      "HIBA ÉSZLELVE!", majd pontokba szedve listázd ki a konkrét kifogásokat és a javítási javaslatokat 
-      a Tanácsadó ágens számára.
+    - Amennyiben a szakvélemény 100%-ban pontos, minden szám, betű és fogalom karakterre pontosan megegyezik 
+      a RAG forrásokkal, a kimeneted KIZÁRÓLAG ezzel a mondattal kezdődjön: "SIKER, ELLENŐZÉS BEFEJEZVE".
+    - Amennyiben bármilyen számelírást, terminológiai pontatlanságot, vagy forráson túli kiegészítést találsz, 
+      a kimeneted kötelezően ezzel a kulcsszóval kezdődjön: "HIBA ÉSZLELVE!", majd pontokba szedve listázd ki 
+      a konkrét hivatkozási hibákat (pontos paragrafusszámmal) és a javítási javaslatokat a Tanácsadó ágens számára.
   expected_output: >
-    Egy szöveges audit jelentés, amely kötelezően a "SIKER, ELLENŐZÉS BEFEJEZVE" vagy "HIBA ÉSZLELVE!" kulcsszóval kezdődik, 
-    és tartalmazza a részletes hallucináció-ellenőrzési jegyzőkönyvet.
+    Egy kőkemény jogi audit jelentés, amely kötelezően a "SIKER, ELLENŐZÉS BEFEJEZVE" vagy "HIBA ÉSZLELVE!" kulcsszóval kezdődik, 
+    és tartalmazza a számonkénti és kifejezésenkénti hallucináció-ellenőrzési jegyzőkönyvet.
   agent: jogi_fact_checker

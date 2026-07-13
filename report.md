@@ -1,24 +1,23 @@
-# JOGI SZAKVÉLEMÉNY: Felsorolható-e a GDPR alapján az 'információhoz való jog' mint önálló érintetti jog, és melyik cikk szabályozza pontosan?
+# JOGI SZAKVÉLEMÉNY: A munkáltatóm tegnap közölte velem, hogy hétfőtől már nem kell bemennem dolgozni, de írásban semmit nem kaptam. Azt mondta, majd később elküldik a papírokat. Nem tudom, hogy felmondtak-e, közös megegyezést akarnak-e, vagy csak ideiglenesen nem kell dolgoznom. Mit tehetek, és milyen jogaim vannak?
 
-### RÖVID VÁLASZ
-Nem; az „információhoz való jog” nem egy önálló, a rendelet által nevesített érintetti jog, hanem az adatkezelő által teljesítendő előzetes tájékoztatási kötelezettség (GDPR 13. és 14. cikk), amely az érintettek átlátható tájékoztatáshoz fűződő elvi jogának érvényesülését szolgálja.
+### RÖVID VÁLASZ 
+A munkaviszony megszüntetésére vonatkozó szóbeli közlés jogilag érvénytelen, ezért Ön jelenleg is munkaviszonyban áll, és a munkavégzés alóli mentesítés idejére távolléti díj illeti meg. Haladéktalanul írásban kell felszólítania a munkáltatót a jognyilatkozat írásba foglalására, és szükség esetén jogi lépéseket kezdeményeznie.
 
-### JOGI INDOKOLÁS
-A hatályos uniós adatvédelmi rendelet (GDPR) szövegezése alapján az érintetti jogok rendszertana szigorúan elhatárolja az adatkezelő proaktív tájékoztatási kötelezettségét és az érintett kérelmére megnyíló hozzáférési jogot.
+### JOGI INDOKOLÁS 
 
-1. A tájékoztatási kötelezettség (13. és 14. cikk): A GDPR 13. cikk (1) bekezdése és a 14. cikk (1) bekezdése az adatkezelőt terhelő kötelezettséget határozza meg, amelynek értelmében az adatkezelőnek a személyes adatok megszerzésének időpontjában (vagy az érintettől való eltérő forrás esetén meghatározott módon) tájékoztatnia kell az érintettet az adatkezelés céljáról, jogalapjáról és a kapcsolódó adatokról. Ez a kötelezettség az adatkezelő részéről elvárt aktív magatartás, nem pedig az érintett által gyakorolt, kérelmezhető „jogosultság” a szó szoros, érintetti jogi értelmében.
+A hatályos Munka Törvénykönyve (Mt.) alapján a munkáltatói felmondás alakszerűségéhez kötött jognyilatkozat. Az Mt. 65. § (3) bekezdése értelmében: „A munkáltató a határozatlan idejű munkaviszony felmondását köteles írásban indokolni.” Továbbá a jogszabály egyértelművé teszi a szankciót: „A munkáltatói felmondás írásbeli alakjának megsértése esetén a jognyilatkozat érvénytelen.” Ebből következően a szóbeli közlés – függetlenül annak tartalmától – nem szünteti meg a munkaviszonyt.
 
-2. A hozzáféréshez való jog (15. cikk): Ezzel szemben a 15. cikk (1) bekezdése kifejezetten az érintett „jogosultságát” nevesíti, miszerint az érintett „jogosult arra, hogy az adatkezelőtől visszajelzést kapjon” az adatkezelés tényéről, illetve a 15. cikk (3) bekezdése alapján „az adatkezelés tárgyát képező személyes adatok másolatát” az adatkezelő az érintett rendelkezésére bocsátja. Ez a hozzáférési jog tehát az érintett kezdeményezéséhez kötött, szemben a 13-14. cikk szerinti, az adatkezelő által ex lege (törvény erejénél fogva) teljesítendő tájékoztatással.
+Amennyiben a munkáltató a szóbeli közléssel összhangban a munkavégzéstől eltiltja Önt, az a munkáltató működési körébe tartozó okból történő mentesítésnek minősül. Az Mt. 146. § (2) bekezdése kimondja: „A munkavállalót távolléti díj illeti meg az irányadó munkavégzési kötelezettsége alóli mentesítés idejére, ha a munkáltató a munkavállalót a munkavégzés alól a munkáltató működési körében felmerült okból mentesíti.” A munkáltató tehát köteles megfizetni a bérét a munkavégzés alól történt eltiltás teljes időtartamára.
 
-3. Kontextuális egység: A GDPR 12. cikk (1) bekezdése összefoglalóan kezeli a 13. és 14. cikk szerinti „információkat” és a 15–22. cikk szerinti „tájékoztatásokat”, amikor rögzíti, hogy az adatkezelőnek ezeket „tömör, átlátható, érthető és könnyen hozzáférhető formában” kell nyújtania. A jogalkotói terminológia tehát az információkat mint az adatkezelői megfelelés tárgyát, a 15. cikket pedig mint az érintetti jogosultság alapját nevesíti.
+A bizonytalan helyzet rendezése érdekében az Mt. 22. § (2) bekezdése biztosítja a munkavállaló számára a jogi eszközt: „A munkavállaló a munkáltatót a jognyilatkozat írásba foglalására és átadására felhívhatja.” Amennyiben a munkáltató a felhívás ellenére továbbra is mulaszt, az Mt. 22. § (2) bekezdése feljogosítja Önt arra, hogy bírósághoz forduljon a jognyilatkozat írásba foglalásának kikényszerítése, illetve a munkaviszony esetleges jogellenes megszüntetésének megállapítása iránt.
 
-### JOGSZABÁLYI HIVATKOZÁSOK - Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR)
-- 12. cikk (1) bekezdés
-- 13. cikk (1) bekezdés
-- 14. cikk (1) bekezdés
-- 15. cikk (1) és (3) bekezdés
+Az igényérvényesítési határidő tekintetében az Mt. 287. § (1) bekezdése az irányadó: mivel írásbeli dokumentum nem került átadásra, a harminc napos keresetindítási határidő a „munkaviszony megszüntetésére irányuló szóbeli közlés tudomására jutásától, vagy a munkavégzéstől való eltiltás időpontjától kezdődik.”
 
-### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szabály alkalmazhatósága kapcsán az alábbi jogi korlátokat kell figyelembe venni:
-1. Kivétel a tájékoztatási kötelezettség alól: A 14. cikk (1) bekezdése explicit módon rögzíti, hogy az adatkezelő mentesül a tájékoztatási kötelezettség alól, ha „az érintett már rendelkezik az információkkal, vagy az információk rendelkezésre bocsátása lehetetlennek bizonyul vagy aránytalanul nagy erőfeszítést igényelne”. Ezen kitétel miatt nem jelenthető ki, hogy az adatkezelőnek minden esetben abszolút kötelezettsége az adatgyűjtést követő tájékoztatás.
-2. Terminológiai kockázat: Az „információhoz való jog” kifejezés jogi szaknyelvben való használata megtévesztő lehet, mivel összemossa az adatkezelői kötelezettséget (13-14. cikk) az érintetti joggal (15. cikk), ami a jogalkalmazás során a jogalapok téves azonosításához vezethet.
+### JOGSZABÁLYI HIVATKOZÁSOK 
+- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 22. § (1) és (2) bekezdés
+- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 65. § (3) bekezdés
+- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 146. § (2) bekezdés
+- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 287. § (1) bekezdés
+
+### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK 
+A munkavállalónak ügyelnie kell arra, hogy a szóbeli közlést követően ne hagyja el önként a munkahelyét (ne mondjon fel saját maga), és ne írjon alá semmilyen papírt (például közös megegyezést) anélkül, hogy annak tartalmát jogi szakemberrel ellenőriztetné. A szóbeli közlés érvénytelensége nem zárja ki, hogy a munkáltató utólag érvényes, írásbeli felmondást közöljön, ezért a harminc napos jogvesztő határidő figyelése kritikus jelentőségű. Nincs szó a jogszabályok szerinti abszolút érvényességről, ha a felek utólagos írásbeli megállapodást kötnek (pl. közös megegyezés), amely felülírja a korábbi szóbeli jognyilatkozatot.
