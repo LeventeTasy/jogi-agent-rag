@@ -37,7 +37,8 @@ jogi_kutatasi_feladat:
       - Az összes lefutott keresés eredményét gyűjtsd össze, és változtatás nélkül, karakterre pontosan másold át a megadott JSON formátumba a háttér-ellenőrzéshez.
 
   expected_output: >
-      Egy érvényes, tiszta JSON lista (markdown kódblokk és magyarázó szöveg nélkül), amely az összes különálló keresés során megtalált jogszabályi hivatkozást tartalmazza az alábbi mezőkkel:
+      Egy érvényes, tiszta JSON lista (markdown kódblokk és magyarázó szöveg nélkül), amely KÜLÖNÁLLÓ fejezetekre van bontva az 1., 2., 3. és 4. rész-kérdés szerint. 
+      Minden egyes rész-kérdéshez TARTOZNIA KELL legalább egy egyedi, külön lefutott keresési eredménynek!:
       [
         {{
           "source": "A forrásfájl neve",
