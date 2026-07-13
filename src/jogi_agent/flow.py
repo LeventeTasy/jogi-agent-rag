@@ -1,5 +1,6 @@
 from crewai import Crew, Process
-from crewai.flow.flow import Flow, listen, start, router
+from crewai.flow import human_feedback
+from crewai.flow.flow import Flow, listen, start, router, and_, or_
 from dotenv import load_dotenv
 from .crew import JogiAgent
 from jogi_agent.utils import get_config
@@ -9,26 +10,68 @@ load_dotenv()
 class JogiFlow(Flow):
 
     @start()
-    def start_flow(self):
+    def init_flow(self):
+        config = get_config()
+        self.state["is_verbose"] = config["is_verbose"]
+        self.state["deep_analysis"] = config["is_deep_analysis_enabled"]
+
+        if "inputs" not in self.state:
+            self.state["inputs"] = {}
+
+    @router(init_flow)
+    def route_config(self):
+        if self.state["deep_analysis"]:
+            return "run_deep_analysis"
+        else:
+            return "skip_deep_analysis"
+
+    @human_feedback(message="Kérjük pontosítsa a leírt szituációt (Enter = kihagyás):")
+    @listen("run_deep_analysis")
+    def deep_analysis(self):
+        agent_instance = JogiAgent()
+
+        mini_crew = Crew(
+            agents=[agent_instance.jogi_strategist()],
+            tasks=[agent_instance.inditasi_feladat(), agent_instance.deep_analysis_feladat()],
+            verbose=self.state["is_verbose"]
+        )
+
+        analysis_result = mini_crew.kickoff(inputs=self.state["inputs"])
+
+        return analysis_result.raw
+
+    @listen(deep_analysis)
+    def process_feedback(self, result):
+
+        if result.feedback:  # Ha adott meg plusz infót
+            # print(f"Bekerülő új infó: {result.feedback}")
+            self.state["inputs"]["topic"] += f"\nFelhasználó kiegészítése: {result.feedback}"
+        # else:
+        # print("A felhasználó kihagyta a válaszadást (Enter).")
+
+
+    @listen(or_(process_feedback, "skip_deep_analysis"))
+    def run_main_crew(self, *args):
         #print("Starting flow")
         #print(f"Flow State ID: {self.state['id']}")
 
         agent_instance = JogiAgent()
-        flow_inputs = self.state.get("inputs", {})
+        agent_instance.is_deep_analysis = False
+        flow_inputs = self.state["inputs"]
         crew_result = agent_instance.crew().kickoff(inputs=flow_inputs)
 
 
         # Kinyerjük a tisztított RAG találatokat
-        self.state["rag_chunks"] = crew_result.tasks_output[1].raw
+        self.state["rag_chunks"] = crew_result.tasks_output[3].raw
 
         # Kinyerjük a tanácsadó véleményét
-        self.state["final_answer"] = crew_result.tasks_output[3].raw
+        self.state["final_answer"] = crew_result.tasks_output[5].raw
 
         # Kinyerjük az ellenőrző ágens véleményét
-        self.state["verifier_feedback"] = crew_result.tasks_output[4].raw
+        self.state["verifier_feedback"] = crew_result.tasks_output[6].raw
 
 
-    @router(start_flow)
+    @router(run_main_crew)
     def check_answer(self):
 
         if "HIBA ÉSZLELVE!" in self.state["verifier_feedback"]:
@@ -41,9 +84,6 @@ class JogiFlow(Flow):
     @listen("javitas")
     def correction(self):
         print("Jogi Segéd újrafuttatása, korrekció folyamatban...")
-
-        config = get_config()
-        is_verbose = config["is_verbose"]
 
         jogi_seged = JogiAgent()
         advisor_agent = jogi_seged.jogi_advisor()
@@ -70,7 +110,7 @@ class JogiFlow(Flow):
             agents=[advisor_agent],
             tasks=[advisor_task],
             process=Process.sequential,
-            verbose=is_verbose
+            verbose=self.state["is_verbose"]
         )
 
         self.state["final_answer"] = mini_crew.kickoff().raw

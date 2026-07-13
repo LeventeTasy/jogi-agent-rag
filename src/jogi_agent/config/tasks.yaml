@@ -1,10 +1,27 @@
+inditasi_feladat:
+  description: >
+    Indítsd el a folyamatot.
+  expected_output: >
+    Kizrárólag ennyit írj outputba: "OK"
+  agent: jogi_strategist
+
+deep_analysis_feladat:
+  description: >
+    Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
+
+    - Vizsgáld meg, hogy a kérdés elég pontos-e, és minden szükséges háttérinformáció (pl. szerződés típusa, státusz, konkrét élethelyzet) rendelkezésre áll-e a pontos jogi válaszhoz. 
+    - Hiányos/Homályos a szituáció: A kimeneted kizárólag egy udvarias, célzott kérdéssor legyen a felhasználó felé, amiben bekéred a hiányzó/homályos részleteket, hogy később pontosabban tudjanak a következő ágensek válaszolni.
+    - FONTOS: az outputban semmiképpen se adj választ a kérdésre, ne magyarázd meg, ne adj hivatkozásokat, csak az esetleges kérdéseket tedd fel
+
+  expected_output: >
+    - FONTOS: az outputban semmiképpen se adj választ a kérdésre, ne magyarázd meg, ne adj hivatkozásokat, csak az esetleges kérdéseket tedd fel
+    - "Kérem adjon meg részleteket a leírt szituációról:" majd pedig hozzáteszel egy közvetlen kérdéssort a felhasználónak.
+  agent: jogi_strategist
+
 jogi_strategiai_tervezes_feladat:
   description: >
     Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
-    
-    - Vizsgáld meg, hogy a kérdés elég pontos-e, és minden szükséges háttérinformáció (pl. szerződés típusa, státusz, konkrét élethelyzet) rendelkezésre áll-e a pontos jogi válaszhoz. 
-    - HA (Hiányos/Homályos a szituáció): Állítsd le a folyamatot! A kimeneted kizárólag egy udvarias, célzott kérdéssor legyen a felhasználó felé, amiben bekéred a hiányzó részleteket.
-    - EGYÉBKÉNT (Elég az információ): Bontsd fel a komplex problémát 2-4 specifikus, különálló rész-kérdésre a különböző érintett jogterületek (Ptk., GDPR, Mt. stb.) szerint. Minden rész-kérdést úgy fogalmazz meg, mint egy önálló, célzott jogi keresést, amely alkalmas a RAG keresőmotor számára.
+    - Bontsd fel a komplex problémát 2-4 specifikus, különálló rész-kérdésre a különböző érintett jogterületek (Ptk., GDPR, Mt. stb.) szerint. Minden rész-kérdést úgy fogalmazz meg, mint egy önálló, célzott jogi keresést, amely alkalmas a RAG keresőmotor számára.
   expected_output: >
     - Ha hiányzik információ: Egy közvetlen kérdéssor a felhasználónak.
     - Ha elegendő az információ: Egy számozott lista, amely KIZÁRÓLAG az optimalizált rész-kérdéseket tartalmazza egymás után, magyarázó szöveg nélkül (pl. "1. [Rész-kérdés a Ptk-hoz] \n 2. [Rész-kérdés a GDPR-hoz]").

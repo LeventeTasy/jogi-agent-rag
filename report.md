@@ -1,24 +1,19 @@
-# JOGI SZAKVÉLEMÉNY: Felsorolható-e a GDPR alapján az 'információhoz való jog' mint önálló érintetti jog, és melyik cikk szabályozza pontosan?
+# JOGI SZAKVÉLEMÉNY: Ha egy adatot közérdekből kezelnek, akkor kérhető-e annak törlése a GDPR szerint?
 
 ### RÖVID VÁLASZ
-Nem; az „információhoz való jog” nem egy önálló, a rendelet által nevesített érintetti jog, hanem az adatkezelő által teljesítendő előzetes tájékoztatási kötelezettség (GDPR 13. és 14. cikk), amely az érintettek átlátható tájékoztatáshoz fűződő elvi jogának érvényesülését szolgálja.
+Részben; az adatkezelés törlése nem követelhető automatikusan, azonban az érintett jogosult tiltakozni az adatkezelés ellen, amelynek eredményeként az adatkezelő köteles vizsgálni, hogy fennállnak-e az adatkezelést indokoló kényszerítő erejű jogos okok.
 
 ### JOGI INDOKOLÁS
-A hatályos uniós adatvédelmi rendelet (GDPR) szövegezése alapján az érintetti jogok rendszertana szigorúan elhatárolja az adatkezelő proaktív tájékoztatási kötelezettségét és az érintett kérelmére megnyíló hozzáférési jogot.
+A GDPR 17. cikk (1) bekezdésének c) pontja alapján az érintett törléshez való joga közérdekű feladat (6. cikk (1) bekezdés e) pont) esetén akkor érvényesíthető, ha az érintett tiltakozik az adatkezelés ellen, és az adatkezelő nem tudja bizonyítani, hogy az adatkezelést olyan kényszerítő erejű jogos okok indokolják, amelyek elsőbbséget élveznek az érintett érdekeivel, jogaival és szabadságaival szemben.
 
-1. A tájékoztatási kötelezettség (13. és 14. cikk): A GDPR 13. cikk (1) bekezdése és a 14. cikk (1) bekezdése az adatkezelőt terhelő kötelezettséget határozza meg, amelynek értelmében az adatkezelőnek a személyes adatok megszerzésének időpontjában (vagy az érintettől való eltérő forrás esetén meghatározott módon) tájékoztatnia kell az érintettet az adatkezelés céljáról, jogalapjáról és a kapcsolódó adatokról. Ez a kötelezettség az adatkezelő részéről elvárt aktív magatartás, nem pedig az érintett által gyakorolt, kérelmezhető „jogosultság” a szó szoros, érintetti jogi értelmében.
+A GDPR 21. cikk (1) bekezdése értelmében az adatkezelő köteles az adatkezelést megszüntetni, kivéve, ha bizonyítja a fenti, elsőbbséget élvező kényszerítő erejű jogos okokat. Hatósági eljárásban a 2016. évi CL. törvény (Ákr.) 27. § (1) bekezdése előírja, hogy az adatkezelésnek az eljárás céljához kötöttnek kell lennie, és a hatóság köteles tájékoztatást adni az adatkezelés jogalapjáról és céljáról. 
 
-2. A hozzáféréshez való jog (15. cikk): Ezzel szemben a 15. cikk (1) bekezdése kifejezetten az érintett „jogosultságát” nevesíti, miszerint az érintett „jogosult arra, hogy az adatkezelőtől visszajelzést kapjon” az adatkezelés tényéről, illetve a 15. cikk (3) bekezdése alapján „az adatkezelés tárgyát képező személyes adatok másolatát” az adatkezelő az érintett rendelkezésére bocsátja. Ez a hozzáférési jog tehát az érintett kezdeményezéséhez kötött, szemben a 13-14. cikk szerinti, az adatkezelő által ex lege (törvény erejénél fogva) teljesítendő tájékoztatással.
+Amennyiben az érintett tiltakozik, a 2011. évi CXII. törvény (Infotv.) 21. § (1) bekezdése alapján a közfeladatot ellátó szerv köteles a tiltakozást a kérelem benyújtásától számított legfeljebb tizenöt napon belül megvizsgálni, és annak eredményéről írásban tájékoztatást adni. Írásbeli kérelem hiányában a hatósági eljárás lefolytatása és az érintett jogainak (tiltakozás) gyakorlása nem kezdődik meg.
 
-3. Kontextuális egység: A GDPR 12. cikk (1) bekezdése összefoglalóan kezeli a 13. és 14. cikk szerinti „információkat” és a 15–22. cikk szerinti „tájékoztatásokat”, amikor rögzíti, hogy az adatkezelőnek ezeket „tömör, átlátható, érthető és könnyen hozzáférhető formában” kell nyújtania. A jogalkotói terminológia tehát az információkat mint az adatkezelői megfelelés tárgyát, a 15. cikket pedig mint az érintetti jogosultság alapját nevesíti.
-
-### JOGSZABÁLYI HIVATKOZÁSOK - Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR)
-- 12. cikk (1) bekezdés
-- 13. cikk (1) bekezdés
-- 14. cikk (1) bekezdés
-- 15. cikk (1) és (3) bekezdés
+### JOGSZABÁLYI HIVATKOZÁSOK
+- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR): 17. cikk (1) bekezdés c) pont, 21. cikk (1) bekezdés
+- 2016. évi CL. törvény az általános közigazgatási rendtartásról (Ákr.): 27. § (1) bekezdés
+- 2011. évi CXII. törvény az információs önrendelkezési jogról és az információszabadságról (Infotv.): 21. § (1) bekezdés
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szabály alkalmazhatósága kapcsán az alábbi jogi korlátokat kell figyelembe venni:
-1. Kivétel a tájékoztatási kötelezettség alól: A 14. cikk (1) bekezdése explicit módon rögzíti, hogy az adatkezelő mentesül a tájékoztatási kötelezettség alól, ha „az érintett már rendelkezik az információkkal, vagy az információk rendelkezésre bocsátása lehetetlennek bizonyul vagy aránytalanul nagy erőfeszítést igényelne”. Ezen kitétel miatt nem jelenthető ki, hogy az adatkezelőnek minden esetben abszolút kötelezettsége az adatgyűjtést követő tájékoztatás.
-2. Terminológiai kockázat: Az „információhoz való jog” kifejezés jogi szaknyelvben való használata megtévesztő lehet, mivel összemossa az adatkezelői kötelezettséget (13-14. cikk) az érintetti joggal (15. cikk), ami a jogalkalmazás során a jogalapok téves azonosításához vezethet.
+A törlés nem garantált, mivel a közhatalmi jogosítvány gyakorlása során végzett adatkezelésnél a hatóság általában hivatkozhat jogszabályi kötelezettségre vagy kényszerítő erejű közérdekre, amelyek megelőzhetik az érintett törlés iránti igényét. A hatóság mérlegelési jogköre széleskörű a "kényszerítő erejű jogos okok" bizonyítása során. Az írásbeli kérelem benyújtásának elmulasztása jogvesztő hatással nem jár, de a jogérvényesítés megkezdésének hiányát jelenti, így a hatóság adatkezelése változatlan marad.
