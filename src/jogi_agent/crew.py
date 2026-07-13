@@ -17,6 +17,8 @@ class JogiAgent():
     """JogiAgent crew"""
 
     api_key = os.getenv("GOOGLE_API_KEY")
+    llm_model = os.getenv("MODEL")
+
     config = get_config()
 
     is_verbose = config["is_verbose"]
@@ -142,7 +144,7 @@ class JogiAgent():
                 process=Process.sequential,
                 verbose=self.is_verbose,
                 memory=Memory(
-                    llm=LLM(model="gemini/gemini-3.1-flash-lite"),
+                    llm=LLM(model=self.llm_model),
                     embedder={
                 "provider": "google-generativeai",
                 "config": {
