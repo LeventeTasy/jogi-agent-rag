@@ -15,6 +15,9 @@ class JogiFlow(Flow):
         self.state["is_verbose"] = config["is_verbose"]
         self.state["deep_analysis"] = config["is_deep_analysis_enabled"]
 
+        self.state["correction_retries"] = 0
+        self.state["max_retries"] = 2
+
         if "inputs" not in self.state:
             self.state["inputs"] = {}
 
@@ -94,8 +97,10 @@ class JogiFlow(Flow):
         advisor_agent = jogi_seged.jogi_advisor()
         advisor_task = jogi_seged.jogi_tanacsadoi_feladat()
 
-        # FRISSÍTJÜK A PROMPT-OT DINAMIKUSAN! 🪄
-        # Ahelyett, hogy a YAML-ből olvasná, átadjuk neki a RAG kontextust ÉS a hibaüzenetet is!
+        correction_agent = jogi_seged.jogi_fact_checker()
+        correction_task = jogi_seged.jogszabalyi_ellenőzési_feladat()
+
+        # Frissitjuk az advisor promptot dinamikusan
         advisor_task.description += \
             f"""
             Javítsd ki a korábbi jogi válaszodat!
@@ -110,13 +115,23 @@ class JogiFlow(Flow):
             FONTOS: Válaszodban csak a RAG chunkokra hagyadkozz!
             """
 
-        # Megjegyzés: Memory-ra későbbiekben lehet szükség lesz
-        mini_crew = Crew(
-            agents=[advisor_agent],
-            tasks=[advisor_task],
-            process=Process.sequential,
-            verbose=self.state["is_verbose"]
-        )
+        if self.state["correction_retries"] < self.state["max_retries"]:
+
+            self.state["correction_retries"] += 1
+            mini_crew = Crew(
+                agents=[advisor_agent, correction_agent],
+                tasks=[advisor_task, correction_task],
+                process=Process.sequential,
+                verbose=self.state["is_verbose"]
+            )
+        else:
+            # Megjegyzés: Memory-ra későbbiekben lehet szükség lesz
+            mini_crew = Crew(
+                agents=[advisor_agent],
+                tasks=[advisor_task],
+                process=Process.sequential,
+                verbose=self.state["is_verbose"]
+            )
 
         self.state["final_answer"] = mini_crew.kickoff().raw
 
@@ -125,7 +140,7 @@ class JogiFlow(Flow):
         print("Hiba: Verifier agent - Rossz címkézés")
         return "Hiba: Verifier agent - Rossz címkézés\n" + self.state["final_answer"]
 
-    @listen(correction)
+    @listen(or_(correction, "complete"))
     def finish_flow(self):
         return self.state["final_answer"]
 
