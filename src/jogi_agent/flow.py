@@ -129,4 +129,3 @@ class JogiFlow(Flow):
     def finish_flow(self):
         return self.state["final_answer"]
 
-    # Ha egy magánszemély visszavonja a hozzájárulását egy webshopban, és kéri az elfeledtetéshez való jog alapján az összes vásárlási adatának és számlájának azonnali törlését, a webshop köteles-e ennek eleget tenni a GDPR szerint?
