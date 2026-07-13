@@ -1,24 +1,26 @@
-# JOGI SZAKVÉLEMÉNY: A cégünknél az egyik pénztáros kolléga ellen belső vizsgálat indult, mert hiány van a kasszában. A vezetőség úgy döntött, hogy egy rejtett kamerát szerel fel a kassza fölé, hogy tetten érhessük, ha újra megpróbálja. Emellett a biztonság kedvéért a jövő héttől bevezetjük, hogy minden dolgozónak ujjlenyomattal kell igazolnia magát a belépéskor. Jogszerű ez így a GDPR szerint, vagy kell valami extra hozzá?
+# JOGI SZAKVÉLEMÉNY: A munkáltatói kötelezettségek és jognyilatkozatok szabályozása a Munka Törvénykönyve alapján
 
 ### RÖVID VÁLASZ
-A tervezett intézkedések jelen formájukban nem jogszerűek, mivel az adatkezelés alapvető feltételei (különösen a biometrikus adatok tilalma és a kötelező hatásvizsgálat hiánya) nem teljesülnek. A rejtett megfigyelés és az ujjlenyomat-alapú beléptetés bevezetése komoly jogszabályi kockázatokat hordoz.
+Igen, a munkáltató jognyilatkozatai – különösen a munkaviszonnyal kapcsolatos megállapodások és a felmondás – írásbeli kötelezettséggel járnak, a munkavállaló pedig meghatározott feltételek mellett jogosult jogorvoslatra vagy bérigényre.
 
 ### JOGI INDOKOLÁS
+A Munka Törvénykönyve (a továbbiakban: Mt.) egyértelműen meghatározza a munkáltatói jognyilatkozatok formai követelményeit. Az Mt. 22. § (1) bekezdése alapján a munkaviszonnyal kapcsolatos megállapodást és a munkáltatói felmondást kötelező írásba foglalni. Ezen túlmenően, a munkáltató köteles a felmondását írásban indokolni, amelynek alapjául a munkavállaló magatartása, képessége vagy a munkáltató működésével összefüggő ok szolgálhat (Mt. 66. § (2) bekezdés).
 
-1. **Rejtett kamerás megfigyelés:** A Munka Törvénykönyve (Mt.) 9. § (2) bekezdése értelmében a munkavállaló személyiségi joga csak akkor korlátozható, ha az „a munkaviszony rendeltetésével közvetlenül összefüggő okból feltétlenül szükséges és a cél elérésével arányos”. A rejtett megfigyelés kivételes eszköz, amelynek jogszerűsége megkérdőjelezhető, amennyiben az kevésbé invazív módszerekkel is elérhető. Emellett az Mt. 9. § (2) bekezdése előírja, hogy a korlátozásról a munkavállalót előzetesen írásban tájékoztatni kell, ami a „rejtett” jellegű megfigyeléssel szemben áll. Az Mt. 11. § (1) bekezdése továbbá rögzíti, hogy az ellenőrzés csak a munkaviszonnyal összefüggő magatartás körére terjedhet ki.
+A munkáltató továbbá köteles a munkavállalót a munkaviszonnyal összefüggő minden lényeges körülményről írásban tájékoztatni, legkésőbb a munkaviszony kezdetétől számított tizenöt napon belül (Mt. 46. § (1) bekezdés).
 
-2. **Biometrikus azonosítás:** A GDPR 9. cikk (1) bekezdése főszabályként tiltja a természetes személyek egyedi azonosítását célzó biometrikus adatok kezelését. Az ujjlenyomat-olvasó bevezetése csak kivételesen szűk körben, arányos módon és a szükséges biztosítékok mellett képzelhető el, amelyeket a munkáltatónak kell igazolnia. Az alá-fölérendeltségi viszony miatt a „hozzájárulás” mint jogalap önmagában nem tekinthető megfelelőnek.
+Amennyiben a munkáltató a beosztás szerinti munkaidőben foglalkoztatási kötelezettségének nem tesz eleget (állásidő), a munkavállalót alapbér illeti meg, kivéve, ha az elháríthatatlan külső ok következménye (Mt. 146. §).
 
-3. **Adatvédelmi hatásvizsgálat (DPIA):** A GDPR 35. cikk (1) bekezdése alapján, amennyiben az adatkezelés „valószínűsíthetően magas kockázattal jár a természetes személyek jogaira és szabadságaira nézve”, az adatkezelőnek kötelező adatvédelmi hatásvizsgálatot végeznie az adatkezelést megelőzően. A munkahelyi megfigyelőrendszerek és a biometrikus azonosítók bevezetése ilyen magas kockázatúnak minősül.
-
-4. **Tájékoztatási kötelezettség:** Az Mt. 264. § (1) bekezdése kifejezetten előírja a munkáltató számára, hogy a munkavállalók ellenőrzésére irányuló rendszerek bevezetése esetén köteles az üzemi tanácsot vagy szakszervezetet előzetesen tájékoztatni és velük konzultálni. Ennek elmulasztása jogszabálysértő.
+A munkaviszony jogellenes megszüntetése esetén a munkáltató köteles megtéríteni a munkavállaló ezzel összefüggésben felmerült kárát, valamint az elmaradt jövedelmét (Mt. 82. § (1) bekezdés). A munkavállaló a munkáltató sérelmesnek vélt intézkedésével szemben a közléstől számított harminc napon belül munkaügyi jogvitát kezdeményezhet (Mt. 285. § (1) bekezdés).
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-- 2012. évi I. törvény a munka törvénykönyvéről: 9. § (2) bekezdés, 11. § (1) bekezdés, 264. § (1) bekezdés.
-- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR): 9. cikk (1) bekezdés, 35. cikk (1) bekezdés.
+- 2012. évi I. törvény a munka törvénykönyvéről, 22. § (1) bekezdés
+- 2012. évi I. törvény a munka törvénykönyvéről, 46. § (1) bekezdés
+- 2012. évi I. törvény a munka törvénykönyvéről, 66. § (2) bekezdés
+- 2012. évi I. törvény a munka törvénykönyvéről, 82. § (1) bekezdés
+- 2012. évi I. törvény a munka törvénykönyvéről, 146. §
+- 2012. évi I. törvény a munka törvénykönyvéről, 285. § (1) bekezdés
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-- **Magas kockázat:** A rejtett kamera alkalmazása szinte minden esetben sérti a munkavállalói tájékoztatási kötelezettséget (Mt. 9. § (2) bekezdés), ezért az súlyos munkaügyi és adatvédelmi bírságot vonhat maga után.
-- **Biometrikus tilalom:** A GDPR 9. cikk szerinti biometrikus adatkezelés tilalma alól csak akkor mentesülhet a cég, ha igazolja, hogy a biometrikus azonosítás feltétlenül szükséges, arányos, és nincs más, a személyiségi jogokat kevésbé korlátozó megoldás.
-- **DPIA hiánya:** A 35. cikk szerinti hatásvizsgálat elvégzése nélkül bármilyen új, magas kockázatú technológia bevezetése automatikusan jogsértőnek minősül.
-- **Kivétel:** Az Mt. 264. § (1) bekezdése szerinti tájékoztatási kötelezettség alól nincs kivétel, amennyiben munkavállalók nagyobb csoportját érintő intézkedésről van szó. A „rejtett” megfigyelés nem mentesít a belső szabályzatok és a munkavállalói képviselet felé fennálló kötelezettségek alól.
+1. Állásidő kivétele: Az alapbér fizetési kötelezettség alól mentesül a munkáltató, ha az állásidő elháríthatatlan külső ok következménye (Mt. 146. §).
+2. Jognyilatkozatok formája: Bár az Mt. 22. § (1) bekezdése előírja az írásbeliséget a megállapodásoknál és a felmondásnál, általános szabályként rögzíti, hogy a jognyilatkozat – ha törvény eltérően nem rendelkezik – szóban, írásban vagy ráutaló magatartással is tehető.
+3. Jogvita határideje: A munkáltatói intézkedéssel szembeni jogvita kezdeményezése a közléstől számított harminc napos jogvesztő jellegű határidőhöz kötött (Mt. 285. § (1) bekezdés).

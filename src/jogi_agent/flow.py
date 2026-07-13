@@ -119,14 +119,13 @@ class JogiFlow(Flow):
         )
 
         self.state["final_answer"] = mini_crew.kickoff().raw
-        return "complete"
 
     @listen("undecidable")
     def warning_undecidable(self):
         print("Hiba: Verifier agent - Rossz címkézés")
         return "Hiba: Verifier agent - Rossz címkézés\n" + self.state["final_answer"]
 
-    @listen("complete")
+    @listen(correction)
     def finish_flow(self):
         return self.state["final_answer"]
 
