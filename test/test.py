@@ -20,7 +20,8 @@ from litellm import api_key
 
 load_dotenv()
 
-API_KEY = os.getenv("GOOGLE_API_KEY")
+API_KEY = os.getenv("OPENAI_API_KEY")
+BASE_URL = os.getenv("BASE_URL")
 
 
 def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
@@ -38,8 +39,8 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
         deployment_name="gpt-5-mini",
         api_key=API_KEY,
         api_version="2025-01-01-preview",
-        base_url="https://braintok-resource.openai.azure.com/",
-        temperature=0
+        base_url=BASE_URL,
+        temperature=0.5
     )
 
     faithfulness = FaithfulnessMetric(threshold=0.5, model=model)
@@ -142,5 +143,5 @@ if __name__ == "__main__":
 
 
             szamlalo += 1
-            if szamlalo >= 14:
+            if szamlalo >= 9:
                 break
