@@ -19,6 +19,10 @@ class JogiFlow(Flow):
         self.state["correction_retries"] = 0
         self.state["max_retries"] = 2
 
+        self.state["rag_chunks"] = ""
+        self.state["final_answer"] = ""
+        self.state["verifier_feedback"] = ""
+
         if "inputs" not in self.state:
             self.state["inputs"] = {}
 
