@@ -1,3 +1,4 @@
+import json
 from crewai import Crew, Process
 from crewai.flow import human_feedback
 from crewai.flow.flow import Flow, listen, start, router, and_, or_
@@ -78,6 +79,24 @@ class JogiFlow(Flow):
         # Kinyerjük az ellenőrző ágens véleményét
         self.state["verifier_feedback"] = crew_result.tasks_output[6].raw
 
+    def get_chunks(self):
+        flow_output_string = self.state["rag_chunks"]
+
+        try:
+            crew_sources = json.loads(flow_output_string)
+
+            extracted_texts = []
+            for query in crew_sources:
+                for result in query.get("results", []):
+                    text = result.get("raw_text", "").strip()
+                    if text:
+                        extracted_texts.append(text)
+
+            a_chunk = "\n\n".join(extracted_texts)
+            return a_chunk
+
+        except Exception as e:
+            print(f"Hiba,a chunkokat nem sikerült JSON-ná alakítani: {e}")
 
     @router(run_main_crew)
     def check_answer(self):
@@ -130,6 +149,10 @@ class JogiFlow(Flow):
             mini_crew_result = mini_crew.kickoff()
             self.state["final_answer"] = mini_crew_result.tasks_output[0].raw
             self.state["verifier_feedback"] = mini_crew_result.raw
+
+            if "SIKER, ELLENŐZÉS BEFEJEZVE" in self.state["verifier_feedback"]:
+                print("A korrekció sikeres, az ellenőrző jóváhagyta.")
+                return
 
             self.correction()
 
