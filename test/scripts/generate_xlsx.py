@@ -2,6 +2,7 @@ import ast
 import pandas as pd
 import random
 from litellm import completion
+from pathlib import Path
 from typing import Tuple
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
@@ -28,7 +29,8 @@ columns = [
 client = genai.Client()
 
 def add_save_df(law: str, tipus_rovid: str, kerdes: str, rag_context: str):
-    file_path = 'test_questions.xlsx'
+    BASE_DIR = Path(__file__).resolve().parent
+    file_path = BASE_DIR.parent / "datasets" / "test_questions.xlsx"
 
     extended_data = (law, tipus_rovid, kerdes, rag_context, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 

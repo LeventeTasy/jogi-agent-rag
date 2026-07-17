@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 import os
 import json
 import pandas as pd
-from litellm import api_key
+from pathlib import Path
 
 load_dotenv()
 
@@ -46,7 +46,6 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
     faithfulness = FaithfulnessMetric(threshold=0.5, model=model)
     answer_relevancy = AnswerRelevancyMetric(threshold=0.5, model=model)
     context_relevancy = ContextualRelevancyMetric(threshold=0.5, model=model)
-    summarization = SummarizationMetric(threshold=0.5, model=model)
 
     coherence = GEval(
         name="Coherence",
@@ -63,11 +62,10 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
     )
 
     metrics = [
-        faithfulness, answer_relevancy, context_relevancy,
-        summarization, coherence
+        faithfulness, answer_relevancy, context_relevancy, coherence
     ]
 
-    metric_names = ["Faithfulness", "Answer_Relevancy", "Context_Relevancy", "Summarization", "Coherance"]
+    metric_names = ["Faithfulness", "Answer_Relevancy", "Context_Relevancy", "Coherance"]
 
     for metric, metric_name in zip(metrics, metric_names):
         metric.measure(test_case)
@@ -85,8 +83,6 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
         "Answer_Relevancy_Reason": answer_relevancy.reason,
         "Context_Relevancy": context_relevancy.score,
         "Context_Relevancy_Reason": context_relevancy.reason,
-        "Summarization": summarization.score,
-        "Summarization_Reason": summarization.reason,
         "Coherance": coherence.score,
         "Coherance_Reason": coherence.reason
     }
@@ -101,11 +97,13 @@ COLUMNS = [
 ]
 
 if __name__ == "__main__":
-    PATH = "answered_questons.xlsx"
+    BASE_DIR = Path(__file__).resolve().parent
+    PATH = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
     szamlalo = 0
 
     if os.path.exists(PATH):
-        df = pd.read_excel(PATH)
+        df = pd.read_excel(PATH, dtype=object)
+        #print(df.dtypes)
 
         for index, row in df.iterrows():
             jelenlegi_valasz = row['Valasz']
@@ -126,7 +124,7 @@ if __name__ == "__main__":
 
             input_q = row['Kerdes']
             agent_output = row['Valasz']
-            retrieved_rag_chunks = [row["Q_chunk"]]
+            retrieved_rag_chunks = [row["A_chunk"]]
             print("-" * 30)
             print(f"Kérdés feldolgozása: {input_q}")
 
@@ -145,3 +143,5 @@ if __name__ == "__main__":
             szamlalo += 1
             if szamlalo >= 9:
                 break
+    else:
+        raise FileNotFoundError

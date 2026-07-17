@@ -1,5 +1,6 @@
 import os, sys
 import pandas as pd
+from pathlib import Path
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, ".."))
@@ -8,9 +9,10 @@ if project_root not in sys.path:
     sys.path.append(project_root)
 from src.jogi_agent.flow import JogiFlow
 
+BASE_DIR = Path(__file__).resolve().parent
+PATH = BASE_DIR.parent / "datasets" / "answered_questions.xlsx"
+SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions.xlsx"
 
-PATH = "test_questions.xlsx"
-SAVE_PATH = "answered_questons.xlsx"
 COLUMNS = [
     "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
     "Valasz", "Faithfulness", "Faithfulness_Reason", "Answer_Relevancy", "Answer_Relevancy_Reason", "Context_Relevancy","Context_Relevancy_Reason" ,
