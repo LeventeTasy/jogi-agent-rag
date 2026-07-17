@@ -2,7 +2,6 @@ import os
 import re
 import time
 from dotenv import load_dotenv
-import configparser
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_chroma import Chroma
 from langchain_core.documents import Document

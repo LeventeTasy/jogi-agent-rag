@@ -31,7 +31,8 @@ def run():
     while question != "break":
         inputs = {
             'topic': question,
-            'current_year': datetime.now().year
+            'current_year': datetime.now().year,
+            'details': ""
         }
 
         try:
@@ -47,6 +48,7 @@ def run():
             console.print(formatted_markdown)
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
             #flow.plot()
+            print(flow.get_chunks())
 
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")

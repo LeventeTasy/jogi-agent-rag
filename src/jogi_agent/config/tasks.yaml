@@ -58,7 +58,7 @@ jogszabalyi_megalapozottsag_feladat:
     Szűrje ki a releváns cikkeken belüli felesleges bekezdéseket vagy irreleváns utalásokat.
   expected_output: >
     Egy finomított, validált JSON lista, ahol a "quote" mező kizárólag a releváns, hitelesített jogszabályi mondatokat tartalmazza, 
-    valamint az "article" mező kiegészül a pontos bekezdésszámmal (pl. 88. cikk (1) bekezdés).
+    valamint az "article" mező kiegészül a pontos bekezdésszámmal (pl. 88. cikk (1) bekezdés). Viszont a "raw_text" teljes mértékben, módosítatlanul megmarad.
   agent: jogi_grounding_verifier
 
 jogi_tanacsadoi_feladat:
@@ -103,8 +103,10 @@ jogszabalyi_ellenőzési_feladat:
     2. TARTALMI MEGFELELŐSÉG: A Tanácsadó fogalmazhat saját szavaival és használhat elfogadott jogi szakkifejezéseket 
        (pl. a 30 napos határidőt nevezheti jogvesztő határidőnek), amennyiben a megállapítás magva hű a forráshoz. 
        Azonban ha a forrás 'alapbér'-t ír, és a Tanácsadó tévesen 'távolléti díj'-ként számolja el, az hiba.
-    3. FORRÁSKORLÁTOZÁS: Tiltott minden olyan külső jogszabályi hivatkozás (pl. alkotmány, GDPR, egyéb törvények), 
-       amelyeknek a nyers szövege egyáltalán nem szerepel a megadott RAG kontextusban.
+    3. FORRÁSKORLÁTOZÁS: Kritikus hiba kizárólag akkor áll fenn, ha a Tanácsadó olyan konkrét jogszabályra, paragrafusra vagy bekezdésre hivatkozik tényállításként, 
+      amely nem támasztható alá a megadott RAG kontextussal. Általános jogi magyarázat vagy következtetés önmagában nem hiba.
+    4. Ha egy jogszabály szerepel a RAG-ban, de a Tanácsadó csak összefoglalja, akkor azt helyesnek kell tekinteni,
+      nem szükséges szó szerinti idézet.
     
     STRUKTURÁLT JELZÉSI SZABÁLYOK:
     - Ha a szakvélemény ténybelileg pontos, nem tartalmaz rossz számokat vagy forrásidegen törvényeket, 

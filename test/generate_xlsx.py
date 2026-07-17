@@ -9,47 +9,43 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import os
 import time
 from litellm.exceptions import ServiceUnavailableError
+from google import genai
 
 load_dotenv()
 
 API_KEY = os.getenv("GOOGLE_API_KEY")
-MODEL_NAME = str(os.getenv("MODEL"))
+MODEL_NAME = str(os.getenv("MODEL")).split('/')[1]
 EMBEDDING_MODEL = "models/" + str(os.getenv("EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME"))
 
 columns = [
     "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
-    "Valasz", "Groundedness", "Groundedness_Reason", "Context_Relevance", "Answer_Relevance"
+    "Valasz", "Faithfulness", "Faithfulness_Reason", "Answer_Relevancy", "Answer_Relevancy_Reason", "Context_Relevancy","Context_Relevancy_Reason" ,
+    "Summarization", "Summarization_Reason" , "Coherance", "Coherance_Reason","Toxicity", "Toxicity_Reason","Bias", "Bias_Reason" # osszesen: 20 oszlop
+    # str, str, str, str, str, str, float, str, float, str, float, str, float, str, float, str, float, str, float, str
 ]
 
-df = pd.DataFrame(columns=columns)
 
-def add_save_df(new_data: Tuple[str, str, str, int, str, int, str]):
-    global df
+client = genai.Client()
 
-    df2 = pd.DataFrame([new_data], columns=df.columns)
+def add_save_df(law: str, tipus_rovid: str, kerdes: str, rag_context: str):
+    file_path = 'test_questions.xlsx'
 
-    df = pd.concat([df, df2], ignore_index=True)
+    extended_data = (law, tipus_rovid, kerdes, rag_context, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 
-    df.to_excel('test_questions.xlsx', index=False)
+    if os.path.exists(file_path):
+        df = pd.read_excel(file_path)
+        df2 = pd.DataFrame([extended_data], columns=df.columns)
+
+        final_df = pd.concat([df, df2], ignore_index=True)
+        final_df.to_excel(file_path, index=False)
+        print("Adatok elmentve Excelbe.")
+
+    else:
+        df2 = pd.DataFrame([extended_data], columns=columns)
+        df2.to_excel(file_path, index=False)
 
 #add_save_df(("test2", "test2", "test2", 1, "test2", 1, "test2"))
 
-def save_to_excel(df):
-    file_path = 'generated_test_questions.xlsx'
-
-    if os.path.exists(file_path):
-        print(f"\nMeglévő fájl észlelve: {file_path}")
-
-        existing_df = pd.read_excel(file_path)
-
-        final_df = pd.concat([existing_df, df], ignore_index=True)
-
-        final_df.to_excel(file_path, index=False)
-        print(f"Az adatok hozzáfűzve a fájlhoz!")
-
-    else:
-        df.to_excel(file_path, index=False)
-        print(f"Új fájl létrehozva: {file_path}")
 
 db_path = os.path.abspath(os.path.join(os.getcwd(), "../chroma_db"))
 embeddings = GoogleGenerativeAIEmbeddings(model=EMBEDDING_MODEL)
@@ -84,7 +80,7 @@ kategoriak = {
     "nehéz, kivételekre és speciális esetekre fókuszáló": 5
 }
 
-print("\n--- 1. FÁZIS: SZOLID JOGÁGI KÉRDÉSEK GENERÁLÁSA ---")
+print("\nKérdések generálása kategóriűnként")
 for law, chunks in law_chunks_dict.items():
     if not chunks:
         print(f"Nincs chunk ehhez: {law}")
@@ -93,7 +89,7 @@ for law, chunks in law_chunks_dict.items():
     print(f"\n{law} feldolgozása...")
 
     for nehezseg, db_szam in kategoriak.items():
-        print(f"  🔥 Generálok {db_szam} db {nehezseg.split(',')[0]} kérdést...")
+        print(f"Generálok {db_szam} db {nehezseg.split(',')[0]} kérdést...")
 
         sample_size = min(15, len(chunks))
         random_chunks = random.sample(chunks, sample_size)
@@ -117,18 +113,21 @@ for law, chunks in law_chunks_dict.items():
 
         while attempt < max_retries and not success:
             try:
-                response = completion(
-                    model="gemini-2.5-flash",
-                    messages=[{"role": "user", "content": PROMPT}],
-                    api_key=API_KEY
+                interaction = client.interactions.create(
+                    model=MODEL_NAME,
+                    input=PROMPT
                 )
+
+                clean_output = interaction.output_text.replace("```python", "").replace("```", "").strip()
+
                 success = True
 
                 try:
                     uj_kerdesek = ast.literal_eval(clean_output)
                     for kerdes in uj_kerdesek:
                         tipus_rovid = nehezseg.split(',')[0]
-                        df.loc[len(df)] = [law, tipus_rovid, kerdes, rag_context, None, None, None, None, None, None]
+                        #df.loc[len(df)] = [law, tipus_rovid, kerdes, rag_context, None, None, None, None, None, None]
+                        add_save_df(law, tipus_rovid, kerdes, rag_context)
                     print(f"{len(uj_kerdesek)} kérdés elmentve!")
                 except Exception as e:
                     print(f"Hiba történt: {e}")
@@ -138,17 +137,15 @@ for law, chunks in law_chunks_dict.items():
                 print(f"503 error, próbálkozás {attempt}/{max_retries}... várjunk 10 mp-et!")
                 time.sleep(10)
                 if attempt == max_retries:
-                    print(" Túl sok hiba, átlépés")
+                    print("Túl sok hiba, átlépés")
                     raise
-
-        clean_output = response['choices'][0]['message']['content'].replace("```python", "").replace("```", "").strip()
 
 
 
 
 
 # 2. fazis: 20 db osszetett kerdes
-print("\n--- 2. FÁZIS: CROSS-DOMAIN BOSS BATTLE (20 DB) ---")
+print("\nÖsszetett kérdések generálása")
 
 for i in range(4):
     print(f"{i + 1}. 5 db összetett kérdés generálása...")
@@ -179,22 +176,19 @@ for i in range(4):
 
     while attempt < max_retries and not success:
         try:
-            response = completion(
-                model="gemini-2.5-flash",
-                messages=[{"role": "user", "content": PROMPT}],
-                api_key=API_KEY
+            interaction = client.interactions.create(
+                model=MODEL_NAME,
+                input=CROSS_DOMAIN_PROMPT
             )
-            success = True
 
-            clean_output = response['choices'][0]['message']['content'].replace("```python", "").replace("```",
-                                                                                                         "").strip()
+            clean_output = interaction.output_text.replace("```python", "").replace("```", "").strip()
+            success = True
 
             try:
                 uj_kerdesek = ast.literal_eval(clean_output)
                 for kerdes in uj_kerdesek:
-                    df.loc[len(df)] = ["Kombinált", "összetett", kerdes, rag_context, None, None, None, None, None,
-                                       None]
-                print(f"✅ {len(uj_kerdesek)}kérdés elmentve!")
+                    add_save_df("Kombinált", "összetett", kerdes, rag_context)
+                print(f"{len(uj_kerdesek)}kérdés elmentve!")
             except Exception as e:
                 print(f"Hiba történt: {e}")
 
@@ -205,23 +199,3 @@ for i in range(4):
             if attempt == max_retries:
                 print("Túl sok hiba, következő")
                 raise
-
-save_to_excel(df)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

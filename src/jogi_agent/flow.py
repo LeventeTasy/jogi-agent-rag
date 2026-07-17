@@ -5,10 +5,15 @@ from crewai.flow.flow import Flow, listen, start, router, and_, or_
 from dotenv import load_dotenv
 from .crew import JogiAgent
 from jogi_agent.utils import get_config
+import re
 
 load_dotenv()
 
 class JogiFlow(Flow):
+
+    def __init__(self, /, testing=False, **data: any):
+        super().__init__(**data)
+        self.testing = testing
 
     @start()
     def init_flow(self):
@@ -20,6 +25,7 @@ class JogiFlow(Flow):
         self.state["max_retries"] = 2
 
         self.state["rag_chunks"] = ""
+        self.state["cleaned_rag_chunks"] = ""
         self.state["final_answer"] = ""
         self.state["verifier_feedback"] = ""
 
@@ -69,38 +75,84 @@ class JogiFlow(Flow):
         #print(f"Flow State ID: {self.state['id']}")
 
         agent_instance = JogiAgent()
+        rag_task = agent_instance.jogi_kutatasi_feladat()
+        megalapozottsag_task = agent_instance.jogszabalyi_megalapozottsag_feladat()
+        advisor_task = agent_instance.jogi_tanacsadoi_feladat()
+        verifier_task = agent_instance.jogszabalyi_ellenőzési_feladat()
+
+
         agent_instance.is_deep_analysis = False
         flow_inputs = self.state["inputs"]
         crew_result = agent_instance.crew().kickoff(inputs=flow_inputs)
 
-
-        # Kinyerjük a tisztított RAG találatokat
-        self.state["rag_chunks"] = crew_result.tasks_output[3].raw
-
-        # Kinyerjük a tanácsadó véleményét
-        self.state["final_answer"] = crew_result.tasks_output[5].raw
-
-        # Kinyerjük az ellenőrző ágens véleményét
-        self.state["verifier_feedback"] = crew_result.tasks_output[6].raw
+        self.state["rag_chunks"] = rag_task.output.raw
+        self.state["cleaned_rag_chunks"] = megalapozottsag_task.output.raw
+        self.state["final_answer"] = advisor_task.output.raw
+        self.state["verifier_feedback"] = verifier_task.output.raw
 
     def get_chunks(self):
-        flow_output_string = self.state["rag_chunks"]
+        flow_output_string = self.state["cleaned_rag_chunks"]
+
+        if not flow_output_string:
+            print("Hiba: A cleaned_rag_chunks üres!")
+            return []
 
         try:
-            crew_sources = json.loads(flow_output_string)
+            # Biztonsági mentés: Ha a terminálos Rich/Box keret karakterek (│) benne maradtak, kisöpörjük őket
+            if "│" in flow_output_string:
+                flow_output_string = flow_output_string.replace("│", "")
 
-            extracted_texts = []
-            for query in crew_sources:
-                for result in query.get("results", []):
-                    text = result.get("raw_text", "").strip()
-                    if text:
-                        extracted_texts.append(text)
+            # Regexszel kivágjuk a [ ] tömböt
+            match = re.search(r'\[.*\]', flow_output_string, re.DOTALL)
 
-            a_chunk = "\n\n".join(extracted_texts)
-            return a_chunk
+            if not match:
+                print("Hiba: Nem találtam érvényes JSON tömböt [ ] a szövegben!")
+                return []
+
+            cleaned_json = match.group(0).strip()
+            crew_sources = json.loads(cleaned_json)
+
+            extracted_chunks_list = []
+
+            # Végigmegyünk a kapott elemeken
+            for item in crew_sources:
+                if not isinstance(item, dict):
+                    continue
+
+                # 1. ESZET: Ha a régi, beágyazott struktúrát kaptuk (van 'results' kulcs)
+                if "results" in item and isinstance(item["results"], list):
+                    for result in item["results"]:
+                        quote = result.get("quote", "").strip()
+                        source = result.get("source", "").strip()
+                        article = result.get("article", "").strip()
+                        raw_text = result.get("raw_text", "").strip()
+
+                        final_text = raw_text if raw_text else quote
+                        if final_text:
+                            extracted_chunks_list.append(f"[{source} - {article}]: {final_text}")
+
+                # 2. ESET: Ha a mostani, lapos struktúrát kaptuk (maga az elem a találat)
+                else:
+                    quote = item.get("quote", "").strip()
+                    source = item.get("source", "").strip()
+                    article = item.get("article", "").strip()
+                    raw_text = item.get("raw_text", "").strip()
+
+                    # Ha van raw_text, az a legjobb, ha nincs, jó lesz a quote is!
+                    final_text = raw_text if raw_text else quote
+                    if final_text:
+                        extracted_chunks_list.append(f"[{source} - {article}]: {final_text}")
+
+            return extracted_chunks_list
 
         except Exception as e:
-            print(f"Hiba,a chunkokat nem sikerült JSON-ná alakítani: {e}")
+            print(f"Nem sikerült JSON-ná alakítani: {e}")
+            return []
+
+        except Exception as e:
+            print(f"Nem sikerült JSON-ná alakítani: {e}")
+            print(f"A problémás string: {flow_output_string}")
+            return []
 
     @router(run_main_crew)
     def check_answer(self):
@@ -140,6 +192,12 @@ class JogiFlow(Flow):
         Módosítsd a korábbi válaszodat a jelentés alapján, és generáld le a tökéletesen javított, végleges verziót!
         """
 
+        if "RAG FORRÁS:" not in correction_task.description:
+            correction_task.description += f""" 
+                RAG FORRÁS:
+                {self.state['rag_chunks']}
+                                            """
+
         if self.state["correction_retries"] < self.state["max_retries"]:
 
             self.state["correction_retries"] += 1
@@ -150,15 +208,19 @@ class JogiFlow(Flow):
                 verbose=self.state["is_verbose"]
             )
 
-            mini_crew_result = mini_crew.kickoff()
-            self.state["final_answer"] = mini_crew_result.tasks_output[0].raw
-            self.state["verifier_feedback"] = mini_crew_result.raw
 
-            if "SIKER, ELLENŐZÉS BEFEJEZVE" in self.state["verifier_feedback"]:
-                print("A korrekció sikeres, az ellenőrző jóváhagyta.")
-                return
+            while self.state["correction_retries"] < self.state["max_retries"]:
 
-            self.correction()
+                mini_crew_result = mini_crew.kickoff()
+
+                self.state["final_answer"] = mini_crew_result.tasks_output[0].raw
+                self.state["verifier_feedback"] = mini_crew_result.tasks_output[1].raw
+
+                if "SIKER, ELLENŐRZÉS BEFEJEZVE" in self.state["verifier_feedback"]:
+                    print("A korrekció sikeres.")
+                    return
+
+                self.state["correction_retries"] += 1
 
         else:
             # Megjegyzés: Memory-ra későbbiekben lehet szükség lesz
@@ -178,5 +240,9 @@ class JogiFlow(Flow):
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
-        return self.state["final_answer"]
+        if self.testing:
+            return self.state["final_answer"] + f"\n RAG CHUNKS: {self.state['rag_chunks']}"
+
+        else:
+            return self.state["final_answer"]
 
