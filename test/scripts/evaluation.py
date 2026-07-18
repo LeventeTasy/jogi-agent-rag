@@ -17,12 +17,14 @@ def evaluate(path1: str, path2: str):
 
         print("="*50)
         print("Első adatbázis átlagai:")
+        print(f"Hallucináció\t{round((1-df["Faithfulness"].mean())*100,2)}%")
         atl_elso = df[metrics].mean()
         print(atl_elso)
         print()
 
         print("=" * 50)
         print("Második adatbázis átlagai:")
+        print(f"Hallucináció\t{round((1 - df2["Faithfulness"].mean())*100, 2)}%")
         atl_masodik = df2[metrics].mean()
         print(atl_masodik)
         print()

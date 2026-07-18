@@ -55,36 +55,59 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
         model=model
     )
 
-    test_case = LLMTestCase(
-        input=input_text,
-        actual_output=actual_output,
-        retrieval_context=retrieval_context
-    )
+    try:
+        test_case = LLMTestCase(
+            input=input_text,
+            actual_output=actual_output,
+            retrieval_context=retrieval_context
+        )
 
-    metrics = [
-        faithfulness, answer_relevancy, context_relevancy, coherence
-    ]
+        metrics = [
+            faithfulness, answer_relevancy, context_relevancy, coherence
+        ]
 
-    metric_names = ["Faithfulness", "Answer_Relevancy", "Context_Relevancy", "Coherance"]
+        metric_names = ["Faithfulness", "Answer_Relevancy", "Context_Relevancy", "Coherance"]
 
-    for metric, metric_name in zip(metrics, metric_names):
-        metric.measure(test_case)
+        for metric, metric_name in zip(metrics, metric_names):
+            metric.measure(test_case)
 
-        try:
-            print(metric_name + ": " + str(metric.score))
-            print(metric_name + ": " + str(metric.reason))
-        except:
-            print("Hiba a kiiratásnál!")
+            try:
+                print(metric_name + ": " + str(metric.score))
+                print(metric_name + ": " + str(metric.reason))
+            except:
+                print("Hiba a kiiratásnál!")
+
+    except TypeError:
+        test_case = LLMTestCase(
+            input=input_text,
+            actual_output=actual_output,
+            retrieval_context=None
+        )
+
+        metrics = [
+            answer_relevancy, coherence
+        ]
+
+        metric_names = ["Answer_Relevancy", "Coherance"]
+
+        for metric, metric_name in zip(metrics, metric_names):
+            metric.measure(test_case)
+
+            try:
+                print(metric_name + ": " + str(metric.score))
+                print(metric_name + ": " + str(metric.reason))
+            except:
+                print("Hiba a kiiratásnál!")
 
     results = {
-        "Faithfulness": faithfulness.score,
-        "Faithfulness_Reason": faithfulness.reason,
-        "Answer_Relevancy": answer_relevancy.score,
-        "Answer_Relevancy_Reason": answer_relevancy.reason,
-        "Context_Relevancy": context_relevancy.score,
-        "Context_Relevancy_Reason": context_relevancy.reason,
-        "Coherance": coherence.score,
-        "Coherance_Reason": coherence.reason
+            "Faithfulness": faithfulness.score,
+            "Faithfulness_Reason": faithfulness.reason,
+            "Answer_Relevancy": answer_relevancy.score,
+            "Answer_Relevancy_Reason": answer_relevancy.reason,
+            "Context_Relevancy": context_relevancy.score,
+            "Context_Relevancy_Reason": context_relevancy.reason,
+            "Coherance": coherence.score,
+            "Coherance_Reason": coherence.reason
     }
 
     return results
