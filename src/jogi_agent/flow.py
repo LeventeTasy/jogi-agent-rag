@@ -91,68 +91,56 @@ class JogiFlow(Flow):
         self.state["verifier_feedback"] = verifier_task.output.raw
 
     def get_chunks(self):
-        flow_output_string = self.state["cleaned_rag_chunks"]
 
+        flow_output_string = self.state.get("cleaned_rag_chunks") or self.state.get("rag_chunks")
         if not flow_output_string:
-            print("Hiba: A cleaned_rag_chunks üres!")
+            print("Hiba: A RAG chunks és a cleaned_rag_chunks is üres!")
             return []
 
+        if "│" in flow_output_string:
+            flow_output_string = flow_output_string.replace("│", "")
+
+        clean_str = re.sub(r'```(?:json)?', '', flow_output_string)
+        clean_str = re.sub(r'```', '', clean_str).strip()
         try:
-            # Biztonsági mentés: Ha a terminálos Rich/Box keret karakterek (│) benne maradtak, kisöpörjük őket
-            if "│" in flow_output_string:
-                flow_output_string = flow_output_string.replace("│", "")
-
-            # Regexszel kivágjuk a [ ] tömböt
-            match = re.search(r'\[.*\]', flow_output_string, re.DOTALL)
-
-            if not match:
-                print("Hiba: Nem találtam érvényes JSON tömböt [ ] a szövegben!")
-                return []
-
-            cleaned_json = match.group(0).strip()
-            crew_sources = json.loads(cleaned_json)
-
+            match = re.search(r'\[\s*\{.*\}\s*\]', clean_str, re.DOTALL)
+            json_str = match.group(0).strip() if match else clean_str
+            crew_sources = json.loads(json_str)
             extracted_chunks_list = []
-
-            # Végigmegyünk a kapott elemeken
             for item in crew_sources:
                 if not isinstance(item, dict):
                     continue
+                results_to_process = item.get("results", [item]) if isinstance(item.get("results"), list) else [item]
+                for res in results_to_process:
+                    if not isinstance(res, dict):
+                        continue
+                    quote = res.get("quote", "").strip()
+                    raw_text = res.get("raw_text", "").strip()
+                    text_alt = res.get("text", "").strip() or res.get("content", "").strip()
 
-                # 1. ESZET: Ha a régi, beágyazott struktúrát kaptuk (van 'results' kulcs)
-                if "results" in item and isinstance(item["results"], list):
-                    for result in item["results"]:
-                        quote = result.get("quote", "").strip()
-                        source = result.get("source", "").strip()
-                        article = result.get("article", "").strip()
-                        raw_text = result.get("raw_text", "").strip()
-
-                        final_text = raw_text if raw_text else quote
-                        if final_text:
-                            extracted_chunks_list.append(f"[{source} - {article}]: {final_text}")
-
-                # 2. ESET: Ha a mostani, lapos struktúrát kaptuk (maga az elem a találat)
-                else:
-                    quote = item.get("quote", "").strip()
-                    source = item.get("source", "").strip()
-                    article = item.get("article", "").strip()
-                    raw_text = item.get("raw_text", "").strip()
-
-                    # Ha van raw_text, az a legjobb, ha nincs, jó lesz a quote is!
-                    final_text = raw_text if raw_text else quote
+                    source = res.get("source", "").strip() or res.get("law", "").strip() or "RAG"
+                    article = res.get("article", "").strip() or res.get("page", "").strip()
+                    final_text = raw_text or quote or text_alt
                     if final_text:
-                        extracted_chunks_list.append(f"[{source} - {article}]: {final_text}")
-
-            return extracted_chunks_list
-
+                        header = f"[{source} - {article}]" if article else f"[{source}]"
+                        extracted_chunks_list.append(f"{header}: {final_text}")
+            if extracted_chunks_list:
+                return extracted_chunks_list
         except Exception as e:
-            print(f"Nem sikerült JSON-ná alakítani: {e}")
-            return []
+            print(f"JSON feldolgozási figyelmeztetés: {e}")
 
-        except Exception as e:
-            print(f"Nem sikerült JSON-ná alakítani: {e}")
-            print(f"A problémás string: {flow_output_string}")
-            return []
+        raw_fallback = self.state.get("rag_chunks", "")
+        if raw_fallback:
+            clean_raw = re.sub(r'```(?:json)?', '', raw_fallback)
+            clean_raw = re.sub(r'```', '', clean_raw).strip()
+
+            fallback_lines = [
+                line.strip() for line in clean_raw.split("\n")
+                if line.strip() and not line.strip().startswith("{") and not line.strip().startswith("}")
+            ]
+            if fallback_lines:
+                return ["\n".join(fallback_lines)]
+        return []
 
     @router(run_main_crew)
     def check_answer(self):

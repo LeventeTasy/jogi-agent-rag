@@ -3,15 +3,16 @@ import pandas as pd
 from pathlib import Path
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.abspath(os.path.join(current_dir, ".."))
+project_root = os.path.abspath(os.path.join(current_dir, "..", ".."))
+
 
 if project_root not in sys.path:
     sys.path.append(project_root)
 from src.jogi_agent.flow import JogiFlow
 
 BASE_DIR = Path(__file__).resolve().parent
-PATH = BASE_DIR.parent / "datasets" / "answered_questions.xlsx"
-SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions.xlsx"
+PATH = BASE_DIR.parent / "datasets" / "answered_questions_agent_chunk.xlsx"
+SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
 
 COLUMNS = [
     "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
@@ -45,7 +46,14 @@ for col in text_columns:
 print(f"{len(df)} tesztkérdés beolvasva!")
 print(df.head())
 
+limit = 3
+ind = 0
+
 for index, row in df.iterrows():
+
+    if ind >= limit:
+        break
+
     jelenlegi_valasz = row['Valasz']
     jelenlegi_achunk = row['A_chunk']
 
@@ -79,5 +87,7 @@ for index, row in df.iterrows():
     df.at[index, 'A_chunk'] = a_chunk_string
 
     df.to_excel(SAVE_PATH, index=False)
+
+    ind+=1
 
 

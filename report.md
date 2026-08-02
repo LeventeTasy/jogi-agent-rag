@@ -1,23 +1,20 @@
-# JOGI SZAKVÉLEMÉNY: Köteles-e a munkáltató írásba foglalni a munkaszerződést, és mi a következménye, ha ez elmarad?
+# JOGI SZAKVÉLEMÉNY: Nyilvános hírközlési szolgáltató egy, a 2002/58/EK irányelv hatálya alá tartozó adatkezelési művelet során megsérti a 95. cikkben hivatkozott különös kötelezettségeket. Mivel a 95. cikk korlátozza a GDPR további kötelezettségeinek róvását, milyen módon gyakorolhatja a felügyeleti hatóság az 58. cikk szerinti hatásköreit, és alkalmazható-e egyáltalán a 83. cikk szerinti bírságolási rendszer az adott jogsértésre?
 
 ### RÖVID VÁLASZ
-Igen, a munkáltató köteles a munkaszerződést írásba foglalni, az írásba foglalás elmulasztása pedig speciális jogkövetkezményeket von maga után, mivel az érvénytelenségre való hivatkozás lehetősége korlátozottan, kizárólag a munkavállalót illeti meg, meghatározott határidőn belül.
+Részben. A felügyeleti hatóság az 58. cikk szerinti hatásköreit a 2002/58/EK irányelv által nem szabályozott kérdésekben, vagy azzal kiegészítő jelleggel gyakorolhatja; a GDPR 83. cikk szerinti bírságolás pedig csak akkor alkalmazható, ha azt a tagállami jogszabályok kifejezetten lehetővé teszik, vagy ha a jogsértés a GDPR szerinti önálló adatkezelési kötelezettségszegést is megvalósít.
 
 ### JOGI INDOKOLÁS
-A munka törvénykönyvéről szóló 2012. évi I. törvény (a továbbiakban: Mt.) 44. §-a egyértelmű kötelezettséget ró a munkáltatóra: "A munkaszerződést írásba kell foglalni. A munkaszerződés írásba foglalásának elmaradásáért a munkáltató a felelős." Ebből következően az írásbeliség követelménye nem opcionális, hanem a munkáltató felelősségi körébe tartozó kötelező alakszerűségi előírás.
+A GDPR 95. cikke értelmében a rendelet nem ró további kötelezettségeket a természetes vagy jogi személyekre az olyan konkrét esetekkel összefüggésben, amelyek tekintetében rájuk a 2002/58/EK irányelvben meghatározott különös kötelezettségek vonatkoznak, feltéve, hogy azok ugyanazt a célt szolgálják. Ez a rendelkezés – összhangban a *lex specialis derogat legi generali* elvével – az ePrivacy irányelvet teszi elsődlegessé a specifikus adatkezelési tárgykörökben (GDPR 95. cikk, 112. o.).
 
-Az írásba foglalás elmaradásának jogkövetkezményeit az Mt. 44. §-a úgy szabályozza, hogy az érvénytelenségre hivatkozás joga korlátozott: erre "csak a munkavállaló - a munkába lépést követő harminc napon belül - hivatkozhat". Ebből logikusan levezethető, hogy a munkáltató saját mulasztására hivatkozással nem érhet el érvénytelenséget, és a munkavállaló is csak az említett harminc napos jogvesztő határidőn belül élhet ezzel a lehetőséggel.
+Ennek következtében a felügyeleti hatóság az 58. cikk szerinti vizsgálati és javító hatásköreit korlátozottan gyakorolhatja: azok kizárólag az irányelv által nem szabályozott, vagy azzal kiegészítő jellegű kérdésekben alkalmazhatók. Az Eht. 155. § (1) bekezdése értelmében a Nemzeti Média- és Hírközlési Hatóság (NMHH) látja el a különös felügyeleti hatásköröket, így az adatvédelmi hatóságnak a korrekciós intézkedések során figyelemmel kell lennie az ágazati szabályozásra (Eht. 155. §, 89. o.).
 
-A Polgári Törvénykönyvről szóló 2013. évi V. törvény (Ptk.) 6:63. § (1) bekezdése szerint a szerződés a felek akaratának kölcsönös és egybehangzó kifejezésével jön létre. Az Mt. 45. § (1) bekezdése ezt konkretizálva kimondja, hogy "a munkaviszony a munkaszerződés megkötésével jön létre". Habár a munkaviszony a felek konszenzusával keletkezik, az írásba foglalás hiánya nem teszi a jogviszonyt automatikusan "nem létezővé", hanem egy sajátos érvénytelenségi szankcióval ruházza fel a munkavállalót.
-
-Adatvédelmi szempontból az írásbeli szerződés hiánya növeli a megfelelőségi kockázatot. Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 6. cikk (1) bekezdés b) pontja alapján az adatkezelés akkor jogszerű, ha az szerződés teljesítéséhez szükséges. Írásbeli dokumentáció hiányában a munkáltató nehezebben tudja igazolni az adatkezelés szerződéses jogalapját, ami hatósági ellenőrzés esetén igazolási nehézségeket vethet fel.
+A GDPR 83. cikk szerinti bírságolás tekintetében az Európai Unió Bíróságának gyakorlata alapján a szankciók alkalmazhatósága feltételhez kötött: a bírság akkor szabható ki, ha a tagállami jogszabályok az irányelvi jogsértések szankcionálását lehetővé teszik, vagy ha az elkövetett jogsértés egyúttal a GDPR-ban előírt, független adatkezelési kötelezettségszegést is megvalósít. Ez az elhatárolás a szankciók halmozódásából eredő jogbizonytalanság elkerülését szolgálja (EUB C-673/17, 45. o.).
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-- 2012. évi I. törvény a munka törvénykönyvéről: 44. §; 45. § (1) bekezdés
-- 2013. évi V. törvény a Polgári Törvénykönyvről: 6:63. § (1) bekezdés
-- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR): 6. cikk (1) bekezdés b) pont
+- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 95. cikk (1) bekezdés
+- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 83. cikk
+- 2003. évi C. törvény az elektronikus hírközlésről (Eht.) 155. § (1) bekezdés
+- Az Európai Unió Bíróságának ítélkezési gyakorlata (C-673/17 és kapcsolódó ügyek) 45. oldal
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-1. Érvénytelenségi kockázat: Az írásbeli szerződés elmaradása esetén az érvénytelenségre hivatkozás joga nem áll korlátlanul fenn. A munkavállaló ezen jogát a munkába lépést követő 30 napon belül gyakorolhatja. Ezen időtartam elteltével az írásbeliség hiánya miatt érvénytelenségre már senki nem hivatkozhat.
-2. Adatvédelmi kockázat: A GDPR 6. cikk (1) bekezdés b) pontja szerinti adatkezelés bizonyíthatósága írásbeli szerződés hiányában sérülékeny. A munkáltató köteles más jogalapot (pl. jogi kötelezettség, jogos érdek) alátámasztani, ha a szerződéses jogalap a dokumentáció hiánya miatt nem áll fenn.
-3. Kockázati szűrés: A fenti szabályok alapján az "érvénytelenség" nem automatikus, hanem egy "hivatkozáshoz kötött" állapot, ami nem jelenti azt, hogy a munkaviszony semmis lenne a felek közti tényleges munkavégzés esetén.
+A szabályozás nem zárja ki a GDPR alkalmazását abban az esetben, ha az adatkezelés a hírközlési szolgáltatáson túlmutató, általános adatkezelési célokat szolgál. A bírságolás jogszerűsége minden esetben attól függ, hogy a jogsértés a 95. cikk által nem érintett általános adatkezelési elveket sért-e, vagy az irányelvi rendelkezésekkel párhuzamosan önálló GDPR-kötelezettséget is megsértett-e az adatkezelő. A kizárólagos irányelvi hatály nem jelenti a GDPR szankciók automatikus kizárását, amennyiben a tagállami jogszabály (Eht.) a kettős szankcionálást vagy az ágazati szabályok megsértését a GDPR keretei között is lehetővé teszi.

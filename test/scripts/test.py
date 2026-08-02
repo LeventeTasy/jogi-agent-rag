@@ -164,7 +164,7 @@ if __name__ == "__main__":
 
 
             szamlalo += 1
-            if szamlalo >= 9:
+            if szamlalo >= 2:
                 break
     else:
         raise FileNotFoundError
