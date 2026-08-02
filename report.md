@@ -1,20 +1,21 @@
-# JOGI SZAKVÉLEMÉNY: Nyilvános hírközlési szolgáltató egy, a 2002/58/EK irányelv hatálya alá tartozó adatkezelési művelet során megsérti a 95. cikkben hivatkozott különös kötelezettségeket. Mivel a 95. cikk korlátozza a GDPR további kötelezettségeinek róvását, milyen módon gyakorolhatja a felügyeleti hatóság az 58. cikk szerinti hatásköreit, és alkalmazható-e egyáltalán a 83. cikk szerinti bírságolási rendszer az adott jogsértésre?
+# JOGI SZAKVÉLEMÉNY: Egy előre kipipált checkbox elfogadható hozzájárulásnak minősülhet valaha a GDPR szerint?
 
 ### RÖVID VÁLASZ
-Részben. A felügyeleti hatóság az 58. cikk szerinti hatásköreit a 2002/58/EK irányelv által nem szabályozott kérdésekben, vagy azzal kiegészítő jelleggel gyakorolhatja; a GDPR 83. cikk szerinti bírságolás pedig csak akkor alkalmazható, ha azt a tagállami jogszabályok kifejezetten lehetővé teszik, vagy ha a jogsértés a GDPR szerinti önálló adatkezelési kötelezettségszegést is megvalósít.
+Nem. Az előre kipipált jelölőnégyzet („pre-ticked box”) semmilyen körülmények között nem minősül érvényes, a GDPR által előírt önkéntes és egyértelmű hozzájárulásnak.
 
 ### JOGI INDOKOLÁS
-A GDPR 95. cikke értelmében a rendelet nem ró további kötelezettségeket a természetes vagy jogi személyekre az olyan konkrét esetekkel összefüggésben, amelyek tekintetében rájuk a 2002/58/EK irányelvben meghatározott különös kötelezettségek vonatkoznak, feltéve, hogy azok ugyanazt a célt szolgálják. Ez a rendelkezés – összhangban a *lex specialis derogat legi generali* elvével – az ePrivacy irányelvet teszi elsődlegessé a specifikus adatkezelési tárgykörökben (GDPR 95. cikk, 112. o.).
+Az Európai Adatvédelmi Testület (EDPB) 05/2020. számú irányelve 3.1. szakaszának álláspontja szerint az előre bejelölt négyzetek „nem felelnek meg a GDPR 4. cikk 11. pontjában foglalt, az érintett egyértelmű megerősítő cselekvésére vonatkozó követelménynek”. A hozzájárulás akkor tekinthető érvényesnek, ha az érintett aktív cselekvést tanúsít; amennyiben az érintettnek kell „aktívan tennie valamit a hozzájárulás visszavonása érdekében”, a hozzájárulás már nem tekinthető szabadon adottnak.
 
-Ennek következtében a felügyeleti hatóság az 58. cikk szerinti vizsgálati és javító hatásköreit korlátozottan gyakorolhatja: azok kizárólag az irányelv által nem szabályozott, vagy azzal kiegészítő jellegű kérdésekben alkalmazhatók. Az Eht. 155. § (1) bekezdése értelmében a Nemzeti Média- és Hírközlési Hatóság (NMHH) látja el a különös felügyeleti hatásköröket, így az adatvédelmi hatóságnak a korrekciós intézkedések során figyelemmel kell lennie az ágazati szabályozásra (Eht. 155. §, 89. o.).
+A NAIH/2022/1145/2. sz. határozat indokolása (12. pont) rögzíti, hogy az ilyen technikai megoldás tisztességtelen kereskedelmi gyakorlatnak minősül, mivel „vélelmezett hozzájárulást kényszerít ki”. A hatóság explicit módon kimondja, hogy az így szerzett hozzájárulás semmis, mivel az nem felel meg a GDPR 7. cikk (1) bekezdésében előírt egyértelműség követelményének.
 
-A GDPR 83. cikk szerinti bírságolás tekintetében az Európai Unió Bíróságának gyakorlata alapján a szankciók alkalmazhatósága feltételhez kötött: a bírság akkor szabható ki, ha a tagállami jogszabályok az irányelvi jogsértések szankcionálását lehetővé teszik, vagy ha az elkövetett jogsértés egyúttal a GDPR-ban előírt, független adatkezelési kötelezettségszegést is megvalósít. Ez az elhatárolás a szankciók halmozódásából eredő jogbizonytalanság elkerülését szolgálja (EUB C-673/17, 45. o.).
+A polgári jogi szabályozás szintén alátámasztja ezt a következtetést. A 2013. évi V. törvény (Ptk.) 6:82. § (1) bekezdése deklarálja, hogy „a hallgatás vagy a magatartástól való tartózkodás – ha jogszabály másként nem rendelkezik – nem minősül jognyilatkozatnak”. Ezzel összhangban az 1997. évi CLV. törvény 17/A. § (1) bekezdése szerint „a hallgatás mint beleegyezés elve a fogyasztói szerződésekben nem alkalmazható”, és a vállalkozás nem jogosult olyan technikai megoldást alkalmazni, amely előre bejelölt opciókkal teremt adatkezelési kötelezettséget.
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 95. cikk (1) bekezdés
-- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 83. cikk
-- 2003. évi C. törvény az elektronikus hírközlésről (Eht.) 155. § (1) bekezdés
-- Az Európai Unió Bíróságának ítélkezési gyakorlata (C-673/17 és kapcsolódó ügyek) 45. oldal
+- Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 4. cikk 11. pont, 7. cikk (1) bekezdés.
+- Az Európai Adatvédelmi Testület 05/2020. számú irányelve a hozzájárulásról (3.1. szakasz).
+- NAIH/2022/1145/2. sz. határozat (Indokolás 12. pont).
+- 2013. évi V. törvény a Polgári Törvénykönyvről 6:82. § (1) bekezdés.
+- 1997. évi CLV. törvény a fogyasztóvédelemről 17/A. § (1) bekezdés.
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szabályozás nem zárja ki a GDPR alkalmazását abban az esetben, ha az adatkezelés a hírközlési szolgáltatáson túlmutató, általános adatkezelési célokat szolgál. A bírságolás jogszerűsége minden esetben attól függ, hogy a jogsértés a 95. cikk által nem érintett általános adatkezelési elveket sért-e, vagy az irányelvi rendelkezésekkel párhuzamosan önálló GDPR-kötelezettséget is megsértett-e az adatkezelő. A kizárólagos irányelvi hatály nem jelenti a GDPR szankciók automatikus kizárását, amennyiben a tagállami jogszabály (Eht.) a kettős szankcionálást vagy az ágazati szabályok megsértését a GDPR keretei között is lehetővé teszi.
+A vizsgált források alapján az előre kipipált jelölőnégyzet érvénytelensége tekintetében nincs kivétel. A Ptk. 6:82. § (1) bekezdése tartalmaz egy elvi fenntartást („ha jogszabály másként nem rendelkezik”), azonban sem a GDPR, sem a fogyasztóvédelmi jogszabályok nem biztosítanak olyan esetet, amely az adatkezelési hozzájárulás vonatkozásában felülírná az egyértelmű megerősítő cselekvés követelményét. A gyakorlatban tehát a kockázat nulla, mivel az ilyen megoldás jogellenesnek minősül.
