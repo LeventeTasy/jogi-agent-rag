@@ -8,17 +8,11 @@ project_root = os.path.abspath(os.path.join(current_dir, "..", ".."))
 
 if project_root not in sys.path:
     sys.path.append(project_root)
-from src.jogi_agent.flow import JogiFlow
 from src.rag import ask_question
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_IS_AGENT = False # True -> AGENT | False -> RAG
-PATH = BASE_DIR.parent / "datasets" / "test_questions.xlsx"
-
-if MODEL_IS_AGENT:
-    SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
-else:
-    SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
+PATH = BASE_DIR.parent / "datasets" / "answered_questions_agent_chunk.xlsx"
+SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
 
 COLUMNS = [
     "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
@@ -50,11 +44,10 @@ for col in text_columns:
     df[col] = df[col].astype("string")
 
 print(f"{len(df)} tesztkérdés beolvasva!")
+print(df.head())
 
-limit = 39
+limit = 3
 ind = 0
-
-print(f"Running the {'Agent' if MODEL_IS_AGENT else 'RAG'} model...")
 
 for index, row in df.iterrows():
 
@@ -79,21 +72,14 @@ for index, row in df.iterrows():
             "details": ""
         }
 
-    if MODEL_IS_AGENT:
-        flow = JogiFlow()
-        flow.state["inputs"] = inputs
+    flow = JogiFlow()
+    flow.state["inputs"] = inputs
 
-        answer = str(flow.kickoff())
-        print(answer+"\n\n")
-        chunks_list = flow.get_chunks()
-        #print(chunks_list)
-        a_chunk_string = "\n\n".join(chunks_list)
-
-    else:
-        answer, a_chunk_string = ask_question(kerdes)
-        #print(a_chunk_string)
-
-
+    answer = str(flow.kickoff())
+    print(answer+"\n\n")
+    chunks_list = flow.get_chunks()
+    print(chunks_list)
+    a_chunk_string = "\n\n".join(chunks_list)
 
     uj_valasz = f"Sikeresen generált válasz a(z) {index}. sorhoz!"
 
