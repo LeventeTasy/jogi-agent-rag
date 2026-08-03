@@ -11,8 +11,8 @@ if project_root not in sys.path:
 from src.rag import ask_question
 
 BASE_DIR = Path(__file__).resolve().parent
-PATH = BASE_DIR.parent / "datasets" / "answered_questions_agent_chunk.xlsx"
-SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
+PATH = BASE_DIR.parent / "datasets" / "answered_questions_agent.xlsx"
+SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_agent.xlsx"
 
 COLUMNS = [
     "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",

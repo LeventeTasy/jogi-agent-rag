@@ -16,7 +16,7 @@ MODEL_IS_AGENT = False # True -> AGENT | False -> RAG
 PATH = BASE_DIR.parent / "datasets" / "test_questions.xlsx"
 
 if MODEL_IS_AGENT:
-    SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
+    SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_agent.xlsx"
 else:
     SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
 
