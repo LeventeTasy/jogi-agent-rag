@@ -21,6 +21,8 @@ def evaluate(path1: str, path2: str):
         print(f"Hallucináció\t{hallucination_1}%")
         atl_elso = df[metrics].mean()
         print(atl_elso)
+        print("-"*30)
+        print(f"Összes kérdés\t{df['Faithfulness'].count()}")
         print()
 
         print("=" * 50)
@@ -29,10 +31,12 @@ def evaluate(path1: str, path2: str):
         print(f"Hallucináció\t{hallucination_2}%")
         atl_masodik = df2[metrics].mean()
         print(atl_masodik)
+        print("-" * 30)
+        print(f"Összes kérdés\t{df2['Faithfulness'].count()}")
         print()
 
         print("=" * 50)
-        print("Különbség: (1.-2.)")
+        print("Különbség\t (1.-2.)")
         print(f"Hallucináció\t {hallucination_1-hallucination_2}%")
         kulonbseg = atl_elso-atl_masodik
         print(kulonbseg)
