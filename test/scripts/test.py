@@ -122,7 +122,7 @@ if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
     PATH = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
 
-    limit = 15
+    limit = 22
     ind = 0
 
     if os.path.exists(PATH):
