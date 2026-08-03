@@ -47,13 +47,14 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
     answer_relevancy = AnswerRelevancyMetric(threshold=0.5, model=model)
     context_relevancy = ContextualRelevancyMetric(threshold=0.5, model=model)
 
+    """
     coherence = GEval(
         name="Coherence",
         criteria="Determine how logically connected, flowy and coherent the actual output is.",
         evaluation_params=[LLMTestCaseParams.ACTUAL_OUTPUT],
         threshold=0.5,
         model=model
-    )
+    )"""
 
     try:
         test_case = LLMTestCase(
@@ -63,10 +64,10 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
         )
 
         metrics = [
-            faithfulness, answer_relevancy, context_relevancy, coherence
+            faithfulness, answer_relevancy, context_relevancy
         ]
 
-        metric_names = ["Faithfulness", "Answer_Relevancy", "Context_Relevancy", "Coherance"]
+        metric_names = ["Faithfulness", "Answer_Relevancy", "Context_Relevancy"]
 
         for metric, metric_name in zip(metrics, metric_names):
             metric.measure(test_case)
@@ -85,10 +86,10 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
         )
 
         metrics = [
-            answer_relevancy, coherence
+            answer_relevancy
         ]
 
-        metric_names = ["Answer_Relevancy", "Coherance"]
+        metric_names = ["Answer_Relevancy"]
 
         for metric, metric_name in zip(metrics, metric_names):
             metric.measure(test_case)
@@ -106,8 +107,6 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
             "Answer_Relevancy_Reason": answer_relevancy.reason,
             "Context_Relevancy": context_relevancy.score,
             "Context_Relevancy_Reason": context_relevancy.reason,
-            "Coherance": coherence.score,
-            "Coherance_Reason": coherence.reason
     }
 
     return results
@@ -121,14 +120,19 @@ COLUMNS = [
 
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
-    PATH = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
-    szamlalo = 0
+    PATH = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
+
+    limit = 22
+    ind = 0
 
     if os.path.exists(PATH):
         df = pd.read_excel(PATH, dtype=object)
         #print(df.dtypes)
 
         for index, row in df.iterrows():
+            if ind >= limit:
+                break
+
             jelenlegi_valasz = row['Valasz']
             jelenlegi_achunk = row['A_chunk']
             faithfulness_reason = row['Faithfulness_Reason']
@@ -163,8 +167,6 @@ if __name__ == "__main__":
             print("\n\n")
 
 
-            szamlalo += 1
-            if szamlalo >= 2:
-                break
+            ind+=1
     else:
         raise FileNotFoundError

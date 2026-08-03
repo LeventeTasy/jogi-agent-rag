@@ -205,6 +205,8 @@ def query_rag(query_text: str):
 
     formatted_context = ""
     source_list = []
+    chunks = ""
+
 
     for doc, score in results:
         meta = doc.metadata
@@ -221,6 +223,9 @@ def query_rag(query_text: str):
         header = f"[Törvény: {law} | Hely: {sid} | Távolság: {distance_score} | Oldal: {page} | Forrásfájl: {src}]"
         formatted_context += f"{header}\n{clean_content}\n\n---\n\n"
 
+        chunk = f"[{src} - {sid}]: {doc.page_content}"
+        chunks += f"{chunk}\n\n"
+
         source_list.append({
             "sid": sid,
             "law": law,
@@ -229,7 +234,7 @@ def query_rag(query_text: str):
             "score": score
         })
 
-    return formatted_context, source_list
+    return formatted_context, source_list, chunks
 
 
 def build_rag():
@@ -248,7 +253,7 @@ def build_rag():
     print("Adatbázis frissítve")
 
 def ask_question(question: str):
-    formatted_context, source_list = query_rag(question)
+    formatted_context, source_list, chunks = query_rag(question)
 
     PROMPT_TEMPLATE = """
         Te egy tűpontos jogi asszisztens vagy. KIZÁRÓLAG a megadott kontextus alapján válaszolj.
@@ -295,10 +300,7 @@ def ask_question(question: str):
 
     response_text = llm.invoke(prompt)
 
-    print("\nVÁLASZ:")
-    print(response_text.content[0]["text"])
-
-    print("-" * 50)
+    return response_text.content[0]["text"], chunks
 
 
 def main(test_mode: bool = False):
@@ -338,7 +340,12 @@ def main(test_mode: bool = False):
 
     query_text = input(": ")
     while query_text != "break":
-        print(ask_question(query_text))
+
+        resp, source_list = ask_question(query_text)
+        print("\nVÁLASZ:")
+        print(resp)
+        print("-" * 50)
+
         query_text = input(": ")
 
 
