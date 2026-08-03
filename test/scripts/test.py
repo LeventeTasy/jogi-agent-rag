@@ -121,13 +121,18 @@ COLUMNS = [
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
     PATH = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
-    szamlalo = 0
+
+    limit = 15
+    ind = 0
 
     if os.path.exists(PATH):
         df = pd.read_excel(PATH, dtype=object)
         #print(df.dtypes)
 
         for index, row in df.iterrows():
+            if ind >= limit:
+                break
+
             jelenlegi_valasz = row['Valasz']
             jelenlegi_achunk = row['A_chunk']
             faithfulness_reason = row['Faithfulness_Reason']
@@ -162,8 +167,6 @@ if __name__ == "__main__":
             print("\n\n")
 
 
-            szamlalo += 1
-            if szamlalo >= 2:
-                break
+            ind+=1
     else:
         raise FileNotFoundError

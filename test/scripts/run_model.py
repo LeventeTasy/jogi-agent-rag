@@ -51,7 +51,7 @@ for col in text_columns:
 
 print(f"{len(df)} tesztkérdés beolvasva!")
 
-limit = 39
+limit = 15
 ind = 0
 
 print(f"Running the {'Agent' if MODEL_IS_AGENT else 'RAG'} model...")
