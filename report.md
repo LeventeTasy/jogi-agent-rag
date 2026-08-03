@@ -1,23 +1,21 @@
-# JOGI SZAKVÉLEMÉNY: A munkáltatóm tegnap közölte velem, hogy hétfőtől már nem kell bemennem dolgozni, de írásban semmit nem kaptam. Azt mondta, majd később elküldik a papírokat. Nem tudom, hogy felmondtak-e, közös megegyezést akarnak-e, vagy csak ideiglenesen nem kell dolgoznom. Mit tehetek, és milyen jogaim vannak?
+# JOGI SZAKVÉLEMÉNY: Egy előre kipipált checkbox elfogadható hozzájárulásnak minősülhet valaha a GDPR szerint?
 
-### RÖVID VÁLASZ 
-A munkaviszony megszüntetésére vonatkozó szóbeli közlés jogilag érvénytelen, ezért Ön jelenleg is munkaviszonyban áll, és a munkavégzés alóli mentesítés idejére távolléti díj illeti meg. Haladéktalanul írásban kell felszólítania a munkáltatót a jognyilatkozat írásba foglalására, és szükség esetén jogi lépéseket kezdeményeznie.
+### RÖVID VÁLASZ
+Nem. Az előre kipipált jelölőnégyzet („pre-ticked box”) semmilyen körülmények között nem minősül érvényes, a GDPR által előírt önkéntes és egyértelmű hozzájárulásnak.
 
-### JOGI INDOKOLÁS 
+### JOGI INDOKOLÁS
+Az Európai Adatvédelmi Testület (EDPB) 05/2020. számú irányelve 3.1. szakaszának álláspontja szerint az előre bejelölt négyzetek „nem felelnek meg a GDPR 4. cikk 11. pontjában foglalt, az érintett egyértelmű megerősítő cselekvésére vonatkozó követelménynek”. A hozzájárulás akkor tekinthető érvényesnek, ha az érintett aktív cselekvést tanúsít; amennyiben az érintettnek kell „aktívan tennie valamit a hozzájárulás visszavonása érdekében”, a hozzájárulás már nem tekinthető szabadon adottnak.
 
-A hatályos Munka Törvénykönyve (Mt.) alapján a munkáltatói felmondás alakszerűségéhez kötött jognyilatkozat. Az Mt. 65. § (3) bekezdése értelmében: „A munkáltató a határozatlan idejű munkaviszony felmondását köteles írásban indokolni.” Továbbá a jogszabály egyértelművé teszi a szankciót: „A munkáltatói felmondás írásbeli alakjának megsértése esetén a jognyilatkozat érvénytelen.” Ebből következően a szóbeli közlés – függetlenül annak tartalmától – nem szünteti meg a munkaviszonyt.
+A NAIH/2022/1145/2. sz. határozat indokolása (12. pont) rögzíti, hogy az ilyen technikai megoldás tisztességtelen kereskedelmi gyakorlatnak minősül, mivel „vélelmezett hozzájárulást kényszerít ki”. A hatóság explicit módon kimondja, hogy az így szerzett hozzájárulás semmis, mivel az nem felel meg a GDPR 7. cikk (1) bekezdésében előírt egyértelműség követelményének.
 
-Amennyiben a munkáltató a szóbeli közléssel összhangban a munkavégzéstől eltiltja Önt, az a munkáltató működési körébe tartozó okból történő mentesítésnek minősül. Az Mt. 146. § (2) bekezdése kimondja: „A munkavállalót távolléti díj illeti meg az irányadó munkavégzési kötelezettsége alóli mentesítés idejére, ha a munkáltató a munkavállalót a munkavégzés alól a munkáltató működési körében felmerült okból mentesíti.” A munkáltató tehát köteles megfizetni a bérét a munkavégzés alól történt eltiltás teljes időtartamára.
+A polgári jogi szabályozás szintén alátámasztja ezt a következtetést. A 2013. évi V. törvény (Ptk.) 6:82. § (1) bekezdése deklarálja, hogy „a hallgatás vagy a magatartástól való tartózkodás – ha jogszabály másként nem rendelkezik – nem minősül jognyilatkozatnak”. Ezzel összhangban az 1997. évi CLV. törvény 17/A. § (1) bekezdése szerint „a hallgatás mint beleegyezés elve a fogyasztói szerződésekben nem alkalmazható”, és a vállalkozás nem jogosult olyan technikai megoldást alkalmazni, amely előre bejelölt opciókkal teremt adatkezelési kötelezettséget.
 
-A bizonytalan helyzet rendezése érdekében az Mt. 22. § (2) bekezdése biztosítja a munkavállaló számára a jogi eszközt: „A munkavállaló a munkáltatót a jognyilatkozat írásba foglalására és átadására felhívhatja.” Amennyiben a munkáltató a felhívás ellenére továbbra is mulaszt, az Mt. 22. § (2) bekezdése feljogosítja Önt arra, hogy bírósághoz forduljon a jognyilatkozat írásba foglalásának kikényszerítése, illetve a munkaviszony esetleges jogellenes megszüntetésének megállapítása iránt.
+### JOGSZABÁLYI HIVATKOZÁSOK
+- Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 4. cikk 11. pont, 7. cikk (1) bekezdés.
+- Az Európai Adatvédelmi Testület 05/2020. számú irányelve a hozzájárulásról (3.1. szakasz).
+- NAIH/2022/1145/2. sz. határozat (Indokolás 12. pont).
+- 2013. évi V. törvény a Polgári Törvénykönyvről 6:82. § (1) bekezdés.
+- 1997. évi CLV. törvény a fogyasztóvédelemről 17/A. § (1) bekezdés.
 
-Az igényérvényesítési határidő tekintetében az Mt. 287. § (1) bekezdése az irányadó: mivel írásbeli dokumentum nem került átadásra, a harminc napos keresetindítási határidő a „munkaviszony megszüntetésére irányuló szóbeli közlés tudomására jutásától, vagy a munkavégzéstől való eltiltás időpontjától kezdődik.”
-
-### JOGSZABÁLYI HIVATKOZÁSOK 
-- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 22. § (1) és (2) bekezdés
-- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 65. § (3) bekezdés
-- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 146. § (2) bekezdés
-- 2012. évi I. törvény a munka törvénykönyvéről (Mt.) 287. § (1) bekezdés
-
-### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK 
-A munkavállalónak ügyelnie kell arra, hogy a szóbeli közlést követően ne hagyja el önként a munkahelyét (ne mondjon fel saját maga), és ne írjon alá semmilyen papírt (például közös megegyezést) anélkül, hogy annak tartalmát jogi szakemberrel ellenőriztetné. A szóbeli közlés érvénytelensége nem zárja ki, hogy a munkáltató utólag érvényes, írásbeli felmondást közöljön, ezért a harminc napos jogvesztő határidő figyelése kritikus jelentőségű. Nincs szó a jogszabályok szerinti abszolút érvényességről, ha a felek utólagos írásbeli megállapodást kötnek (pl. közös megegyezés), amely felülírja a korábbi szóbeli jognyilatkozatot.
+### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
+A vizsgált források alapján az előre kipipált jelölőnégyzet érvénytelensége tekintetében nincs kivétel. A Ptk. 6:82. § (1) bekezdése tartalmaz egy elvi fenntartást („ha jogszabály másként nem rendelkezik”), azonban sem a GDPR, sem a fogyasztóvédelmi jogszabályok nem biztosítanak olyan esetet, amely az adatkezelési hozzájárulás vonatkozásában felülírná az egyértelmű megerősítő cselekvés követelményét. A gyakorlatban tehát a kockázat nulla, mivel az ilyen megoldás jogellenesnek minősül.

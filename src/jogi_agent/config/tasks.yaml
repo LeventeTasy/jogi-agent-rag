@@ -58,7 +58,7 @@ jogszabalyi_megalapozottsag_feladat:
     Szűrje ki a releváns cikkeken belüli felesleges bekezdéseket vagy irreleváns utalásokat.
   expected_output: >
     Egy finomított, validált JSON lista, ahol a "quote" mező kizárólag a releváns, hitelesített jogszabályi mondatokat tartalmazza, 
-    valamint az "article" mező kiegészül a pontos bekezdésszámmal (pl. 88. cikk (1) bekezdés).
+    valamint az "article" mező kiegészül a pontos bekezdésszámmal (pl. 88. cikk (1) bekezdés). Viszont a "raw_text" teljes mértékben, módosítatlanul megmarad.
   agent: jogi_grounding_verifier
 
 jogi_tanacsadoi_feladat:
@@ -94,27 +94,26 @@ jogi_tanacsadoi_feladat:
 
 jogszabalyi_ellenőzési_feladat:
   description: >
-    Végezz kíméletlen, mikroszintű karakter- és számonkénti szöveg-összehasonlítást (Statute Grounding) 
-    a Jogi Tanácsadó ágens által generált szakvélemény és a RAG adatbázisból kinyert nyers 
-    törvényszövegek (contexts) között. 
+    Végezz részletes, tényalapú összehasonlítást (Statute Grounding) a Jogi Tanácsadó ágens által 
+    generált szakvélemény és a RAG adatbázisból kinyert nyers törvényszövegek (contexts) között.
     
-    KÖTELEZŐ ELLENŐRZÉSI LÉPÉSEK (AUDIT PROTOKOLL):
-    1. PARAGRAFUS- ÉS BEKEZDÉSSZÁMOK: Egyenként vesd össze az összes törvényhely számát! Ha a kontextusban 
-       '285. §' szerepel, de a Tanácsadó '28. §'-t írt, vagy ha az (1) bekezdés helyett (2)-est használt, 
-       az kritikus hivatkozási hiba!
-    2. SZOGSZABÁLYI TERMINOLÓGIA: Ellenőrizd a pontos jogi kifejezéseket! Ha a forrásszöveg 'alapbér'-t 
-       ír, de a Tanácsadó saját szakállára 'távolléti díj'-nak nevezi, vagy bármilyen szinonimát használ, 
-       ami karakterre pontosan nem egyezik a törvénnyel, az hallucinációnak minősül!
-    3. EXKLUZÍV FORRÁSALAPÚSÁG: Bármilyen jogi magyarázat vagy következtetés, amely elméletileg igaz lehet, 
-       de szó szerint nem vezethető le a megadott nyers RAG kontextusokból, tiltott kiegészítés!
+    ELLENŐRZÉSI PROTOKOLL:
+    1. PARAGRAFUS- ÉS BEKEZDÉSSZÁMOK: Szigorúan ellenőrizd a törvényhelyek számait! Ha a forrásban 44. § (2) 
+       szerepel, de a Tanácsadó 44. § (1)-re hivatkozik, vagy teljesen más paragrafust ír, az kritikus hivatkozási hiba.
+    2. TARTALMI MEGFELELŐSÉG: A Tanácsadó fogalmazhat saját szavaival és használhat elfogadott jogi szakkifejezéseket 
+       (pl. a 30 napos határidőt nevezheti jogvesztő határidőnek), amennyiben a megállapítás magva hű a forráshoz. 
+       Azonban ha a forrás 'alapbér'-t ír, és a Tanácsadó tévesen 'távolléti díj'-ként számolja el, az hiba.
+    3. FORRÁSKORLÁTOZÁS: Kritikus hiba kizárólag akkor áll fenn, ha a Tanácsadó olyan konkrét jogszabályra, paragrafusra vagy bekezdésre hivatkozik tényállításként, 
+      amely nem támasztható alá a megadott RAG kontextussal. Általános jogi magyarázat vagy következtetés önmagában nem hiba.
+    4. Ha egy jogszabály szerepel a RAG-ban, de a Tanácsadó csak összefoglalja, akkor azt helyesnek kell tekinteni,
+      nem szükséges szó szerinti idézet.
     
-    STRUKTÚRÁLT KIVÁLASZTÁSI SZABÁLY:
-    - Amennyiben a szakvélemény 100%-ban pontos, minden szám, betű és fogalom karakterre pontosan megegyezik 
-      a RAG forrásokkal, a kimeneted KIZÁRÓLAG ezzel a mondattal kezdődjön: "SIKER, ELLENŐZÉS BEFEJEZVE".
-    - Amennyiben bármilyen számelírást, terminológiai pontatlanságot, vagy forráson túli kiegészítést találsz, 
-      a kimeneted kötelezően ezzel a kulcsszóval kezdődjön: "HIBA ÉSZLELVE!", majd pontokba szedve listázd ki 
-      a konkrét hivatkozási hibákat (pontos paragrafusszámmal) és a javítási javaslatokat a Tanácsadó ágens számára.
+    STRUKTURÁLT JELZÉSI SZABÁLYOK:
+    - Ha a szakvélemény ténybelileg pontos, nem tartalmaz rossz számokat vagy forrásidegen törvényeket, 
+      a kimeneted kötelezően ezzel a pontos mondattal kezdődjön: "SIKER, ELLENŐZÉS BEFEJEZVE".
+    - Ha tárgyi tévedést vagy RAG-en kívüli törvényt találsz, a kimeneted kötelezően ezzel kezdődjön: 
+      "HIBA ÉSZLELVE!", majd pontokba szedve, röviden listázd ki a Tanácsadó számára, hogy melyik paragrafust 
+      vagy téves állítást kell javítania vagy törölnie.
   expected_output: >
-    Egy kőkemény jogi audit jelentés, amely kötelezően a "SIKER, ELLENŐZÉS BEFEJEZVE" vagy "HIBA ÉSZLELVE!" kulcsszóval kezdődik, 
-    és tartalmazza a számonkénti és kifejezésenkénti hallucináció-ellenőrzési jegyzőkönyvet.
+    Egy jogi audit jelentés, amely kötelezően a "SIKER, ELLENŐZÉS BEFEJEZVE" vagy "HIBA ÉSZLELVE!" kulcsszóval kezdődik.
   agent: jogi_fact_checker

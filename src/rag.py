@@ -2,7 +2,6 @@ import os
 import re
 import time
 from dotenv import load_dotenv
-import configparser
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -208,31 +207,29 @@ def query_rag(query_text: str):
     source_list = []
 
     for doc, score in results:
-        # 1. Kinyerjük a JELENLEGI adatbázisod metaadatait
         meta = doc.metadata
-        source_file = os.path.basename(meta.get("source", "Ismeretlen")).replace(".pdf", "")
         law = meta.get("law", "Ismeretlen törvény")
-        section_id = meta.get("section_id", "ismeretlen")
+        sid = meta.get("section_id", "N/A")
         page = meta.get("page", "multiple")
+        src = os.path.basename(meta.get("source", "file"))
 
-        # Matematikai magabiztosság (0 és 1 között, a távolságból számolva)
-        confidence = round(1 - min(score, 1.0), 2)
+        distance_score = round(float(score), 4)
 
-        header = f"[Törvény: {law} | Hely: {section_id} | Oldal: {page} | Forrásfájl: {source_file} | Bizonyosság: {confidence}]"
+        clean_content = doc.page_content[:1500] + "... [vágva a stabilitásért]" if len(
+            doc.page_content) > 1500 else doc.page_content
 
-        formatted_context += f"{header}\n{doc.page_content}\n\n---\n\n"
+        header = f"[Törvény: {law} | Hely: {sid} | Távolság: {distance_score} | Oldal: {page} | Forrásfájl: {src}]"
+        formatted_context += f"{header}\n{clean_content}\n\n---\n\n"
 
-        # 4. JSON lista építése az ágensnek
         source_list.append({
-            "source": source_file,
+            "sid": sid,
             "law": law,
-            "section_id": section_id,
             "page": page,
-            "confidence": confidence
+            "src": src,
+            "score": score
         })
 
-
-    return formatted_context
+    return formatted_context, source_list
 
 
 def build_rag():
@@ -250,12 +247,64 @@ def build_rag():
     add_chroma(chunks)
     print("Adatbázis frissítve")
 
+def ask_question(question: str):
+    formatted_context, source_list = query_rag(question)
+
+    PROMPT_TEMPLATE = """
+        Te egy tűpontos jogi asszisztens vagy. KIZÁRÓLAG a megadott kontextus alapján válaszolj.
+
+        SZABÁLYOK:
+        - Csak a kontextusban szereplő információkat használd.
+        - Tilos bármit kitalálni vagy feltételezni.
+        - Csak olyan törvényt, cikket, paragrafust vagy preambulum bekezdést említs, ami szó szerint szerepel a kontextusban.
+        - A preambulum nem azonos a cikkel vagy paragrafussal.
+        - Ha a pontos hivatkozás nem állapítható meg, ezt mondd ki egyértelműen.
+        - Maximum 2-3 releváns forrást említs.
+        - Ha a kérdés jogokat, kötelezettségeket vagy definíciókat kér, elsődlegesen cikket vagy paragrafust használj, ne preambulumot.
+
+        Ha nincs explicit cikk a contextben:
+        - NE írj cikket
+        - NE próbáld behelyettesíteni
+        - csak: "nem állapítható meg"
+
+        HA egy cikk vagy paragrafus nem szerepel szó szerint a kontextusban:
+        - TILOS megemlíteni
+        - TILOS számot kitalálni
+
+        KONTEXTUS:
+        {context}
+
+        KÉRDÉS:
+        {question}
+
+        VÁLASZ FORMÁTUMA:
+        - Rövid, pontos válasz
+        - Ha lehet: "A [Törvény neve] [cikk/paragrafus] alapján..."
+        - Ha nem biztos a pontos hivatkozás:
+          "A rendelkezésre álló szöveg alapján a pontos hivatkozás nem állapítható meg, de..."
+        - A végén: "Források:"
+        """
+
+    prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
+    prompt = prompt_template.format(context=formatted_context, question=question)
+
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-3.1-flash-lite",
+        temperature=0.2
+    )
+
+    response_text = llm.invoke(prompt)
+
+    print("\nVÁLASZ:")
+    print(response_text.content[0]["text"])
+
+    print("-" * 50)
 
 
 def main(test_mode: bool = False):
     print("Indul a RAG építése...")
 
-    build_rag()
+    #build_rag()
 
     if test_mode:
         test_questions = [
@@ -281,14 +330,17 @@ def main(test_mode: bool = False):
             "A GDPR 88. cikk teljes mértékben felülírja a magyar Munka Törvénykönyv adatkezelési szabályait?"
         ]
 
+        """
         for question in test_questions:
             print(f"\nTESZTELÉS: {question}")
             query_rag(question)
+        """
 
     query_text = input(": ")
     while query_text != "break":
-        print(query_rag(query_text))
+        print(ask_question(query_text))
         query_text = input(": ")
+
 
 
 if __name__ == "__main__":
