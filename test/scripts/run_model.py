@@ -1,5 +1,6 @@
 import os, sys
 import pandas as pd
+import time
 from pathlib import Path
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,12 +21,39 @@ if MODEL_IS_AGENT:
 else:
     SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
 
-COLUMNS = [
-    "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
-    "Valasz", "Faithfulness", "Faithfulness_Reason", "Answer_Relevancy", "Answer_Relevancy_Reason", "Context_Relevancy","Context_Relevancy_Reason" ,
-    "Summarization", "Summarization_Reason" , "Coherance", "Coherance_Reason","Toxicity", "Toxicity_Reason","Bias", "Bias_Reason" # osszesen: 20 oszlop
-    # str, str, str, str, str, str, float, str, float, str, float, str, float, str, float, str, float, str, float, str
-]
+
+AGENT_COLUMNS = [
+    "Torveny",
+    "Tipus",
+    "Kerdes",
+    "Q_chunk",
+    "A_chunk",
+    "Valasz",
+    "Faithfulness",
+    "Faithfulness_Reason",
+    "Answer_Relevancy",
+    "Answer_Relevancy_Reason",
+    "Context_Relevancy",
+    "Context_Relevancy_Reason",
+    "Verifier_Agent_Runs",
+    "Runtime"
+] # str, str, str, str, str, str, float, str, float, str, float, str, int, float
+
+RAG_COLUMNS = [
+    "Torveny",
+    "Tipus",
+    "Kerdes",
+    "Q_chunk",
+    "A_chunk",
+    "Valasz",
+    "Faithfulness",
+    "Faithfulness_Reason",
+    "Answer_Relevancy",
+    "Answer_Relevancy_Reason",
+    "Context_Relevancy",
+    "Context_Relevancy_Reason",
+    "Runtime"
+] # str, str, str, str, str, str, float, str, float, str, float, str, float
 
 if os.path.exists(SAVE_PATH):
     df = pd.read_excel(SAVE_PATH)
@@ -34,24 +62,19 @@ else:
 
 
 text_columns = [
-        "Valasz",
-        "A_chunk",
-        "Q_chunk",
-        "Faithfulness_Reason",
-        "Answer_Relevancy_Reason",
-        "Context_Relevancy_Reason",
-        "Summarization_Reason",
-        "Coherance_Reason",
-        "Toxicity_Reason",
-        "Bias_Reason",
-    ]
+    "Valasz",
+    "A_chunk",
+    "Q_chunk",
+    "Faithfulness_Reason",
+    "Answer_Relevancy_Reason",
+]
 
 for col in text_columns:
     df[col] = df[col].astype("string")
 
 print(f"{len(df)} tesztkérdés beolvasva!")
 
-limit = 15
+limit = 1
 ind = 0
 
 print(f"Running the {'Agent' if MODEL_IS_AGENT else 'RAG'} model...")
@@ -80,17 +103,25 @@ for index, row in df.iterrows():
         }
 
     if MODEL_IS_AGENT:
+        start_time = time.perf_counter()
         flow = JogiFlow()
         flow.state["inputs"] = inputs
 
         answer = str(flow.kickoff())
+        elapsed_time = time.perf_counter() - start_time
+
         print(answer+"\n\n")
         chunks_list = flow.get_chunks()
-        #print(chunks_list)
         a_chunk_string = "\n\n".join(chunks_list)
 
+        verifier_retries = flow.get_verifier_counter()
+        df.at[index, "Verifier_Agent_Runs"] = int(verifier_retries)
+
+
     else:
+        start_time = time.perf_counter()
         answer, a_chunk_string = ask_question(kerdes)
+        elapsed_time = time.perf_counter() - start_time
         #print(a_chunk_string)
 
 
@@ -99,6 +130,7 @@ for index, row in df.iterrows():
 
     df.at[index, 'Valasz'] = answer
     df.at[index, 'A_chunk'] = a_chunk_string
+    df.at[index, 'Runtime'] = elapsed_time
 
     df.to_excel(SAVE_PATH, index=False)
 

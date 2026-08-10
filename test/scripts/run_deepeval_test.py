@@ -111,12 +111,38 @@ def evaluate_multi_agent_system(input_text, actual_output, retrieval_context):
 
     return results
 
-COLUMNS = [
-    "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
-    "Valasz", "Faithfulness", "Faithfulness_Reason", "Answer_Relevancy", "Answer_Relevancy_Reason", "Context_Relevancy","Context_Relevancy_Reason" ,
-    "Summarization", "Summarization_Reason" , "Coherance", "Coherance_Reason","Toxicity", "Toxicity_Reason","Bias", "Bias_Reason" # osszesen: 20 oszlop
-    # str, str, str, str, str, str, float, str, float, str, float, str, float, str, float, str, float, str, float, str
-]
+AGENT_COLUMNS = [
+    "Torveny",
+    "Tipus",
+    "Kerdes",
+    "Q_chunk",
+    "A_chunk",
+    "Valasz",
+    "Faithfulness",
+    "Faithfulness_Reason",
+    "Answer_Relevancy",
+    "Answer_Relevancy_Reason",
+    "Context_Relevancy",
+    "Context_Relevancy_Reason",
+    "Verifier_Agent_Runs",
+    "Runtime"
+] # str, str, str, str, str, str, float, str, float, str, float, str, int, float
+
+RAG_COLUMNS = [
+    "Torveny",
+    "Tipus",
+    "Kerdes",
+    "Q_chunk",
+    "A_chunk",
+    "Valasz",
+    "Faithfulness",
+    "Faithfulness_Reason",
+    "Answer_Relevancy",
+    "Answer_Relevancy_Reason",
+    "Context_Relevancy",
+    "Context_Relevancy_Reason",
+    "Runtime"
+] # str, str, str, str, str, str, float, str, float, str, float, str, float
 
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent

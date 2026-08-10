@@ -22,6 +22,7 @@ class JogiFlow(Flow):
         self.state["deep_analysis"] = config["is_deep_analysis_enabled"]
 
         self.state["correction_retries"] = 0
+        self.state["verifier_counter"] = 0
         self.state["max_retries"] = 2
 
         self.state["rag_chunks"] = ""
@@ -89,9 +90,10 @@ class JogiFlow(Flow):
         self.state["cleaned_rag_chunks"] = megalapozottsag_task.output.raw
         self.state["final_answer"] = advisor_task.output.raw
         self.state["verifier_feedback"] = verifier_task.output.raw
+        self.state["verifier_counter"] += 1
+
 
     def get_chunks(self):
-
         flow_output_string = self.state.get("cleaned_rag_chunks") or self.state.get("rag_chunks")
         if not flow_output_string:
             print("Hiba: A RAG chunks és a cleaned_rag_chunks is üres!")
@@ -141,6 +143,9 @@ class JogiFlow(Flow):
             if fallback_lines:
                 return ["\n".join(fallback_lines)]
         return []
+
+    def get_verifier_counter(self):
+        return self.state.get("verifier_counter")
 
     @router(run_main_crew)
     def check_answer(self):
@@ -203,6 +208,7 @@ class JogiFlow(Flow):
 
                 self.state["final_answer"] = mini_crew_result.tasks_output[0].raw
                 self.state["verifier_feedback"] = mini_crew_result.tasks_output[1].raw
+                self.state["verifier_counter"] += 1
 
                 if "SIKER, ELLENŐRZÉS BEFEJEZVE" in self.state["verifier_feedback"]:
                     print("A korrekció sikeres.")
@@ -229,8 +235,8 @@ class JogiFlow(Flow):
     @listen(or_(correction, "complete"))
     def finish_flow(self):
         if self.testing:
-            return self.state["final_answer"] + f"\n RAG CHUNKS: {self.state['rag_chunks']}"
+            return self.state["final_answer"] + f"Verifier futttatva: {self.state['verifier_counter']}" + f"\n RAG CHUNKS: {self.state['rag_chunks']}"
 
         else:
-            return self.state["final_answer"]
+            return self.state["final_answer"] + f"Verifier futttatva: {self.state['verifier_counter']}"
 
