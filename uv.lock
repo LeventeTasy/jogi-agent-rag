@@ -683,11 +683,27 @@ name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl", hash = "sha256:a7a39a3bd276781e98394987d3a5701d0c4edffb633bb7a5144577f82c773598", size = 16740, upload-time = "2025-11-21T23:01:53.443Z" },
+]
+
+[[package]]
+name = "fastapi"
+version = "0.141.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "annotated-doc" },
+    { name = "pydantic" },
+    { name = "starlette" },
+    { name = "typing-extensions" },
+    { name = "typing-inspection" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8a/02/91e3416a8fdd715abb903a952a6bec7cdd8d14eed55d415fc8595524c319/fastapi-0.141.1.tar.gz", hash = "sha256:e8822fc40db1e1858054d7a949a888695bc9bdce70139178e33bd2871a453ca1", size = 425799, upload-time = "2026-07-29T17:18:05.568Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cb/03/10388a42375ee7e4ac9b94eb2c5c569c8b5795e377e701c9ac3ad63de890/fastapi-0.141.1-py3-none-any.whl", hash = "sha256:bfb91aa2d334c61cb35ba9a116fc123b3d3df31640b801cf57a7a78ec3f603b3", size = 131954, upload-time = "2026-07-29T17:18:04.364Z" },
 ]
 
 [[package]]
@@ -1334,6 +1350,7 @@ source = { editable = "." }
 dependencies = [
     { name = "chromadb" },
     { name = "crewai", extra = ["tools"] },
+    { name = "fastapi" },
     { name = "google-genai" },
     { name = "google-generativeai" },
     { name = "langchain" },
@@ -1343,12 +1360,14 @@ dependencies = [
     { name = "pypdf" },
     { name = "python-dotenv" },
     { name = "rich" },
+    { name = "uvicorn", extra = ["standard"] },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "chromadb", specifier = ">=1.1.1" },
     { name = "crewai", extras = ["tools"], specifier = "==1.14.4" },
+    { name = "fastapi", specifier = ">=0.141.1" },
     { name = "google-genai", specifier = ">=1.75.0" },
     { name = "google-generativeai", specifier = ">=0.8.6" },
     { name = "langchain", specifier = ">=1.2.17" },
@@ -1358,6 +1377,7 @@ requires-dist = [
     { name = "pypdf", specifier = ">=6.10.2" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "rich", specifier = ">=14.3.4" },
+    { name = "uvicorn", extras = ["standard"], specifier = ">=0.46.0" },
 ]
 
 [[package]]
@@ -2286,11 +2306,11 @@ resolution-markers = [
     "python_full_version < '3.11'",
 ]
 dependencies = [
-    { name = "flatbuffers", marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "packaging", marker = "python_full_version < '3.11'" },
-    { name = "protobuf", marker = "python_full_version < '3.11'" },
-    { name = "sympy", marker = "python_full_version < '3.11'" },
+    { name = "flatbuffers" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" } },
+    { name = "packaging" },
+    { name = "protobuf" },
+    { name = "sympy" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/15/41/3253db975a90c3ce1d475e2a230773a21cd7998537f0657947df6fb79861/onnxruntime-1.24.3-cp311-cp311-macosx_14_0_arm64.whl", hash = "sha256:3e6456801c66b095c5cd68e690ca25db970ea5202bd0c5b84a2c3ef7731c5a3c", size = 17332766, upload-time = "2026-03-05T17:18:59.714Z" },
@@ -2321,10 +2341,10 @@ resolution-markers = [
     "python_full_version >= '3.11' and python_full_version < '3.13'",
 ]
 dependencies = [
-    { name = "flatbuffers", marker = "python_full_version >= '3.11'" },
-    { name = "numpy", version = "2.4.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
-    { name = "packaging", marker = "python_full_version >= '3.11'" },
-    { name = "protobuf", marker = "python_full_version >= '3.11'" },
+    { name = "flatbuffers" },
+    { name = "numpy", version = "2.4.4", source = { registry = "https://pypi.org/simple" } },
+    { name = "packaging" },
+    { name = "protobuf" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c1/00/dccf702195572df51a40784fc939304595a0ae3577537d3b5be79273151a/onnxruntime-1.25.1-cp311-cp311-macosx_14_0_arm64.whl", hash = "sha256:5cf58ec7601120bb4370f0b868f794d3e3626db7b1b1dba366c27874b224e9de", size = 17762805, upload-time = "2026-04-27T22:00:45.336Z" },
@@ -3765,7 +3785,7 @@ name = "sympy"
 version = "1.14.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "mpmath", marker = "python_full_version < '3.11'" },
+    { name = "mpmath" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/83/d3/803453b36afefb7c2bb238361cd4ae6125a569b4db67cd9e79846ba2d68c/sympy-1.14.0.tar.gz", hash = "sha256:d3d3fe8df1e5a0b42f0e7bdf50541697dbe7d23746e894990c030e2b05e72517", size = 7793921, upload-time = "2025-04-27T18:05:01.611Z" }
 wheels = [
