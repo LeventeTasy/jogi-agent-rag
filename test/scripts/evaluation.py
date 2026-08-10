@@ -12,7 +12,6 @@ def evaluate(path1: str, path2: str):
             "Faithfulness",
             "Answer_Relevancy",
             "Context_Relevancy",
-            "Coherance"
         ]
 
         print("="*50)
@@ -21,6 +20,9 @@ def evaluate(path1: str, path2: str):
         print(f"Hallucináció\t{hallucination_1}%")
         atl_elso = df[metrics].mean()
         print(atl_elso)
+        print(f"Átlagos runtime\t {round(df['Runtime'].mean(), 2)}s")
+        if "Verifier_Agent_Runs" in df.columns:
+            print(f"Verifier Agent lefutott {df['Verifier_Agent_Runs'].mean()}x")
         print("-"*30)
         print(f"Összes kérdés\t{df['Faithfulness'].count()}")
         print()
@@ -31,6 +33,9 @@ def evaluate(path1: str, path2: str):
         print(f"Hallucináció\t{hallucination_2}%")
         atl_masodik = df2[metrics].mean()
         print(atl_masodik)
+        print(f"Átlagos runtime\t {round(df['Runtime'].mean(), 2)}s")
+        if "Verifier_Agent_Runs" in df.columns:
+            print(f"Verifier Agent lefutott {df['Verifier_Agent_Runs'].mean()}x")
         print("-" * 30)
         print(f"Összes kérdés\t{df2['Faithfulness'].count()}")
         print()
@@ -65,6 +70,6 @@ def evaluate(path1: str, path2: str):
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
     PATH1 = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
-    PATH2 = BASE_DIR.parent / "results" / "answered_questions_agent_chunk.xlsx"
+    PATH2 = BASE_DIR.parent / "results" / "answered_questions_agent.xlsx"
 
     evaluate(PATH1, PATH2)

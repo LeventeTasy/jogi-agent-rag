@@ -1,21 +1,22 @@
-# JOGI SZAKVÉLEMÉNY: Egy előre kipipált checkbox elfogadható hozzájárulásnak minősülhet valaha a GDPR szerint?
+# JOGI SZAKVÉLEMÉNY: Jogosult-e a vagyonrendelő visszakövetelni a vagyonkezelő által jogosulatlanul átruházott vagyontárgyat egy jóhiszemű, visszterhesen szerző harmadik személytől?
 
 ### RÖVID VÁLASZ
-Nem. Az előre kipipált jelölőnégyzet („pre-ticked box”) semmilyen körülmények között nem minősül érvényes, a GDPR által előírt önkéntes és egyértelmű hozzájárulásnak.
+Nem, a vagyonrendelő nem jogosult visszakövetelni a vagyontárgyat a jóhiszemű, visszterhesen szerző harmadik személytől, amennyiben a megszerzés jogszerűségét a nyilvántartási adatok vagy a jóhiszeműség vélelme alátámasztja.
 
 ### JOGI INDOKOLÁS
-Az Európai Adatvédelmi Testület (EDPB) 05/2020. számú irányelve 3.1. szakaszának álláspontja szerint az előre bejelölt négyzetek „nem felelnek meg a GDPR 4. cikk 11. pontjában foglalt, az érintett egyértelmű megerősítő cselekvésére vonatkozó követelménynek”. A hozzájárulás akkor tekinthető érvényesnek, ha az érintett aktív cselekvést tanúsít; amennyiben az érintettnek kell „aktívan tennie valamit a hozzájárulás visszavonása érdekében”, a hozzájárulás már nem tekinthető szabadon adottnak.
+A bizalmi vagyonkezelő a kezelt vagyontárgyak tekintetében a Polgári Törvénykönyv (Ptk.) 6:312. §-a értelmében tulajdonosként jár el, noha a vagyon a saját vagyonától elkülönült vagyontömeg. E rendelkezési jog korlátját a rendeltetésszerű használat képezi. Bár a Ptk. 6:312. §-a szerint a jogellenes átruházás a vagyonrendelővel szemben hatálytalan lehet, ez a hatálytalanság csak akkor érvényesíthető, ha a harmadik személy a jogellenességről tudott vagy tudnia kellett.
 
-A NAIH/2022/1145/2. sz. határozat indokolása (12. pont) rögzíti, hogy az ilyen technikai megoldás tisztességtelen kereskedelmi gyakorlatnak minősül, mivel „vélelmezett hozzájárulást kényszerít ki”. A hatóság explicit módon kimondja, hogy az így szerzett hozzájárulás semmis, mivel az nem felel meg a GDPR 7. cikk (1) bekezdésében előírt egyértelműség követelményének.
+A Ptk. 5:40. § (1) bekezdése értelmében a jóhiszemű, visszterhes jogszerző védelme a bizalmi vagyonkezelésbe adott vagyontárgyak esetén is fennáll. Ez azt jelenti, hogy amennyiben a harmadik személy a dolog tulajdonjogát forgalomban erre jogosulttól (a vagyonkezelőtől) visszterhesen szerzi meg, a tulajdonjogot akkor is megszerzi, ha az átruházó nem volt a vagyontárgy tényleges tulajdonosa, feltéve, hogy a nyilvántartásokból a vagyonkezelői jog korlátozottsága nem tűnik ki.
 
-A polgári jogi szabályozás szintén alátámasztja ezt a következtetést. A 2013. évi V. törvény (Ptk.) 6:82. § (1) bekezdése deklarálja, hogy „a hallgatás vagy a magatartástól való tartózkodás – ha jogszabály másként nem rendelkezik – nem minősül jognyilatkozatnak”. Ezzel összhangban az 1997. évi CLV. törvény 17/A. § (1) bekezdése szerint „a hallgatás mint beleegyezés elve a fogyasztói szerződésekben nem alkalmazható”, és a vállalkozás nem jogosult olyan technikai megoldást alkalmazni, amely előre bejelölt opciókkal teremt adatkezelési kötelezettséget.
+A Ptk. 6:330. § alapján a vagyonkezelő köteles a kezelt vagyontárgyak bizalmi vagyonkezelői minőségét a hiteles nyilvántartásokba bejegyeztetni. A nyilvántartás közhitelessége biztosítja a harmadik személyek számára a jogi helyzet átláthatóságát. Amennyiben a nyilvántartásba történő bejegyzés megtörtént, és az nem utal a rendelkezési jog korlátozottságára, a harmadik személy jóhiszeműsége vélelmezett. A vagyonrendelő a tulajdonjog visszaszerzésére irányuló követelésének érvényesíthetetlensége esetén a Ptk. 6:325. § alapján kártérítési igénnyel léphet fel a vagyonkezelővel szemben, amely a kezelt vagyon sérelméből eredő károk megtérítésére irányul.
 
-### JOGSZABÁLYI HIVATKOZÁSOK
-- Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) 4. cikk 11. pont, 7. cikk (1) bekezdés.
-- Az Európai Adatvédelmi Testület 05/2020. számú irányelve a hozzájárulásról (3.1. szakasz).
-- NAIH/2022/1145/2. sz. határozat (Indokolás 12. pont).
-- 2013. évi V. törvény a Polgári Törvénykönyvről 6:82. § (1) bekezdés.
-- 1997. évi CLV. törvény a fogyasztóvédelemről 17/A. § (1) bekezdés.
+### JOGSZABÁLYI HIVATKOZÁSOK - 2013. évi V. törvény a Polgári Törvénykönyvről
+- 5:40. § (1) bekezdés
+- 6:312. §
+- 6:325. §
+- 6:330. §
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A vizsgált források alapján az előre kipipált jelölőnégyzet érvénytelensége tekintetében nincs kivétel. A Ptk. 6:82. § (1) bekezdése tartalmaz egy elvi fenntartást („ha jogszabály másként nem rendelkezik”), azonban sem a GDPR, sem a fogyasztóvédelmi jogszabályok nem biztosítanak olyan esetet, amely az adatkezelési hozzájárulás vonatkozásában felülírná az egyértelmű megerősítő cselekvés követelményét. A gyakorlatban tehát a kockázat nulla, mivel az ilyen megoldás jogellenesnek minősül.
+1. **Rosszhiszeműség kockázata:** A visszakövetelés akkor lehet sikeres, ha bizonyítható, hogy a harmadik személy a jogellenességről tudott vagy tudnia kellett (Ptk. 6:312. §).
+2. **Nyilvántartási kivétel:** Ha a vagyontárgy korlátozottsága az ingatlan-nyilvántartásból vagy más hiteles nyilvántartásból kifejezetten kitűnik, a harmadik személy jóhiszeműsége nem állapítható meg, és a tulajdonszerzés megtámadható (Ptk. 5:40. § (1) bekezdés, 6:330. §).
+3. **Kártérítési korlát:** A vagyonrendelő kártérítési igénye a vagyonkezelővel szemben akkor realizálható, ha a tulajdonjog visszaszerzése harmadik személy jóhiszeműsége okán meghiúsult (Ptk. 6:325. §).

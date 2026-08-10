@@ -1,11 +1,16 @@
 import json
+import time
 from crewai import Crew, Process
 from crewai.flow import human_feedback
 from crewai.flow.flow import Flow, listen, start, router, and_, or_
 from dotenv import load_dotenv
+from pathlib import Path
 from .crew import JogiAgent
 from jogi_agent.utils import get_config
 import re
+import uuid
+import pandas as pd
+from datetime import datetime
 
 load_dotenv()
 
@@ -13,6 +18,7 @@ class JogiFlow(Flow):
 
     def __init__(self, /, testing=False, **data: any):
         super().__init__(**data)
+        self.start_time = time.perf_counter()
         self.testing = testing
 
     @start()
@@ -22,15 +28,30 @@ class JogiFlow(Flow):
         self.state["deep_analysis"] = config["is_deep_analysis_enabled"]
 
         self.state["correction_retries"] = 0
+        self.state["verifier_counter"] = 0
         self.state["max_retries"] = 2
 
-        self.state["rag_chunks"] = ""
-        self.state["cleaned_rag_chunks"] = ""
-        self.state["final_answer"] = ""
-        self.state["verifier_feedback"] = ""
+        self.state["total_tokens"] = 0
+        self.state["prompt_tokens"] = 0
+        self.state["completion_tokens"] = 0
+        self.state["successful_requests"] = 0
+
+        self.state["agent1_output"] = ""            # 1. agens
+        self.state["rag_chunks"] = ""               # 2. agens
+        self.state["cleaned_rag_chunks"] = ""       # 3. agens
+        self.state["final_answer"] = ""  # 4/5. agens
+        self.state["verifier_feedback"] = ""        # 5. agens
 
         if "inputs" not in self.state:
             self.state["inputs"] = {}
+
+    def run_metrics(self, result):
+        metrics = result.token_usage
+
+        self.state["total_tokens"] += metrics.total_tokens
+        self.state["prompt_tokens"] += metrics.prompt_tokens
+        self.state["completion_tokens"] += metrics.completion_tokens
+        self.state["successful_requests"] += metrics.successful_requests
 
     @router(init_flow)
     def route_config(self):
@@ -51,6 +72,8 @@ class JogiFlow(Flow):
         )
 
         analysis_result = mini_crew.kickoff(inputs=self.state["inputs"])
+
+        self.run_metrics(analysis_result)
 
         return analysis_result.raw
 
@@ -75,6 +98,7 @@ class JogiFlow(Flow):
         #print(f"Flow State ID: {self.state['id']}")
 
         agent_instance = JogiAgent()
+        tervezo_feladat = agent_instance.jogi_strategiai_tervezes_feladat()
         rag_task = agent_instance.jogi_kutatasi_feladat()
         megalapozottsag_task = agent_instance.jogszabalyi_megalapozottsag_feladat()
         advisor_task = agent_instance.jogi_tanacsadoi_feladat()
@@ -84,14 +108,17 @@ class JogiFlow(Flow):
         agent_instance.is_deep_analysis = False
         flow_inputs = self.state["inputs"]
         crew_result = agent_instance.crew().kickoff(inputs=flow_inputs)
+        self.run_metrics(crew_result)
 
+        self.state["agent1_output"] = tervezo_feladat.output.raw
         self.state["rag_chunks"] = rag_task.output.raw
         self.state["cleaned_rag_chunks"] = megalapozottsag_task.output.raw
         self.state["final_answer"] = advisor_task.output.raw
         self.state["verifier_feedback"] = verifier_task.output.raw
+        self.state["verifier_counter"] += 1
+
 
     def get_chunks(self):
-
         flow_output_string = self.state.get("cleaned_rag_chunks") or self.state.get("rag_chunks")
         if not flow_output_string:
             print("Hiba: A RAG chunks és a cleaned_rag_chunks is üres!")
@@ -141,6 +168,9 @@ class JogiFlow(Flow):
             if fallback_lines:
                 return ["\n".join(fallback_lines)]
         return []
+
+    def get_verifier_counter(self):
+        return self.state.get("verifier_counter")
 
     @router(run_main_crew)
     def check_answer(self):
@@ -200,9 +230,11 @@ class JogiFlow(Flow):
             while self.state["correction_retries"] < self.state["max_retries"]:
 
                 mini_crew_result = mini_crew.kickoff()
+                self.run_metrics(mini_crew_result)
 
                 self.state["final_answer"] = mini_crew_result.tasks_output[0].raw
                 self.state["verifier_feedback"] = mini_crew_result.tasks_output[1].raw
+                self.state["verifier_counter"] += 1
 
                 if "SIKER, ELLENŐRZÉS BEFEJEZVE" in self.state["verifier_feedback"]:
                     print("A korrekció sikeres.")
@@ -220,16 +252,51 @@ class JogiFlow(Flow):
             )
 
             self.state["final_answer"] = mini_crew.kickoff().raw
+            self.run_metrics(self.state["final_answer"])
 
     @listen("undecidable")
     def warning_undecidable(self):
         print("Hiba: Verifier agent - Rossz címkézés")
         return "Hiba: Verifier agent - Rossz címkézés\n" + self.state["final_answer"]
 
+    def save_log(self):
+        BASE_DIR = Path(__file__).resolve().parent.parent.parent
+        PATH = BASE_DIR / "logs" / "log.xlsx"
+
+        log = pd.read_excel(PATH)
+
+        log.loc[len(log)] = {
+            "QuestionID": f"Q_{uuid.uuid4()}".upper(),
+            "UserID": "U_1",
+            "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "Question": self.state["inputs"]["topic"],
+            "Chunks": self.get_chunks(),
+            "Answer": self.state["final_answer"],
+            "Runtime": time.perf_counter() - self.start_time,
+            "Total_Tokens": self.state["total_tokens"],
+            "Prompt_Tokens": self.state["prompt_tokens"],
+            "Completion_Tokens": self.state["completion_tokens"],
+            "Successful_Requests": self.state["successful_requests"],
+            "Agent1_Output": self.state["agent1_output"],
+            "Agent2_Output": self.state["rag_chunks"],
+            "Agent3_Output": self.state["cleaned_rag_chunks"],
+            "Agent5_Output": self.state["verifier_feedback"],
+            "Verifier_Agent_Runs": self.state["verifier_counter"]
+        }
+
+        log.to_excel(PATH, index=False)
+
+
     @listen(or_(correction, "complete"))
     def finish_flow(self):
+        try:
+            self.save_log()
+        except FileNotFoundError:
+            print("Hiba: Log nem lett mentve!")
+            pass
+
         if self.testing:
-            return self.state["final_answer"] + f"\n RAG CHUNKS: {self.state['rag_chunks']}"
+            return self.state["final_answer"] + f"\nVerifier futttatva: {self.state['verifier_counter']}" + f"\n RAG CHUNKS: {self.state['rag_chunks']}"
 
         else:
             return self.state["final_answer"]
