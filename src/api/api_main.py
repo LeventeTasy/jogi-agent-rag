@@ -3,8 +3,17 @@ from jogi_agent.utils import get_config
 from pydantic import BaseModel
 from jogi_agent.flow import JogiFlow
 from jogi_agent.crew import JogiAgent
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class QuestionRequest(BaseModel):
     question: str
