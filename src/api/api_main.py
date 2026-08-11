@@ -19,6 +19,7 @@ class QuestionRequest(BaseModel):
     question: str
 
 
+
 @app.post("/api/v1/ask")
 def ask(request: QuestionRequest):
     config = get_config()
@@ -39,5 +40,6 @@ def ask(request: QuestionRequest):
     response = flow.kickoff()
 
     return {
-        "answer": str(response)
+        "answer": str(response),
+        "paragraphs": str(flow.get_chunks())
     }
