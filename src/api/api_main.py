@@ -1,14 +1,20 @@
+import os
 import re
+import secrets
 import time
+from typing import Literal
 
-from fastapi import FastAPI
-from jogi_agent.utils import get_config
+from fastapi import FastAPI, Header, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
+from jogi_agent.utils import get_config
 from jogi_agent.flow import JogiFlow
 from jogi_agent.crew import JogiAgent
-from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,10 +24,37 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+FASTAPI_API_SECRET = os.environ["FASTAPI_API_SECRET"]
+
+
+def verify_api_secret(authorization: str | None) -> None:
+    expected = f"Bearer {FASTAPI_API_SECRET}"
+
+    if not authorization or not secrets.compare_digest(
+        authorization,
+        expected,
+    ):
+        raise HTTPException(
+            status_code=401,
+            detail="Unauthorized",
+        )
+
+
 class QuestionRequest(BaseModel):
     question: str
 
-def format_runtime(seconds):
+
+class LogCommentRequest(BaseModel):
+    username: str
+    question: str
+    answer: str
+    runtime: str
+    correctness: Literal["like", "dislike"]
+    comment: str
+
+
+def format_runtime(seconds: float) -> str:
     if seconds < 60:
         return f"{seconds:.0f}s"
 
@@ -30,41 +63,69 @@ def format_runtime(seconds):
 
     return f"{minutes}m {remaining_seconds}s"
 
+
 def remove_legal_references(text: str) -> str:
-    pattern = r"\n?###\s+JOGSZABÁLYI HIVATKOZÁSOK\b.*?(?=\n###\s|\Z)"
+    pattern = (
+        r"\n?###\s+JOGSZABÁLYI HIVATKOZÁSOK\b.*?(?=\n###\s|\Z)"
+    )
 
     cleaned_text = re.sub(
         pattern,
         "",
         text,
-        flags=re.DOTALL | re.IGNORECASE
+        flags=re.DOTALL | re.IGNORECASE,
     )
 
     return cleaned_text.strip()
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.post("/api/v1/ask")
-def ask(request: QuestionRequest):
+def ask(
+    request: QuestionRequest,
+    authorization: str | None = Header(default=None),
+):
+    # Csak a Vercel proxy hívhatja meg.
+    verify_api_secret(authorization)
+
     config = get_config()
     is_memory = config["is_memory"]
 
     inputs = {
-        'topic': request.question,
-        'details': ""
+        "topic": request.question,
+        "details": "",
     }
 
     flow = JogiFlow()
 
     if is_memory:
-        JogiAgent().crew().reset_memories(command_type="memory")
+        JogiAgent().crew().reset_memories(
+            command_type="memory"
+        )
 
     flow.state["inputs"] = inputs
 
     start = time.perf_counter()
+
     response = flow.kickoff()
+
     runtime = time.perf_counter() - start
 
     return {
         "answer": remove_legal_references(str(response)),
         "paragraphs": str(flow.get_chunks()),
-        "runtime": format_runtime(runtime)
+        "runtime": format_runtime(runtime),
     }
+
+@app.post("/api/v1/comment")
+def comment(
+    request: LogCommentRequest,
+    authorization: str | None = Header(default=None),
+):
+    # Csak a Vercel proxy hívhatja meg.
+    verify_api_secret(authorization)
+
+    # TODO: logging logic
+    pass
