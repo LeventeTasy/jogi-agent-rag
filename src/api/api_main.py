@@ -1,3 +1,5 @@
+import time
+
 from fastapi import FastAPI
 from jogi_agent.utils import get_config
 from pydantic import BaseModel
@@ -18,7 +20,14 @@ app.add_middleware(
 class QuestionRequest(BaseModel):
     question: str
 
+def format_runtime(seconds):
+    if seconds < 60:
+        return f"{seconds:.0f}s"
 
+    minutes = int(seconds // 60)
+    remaining_seconds = int(seconds % 60)
+
+    return f"{minutes}m {remaining_seconds}s"
 
 @app.post("/api/v1/ask")
 def ask(request: QuestionRequest):
@@ -37,9 +46,12 @@ def ask(request: QuestionRequest):
 
     flow.state["inputs"] = inputs
 
+    start = time.perf_counter()
     response = flow.kickoff()
+    runtime = time.perf_counter() - start
 
     return {
         "answer": str(response),
-        "paragraphs": str(flow.get_chunks())
+        "paragraphs": str(flow.get_chunks()),
+        "runtime": format_runtime(runtime)
     }
