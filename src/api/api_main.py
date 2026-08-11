@@ -1,3 +1,4 @@
+import re
 import time
 
 from fastapi import FastAPI
@@ -29,6 +30,18 @@ def format_runtime(seconds):
 
     return f"{minutes}m {remaining_seconds}s"
 
+def remove_legal_references(text: str) -> str:
+    pattern = r"\n?###\s+JOGSZABÁLYI HIVATKOZÁSOK\b.*?(?=\n###\s|\Z)"
+
+    cleaned_text = re.sub(
+        pattern,
+        "",
+        text,
+        flags=re.DOTALL | re.IGNORECASE
+    )
+
+    return cleaned_text.strip()
+
 @app.post("/api/v1/ask")
 def ask(request: QuestionRequest):
     config = get_config()
@@ -51,7 +64,7 @@ def ask(request: QuestionRequest):
     runtime = time.perf_counter() - start
 
     return {
-        "answer": str(response),
+        "answer": remove_legal_references(str(response)),
         "paragraphs": str(flow.get_chunks()),
         "runtime": format_runtime(runtime)
     }
