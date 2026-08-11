@@ -21,6 +21,15 @@ app.add_middleware(
 class QuestionRequest(BaseModel):
     question: str
 
+class LogCommentRequest(BaseModel):
+    username: str
+    question: str
+    answer: str
+    runtime: str
+    correctness: Literal["like", "dislike"]
+    comment: str
+
+
 def format_runtime(seconds):
     if seconds < 60:
         return f"{seconds:.0f}s"
@@ -68,3 +77,8 @@ def ask(request: QuestionRequest):
         "paragraphs": str(flow.get_chunks()),
         "runtime": format_runtime(runtime)
     }
+
+@app.post("/api/v1/comment")
+def comment(request: LogCommentRequest):
+    # logging logic
+    pass
