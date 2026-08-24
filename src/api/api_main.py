@@ -2,13 +2,15 @@ import os
 import re
 import secrets
 import time
+from datetime import datetime
 from typing import Literal
 
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from firebase_admin import firestore
 from pydantic import BaseModel
 
-from jogi_agent.utils import get_config
+from jogi_agent.utils import get_config, initialize_firebase
 from jogi_agent.flow import JogiFlow
 from jogi_agent.crew import JogiAgent
 
@@ -46,10 +48,7 @@ class QuestionRequest(BaseModel):
 
 
 class LogCommentRequest(BaseModel):
-    username: str
-    question: str
-    answer: str
-    runtime: str
+    questionId: str
     correctness: Literal["like", "dislike"]
     comment: str
 
@@ -113,10 +112,13 @@ def ask(
 
     runtime = time.perf_counter() - start
 
+    questonId = flow.get_question_id()
+
     return {
         "answer": remove_legal_references(str(response)),
         "paragraphs": str(flow.get_chunks()),
         "runtime": format_runtime(runtime),
+        "question_id": questonId
     }
 
 @app.post("/api/v1/comment")
@@ -124,8 +126,20 @@ def comment(
     request: LogCommentRequest,
     authorization: str | None = Header(default=None),
 ):
-    # Csak a Vercel proxy hívhatja meg.
     verify_api_secret(authorization)
 
-    # TODO: logging logic
-    pass
+    db = initialize_firebase()
+
+    feedback = {
+        "questionId": request.questionId,
+        "correctness": request.correctness,
+        "comment": request.comment,
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+    _, doc_ref = db.collection("feedback").add(feedback)
+
+    return {
+        "success": True,
+        "id": doc_ref.id,
+    }

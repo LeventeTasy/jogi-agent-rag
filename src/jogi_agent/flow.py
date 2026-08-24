@@ -36,6 +36,7 @@ class JogiFlow(Flow):
         self.state["prompt_tokens"] = 0
         self.state["completion_tokens"] = 0
         self.state["successful_requests"] = 0
+        self.state["question_id"] = f"Q_{uuid.uuid4()}".upper()
 
         self.state["agent1_output"] = ""            # 1. agens
         self.state["rag_chunks"] = ""               # 2. agens
@@ -53,6 +54,9 @@ class JogiFlow(Flow):
         self.state["prompt_tokens"] += metrics.prompt_tokens
         self.state["completion_tokens"] += metrics.completion_tokens
         self.state["successful_requests"] += metrics.successful_requests
+
+    def get_question_id(self):
+        return self.state["question_id"]
 
     @router(init_flow)
     def route_config(self):
@@ -267,7 +271,7 @@ class JogiFlow(Flow):
         log = pd.read_excel(PATH)
 
         log.loc[len(log)] = {
-            "QuestionID": f"Q_{uuid.uuid4()}".upper(),
+            "QuestionID": self.state["question_id"],
             "UserID": "U_1",
             "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "Question": self.state["inputs"]["topic"],
@@ -292,7 +296,7 @@ class JogiFlow(Flow):
 
         db.collection("questions").add(
             {
-                "QuestionID": f"Q_{uuid.uuid4()}".upper(),
+                "QuestionID": self.state["question_id"],
                 "UserID": "U_1",
                 "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "Question": self.state["inputs"]["topic"],
