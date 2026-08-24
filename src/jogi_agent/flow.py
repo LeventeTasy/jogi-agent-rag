@@ -6,11 +6,12 @@ from crewai.flow.flow import Flow, listen, start, router, and_, or_
 from dotenv import load_dotenv
 from pathlib import Path
 from .crew import JogiAgent
-from jogi_agent.utils import get_config
+from jogi_agent.utils import get_config, initialize_firebase
 import re
 import uuid
 import pandas as pd
 from datetime import datetime
+
 
 load_dotenv()
 
@@ -286,10 +287,34 @@ class JogiFlow(Flow):
 
         log.to_excel(PATH, index=False)
 
+    def save_log_fb(self):
+        db = initialize_firebase()
+
+        db.collection("questions").add(
+            {
+                "QuestionID": f"Q_{uuid.uuid4()}".upper(),
+                "UserID": "U_1",
+                "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "Question": self.state["inputs"]["topic"],
+                "Chunks": self.get_chunks(),
+                "Answer": self.state["final_answer"],
+                "Runtime": time.perf_counter() - self.start_time,
+                "Total_Tokens": self.state["total_tokens"],
+                "Prompt_Tokens": self.state["prompt_tokens"],
+                "Completion_Tokens": self.state["completion_tokens"],
+                "Successful_Requests": self.state["successful_requests"],
+                "Agent1_Output": self.state["agent1_output"],
+                "Agent2_Output": self.state["rag_chunks"],
+                "Agent3_Output": self.state["cleaned_rag_chunks"],
+                "Agent5_Output": self.state["verifier_feedback"],
+                "Verifier_Agent_Runs": self.state["verifier_counter"]
+            }
+        )
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
         try:
+            self.save_log_fb()
             self.save_log()
         except FileNotFoundError:
             print("Hiba: Log nem lett mentve!")

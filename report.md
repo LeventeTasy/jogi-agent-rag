@@ -1,22 +1,25 @@
 # JOGI SZAKVÉLEMÉNY: Jogosult-e a vagyonrendelő visszakövetelni a vagyonkezelő által jogosulatlanul átruházott vagyontárgyat egy jóhiszemű, visszterhesen szerző harmadik személytől?
 
 ### RÖVID VÁLASZ
-Nem, a vagyonrendelő nem jogosult visszakövetelni a vagyontárgyat a jóhiszemű, visszterhesen szerző harmadik személytől, amennyiben a megszerzés jogszerűségét a nyilvántartási adatok vagy a jóhiszeműség vélelme alátámasztja.
+Nem. A vagyonrendelő nem követelheti vissza a vagyontárgyat, mivel a jogszabály a jóhiszemű, ellenérték fejében szerző harmadik személy tulajdonszerzését védi, a vagyonkezelő jogkörének túllépése pedig nem teszi érvénytelenné az átruházást a jóhiszemű harmadik személlyel szemben.
 
 ### JOGI INDOKOLÁS
-A bizalmi vagyonkezelő a kezelt vagyontárgyak tekintetében a Polgári Törvénykönyv (Ptk.) 6:312. §-a értelmében tulajdonosként jár el, noha a vagyon a saját vagyonától elkülönült vagyontömeg. E rendelkezési jog korlátját a rendeltetésszerű használat képezi. Bár a Ptk. 6:312. §-a szerint a jogellenes átruházás a vagyonrendelővel szemben hatálytalan lehet, ez a hatálytalanság csak akkor érvényesíthető, ha a harmadik személy a jogellenességről tudott vagy tudnia kellett.
+A bizalmi vagyonkezelés jogi konstrukciójában a vagyonkezelő a kezelt vagyont saját nevében, a vagyonkezelési szerződésben meghatározott korlátok között kezeli (2013. évi V. törvény 6:319. § (2) bekezdés). Bár a vagyonkezelő tevékenységét korlátok kötik, a 2013. évi V. törvény 6:323. § (1) bekezdése kimondja, hogy amennyiben a vagyonkezelő a szerződéses korlátokat túllépi, a jognyilatkozata akkor is érvényes, ha a harmadik személy a korlátozásról nem tudott vagy nem kellett tudnia.
 
-A Ptk. 5:40. § (1) bekezdése értelmében a jóhiszemű, visszterhes jogszerző védelme a bizalmi vagyonkezelésbe adott vagyontárgyak esetén is fennáll. Ez azt jelenti, hogy amennyiben a harmadik személy a dolog tulajdonjogát forgalomban erre jogosulttól (a vagyonkezelőtől) visszterhesen szerzi meg, a tulajdonjogot akkor is megszerzi, ha az átruházó nem volt a vagyontárgy tényleges tulajdonosa, feltéve, hogy a nyilvántartásokból a vagyonkezelői jog korlátozottsága nem tűnik ki.
+A tulajdonjog védelmének általános szabálya szerint (2013. évi V. törvény 5:31. § (3) bekezdés) bizalmi vagyonkezelés esetén a tulajdonosi jogokat a vagyonkezelő gyakorolja, ezért a tulajdonjogi igények érvényesítése is őt illeti meg harmadik személyekkel szemben. A vagyonrendelő tulajdonjogi igénye (rei vindicatio) nem érvényesíthető egy olyan harmadik személlyel szemben, aki jóhiszeműen, ellenérték fejében szerzett tulajdonjogot.
 
-A Ptk. 6:330. § alapján a vagyonkezelő köteles a kezelt vagyontárgyak bizalmi vagyonkezelői minőségét a hiteles nyilvántartásokba bejegyeztetni. A nyilvántartás közhitelessége biztosítja a harmadik személyek számára a jogi helyzet átláthatóságát. Amennyiben a nyilvántartásba történő bejegyzés megtörtént, és az nem utal a rendelkezési jog korlátozottságára, a harmadik személy jóhiszeműsége vélelmezett. A vagyonrendelő a tulajdonjog visszaszerzésére irányuló követelésének érvényesíthetetlensége esetén a Ptk. 6:325. § alapján kártérítési igénnyel léphet fel a vagyonkezelővel szemben, amely a kezelt vagyon sérelméből eredő károk megtérítésére irányul.
+A Ptk. ingatlan és ingó dolog tekintetében is különös védelmet biztosít a forgalmi biztonság érdekében:
+1. Ingatlan esetén a 2013. évi V. törvény 5:38. § (1) bekezdése alapján a jóhiszemű, ellenérték fejében szerző személy tulajdonjogát akkor is be kell jegyezni, ha a jogügylet érvénytelensége miatt az alapul fekvő bejegyzés a valóságnak nem felel meg.
+2. Ingó dolog esetén a 2013. évi V. törvény 5:38. § (2) bekezdése rögzíti, hogy a kereskedelmi forgalomban való visszterhes megszerzés megalapozza a tulajdonjogot, amennyiben a vevő nem volt rosszhiszemű.
 
-### JOGSZABÁLYI HIVATKOZÁSOK - 2013. évi V. törvény a Polgári Törvénykönyvről
-- 5:40. § (1) bekezdés
-- 6:312. §
-- 6:325. §
-- 6:330. §
+Mivel a harmadik személy tulajdonszerzése a jogszabály erejénél fogva hatályos, a vagyonrendelő a vagyontárgy kiadását már nem követelheti. A vagyonrendelő igénye ebben az esetben a vagyonkezelővel szembeni kártérítésre korlátozódik (2013. évi V. törvény 6:323. § (2) bekezdés és 6:325. § (1) bekezdés), mivel a vagyonkezelő a korlátozás megsértésével szerződésszegést követett el.
+
+### JOGSZABÁLYI HIVATKOZÁSOK
+* 2013. évi V. törvény a Polgári Törvénykönyvről 5:31. § (3) bekezdés
+* 2013. évi V. törvény a Polgári Törvénykönyvről 5:38. § (1) és (2) bekezdés
+* 2013. évi V. törvény a Polgári Törvénykönyvről 6:319. § (2) bekezdés
+* 2013. évi V. törvény a Polgári Törvénykönyvről 6:323. § (1) és (2) bekezdés
+* 2013. évi V. törvény a Polgári Törvénykönyvről 6:325. § (1) bekezdés
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-1. **Rosszhiszeműség kockázata:** A visszakövetelés akkor lehet sikeres, ha bizonyítható, hogy a harmadik személy a jogellenességről tudott vagy tudnia kellett (Ptk. 6:312. §).
-2. **Nyilvántartási kivétel:** Ha a vagyontárgy korlátozottsága az ingatlan-nyilvántartásból vagy más hiteles nyilvántartásból kifejezetten kitűnik, a harmadik személy jóhiszeműsége nem állapítható meg, és a tulajdonszerzés megtámadható (Ptk. 5:40. § (1) bekezdés, 6:330. §).
-3. **Kártérítési korlát:** A vagyonrendelő kártérítési igénye a vagyonkezelővel szemben akkor realizálható, ha a tulajdonjog visszaszerzése harmadik személy jóhiszeműsége okán meghiúsult (Ptk. 6:325. §).
+A fenti következtetések a harmadik személy jóhiszeműségéhez és az ellenérték fejében történő szerződéshez kötöttek. A "jóhiszeműség" hiánya (vagyis ha a harmadik személy a korlátozásról tudott, vagy tudnia kellett volna) a Ptk. 6:323. § (1) bekezdése alapján kizárja a harmadik személy tulajdonszerzésének védelmét, és ezáltal megnyithatja az utat a tulajdonjogi igény érvényesítése előtt. A kockázatot a harmadik személy tudattartalmának bizonyítása jelenti.
