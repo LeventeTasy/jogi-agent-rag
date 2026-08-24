@@ -1,5 +1,13 @@
 import configparser
+from datetime import datetime
 from pathlib import Path
+
+import jsonschema
+import os
+import json
+import base64
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 def get_config():
     config = configparser.ConfigParser()
@@ -19,3 +27,21 @@ def get_config():
             "is_memory": is_memory,
             "is_deep_analysis_enabled": is_deep_analysis_enabled
         }
+
+def initialize_firebase():
+    firebase_credentials_base64= os.environ['FIREBASE_CREDENTIALS_BASE64']
+
+    creditials_json = base64.b64decode(firebase_credentials_base64).decode('utf-8')
+
+    credentials_dict = json.loads(creditials_json)
+    cred = credentials.Certificate(credentials_dict)
+
+    if not firebase_admin._apps:
+        firebase_admin.initialize_app(cred)
+
+    return firestore.client()
+
+
+
+
+

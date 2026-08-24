@@ -3,3 +3,4 @@ chroma_db/
 .idea/
 .venv/
 test/generate_xlsx.py
+serviceAccountKey.json
