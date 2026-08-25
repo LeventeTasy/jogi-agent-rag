@@ -1,21 +1,27 @@
-# JOGI SZAKVÉLEMÉNY: és mikor nem veheto igenybe?
+# JOGI SZAKVÉLEMÉNY: 25 év alattiak adókedvezménye és alkalmazhatósága
 
 ### RÖVID VÁLASZ
-A 25 év alattiak kedvezménye nem vehető igénybe a nem összevont adóalapba tartozó jövedelmekre, valamint a 25. életév betöltését követő hónaptól kezdődően. A jogosultság megszűnését követő további igénybevétel jogellenes és szankciókat von maga után.
+A 25 év alattiak adókedvezménye kizárólag az összevont adóalapba tartozó jövedelmekre érvényesíthető, a külön adózó jövedelmekre nem; a jogosultság az érintett személy 25. életévének betöltése hónapjával megszűnik.
 
 ### JOGI INDOKOLÁS
 
-A 25 év alattiak kedvezményének alkalmazhatósága az Szja tv. 29/F. § (2) bekezdése értelmében kizárólag az összevont adóalapba tartozó jövedelmekre korlátozódik. A jogszabály explicit módon kizárja a kedvezmény hatálya alól mindazon jövedelemkategóriákat, amelyek nem minősülnek összevont adóalapba tartozónak. Ennek megfelelően az ingatlan bérbeadásából származó jövedelmek, a külön adózó jövedelmek, továbbá az osztalékból és a vállalkozói osztalékalapból származó jövedelmek nem jogosítanak kedvezményre.
+A személyi jövedelemadóról szóló 1995. évi CXVII. törvény (továbbiakban: Szja tv.) 29/F. §-a alapján az adóalap-kedvezmény az összevont adóalap részét képező jövedelmekre korlátozódik. A törvény kifejezetten meghatározza, hogy a munkaviszonyból származó jövedelem, a vállalkozói kivét, az átalányban megállapított jövedelem és a megbízási díj képezik az adóalap-kedvezmény alapját. Ezzel szemben a külön adózó jövedelmek (pl. osztalék, árfolyamnyereség, ingatlan bérbeadásából származó jövedelem) nem képezik az összevont adóalap részét, így azokra az adókedvezmény jogszabályi rendelkezés szerint nem alkalmazható.
 
-Az időbeli korlátozást az Szja tv. 29/F. § (5) bekezdése határozza meg, amely szerint a kedvezmény kizárólag azon hónapokra érvényesíthető, amelyekben a magánszemély a 25. életévét még nem töltötte be. Ebből következően a 25. életév betöltésének hónapját követő hónaptól a benyújtott adóelőleg-nyilatkozat automatikusan hatályát veszti, a munkáltató pedig köteles az adókedvezmény érvényesítését megszüntetni.
+A 25 év alattiak kedvezményének érvényesítése tekintetében az Szja tv. 29/F. § (3)-(5) bekezdése előírja, hogy a kifizetőnek a levonandó adóelőleg számításánál kell érvényesítenie a kedvezményt. A jogosultsági limitet a KSH által közzétett, tárgyévet megelőző év július havi nemzetgazdasági bruttó átlagkereset határozza meg, amelyet arányosítás nélkül, a bruttó jövedelemhez viszonyítva kell alkalmazni.
 
-Az Adózás rendjéről szóló 2017. évi CL. törvény 48. § (3) bekezdése tovább erősíti ezt a rendelkezést azzal, hogy kimondja: az adóelőleg-nyilatkozat érvényességét veszti, ha a jogosultsági feltételek (ideértve az életkorhoz kötött kedvezményt is) már nem állnak fenn. A magánszemély kötelezettsége a körülményeiben bekövetkező változásról történő haladéktalan tájékoztatás.
+A munkáltatói adatkezelés jogalapját illetően az adatkezelő a GDPR 6. cikk (1) bekezdés c) pontja szerinti jogi kötelezettség teljesítésére alapozhat. Az adózás rendjéről szóló 2017. évi CL. törvény 47. §-ával összhangban a kapcsolódó adatok megőrzési ideje a tárgyévet követő ötödik év végéig terjed.
 
-Amennyiben a magánszemély a jogosultsági feltételek megszűnését követően nem tesz nyilatkozatot a kifizető felé, vagy valótlan adatot közöl, az így keletkező adókülönbözet az Art. 177. § (1) bekezdése alapján adóhiánynak minősül. Ez a jogsértés 50 százalék mértékű adóbírsággal és késedelmi pótlékkal sújtható.
+A jogosultság megszűnésével kapcsolatban az Szja tv. 29/F. § (6) bekezdése egyértelműen kimondja, hogy a kedvezményre való jogosultság abban a hónapban szűnik meg, amelyben a fiatal a 25. életévét betölti. Ezt követően a munkáltató köteles a megszűnést követő első bérszámfejtéskor a kedvezmény érvényesítését leállítani, és a munkavállalót az adóelőleg-levonás változásáról tájékoztatni.
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-- A személyi jövedelemadóról szóló 1995. évi CXVII. törvény 29/F. § (2) bekezdés, 29/F. § (5) bekezdés
-- Az adózás rendjéről szóló 2017. évi CL. törvény 48. § (3) bekezdés, 177. § (1) bekezdés
+- 1995. évi CXVII. törvény a személyi jövedelemadóról: 29/F. § (1)-(6) bekezdés
+- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR): 6. cikk (1) bekezdés c) pont
+- 2017. évi CL. törvény az adózás rendjéről: 47. §
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A vizsgált jogszabályhelyek egyértelműen meghatározzák a kizáró okokat és a szankciókat. Kockázati tényezőként azonosítható a magánszemély tájékoztatási kötelezettségének elmulasztása, mivel a munkáltató a nyilatkozat hatályának elvesztéséről való tudomásszerzésig köteles lehet az adóelőleg levonásánál eljárni, azonban a végső felelősség a valótlan adatok közléséért vagy a tájékoztatás elmaradásáért a magánszemélyt terheli. A jogszabály kivételt a 25. életév betöltését követő időszakra vonatkozóan nem ismer el, a szabályozás kategorikus.
+A szakvéleményben alkalmazott „kizárólag” és „nem képezik” kifejezések a jogszabályi szöveg taxatív felsorolásán alapulnak. 
+
+Kockázati tényezőként rögzítendő:
+1. A 25. életév betöltésének hónapját követő bérszámfejtés során a kedvezmény téves alkalmazása (túllépés) az Szja tv. 29/F. § (6) bekezdésének megsértését eredményezi, ami adóhiányhoz és adóbírság kockázatához vezethet.
+2. A jogosultsági limit (KSH átlagkereset) éves változása folyamatos figyelést igényel a kifizetői oldalon, mivel a jogszabály a "tárgyévet megelőző év július hónapjára vonatkozó" adatot nevesíti, így a limit értéke évente frissítendő. 
+3. Az adatmegőrzési kötelezettség a 2017. évi CL. törvény szerinti elévülési időhöz kötött, a korábbi (pl. 5 évnél régebbi) dokumentációk megőrzése adatvédelmi (GDPR) kockázatot hordozhat a célhoz kötött adatkezelés elve mentén.

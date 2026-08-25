@@ -47,8 +47,6 @@ class JogiFlow(Flow):
         if "inputs" not in self.state:
             self.state["inputs"] = {}
 
-        self.state["inputs"]["history"] += '\n\nFelhasználó kérdése: ' + self.state["inputs"]["topic"]
-
     def run_metrics(self, result):
         metrics = result.token_usage
 
@@ -60,8 +58,8 @@ class JogiFlow(Flow):
     def get_question_id(self):
         return self.state["question_id"]
 
-    def get_history(self):
-        return self.state["inputs"]["history"]
+    def get_history_resp(self):
+        return self.state["history"]
 
     @router(init_flow)
     def route_config(self):
@@ -323,8 +321,8 @@ class JogiFlow(Flow):
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
-        self.state["inputs"]["history"] += '\n\nAgent válasza: ' + self.state["final_answer"]
-        print("Agent history: " + self.state["inputs"]["history"])
+        self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"]})
+        self.state["history"].append({"role": "Assistant", "content": self.state["final_answer"]})
 
         try:
             self.save_log_fb()

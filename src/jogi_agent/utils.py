@@ -41,6 +41,19 @@ def initialize_firebase():
 
     return firestore.client()
 
+def format_history_for_prompt(history: list[dict[str, str]], max_turns: int = 5) -> str:
+    if not history:
+        return "Nincs korábbi előzmény."
+
+    recent_history = history[-max_turns * 2:]
+
+    formatted_turns = []
+    for turn in recent_history:
+        role = turn["role"]
+        content = turn["content"].strip()
+        formatted_turns.append(f"### {role}:\n{content}")
+
+    return "\n\n".join(formatted_turns)
 
 
 
