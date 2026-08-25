@@ -1,27 +1,22 @@
-# JOGI SZAKVÉLEMÉNY: 25 év alattiak adókedvezménye és alkalmazhatósága
+# JOGI SZAKVÉLEMÉNY: mikor adható el egy földterület?
 
 ### RÖVID VÁLASZ
-A 25 év alattiak adókedvezménye kizárólag az összevont adóalapba tartozó jövedelmekre érvényesíthető, a külön adózó jövedelmekre nem; a jogosultság az érintett személy 25. életévének betöltése hónapjával megszűnik.
+A földterület eladása lehetséges, azonban az adásvétel szigorú törvényi feltételekhez, kötelező tartalmi elemekhez, valamint hirdetményi úton történő elővásárlási eljáráshoz és hatósági jóváhagyáshoz kötött.
 
 ### JOGI INDOKOLÁS
 
-A személyi jövedelemadóról szóló 1995. évi CXVII. törvény (továbbiakban: Szja tv.) 29/F. §-a alapján az adóalap-kedvezmény az összevont adóalap részét képező jövedelmekre korlátozódik. A törvény kifejezetten meghatározza, hogy a munkaviszonyból származó jövedelem, a vállalkozói kivét, az átalányban megállapított jövedelem és a megbízási díj képezik az adóalap-kedvezmény alapját. Ezzel szemben a külön adózó jövedelmek (pl. osztalék, árfolyamnyereség, ingatlan bérbeadásából származó jövedelem) nem képezik az összevont adóalap részét, így azokra az adókedvezmény jogszabályi rendelkezés szerint nem alkalmazható.
+A földterület eladása során az 1994. évi LV. törvény (továbbiakban: Tft.) alapján az elővásárlási jog érvényesítése kötelező. A törvény 18. § (1) bekezdése meghatározza az elővásárlási jog sorrendjét: a) az államot, b) a földet használó földművest, c) a helyben lakó földművest, d) a helyben lakó szomszédot illeti meg az elővásárlási jog. Az adásvételi szerződés érvényességéhez elengedhetetlen, hogy az tartalmazza a felek pontos adatait, a helyrajzi számot, a művelési ágat, a vételárat, valamint a vevő nyilatkozatát a földműves minőségről és az elővásárlási jogosultságról (Tft. 18. § (1) bekezdés).
 
-A 25 év alattiak kedvezményének érvényesítése tekintetében az Szja tv. 29/F. § (3)-(5) bekezdése előírja, hogy a kifizetőnek a levonandó adóelőleg számításánál kell érvényesítenie a kedvezményt. A jogosultsági limitet a KSH által közzétett, tárgyévet megelőző év július havi nemzetgazdasági bruttó átlagkereset határozza meg, amelyet arányosítás nélkül, a bruttó jövedelemhez viszonyítva kell alkalmazni.
+Osztatlan közös tulajdon esetén a Tft. 23/A. § (1) bekezdése értelmében a tulajdonostársak elővásárlási joga megelőzi a nem tulajdonostársakét, feltéve, hogy a tulajdonostárs legalább három éve használja a földet. Amennyiben a felek között használati megosztási megállapodás áll fenn, azt az új tulajdonos köteles tiszteletben tartani; megállapodás hiányában a közös tulajdon szabályait kell alkalmazni (Tft. 23/A. § (3) bekezdés).
 
-A munkáltatói adatkezelés jogalapját illetően az adatkezelő a GDPR 6. cikk (1) bekezdés c) pontja szerinti jogi kötelezettség teljesítésére alapozhat. Az adózás rendjéről szóló 2017. évi CL. törvény 47. §-ával összhangban a kapcsolódó adatok megőrzési ideje a tárgyévet követő ötödik év végéig terjed.
+Az eljárási rend szerint a szerződést a föld fekvése szerinti illetékes jegyzőnél 60 napos időtartamra hirdetményi úton közzé kell tenni. A határidő lejártát követően a jegyző a dokumentumokat megküldi a kormányhivatalnak, amely mezőgazdasági igazgatási szervként 65 napos határidőn belül folytatja le a jóváhagyási eljárást (Tft. 21. § (1) és (5) bekezdés).
 
-A jogosultság megszűnésével kapcsolatban az Szja tv. 29/F. § (6) bekezdése egyértelműen kimondja, hogy a kedvezményre való jogosultság abban a hónapban szűnik meg, amelyben a fiatal a 25. életévét betölti. Ezt követően a munkáltató köteles a megszűnést követő első bérszámfejtéskor a kedvezmény érvényesítését leállítani, és a munkavállalót az adóelőleg-levonás változásáról tájékoztatni.
+A tulajdonjog bejegyzése közös tulajdon megszüntetése esetén földhivatali korlátokhoz kötött: a bejegyzés feltétele, hogy a kialakuló földrészletek megfeleljenek a jogszabály szerinti legkisebb térmértéknek, kivéve a tulajdoni hányadok egyesítésével történő megszüntetést (Tft. 30. § (1) bekezdés).
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-- 1995. évi CXVII. törvény a személyi jövedelemadóról: 29/F. § (1)-(6) bekezdés
-- Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR): 6. cikk (1) bekezdés c) pont
-- 2017. évi CL. törvény az adózás rendjéről: 47. §
+- 1994. évi LV. törvény a termőföldről: 11. § (3), 13. § (1), 18. § (1), 21. § (1) és (5), 23/A. § (1) és (3), valamint 30. § (1) bekezdés.
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szakvéleményben alkalmazott „kizárólag” és „nem képezik” kifejezések a jogszabályi szöveg taxatív felsorolásán alapulnak. 
-
-Kockázati tényezőként rögzítendő:
-1. A 25. életév betöltésének hónapját követő bérszámfejtés során a kedvezmény téves alkalmazása (túllépés) az Szja tv. 29/F. § (6) bekezdésének megsértését eredményezi, ami adóhiányhoz és adóbírság kockázatához vezethet.
-2. A jogosultsági limit (KSH átlagkereset) éves változása folyamatos figyelést igényel a kifizetői oldalon, mivel a jogszabály a "tárgyévet megelőző év július hónapjára vonatkozó" adatot nevesíti, így a limit értéke évente frissítendő. 
-3. Az adatmegőrzési kötelezettség a 2017. évi CL. törvény szerinti elévülési időhöz kötött, a korábbi (pl. 5 évnél régebbi) dokumentációk megőrzése adatvédelmi (GDPR) kockázatot hordozhat a célhoz kötött adatkezelés elve mentén.
+1. Mentesség az elővásárlási jog alól: Az elővásárlási jog nem áll fenn közeli hozzátartozók közötti átruházás, illetve az állam általi joggyakorlás esetén (Tft. 11. § (3) bekezdés).
+2. Földhivatali bejegyzési korlát: A közös tulajdon megszüntetésére irányuló szerződések esetén a "legkisebb térmérték" szabálya alól kivételt képez a tulajdonostársak közötti tulajdoni hányadok egyesítése (Tft. 30. § (1) bekezdés).
+3. A jogszabályi szöveg nem ír elő automatizmust, minden esetben szükséges a mezőgazdasági igazgatási szerv (kormányhivatal) jóváhagyása, amely elutasíthatja a szerződést, ha az nem felel meg a törvényi kritériumoknak.

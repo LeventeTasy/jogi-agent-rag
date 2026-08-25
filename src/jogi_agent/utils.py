@@ -20,11 +20,9 @@ def get_config():
         raise Exception(f"Config is not found at the location of {config_path}")
     else:
         is_verbose = config.getboolean('crewai', 'VERBOSE_ENABLED')
-        is_memory = config.getboolean('crewai', 'HISTORY_ENABLED')
         is_deep_analysis_enabled = config.getboolean('crewai', 'DEEP_ANALYSIS_ENABLED')
         return {
             "is_verbose": is_verbose,
-            "is_memory": is_memory,
             "is_deep_analysis_enabled": is_deep_analysis_enabled
         }
 

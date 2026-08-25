@@ -321,7 +321,11 @@ class JogiFlow(Flow):
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
-        self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"]})
+        if self.state["inputs"]["details"] == "":
+            self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"]})
+        else:
+            print(f"Kiegészítés: {self.state["inputs"]["details"]}")
+            self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"] + f"\n###Felhasználó kiegészítése: {self.state["inputs"]["details"]}"})
         self.state["history"].append({"role": "Assistant", "content": self.state["final_answer"]})
 
         try:
