@@ -1,25 +1,22 @@
-# JOGI SZAKVÉLEMÉNY: Jogosult-e a vagyonrendelő visszakövetelni a vagyonkezelő által jogosulatlanul átruházott vagyontárgyat egy jóhiszemű, visszterhesen szerző harmadik személytől?
+# JOGI SZAKVÉLEMÉNY: mikor adható el egy földterület?
 
 ### RÖVID VÁLASZ
-Nem. A vagyonrendelő nem követelheti vissza a vagyontárgyat, mivel a jogszabály a jóhiszemű, ellenérték fejében szerző harmadik személy tulajdonszerzését védi, a vagyonkezelő jogkörének túllépése pedig nem teszi érvénytelenné az átruházást a jóhiszemű harmadik személlyel szemben.
+A földterület eladása lehetséges, azonban az adásvétel szigorú törvényi feltételekhez, kötelező tartalmi elemekhez, valamint hirdetményi úton történő elővásárlási eljáráshoz és hatósági jóváhagyáshoz kötött.
 
 ### JOGI INDOKOLÁS
-A bizalmi vagyonkezelés jogi konstrukciójában a vagyonkezelő a kezelt vagyont saját nevében, a vagyonkezelési szerződésben meghatározott korlátok között kezeli (2013. évi V. törvény 6:319. § (2) bekezdés). Bár a vagyonkezelő tevékenységét korlátok kötik, a 2013. évi V. törvény 6:323. § (1) bekezdése kimondja, hogy amennyiben a vagyonkezelő a szerződéses korlátokat túllépi, a jognyilatkozata akkor is érvényes, ha a harmadik személy a korlátozásról nem tudott vagy nem kellett tudnia.
 
-A tulajdonjog védelmének általános szabálya szerint (2013. évi V. törvény 5:31. § (3) bekezdés) bizalmi vagyonkezelés esetén a tulajdonosi jogokat a vagyonkezelő gyakorolja, ezért a tulajdonjogi igények érvényesítése is őt illeti meg harmadik személyekkel szemben. A vagyonrendelő tulajdonjogi igénye (rei vindicatio) nem érvényesíthető egy olyan harmadik személlyel szemben, aki jóhiszeműen, ellenérték fejében szerzett tulajdonjogot.
+A földterület eladása során az 1994. évi LV. törvény (továbbiakban: Tft.) alapján az elővásárlási jog érvényesítése kötelező. A törvény 18. § (1) bekezdése meghatározza az elővásárlási jog sorrendjét: a) az államot, b) a földet használó földművest, c) a helyben lakó földművest, d) a helyben lakó szomszédot illeti meg az elővásárlási jog. Az adásvételi szerződés érvényességéhez elengedhetetlen, hogy az tartalmazza a felek pontos adatait, a helyrajzi számot, a művelési ágat, a vételárat, valamint a vevő nyilatkozatát a földműves minőségről és az elővásárlási jogosultságról (Tft. 18. § (1) bekezdés).
 
-A Ptk. ingatlan és ingó dolog tekintetében is különös védelmet biztosít a forgalmi biztonság érdekében:
-1. Ingatlan esetén a 2013. évi V. törvény 5:38. § (1) bekezdése alapján a jóhiszemű, ellenérték fejében szerző személy tulajdonjogát akkor is be kell jegyezni, ha a jogügylet érvénytelensége miatt az alapul fekvő bejegyzés a valóságnak nem felel meg.
-2. Ingó dolog esetén a 2013. évi V. törvény 5:38. § (2) bekezdése rögzíti, hogy a kereskedelmi forgalomban való visszterhes megszerzés megalapozza a tulajdonjogot, amennyiben a vevő nem volt rosszhiszemű.
+Osztatlan közös tulajdon esetén a Tft. 23/A. § (1) bekezdése értelmében a tulajdonostársak elővásárlási joga megelőzi a nem tulajdonostársakét, feltéve, hogy a tulajdonostárs legalább három éve használja a földet. Amennyiben a felek között használati megosztási megállapodás áll fenn, azt az új tulajdonos köteles tiszteletben tartani; megállapodás hiányában a közös tulajdon szabályait kell alkalmazni (Tft. 23/A. § (3) bekezdés).
 
-Mivel a harmadik személy tulajdonszerzése a jogszabály erejénél fogva hatályos, a vagyonrendelő a vagyontárgy kiadását már nem követelheti. A vagyonrendelő igénye ebben az esetben a vagyonkezelővel szembeni kártérítésre korlátozódik (2013. évi V. törvény 6:323. § (2) bekezdés és 6:325. § (1) bekezdés), mivel a vagyonkezelő a korlátozás megsértésével szerződésszegést követett el.
+Az eljárási rend szerint a szerződést a föld fekvése szerinti illetékes jegyzőnél 60 napos időtartamra hirdetményi úton közzé kell tenni. A határidő lejártát követően a jegyző a dokumentumokat megküldi a kormányhivatalnak, amely mezőgazdasági igazgatási szervként 65 napos határidőn belül folytatja le a jóváhagyási eljárást (Tft. 21. § (1) és (5) bekezdés).
+
+A tulajdonjog bejegyzése közös tulajdon megszüntetése esetén földhivatali korlátokhoz kötött: a bejegyzés feltétele, hogy a kialakuló földrészletek megfeleljenek a jogszabály szerinti legkisebb térmértéknek, kivéve a tulajdoni hányadok egyesítésével történő megszüntetést (Tft. 30. § (1) bekezdés).
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-* 2013. évi V. törvény a Polgári Törvénykönyvről 5:31. § (3) bekezdés
-* 2013. évi V. törvény a Polgári Törvénykönyvről 5:38. § (1) és (2) bekezdés
-* 2013. évi V. törvény a Polgári Törvénykönyvről 6:319. § (2) bekezdés
-* 2013. évi V. törvény a Polgári Törvénykönyvről 6:323. § (1) és (2) bekezdés
-* 2013. évi V. törvény a Polgári Törvénykönyvről 6:325. § (1) bekezdés
+- 1994. évi LV. törvény a termőföldről: 11. § (3), 13. § (1), 18. § (1), 21. § (1) és (5), 23/A. § (1) és (3), valamint 30. § (1) bekezdés.
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A fenti következtetések a harmadik személy jóhiszeműségéhez és az ellenérték fejében történő szerződéshez kötöttek. A "jóhiszeműség" hiánya (vagyis ha a harmadik személy a korlátozásról tudott, vagy tudnia kellett volna) a Ptk. 6:323. § (1) bekezdése alapján kizárja a harmadik személy tulajdonszerzésének védelmét, és ezáltal megnyithatja az utat a tulajdonjogi igény érvényesítése előtt. A kockázatot a harmadik személy tudattartalmának bizonyítása jelenti.
+1. Mentesség az elővásárlási jog alól: Az elővásárlási jog nem áll fenn közeli hozzátartozók közötti átruházás, illetve az állam általi joggyakorlás esetén (Tft. 11. § (3) bekezdés).
+2. Földhivatali bejegyzési korlát: A közös tulajdon megszüntetésére irányuló szerződések esetén a "legkisebb térmérték" szabálya alól kivételt képez a tulajdonostársak közötti tulajdoni hányadok egyesítése (Tft. 30. § (1) bekezdés).
+3. A jogszabályi szöveg nem ír elő automatizmust, minden esetben szükséges a mezőgazdasági igazgatási szerv (kormányhivatal) jóváhagyása, amely elutasíthatja a szerződést, ha az nem felel meg a törvényi kritériumoknak.

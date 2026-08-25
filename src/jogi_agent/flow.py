@@ -58,6 +58,9 @@ class JogiFlow(Flow):
     def get_question_id(self):
         return self.state["question_id"]
 
+    def get_history(self):
+        return self.state["history"]
+
     @router(init_flow)
     def route_config(self):
         if self.state["deep_analysis"]:
@@ -257,6 +260,7 @@ class JogiFlow(Flow):
             )
 
             self.state["final_answer"] = mini_crew.kickoff().raw
+
             self.run_metrics(self.state["final_answer"])
 
     @listen("undecidable")
@@ -317,6 +321,13 @@ class JogiFlow(Flow):
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
+        if self.state["inputs"]["details"] == "":
+            self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"]})
+        else:
+            print(f"Kiegészítés: {self.state["inputs"]["details"]}")
+            self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"] + f"\n###Felhasználó kiegészítése: {self.state["inputs"]["details"]}"})
+        self.state["history"].append({"role": "Assistant", "content": self.state["final_answer"]})
+
         try:
             self.save_log_fb()
             self.save_log()

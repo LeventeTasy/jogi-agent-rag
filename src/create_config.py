@@ -5,7 +5,6 @@ def create_config():
     # Add sections and key-value pairs
     config['crewai'] = {
         'VERBOSE_ENABLED': 'True',
-        'HISTORY_ENABLED': 'False',
         'DEEP_ANALYSIS_ENABLED': 'True'
     }
 

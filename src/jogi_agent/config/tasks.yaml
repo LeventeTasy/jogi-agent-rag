@@ -7,7 +7,8 @@ inditasi_feladat:
 
 deep_analysis_feladat:
   description: >
-    Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
+    Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is: 
+    {history}.
 
     - Vizsgáld meg, hogy a kérdés elég pontos-e, és minden szükséges háttérinformáció (pl. szerződés típusa, státusz, konkrét élethelyzet) rendelkezésre áll-e a pontos jogi válaszhoz. 
     - Hiányos/Homályos a szituáció: A kimeneted kizárólag egy udvarias, célzott kérdéssor legyen a felhasználó felé, amiben bekéred a hiányzó/homályos részleteket, hogy később pontosabban tudjanak a következő ágensek válaszolni.
@@ -20,7 +21,9 @@ deep_analysis_feladat:
 
 jogi_strategiai_tervezes_feladat:
   description: >
-    Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is.
+    Elemezd a felhasználó által feltett kérdést a(z) {topic} témakörben, figyelembe véve az eddigi chat history-t is:
+    {history}.
+    
     Kérlek, vedd figyelembe a felhasználó által megadott plusz körülményeket és részleteket is: "{details}"
     - Bontsd fel a komplex problémát 2-4 specifikus, különálló rész-kérdésre a különböző érintett jogterületek (Ptk., GDPR, Mt. stb.) szerint. Minden rész-kérdést úgy fogalmazz meg, mint egy önálló, célzott jogi keresést, amely alkalmas a RAG keresőmotor számára.
   expected_output: >

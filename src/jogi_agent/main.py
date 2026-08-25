@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from rich.console import Console
 from rich.markdown import Markdown
 from jogi_agent.crew import JogiAgent
-from jogi_agent.utils import get_config
+from jogi_agent.utils import get_config, format_history_for_prompt
 from jogi_agent.flow import JogiFlow
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
@@ -17,29 +17,32 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
+
 def run():
     """
     Run the crew.
     """
     config = get_config()
-    is_memory = config["is_memory"]
 
     console = Console()
+    history : list[dict[str, str]] = []
 
     question = input(": ")
 
     while question != "break":
+
         inputs = {
             'topic': question,
             'current_year': datetime.now().year,
+            'history': format_history_for_prompt(history),
             'details': ""
         }
 
         try:
             flow = JogiFlow()
             flow.state["inputs"] = inputs
-            if is_memory:
-                JogiAgent().crew().reset_memories(command_type="memory")
+            flow.state["history"] = history
+
             resp = flow.kickoff()
             #print(resp.raw)
 
@@ -48,6 +51,9 @@ def run():
             console.print(formatted_markdown)
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
             #flow.plot()
+
+            history = flow.get_history()
+
 
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
@@ -60,7 +66,6 @@ def test():
         Run the crew on test questions.
     """
     config = get_config()
-    is_memory = config["is_memory"]
     console = Console()
 
     test_questions = [
@@ -85,26 +90,35 @@ def test():
         "A munkavállaló hozzájárulása elegendő jogalap-e minden munkaviszonnyal kapcsolatos adatkezeléshez?",
         "A GDPR 88. cikk teljes mértékben felülírja a magyar Munka Törvénykönyv adatkezelési szabályait?"
     ]
+    history = []
 
     for question in test_questions:
         print(f"\nTESZTELÉS: {question}")
 
+
+
         inputs = {
             'topic': question,
-            'current_year': datetime.now().year
+            'current_year': datetime.now().year,
+            'history': format_history_for_prompt(history),
+            'details': ""
         }
 
         try:
             flow = JogiFlow()
             flow.state["inputs"] = inputs
-            if is_memory:
-                JogiAgent().crew().reset_memories(command_type="memory")
+            flow.state["history"] = history
+
+
             resp = flow.kickoff()
 
             formatted_markdown = Markdown(str(resp))
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
             console.print(formatted_markdown)
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
+
+            history = flow.get_history()
+
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
 
