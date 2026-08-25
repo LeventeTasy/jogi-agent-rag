@@ -1,17 +1,23 @@
-# JOGI SZAKVÉLEMÉNY: mikor mondathato fel egy munkaszerzodes?
+# JOGI SZAKVÉLEMÉNY: 25 év alattiak adókedvezménye
 
 ### RÖVID VÁLASZ
-**Részben.** A munkaszerződés felmondása **jogszabályban** meghatározott keretek között, az indokolási kötelezettség és a **felmondási korlátok** betartásával lehetséges.
+A kedvezmény érvényesítése **törvényi kötelezettség**, azonban a munkavállaló írásbeli nyilatkozatával az **önkéntes korlátozás** vagy a teljes lemondás lehetséges.
 
 ### JOGI INDOKOLÁS
-A munkáltatói felmondás főszabály szerint a **munkavállaló képességeivel**, a munkaviszonnyal kapcsolatos **magatartásával** vagy a munkáltató **működésével** összefüggő okból történhet. A munkáltató köteles a felmondást **írásban megindokolni**, kivéve a határozott idejű munkaviszony esetén, ha a felmondás oka a munkáltató működésével összefüggő ok. 
+A 25 év alatti fiatalok adóalap-kedvezménye az 1995. évi CXVII. törvény 29/F. § (1) bekezdése értelmében az összevont adóalapba tartozó, **munkaviszonyból származó** jövedelmekre vonatkozik, amelynek igénybevétele a 25. életév betöltése hónapjának végéig **jogszabályilag biztosított**.
 
-A munkavállaló részéről történő felmondás esetén a munkavállaló **nem köteles** indokolni a döntését. A felmondás közlésével a munkaviszony a **törvényben meghatározott** felmondási idő leteltével szűnik meg. A felmondási idő tartama a **munkaviszonyban töltött** időtől függően változik. 
+A kedvezmény mértékét tekintve a 29/F. § (3) bekezdése **felső korlátot** határoz meg, amely havonta legfeljebb a tárgyévet megelőző év július havi, KSH által közzétett nemzetgazdasági szintű **bruttó átlagkereset** összege.
 
-A jogszabály több **mentességi esetet** határoz meg, amikor a munkáltatói felmondás korlátozott vagy **tilos**. Ilyenek például a várandósság, az önkéntes tartalékos katonai szolgálat vagy a betegség miatti keresőképtelenség bizonyos időszakai.
+Az eljárási szabályokat illetően a 29/F. § (5) bekezdése alapján a munkáltató a kedvezményt a munkavállaló külön nyilatkozata nélkül is **köteles érvényesíteni**, amennyiben a jogosultság az adatok alapján **egyértelműen megállapítható**. A munkavállalói nyilatkozat hiánya tehát nem mentesíti a munkáltatót az **automatikus érvényesítési** kötelezettség alól.
 
-### JOGSZABÁLYI HIVATKOZÁSOK -
-**A munka törvénykönyvéről szóló 2012. évi I. törvény** 65. § (1)-(3) bekezdés, 66. § (1)-(2) bekezdés, 67. § (1) bekezdés, 68. § (1) bekezdés.
+A kedvezmény igénybevételétől való eltérés joga a 29/F. § (6) bekezdése értelmében a munkavállalót illeti meg: az adóelőleg-levonást megelőzően tett **írásbeli nyilatkozattal** kérheti a munkáltatótól a kedvezmény **mellőzését** vagy annak **részbeni** alkalmazását.
+
+### JOGSZABÁLYI HIVATKOZÁSOK
+**1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (1), (2), (3), (5), (6) bekezdés.
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A felmondás nem tekinthető **feltétel nélküli** jognak, mivel az Mt. 65. § (3) bekezdése szerinti **felmondási tilalmak** (pl. védett kor, gyermek gondozása) korlátozzák a munkáltatói jogot. A felmondás indokának **valósnak és okszerűnek** kell lennie; ennek bizonyítása minden esetben a **munkáltatót terheli**. A jogellenes felmondás **jogi szankciókat** (pl. elmaradt jövedelem megfizetése, végkielégítés) vonhat maga után. A megfogalmazás során alkalmazott "főszabály" kifejezés a jogszabályi **kivételek létezésére** utal, amelyek eseti bírósági mérlegelést igényelnek.
+A szabályozás kockázati szűrése során az alábbiakat rögzítem:
+1. Az automatizmus nem abszolút: a munkavállaló **írásbeli nyilatkozata** felülírja a munkáltatói kötelezettséget.
+2. Életkori korlát: a kedvezmény alkalmazása a 25. életév betöltésének hónapját követően **nem folytatható**.
+3. Érvényességi korlát: az adóalap-kedvezmény **összege korlátozott**, a bruttó átlagkereset feletti jövedelemrész **nem élvez** kedvezményt.
+4. Egyéb kivételek: a törvényi hivatkozás szerinti "törvényben meghatározott munkaviszonyból származó" jövedelem kitétel további, a 29/A. § szerinti **feltételekhez kötöttséget** feltételez.
