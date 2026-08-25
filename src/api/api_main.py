@@ -101,11 +101,6 @@ def ask(
 
     flow = JogiFlow()
 
-    if is_memory:
-        JogiAgent().crew().reset_memories(
-            command_type="memory"
-        )
-
     flow.state["inputs"] = inputs
 
     start = time.perf_counter()

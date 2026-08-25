@@ -23,7 +23,6 @@ def run():
     Run the crew.
     """
     config = get_config()
-    is_memory = config["is_memory"]
 
     console = Console()
     history : list[dict[str, str]] = []
@@ -44,8 +43,6 @@ def run():
             flow.state["inputs"] = inputs
             flow.state["history"] = history
 
-            if is_memory:
-                JogiAgent().crew().reset_memories(command_type="memory")
             resp = flow.kickoff()
             #print(resp.raw)
 
@@ -69,7 +66,6 @@ def test():
         Run the crew on test questions.
     """
     config = get_config()
-    is_memory = config["is_memory"]
     console = Console()
 
     test_questions = [
@@ -113,8 +109,7 @@ def test():
             flow.state["inputs"] = inputs
             flow.state["history"] = history
 
-            if is_memory:
-                JogiAgent().crew().reset_memories(command_type="memory")
+
             resp = flow.kickoff()
 
             formatted_markdown = Markdown(str(resp))

@@ -1,4 +1,4 @@
-from crewai import Agent, Crew, Process, Task, Memory, LLM
+from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.tasks.conditional_task import ConditionalTask
@@ -22,7 +22,6 @@ class JogiAgent():
     config = get_config()
 
     is_verbose = config["is_verbose"]
-    is_memory = config["is_memory"]
     is_deep_analysis = config["is_deep_analysis_enabled"]
 
     agents: list[BaseAgent]
@@ -137,26 +136,9 @@ class JogiAgent():
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
-        if self.is_memory:
-            return Crew(
-                agents=self.agents, # Automatically created by the @agent decorator
-                tasks=self.tasks, # Automatically created by the @task decorator
-                process=Process.sequential,
-                verbose=self.is_verbose,
-                memory=Memory(
-                    llm=LLM(model=self.llm_model),
-                    embedder={
-                "provider": "google-generativeai",
-                "config": {
-                    "model_name": "gemini-embedding-001",
-                }
-            })
-                # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
-            )
-        else:
-            return Crew(
-                agents=self.agents,
-                tasks=self.tasks,
-                process=Process.sequential,
-                verbose=self.is_verbose
-            )
+        return Crew(
+            agents=self.agents,
+            tasks=self.tasks,
+            process=Process.sequential,
+            verbose=self.is_verbose
+        )
