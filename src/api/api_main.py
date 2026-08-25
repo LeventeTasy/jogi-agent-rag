@@ -91,7 +91,6 @@ def ask(
     verify_api_secret(authorization)
 
     config = get_config()
-    is_memory = config["is_memory"]
 
     inputs = {
         "topic": request.question,
