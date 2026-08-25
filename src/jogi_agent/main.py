@@ -25,13 +25,16 @@ def run():
     is_memory = config["is_memory"]
 
     console = Console()
+    history = ''
 
     question = input(": ")
 
     while question != "break":
+
         inputs = {
             'topic': question,
             'current_year': datetime.now().year,
+            'history': history,
             'details': ""
         }
 
@@ -48,6 +51,9 @@ def run():
             console.print(formatted_markdown)
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
             #flow.plot()
+
+            history = flow.get_history()
+            print(history)
 
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
