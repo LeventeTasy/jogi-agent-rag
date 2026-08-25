@@ -81,16 +81,18 @@ jogi_tanacsadoi_feladat:
     # JOGI SZAKVÉLEMÉNY: {topic}
     
     ### RÖVID VÁLASZ
-    [Egy-két mondatos, kategorikus és egyértelmű válasz a kérdésre: Igen / Nem / Részben]
+    [Egy-két mondatos, kategorikus és egyértelmű válasz a kérdésre: Igen / Nem / Részben. Kérlek, hogy itt a lényeget emeld ki félkövér stílusban, csak 1-2 szót.]
     
     ### JOGI INDOKOLÁS
-    [Részletes, bekezdésekre bontott jogi elemzés, a pontos jogszabályi szövegek explicit beépítésével és levezetésével]
+    [Részletes, bekezdésekre bontott jogi elemzés, a pontos jogszabályi szövegek explicit beépítésével és levezetésével,
+    Kérlek, hogy itt a lényeget emeld ki félkövér stílusban, csak 1-2 szót mondatonként.]
     
     ### JOGSZABÁLYI HIVATKOZÁSOK
-    - [Törvény pontos neve] [Pontos cikk/paragrafus és bekezdés megjelölése]
+    - [Törvény pontos neve (félkövér betűsítusban)] [Pontos cikk/paragrafus és bekezdés megjelölése]
     
     ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-    [A kockázati szűrés eredménye: a szabály alkalmazhatóságának korlátai, kivételek. Ha nincs kockázat, a mező értéke: "Nincs."]
+    [A kockázati szűrés eredménye: a szabály alkalmazhatóságának korlátai, kivételek. Ha nincs kockázat, a mező értéke: "Nincs.",
+    Kérlek, hogy itt a lényeget emeld ki félkövér stílusban, csak 1-2 szót mondatonként.]
     
     A formázás során kódblokk (```) jelölések használata a teljes szövegre tilos!
   agent: jogi_advisor
