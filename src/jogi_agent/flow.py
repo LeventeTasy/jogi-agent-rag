@@ -322,11 +322,10 @@ class JogiFlow(Flow):
     @listen(or_(correction, "complete"))
     def finish_flow(self):
         if self.state["inputs"]["details"] == "":
-            self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"]})
+            self.state["history"].append({"role": "Felhasználó", "content": self.state["inputs"]["topic"]})
         else:
-            print(f"Kiegészítés: {self.state["inputs"]["details"]}")
-            self.state["history"].append({"role": "User", "content": self.state["inputs"]["topic"] + f"\n###Felhasználó kiegészítése: {self.state["inputs"]["details"]}"})
-        self.state["history"].append({"role": "Assistant", "content": self.state["final_answer"]})
+            self.state["history"].append({"role": "Felhasználó", "content": self.state["inputs"]["topic"] + f"\n###Felhasználó kiegészítése: {self.state["inputs"]["details"]}"})
+        self.state["history"].append({"role": "Asszisztens", "content": self.state["final_answer"]})
 
         try:
             self.save_log_fb()
