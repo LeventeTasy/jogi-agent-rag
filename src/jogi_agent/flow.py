@@ -58,7 +58,7 @@ class JogiFlow(Flow):
     def get_question_id(self):
         return self.state["question_id"]
 
-    def get_history_resp(self):
+    def get_history(self):
         return self.state["history"]
 
     @router(init_flow)

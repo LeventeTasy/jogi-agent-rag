@@ -55,7 +55,7 @@ def run():
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
             #flow.plot()
 
-            history = flow.get_history_resp()
+            history = flow.get_history()
 
 
         except Exception as e:
@@ -122,7 +122,7 @@ def test():
             console.print(formatted_markdown)
             console.print("\n" + "=" * 60 + "\n", style="bold blue")
 
-            history = flow.get_history_resp()
+            history = flow.get_history()
 
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")

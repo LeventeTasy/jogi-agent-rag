@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from firebase_admin import firestore
 from pydantic import BaseModel
 
-from jogi_agent.utils import get_config, initialize_firebase
+from jogi_agent.utils import get_config, initialize_firebase, format_history_for_prompt
 from jogi_agent.flow import JogiFlow
 from jogi_agent.crew import JogiAgent
 
@@ -45,6 +45,7 @@ def verify_api_secret(authorization: str | None) -> None:
 
 class QuestionRequest(BaseModel):
     question: str
+    history: list[dict[str, str]]
 
 
 class LogCommentRequest(BaseModel):
@@ -86,7 +87,7 @@ def ask(
     request: QuestionRequest,
     authorization: str | None = Header(default=None),
 ):
-    # Csak a Vercel proxy hívhatja meg.
+    # Csak a Vercel proxy hívhatja meg
     verify_api_secret(authorization)
 
     config = get_config()
@@ -95,6 +96,7 @@ def ask(
     inputs = {
         "topic": request.question,
         "details": "",
+        "history": format_history_for_prompt(request.history)
     }
 
     flow = JogiFlow()
@@ -113,12 +115,14 @@ def ask(
     runtime = time.perf_counter() - start
 
     questonId = flow.get_question_id()
+    history = flow.get_history()
 
     return {
         "answer": remove_legal_references(str(response)),
         "paragraphs": str(flow.get_chunks()),
         "runtime": format_runtime(runtime),
-        "question_id": questonId
+        "question_id": questonId,
+        "history": history
     }
 
 @app.post("/api/v1/comment")
