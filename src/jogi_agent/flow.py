@@ -47,6 +47,9 @@ class JogiFlow(Flow):
         if "inputs" not in self.state:
             self.state["inputs"] = {}
 
+        if "history" not in self.state:
+            self.state["history"] = []
+
     def run_metrics(self, result):
         metrics = result.token_usage
 
