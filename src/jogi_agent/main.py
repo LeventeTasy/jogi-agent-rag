@@ -9,6 +9,7 @@ from rich.markdown import Markdown
 from jogi_agent.crew import JogiAgent
 from jogi_agent.utils import get_config, format_history_for_prompt
 from jogi_agent.flow import JogiFlow
+from jogi_agent.router import RouterFlow
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -39,7 +40,7 @@ def run():
         }
 
         try:
-            flow = JogiFlow()
+            flow = RouterFlow()
             flow.state["inputs"] = inputs
             flow.state["history"] = history
 

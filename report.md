@@ -1,23 +1,21 @@
-# JOGI SZAKVÉLEMÉNY: 25 év alattiak adókedvezménye
+# JOGI SZAKVÉLEMÉNY: mikor mondathato fel egy szerzodes?
 
-### RÖVID VÁLASZ
-A kedvezmény érvényesítése **törvényi kötelezettség**, azonban a munkavállaló írásbeli nyilatkozatával az **önkéntes korlátozás** vagy a teljes lemondás lehetséges.
+### RÖVID VÁLASZ 
+**Részben.** A szerződés felmondhatósága **szerződéstípus-függő**, és a hatályos jogszabályok alapján az adott szerződés jellegétől, valamint a felek által kötött megállapodástól **kifejezetten függ**.
 
-### JOGI INDOKOLÁS
-A 25 év alatti fiatalok adóalap-kedvezménye az 1995. évi CXVII. törvény 29/F. § (1) bekezdése értelmében az összevont adóalapba tartozó, **munkaviszonyból származó** jövedelmekre vonatkozik, amelynek igénybevétele a 25. életév betöltése hónapjának végéig **jogszabályilag biztosított**.
+### JOGI INDOKOLÁS 
+A Polgári Törvénykönyvről szóló 2013. évi V. törvény (Ptk.) általános szabályai szerint a szerződés felmondása a **szerződés megszüntetésének** egy módja. A Ptk. 6:213. § (1) bekezdése rögzíti, hogy a szerződés a jogosult és a kötelezett közös megegyezésével, vagy a szerződés **egyoldalú megszüntetésével** (felmondással) szűnhet meg.
 
-A kedvezmény mértékét tekintve a 29/F. § (3) bekezdése **felső korlátot** határoz meg, amely havonta legfeljebb a tárgyévet megelőző év július havi, KSH által közzétett nemzetgazdasági szintű **bruttó átlagkereset** összege.
+A felmondás joga **kizárólag jogszabályi** felhatalmazás, vagy a felek közötti **szerződéses kikötés** alapján gyakorolható. Amennyiben a felek a szerződésben felmondási jogot **kötöttek ki**, az abban foglaltak az irányadók. Jogszabályi felhatalmazás hiányában vagy szerződéses kikötés nélkül az egyoldalú felmondás jogi kockázatot hordoz, és **érvénytelennek** minősülhet.
 
-Az eljárási szabályokat illetően a 29/F. § (5) bekezdése alapján a munkáltató a kedvezményt a munkavállaló külön nyilatkozata nélkül is **köteles érvényesíteni**, amennyiben a jogosultság az adatok alapján **egyértelműen megállapítható**. A munkavállalói nyilatkozat hiánya tehát nem mentesíti a munkáltatót az **automatikus érvényesítési** kötelezettség alól.
+A felmondás jogszerűsége minden esetben **eseti mérlegelést** igényel, tekintettel arra, hogy a Ptk. 6:213. § (2) bekezdése szerint a felmondás a szerződést a **jövőre nézve** szünteti meg.
 
-A kedvezmény igénybevételétől való eltérés joga a 29/F. § (6) bekezdése értelmében a munkavállalót illeti meg: az adóelőleg-levonást megelőzően tett **írásbeli nyilatkozattal** kérheti a munkáltatótól a kedvezmény **mellőzését** vagy annak **részbeni** alkalmazását.
+### JOGSZABÁLYI HIVATKOZÁSOK 
+**Polgári Törvénykönyvről szóló 2013. évi V. törvény** 6:213. § (1) és (2) bekezdés.
 
-### JOGSZABÁLYI HIVATKOZÁSOK
-**1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (1), (2), (3), (5), (6) bekezdés.
+### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK 
+A fenti szabályok alkalmazása során az alábbi korlátokat és kockázatokat szükséges figyelembe venni:
 
-### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szabályozás kockázati szűrése során az alábbiakat rögzítem:
-1. Az automatizmus nem abszolút: a munkavállaló **írásbeli nyilatkozata** felülírja a munkáltatói kötelezettséget.
-2. Életkori korlát: a kedvezmény alkalmazása a 25. életév betöltésének hónapját követően **nem folytatható**.
-3. Érvényességi korlát: az adóalap-kedvezmény **összege korlátozott**, a bruttó átlagkereset feletti jövedelemrész **nem élvez** kedvezményt.
-4. Egyéb kivételek: a törvényi hivatkozás szerinti "törvényben meghatározott munkaviszonyból származó" jövedelem kitétel további, a 29/A. § szerinti **feltételekhez kötöttséget** feltételez.
+1. **Szerződéstípusok:** A Ptk. egyes szerződéstípusokra (pl. megbízás, vállalkozás, bérlet) külön, speciális felmondási szabályokat állapít meg, amelyek eltérhetnek az általános szabályoktól.
+2. **Kényszerítő szabályok:** Egyes szerződésfajtáknál (pl. munkaviszony) a felmondás korlátozott, és a munkáltatói felmondás indokoláshoz kötött, amelynek elmulasztása **jogellenes** jogkövetkezményeket von maga után.
+3. **Abszolút kijelentések:** Az általános Ptk. rendelkezések **nem alkalmazhatók** akkor, ha a felek a szerződésben a felmondási jogot korlátozták vagy kizárták (szerződési szabadság elve), kivéve, ha a jogszabály az adott szerződéstípusnál ettől eltérően rendelkezik.
