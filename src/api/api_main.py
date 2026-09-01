@@ -11,8 +11,7 @@ from firebase_admin import firestore
 from pydantic import BaseModel
 
 from jogi_agent.utils import get_config, initialize_firebase, format_history_for_prompt
-from jogi_agent.flow import JogiFlow
-from jogi_agent.crew import JogiAgent
+from jogi_agent.router import RouterFlow
 
 
 app = FastAPI()
@@ -98,7 +97,7 @@ def ask(
         "history": format_history_for_prompt(request.history)
     }
 
-    flow = JogiFlow()
+    flow = RouterFlow()
 
     flow.state["inputs"] = inputs
 
