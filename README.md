@@ -21,7 +21,9 @@ A rendszer két fő pillérre épül: egy **egyedi jogi RAG pipeline**-ra és eg
 
 ```mermaid
 graph TD
-    Question[Felhasználói Kérdés] --> Strategist[1. Jogi Stratégiai Tervező]
+    Question[Felhasználói Kérdés] --> Router{Jogi kérdés?}
+    Router -->|Igen| Strategist[1. Jogi Stratégiai Tervező]
+    Router -->|Nem| NonLegal[Nem jogi válasz formálása]
     Strategist --> |Kulcsszó-stratégia & Besorolás| Researcher[2. Szenior Jogi Adatbányász]
     Researcher --> |RAG Kereső Eszköz / ChromaDB| VectorDB[(ChromaDB)]
     VectorDB --> |Releváns bekezdések / cikkek| Researcher
