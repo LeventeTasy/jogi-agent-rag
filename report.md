@@ -1,21 +1,21 @@
-# JOGI SZAKVÉLEMÉNY: mikor mondathato fel egy szerzodes?
+# JOGI SZAKVÉLEMÉNY: és mikor nem?
 
-### RÖVID VÁLASZ 
-**Részben.** A szerződés felmondhatósága **szerződéstípus-függő**, és a hatályos jogszabályok alapján az adott szerződés jellegétől, valamint a felek által kötött megállapodástól **kifejezetten függ**.
+### RÖVID VÁLASZ
+**Részlegesen.** A kedvezmény **meghatározott** jövedelemtípusokra alkalmazható, a 25. életév betöltésének hónapjáig, **szigorú** adminisztratív feltételek mellett.
 
-### JOGI INDOKOLÁS 
-A Polgári Törvénykönyvről szóló 2013. évi V. törvény (Ptk.) általános szabályai szerint a szerződés felmondása a **szerződés megszüntetésének** egy módja. A Ptk. 6:213. § (1) bekezdése rögzíti, hogy a szerződés a jogosult és a kötelezett közös megegyezésével, vagy a szerződés **egyoldalú megszüntetésével** (felmondással) szűnhet meg.
+### JOGI INDOKOLÁS
+A 25 év alattiak kedvezménye az összevont adóalapba tartozó jövedelmek **szűkebb körére** vonatkozik, amelyeket a jogszabály taxatíve sorol fel. A 29/F. § (1) bekezdés alapján az adómentesség kizárólag a **munkaviszonyból** származó jövedelemre, a **vállalkozói kivétre**, az **átalányban** megállapított jövedelemre, valamint a **megbízási díjra** terjed ki.
 
-A felmondás joga **kizárólag jogszabályi** felhatalmazás, vagy a felek közötti **szerződéses kikötés** alapján gyakorolható. Amennyiben a felek a szerződésben felmondási jogot **kötöttek ki**, az abban foglaltak az irányadók. Jogszabályi felhatalmazás hiányában vagy szerződéses kikötés nélkül az egyoldalú felmondás jogi kockázatot hordoz, és **érvénytelennek** minősülhet.
+Többes jogviszony esetén a kedvezmény érvényesítését az adózó **autonóm döntése** szabályozza, amelyet írásbeli nyilatkozattal kell a kifizető felé **hitelesíteni**. A 29/F. § (5) bekezdése szerint, amennyiben az adózó **elmulasztja** a nyilatkozattételt, a kifizetőknek az **időrendi sorrendet** kell alkalmazniuk a kedvezmény érvényesítése során.
 
-A felmondás jogszerűsége minden esetben **eseti mérlegelést** igényel, tekintettel arra, hogy a Ptk. 6:213. § (2) bekezdése szerint a felmondás a szerződést a **jövőre nézve** szünteti meg.
+Az időbeli korlát tekintetében a 29/F. § (2) bekezdés **egyértelmű rendelkezést** tartalmaz: a kedvezmény érvényesítése a 25. életév betöltésének **adott hónapjára** korlátozódik. Ez jelenti a kedvezmény igénybevételének **végső időpontját**, amelyen túl a jogszabályi mentesség már **nem érvényesíthető**.
 
-### JOGSZABÁLYI HIVATKOZÁSOK 
-**Polgári Törvénykönyvről szóló 2013. évi V. törvény** 6:213. § (1) és (2) bekezdés.
+### JOGSZABÁLYI HIVATKOZÁSOK
+**A személyi jövedelemadóról szóló 1995. évi CXVII. törvény** 29/F. § (1) bekezdés
+**A személyi jövedelemadól szóló 1995. évi CXVII. törvény** 29/F. § (2) bekezdés
+**A személyi jövedelemadóról szóló 1995. évi CXVII. törvény** 29/F. § (5) bekezdés
 
-### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK 
-A fenti szabályok alkalmazása során az alábbi korlátokat és kockázatokat szükséges figyelembe venni:
-
-1. **Szerződéstípusok:** A Ptk. egyes szerződéstípusokra (pl. megbízás, vállalkozás, bérlet) külön, speciális felmondási szabályokat állapít meg, amelyek eltérhetnek az általános szabályoktól.
-2. **Kényszerítő szabályok:** Egyes szerződésfajtáknál (pl. munkaviszony) a felmondás korlátozott, és a munkáltatói felmondás indokoláshoz kötött, amelynek elmulasztása **jogellenes** jogkövetkezményeket von maga után.
-3. **Abszolút kijelentések:** Az általános Ptk. rendelkezések **nem alkalmazhatók** akkor, ha a felek a szerződésben a felmondási jogot korlátozták vagy kizárták (szerződési szabadság elve), kivéve, ha a jogszabály az adott szerződéstípusnál ettől eltérően rendelkezik.
+### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
+A kedvezmény alkalmazása **kizárólag** a jogszabályban megnevezett négy jövedelemtípusra vonatkozik; egyéb, az összevont adóalapba tartozó jövedelmek (pl. ingatlanbérbeadás) **kizártak**.
+Az írásbeli nyilatkozat **hiánya** kockázatot jelent, mivel ebben az esetben a kifizetők az időrendi sorrendet **kötelezően** alkalmazzák, ami korlátozza az adózó szabad választását.
+A 25. életév betöltését követő hónaptól a kedvezmény **automatikusan megszűnik**, így a késedelmes igénylés jogi **veszteséget** eredményez.

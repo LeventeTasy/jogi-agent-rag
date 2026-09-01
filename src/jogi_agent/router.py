@@ -1,10 +1,23 @@
+import time
+import uuid
+from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
 from crewai.flow.flow import Flow, listen, start, router, and_, or_
 from crewai import LLM
 from dotenv import load_dotenv
 from jogi_agent.flow import JogiFlow
 import os
 
+from jogi_agent.utils import initialize_firebase
+
+
 class RouterFlow(Flow):
+
+    def __init__(self, /, testing=False, **data: any):
+        super().__init__(**data)
+        self.start_time = time.perf_counter()
 
     @start()
     def init_flow(self):
@@ -12,7 +25,9 @@ class RouterFlow(Flow):
         self.state["model"] = str(os.getenv("MODEL"))
         self.state["question"] = self.state["inputs"]["topic"]
 
-        self.state["history"] = []
+        if "history" not in self.state:
+            self.state["history"] = []
+
         self.state["question_id"] = ""
         self.state["chunks"] = ""
         self.state["verifier_counter"] = ""
@@ -21,9 +36,12 @@ class RouterFlow(Flow):
     @router(init_flow)
     def main(self):
 
-        SYSTEM_PROMPT = """
+        SYSTEM_PROMPT = f'''
         Te egy szigorú, bináris osztályozó modell (Router) vagy egy magyar jogi AI asszisztens rendszer kapujában.
-        A feladatod a beérkező felhasználói üzenet szándékának (intent) vizsgálata és besorolása.
+        A feladatod a beérkező felhasználói üzenet szándékának (intent) vizsgálata és besorolása a korábbi beszélgetési kontextus figyelembevételével.
+        
+        Beszélgetési előzmény:
+        "{self.state["history"]}"
         
         SZABÁLYOK:
         1. Két lehetséges kategória létezik:
@@ -44,7 +62,7 @@ class RouterFlow(Flow):
            LEGAL
            vagy
            NOT_LEGAL
-        """
+        '''
 
         llm = LLM(model=self.state["model"])
         messages = [
@@ -77,6 +95,8 @@ class RouterFlow(Flow):
 
     @listen("NOT_LEGAL")
     def call_etc(self):
+        self.state["question_id"] = f"Q_{uuid.uuid4()}".upper()
+
         llm = LLM(model=self.state["model"])
 
         SYSTEM_PROMPT = """
@@ -109,9 +129,10 @@ class RouterFlow(Flow):
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": self.state["question"]},
         ]
-        response = llm.call(messages)
+        self.state["final_answer"] = llm.call(messages)
+        self.save_log_fb()
 
-        return response
+        return self.state["final_answer"]
 
     @listen("HIBA")
     def error_handling(self):
@@ -128,3 +149,34 @@ class RouterFlow(Flow):
 
     def get_verifier_counter(self):
         return self.state["verifier_counter"]
+
+    def save_log(self):
+        BASE_DIR = Path(__file__).resolve().parent.parent.parent
+        PATH = BASE_DIR / "logs" / "log.xlsx"
+
+        log = pd.read_excel(PATH)
+
+        log.loc[len(log)] = {
+            "QuestionID": self.state["question_id"],
+            "UserID": "U_1",
+            "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "Question": self.state["inputs"]["topic"],
+            "Answer": self.state["final_answer"],
+            "Runtime": time.perf_counter() - self.start_time,
+        }
+
+        log.to_excel(PATH, index=False)
+
+    def save_log_fb(self):
+        db = initialize_firebase()
+
+        db.collection("nl_questions").add(
+            {
+                "QuestionID": self.state["question_id"],
+                "UserID": "U_1",
+                "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "Question": self.state["inputs"]["topic"],
+                "Answer": self.state["final_answer"],
+                "Runtime": time.perf_counter() - self.start_time,
+            }
+        )
