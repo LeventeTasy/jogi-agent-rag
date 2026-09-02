@@ -1,0 +1,12 @@
+deep_analysis_feladat:
+  description: >
+    Elemezd a felhasználó által feltett kérdést a(z) "{topic}" témakörben, figyelembe véve az eddigi chat history-t is: 
+    {history}.
+
+    - Vizsgáld meg, hogy a kérdés elég pontos-e, és minden szükséges háttérinformáció (pl. szerződés típusa, státusz, konkrét élethelyzet) rendelkezésre áll-e a pontos jogi válaszhoz. 
+    - Hiányos/Homályos a szituáció: A kimeneted kizárólag egy udvarias, célzott kérdéssor legyen a felhasználó felé, amiben bekéred a hiányzó/homályos részleteket, hogy később pontosabban tudjanak a következő ágensek válaszolni.
+    - FONTOS: az outputban semmiképpen se adj választ a kérdésre, ne magyarázd meg, ne adj hivatkozásokat, csak az esetleges kérdéseket tedd fel
+  expected_output: >
+    - FONTOS: az outputban semmiképpen se adj választ a kérdésre, ne magyarázd meg, ne adj hivatkozásokat, csak az esetleges kérdéseket tedd fel
+    - "Kérem adjon meg részleteket a leírt szituációról:" majd pedig hozzáteszel egy közvetlen kérdéssort a felhasználónak.
+  agent: deep_analyst
