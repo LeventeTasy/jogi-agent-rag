@@ -116,9 +116,6 @@ def test():
 
     for question in test_questions:
         print(f"\nTESZTELÉS: {question}")
-
-
-
         inputs = {
             'topic': question,
             'current_year': datetime.now().year,
