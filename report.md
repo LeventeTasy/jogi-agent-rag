@@ -1,20 +1,19 @@
-# JOGI SZAKVÉLEMÉNY: és mikor nem?
+# JOGI SZAKVÉLEMÉNY: és mikor nem vagyok?
 
 ### RÖVID VÁLASZ
-A kedvezmény érvényesítése **korlátozott**, az összevont adóalap köréhez és a kifizető státuszához kötött.
+A 25 év alattiak kedvezménye **részben** érvényesíthető, kizárólag az összevont adóalapba tartozó jövedelmek után; a mulasztás jogi következményekkel jár.
 
 ### JOGI INDOKOLÁS
-A 25 év alattiak személyi jövedelemadó kedvezménye kizárólag az **összevont adóalapba** tartozó jövedelmekre érvényesíthető. Az Szja. tv. 29/F. § (2) bekezdése alapján nem érvényesíthető olyan jövedelemre, amely külön adózó jövedelem, ideértve különösen az **osztalékot**, az **árfolyamnyereséget** és az ingatlan bérbeadásából származó jövedelmet.
+A 25 év alattiak kedvezményének alapját az Szja tv. 29/F. § (1) bekezdése szerint az **összevont adóalapba** tartozó jövedelmek képezik. Ebbe a körbe sorolandó a **munkaviszonyból** származó jövedelem, a **vállalkozói kivét**, az **átalányban** megállapított jövedelem, a **mezőgazdasági őstermelői** jövedelem, valamint a **megbízási díj**.
 
-Az önálló tevékenységből nem származó bérjövedelem esetén a kedvezmény alkalmazhatósága **korlátozott**. Az Szja. tv. 29/F. § (5) bekezdése kimondja, hogy megbízási díj vagy egyéb jogviszony esetén a kedvezmény akkor alkalmazható, ha a jövedelem megfelel az összevont adóalapba tartozó **egyéb jövedelem** kategóriájának.
+Ezzel szemben a 29/F. § (4) bekezdése értelmében a kedvezmény **nem érvényesíthető** a külön adózó jövedelmekre, amelyek nem képezik az összevont adóalap részét. A jogszabály példálózó felsorolással említi az **osztalékot**, az **árfolyamnyereséget**, valamint a **kamatjövedelmet** mint olyan típusokat, amelyekre a mentesség nem terjed ki.
 
-Amennyiben a kifizető nem belföldi illetőségű és nem rendelkezik magyar adóazonosítóval, a kedvezmény az adóelőleg-levonás során **nem érvényesíthető**. Az Szja. tv. 29/F. § (8) bekezdése szerint ilyen esetben a kedvezmény igénybevétele az **adóév végén**, az adóbevallásban lehetséges, a jövedelem megszerzésének igazolása mellett.
+A 84. § (1) bekezdés alapján a jogszabály a magánszemélyre hárítja a **tájékoztatási kötelezettséget** a 25. életév betöltését követően. Amennyiben a kedvezményt jogalap nélkül veszik igénybe a mulasztás miatt, a magánszemély **köteles** az adókülönbözetet megfizetni, továbbá az adóhiány után **12 százalékos** jogkövetkezmény terheli, feltéve, hogy a hiány a magánszemély mulasztására vezethető vissza.
 
-A magánszemély tájékoztatási kötelezettségének elmulasztása **jogkövetkezményekkel** jár. Az Art. 178. § (3) bekezdése alapján, ha a 25. életév betöltéséről szóló információ eltitkolása miatt jogosulatlan kedvezményigény keletkezik, a magánszemély köteles az **adóhiányt** adóbírsággal és késedelmi pótlékkal növelten megfizetni.
+### JOGSZABÁLYI HIVATKOZÁSOK
+**A személyi jövedelemadóról szóló 1995. évi CXVII. törvény** [29/F. § (1) bekezdés]
+**A személyi jövedelemadól szóló 1995. évi CXVII. törvény** [29/F. § (4) bekezdés]
+**A személyi jövedelemadól szóló 1995. évi CXVII. törvény** [84. § (1) bekezdés]
 
-### JOGSZABÁLYI HIVATKOZÁSOK - 
-**1995. évi CXVII. törvény a személyi jövedelemadóról (Szja. tv.)** 29/F. § (2), (5), (8) bekezdés
-**2017. évi CL. törvény az adózás rendjéről (Art.)** 178. § (3) bekezdés
-
-### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK 
-A jogszabály explicit **kivételt** tartalmaz az összevont adóalapba tartozó egyéb jövedelmekre (Szja. tv. 29/F. § (5)), így a kedvezmény nem kizárólag bérjövedelemre korlátozott. A külföldi kifizető esetén a kedvezmény **nem veszik el**, csupán az érvényesítés technikai módja változik adóbevallási szakaszra (Szja. tv. 29/F. § (8)). A kifizető **mentesül** a felelősség alól, amennyiben jóhiszeműen járt el a magánszemély nyilatkozata alapján (Art. 178. § (3)).
+### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
+A szabályozásban szereplő felsorolások ("ide tartozik különösen", "így különösen") **nem zártak**, tehát más, összevont adóalapba tartozó jövedelmek is érintettek lehetnek, vagy további külön adózó jövedelmek is kizárhatják a kedvezményt. A jogkövetkezmény alkalmazása **feltételes**, csak akkor állapítható meg, ha az adóhiány közvetlenül a magánszemély **mulasztására** vezethető vissza. **Nincs** automatizmus a jogkövetkezmény megállapításánál, az a bizonyíthatóság függvénye.
