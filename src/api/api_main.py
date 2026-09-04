@@ -47,6 +47,7 @@ class QuestionRequest(BaseModel):
     history: list[dict[str, str]]
     da_questions: str = ""
     da_answers: str = ""
+    username: str = ""
 
 
 class LogCommentRequest(BaseModel):
@@ -98,7 +99,8 @@ def ask(
         "details": "",
         "history": format_history_for_prompt(request.history),
         "da_questions": request.da_questions or "",
-        "da_answers": request.da_answers or ""
+        "da_answers": request.da_answers or "",
+        'username': request.username or "U_2"
     }
 
     flow = RouterFlow()
