@@ -267,7 +267,7 @@ class JogiFlow(Flow):
         db.collection("questions").add(
             {
                 "QuestionID": self.state["question_id"],
-                "UserID": "U_1",
+                "UserID": self.state["inputs"]["username"],
                 "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "Question": self.state["inputs"]["topic"],
                 "Chunks": self.get_chunks(),

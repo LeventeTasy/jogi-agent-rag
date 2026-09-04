@@ -58,7 +58,8 @@ def run():
                 'history': formatted_history,
                 'details': "",
                 'da_questions': da_questions,
-                'da_answers': da_answers
+                'da_answers': da_answers,
+                'username': "U_1"
             }
 
             flow = RouterFlow()
