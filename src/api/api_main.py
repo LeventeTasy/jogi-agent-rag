@@ -110,7 +110,7 @@ def ask(
     flow = RouterFlow()
 
     flow.state["inputs"] = inputs
-    flow.state["history"] = inputs["history"]
+    flow.state["history"] = list(request.history) if request.history else []
 
     start = time.perf_counter()
 
