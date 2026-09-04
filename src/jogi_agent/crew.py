@@ -86,19 +86,6 @@ class JogiAgent():
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
 
     @task
-    def inditasi_feladat(self) -> Task:
-        return Task(
-            config=self.tasks_config['inditasi_feladat']  # type: ignore[index]
-        )
-
-    @task
-    def deep_analysis_feladat(self) -> Task:
-        return ConditionalTask(
-            config=self.tasks_config['deep_analysis_feladat'],  # type: ignore[index]
-            condition=lambda context: self.is_deep_analysis
-        )
-
-    @task
     def jogi_strategiai_tervezes_feladat(self) -> Task:
         return Task(
             config=self.tasks_config['jogi_strategiai_tervezes_feladat'], # type: ignore[index]

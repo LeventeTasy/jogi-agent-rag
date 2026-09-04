@@ -64,46 +64,7 @@ class JogiFlow(Flow):
     def get_history(self):
         return self.state["history"]
 
-    @router(init_flow)
-    def route_config(self):
-        if self.state["deep_analysis"]:
-            return "run_deep_analysis"
-        else:
-            return "skip_deep_analysis"
-
-    @human_feedback(message="Kérjük pontosítsa a leírt szituációt (Enter = kihagyás):")
-    @listen("run_deep_analysis")
-    def deep_analysis(self):
-        agent_instance = JogiAgent()
-
-        mini_crew = Crew(
-            agents=[agent_instance.jogi_strategist()],
-            tasks=[agent_instance.inditasi_feladat(), agent_instance.deep_analysis_feladat()],
-            verbose=self.state["is_verbose"]
-        )
-
-        analysis_result = mini_crew.kickoff(inputs=self.state["inputs"])
-
-        self.run_metrics(analysis_result)
-
-        return analysis_result.raw
-
-    @listen(deep_analysis)
-    def process_feedback(self, result):
-
-        if result.feedback:  # Ha adott meg plusz infót
-            # print(f"Bekerülő új infó: {result.feedback}")
-            jelenlegi_details = self.state["inputs"].get("details", "")
-
-            if jelenlegi_details:
-                self.state["inputs"]["details"] = jelenlegi_details + f"\nTovábbi pontosítás: {result.feedback}"
-            else:
-                self.state["inputs"]["details"] = f"Felhasználó kiegészítése: {result.feedback}"
-        # else:
-        # print("A felhasználó kihagyta a válaszadást (Enter).")
-
-
-    @listen(or_(process_feedback, "skip_deep_analysis"))
+    @listen(init_flow)
     def run_main_crew(self, *args):
         #print("Starting flow")
         #print(f"Flow State ID: {self.state['id']}")

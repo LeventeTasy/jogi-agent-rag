@@ -1,6 +1,8 @@
 import configparser
 from datetime import datetime
 from pathlib import Path
+from crewai import Agent, Task
+import yaml
 
 import jsonschema
 import os
@@ -53,6 +55,37 @@ def format_history_for_prompt(history: list[dict[str, str]], max_turns: int = 5)
 
     return "\n\n".join(formatted_turns)
 
+def init_deep_analysis(is_verbose: bool):
+    BASE_DIR = Path(__file__).resolve().parent
+
+    with open(BASE_DIR / "config" / "deep_analyst_agent.yaml", "r", encoding='UTF-8') as f:
+        agents_config = yaml.safe_load(f)
+
+    with open(BASE_DIR / "config" / "deep_analysis_task.yaml", "r", encoding='UTF-8') as f:
+        tasks_config = yaml.safe_load(f)
+
+    da_agent = Agent(
+        config=agents_config["deep_analyst"],
+        verbose=is_verbose
+    )
+
+    return tasks_config, da_agent
+
+def run_deep_analysis(tasks_config, question: str, formatted_history: str, da_agent: Agent):
+    # format: topic, history
+    tasks_config["deep_analysis_feladat"]["description"] = tasks_config["deep_analysis_feladat"][
+        "description"].format(
+        topic=question,
+        history=formatted_history
+    )
+
+    da_task = Task(
+        config=tasks_config["deep_analysis_feladat"],
+        agent=da_agent
+    )
+
+    # run deep analysis
+    return str(da_task.execute_sync())
 
 
 

@@ -1,21 +1,23 @@
-# JOGI SZAKVÉLEMÉNY: és mikor nem?
+# JOGI SZAKVÉLEMÉNY: mikor veheto igenybe a 25 even aluliak adozasi kedvezmenye?
 
 ### RÖVID VÁLASZ
-**Részlegesen.** A kedvezmény **meghatározott** jövedelemtípusokra alkalmazható, a 25. életév betöltésének hónapjáig, **szigorú** adminisztratív feltételek mellett.
+A kedvezmény **részben** vehető igénybe, kizárólag az összevont adóalapba tartozó jövedelmek után, a törvényben rögzített havi keretösszeg erejéig.
 
 ### JOGI INDOKOLÁS
-A 25 év alattiak kedvezménye az összevont adóalapba tartozó jövedelmek **szűkebb körére** vonatkozik, amelyeket a jogszabály taxatíve sorol fel. A 29/F. § (1) bekezdés alapján az adómentesség kizárólag a **munkaviszonyból** származó jövedelemre, a **vállalkozói kivétre**, az **átalányban** megállapított jövedelemre, valamint a **megbízási díjra** terjed ki.
+A 25 év alatti fiatalok számára biztosított adóalap-kedvezmény alkalmazhatósága **meghatározott körre** korlátozódik. A hatályos szabályozás alapján a kedvezmény az **összevont adóalapba tartozó** önálló és nem önálló tevékenységből származó jövedelmekre, így kiemelten a munkaviszonyból származó jövedelemre vonatkozik (1995. évi CXVII. törvény 29/F. § (1) bekezdés).
 
-Többes jogviszony esetén a kedvezmény érvényesítését az adózó **autonóm döntése** szabályozza, amelyet írásbeli nyilatkozattal kell a kifizető felé **hitelesíteni**. A 29/F. § (5) bekezdése szerint, amennyiben az adózó **elmulasztja** a nyilatkozattételt, a kifizetőknek az **időrendi sorrendet** kell alkalmazniuk a kedvezmény érvényesítése során.
+Amennyiben a fiatal több, összevont adóalapba tartozó jövedelemmel is rendelkezik, a jogszabály **prioritási sorrendet** állít fel. A kedvezményt elsődlegesen a munkaviszonyból származó bérjövedelemre, majd azt követően az egyéb, összevont adóalapba tartozó jövedelemre kell érvényesíteni, mindezt a havi keretösszeg erejéig (1995. évi CXVII. törvény 29/F. § (5) bekezdés).
 
-Az időbeli korlát tekintetében a 29/F. § (2) bekezdés **egyértelmű rendelkezést** tartalmaz: a kedvezmény érvényesítése a 25. életév betöltésének **adott hónapjára** korlátozódik. Ez jelenti a kedvezmény igénybevételének **végső időpontját**, amelyen túl a jogszabályi mentesség már **nem érvényesíthető**.
+Fontos korlátozás, hogy a kedvezmény **nem érvényesíthető** azokon a jövedelmeken, amelyek az összevont adóalapnak nem részei (1995. évi CXVII. törvény 29/F. § (3) bekezdés). Ez különösen azokra az ösztöndíjakra vonatkozik, amelyek külön jogszabály alapján adómentesek, vagy amelyeket a törvény nem nevesít a kedvezmény alapjaként (1995. évi CXVII. törvény 29/F. § (3) bekezdés).
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-**A személyi jövedelemadóról szóló 1995. évi CXVII. törvény** 29/F. § (1) bekezdés
-**A személyi jövedelemadól szóló 1995. évi CXVII. törvény** 29/F. § (2) bekezdés
-**A személyi jövedelemadóról szóló 1995. évi CXVII. törvény** 29/F. § (5) bekezdés
+* **1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (1) bekezdés
+* **1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (3) bekezdés
+* **1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (5) bekezdés
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A kedvezmény alkalmazása **kizárólag** a jogszabályban megnevezett négy jövedelemtípusra vonatkozik; egyéb, az összevont adóalapba tartozó jövedelmek (pl. ingatlanbérbeadás) **kizártak**.
-Az írásbeli nyilatkozat **hiánya** kockázatot jelent, mivel ebben az esetben a kifizetők az időrendi sorrendet **kötelezően** alkalmazzák, ami korlátozza az adózó szabad választását.
-A 25. életév betöltését követő hónaptól a kedvezmény **automatikusan megszűnik**, így a késedelmes igénylés jogi **veszteséget** eredményez.
+A szabályozás **szigorú feltételeket** tartalmaz, amelyek figyelmen kívül hagyása adózási kockázatot hordoz.
+
+* **Adómentes jövedelmek**: Az ösztöndíjak és egyéb, külön jogszabályban adómentesnek minősített jövedelmek **kizártak** a kedvezmény hatálya alól, amennyiben nem részei az összevont adóalapnak.
+* **Keretösszeg korlát**: A kedvezmény nem korlátlan, annak érvényesítése **havi keretösszeghez** kötött, így a keretösszeget meghaladó jövedelem már nem mentesíthető.
+* **Kategorikus kizárás**: A kedvezmény **sosem** alkalmazható az összevont adóalapba nem tartozó jövedelmekre, függetlenül a fiatal életkorától.

@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from firebase_admin import firestore
 from pydantic import BaseModel
 
-from jogi_agent.utils import get_config, initialize_firebase, format_history_for_prompt
+from jogi_agent.utils import get_config, initialize_firebase, format_history_for_prompt, init_deep_analysis, run_deep_analysis
 from jogi_agent.router import RouterFlow
 
 
@@ -45,6 +45,8 @@ def verify_api_secret(authorization: str | None) -> None:
 class QuestionRequest(BaseModel):
     question: str
     history: list[dict[str, str]]
+    da_questions: str = ""
+    da_answers: str = ""
 
 
 class LogCommentRequest(BaseModel):
@@ -94,7 +96,9 @@ def ask(
     inputs = {
         "topic": request.question,
         "details": "",
-        "history": format_history_for_prompt(request.history)
+        "history": format_history_for_prompt(request.history),
+        "da_questions": request.da_questions or "",
+        "da_answers": request.da_answers or ""
     }
 
     flow = RouterFlow()
@@ -116,6 +120,26 @@ def ask(
         "runtime": format_runtime(runtime),
         "question_id": questonId,
         "history": history
+    }
+
+@app.post("/api/v1/askDeepAnalysis")
+def askDeepAnalysis(
+    request: QuestionRequest,
+    authorization: str | None = Header(default=None),
+):
+    # Csak a Vercel proxy hívhatja meg
+    verify_api_secret(authorization)
+
+    config = get_config()
+
+    start = time.perf_counter()
+    tasks_config, da_agent = init_deep_analysis(is_verbose=False)
+    da_questions = run_deep_analysis(tasks_config, request.question, format_history_for_prompt(request.history), da_agent)
+    runtime = time.perf_counter() - start
+
+    return {
+        "questions": da_questions,
+        "runtime": format_runtime(runtime)
     }
 
 @app.post("/api/v1/comment")

@@ -3,12 +3,16 @@ import sys
 import warnings
 import os, dotenv
 from datetime import datetime
+from pathlib import Path
+
 from dotenv import load_dotenv
 from rich.console import Console
 from rich.markdown import Markdown
 from jogi_agent.crew import JogiAgent
 from jogi_agent.utils import get_config, format_history_for_prompt
 from jogi_agent.router import RouterFlow
+import yaml
+from jogi_agent.utils import init_deep_analysis, run_deep_analysis
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -23,6 +27,13 @@ def run():
     Run the crew.
     """
     config = get_config()
+    is_deep_analysis = config["is_deep_analysis_enabled"]
+    is_verbose = config["is_verbose"]
+    da_questions = ""
+    da_answers = ""
+
+    if is_deep_analysis:
+        tasks_config, da_agent = init_deep_analysis(is_verbose)
 
     console = Console()
     history : list[dict[str, str]] = []
@@ -30,15 +41,26 @@ def run():
     question = input(": ")
 
     while question != "break":
-
-        inputs = {
-            'topic': question,
-            'current_year': datetime.now().year,
-            'history': format_history_for_prompt(history),
-            'details': ""
-        }
+        formatted_history = format_history_for_prompt(history)
 
         try:
+            if is_deep_analysis:
+                da_questions = run_deep_analysis(tasks_config, question, formatted_history, da_agent)
+                print(da_questions+"\n")
+
+                da_answers = input("Deep analysisre válasz: ")
+                if da_answers == "break":
+                    break
+
+            inputs = {
+                'topic': question,
+                'current_year': datetime.now().year,
+                'history': formatted_history,
+                'details': "",
+                'da_questions': da_questions,
+                'da_answers': da_answers
+            }
+
             flow = RouterFlow()
             flow.state["inputs"] = inputs
             flow.state["history"] = history
@@ -94,9 +116,6 @@ def test():
 
     for question in test_questions:
         print(f"\nTESZTELÉS: {question}")
-
-
-
         inputs = {
             'topic': question,
             'current_year': datetime.now().year,
