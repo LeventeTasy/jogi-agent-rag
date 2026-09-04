@@ -25,8 +25,8 @@ class RouterFlow(Flow):
         self.state["model"] = str(os.getenv("MODEL"))
         self.state["question"] = self.state["inputs"]["topic"]
 
-        if "history" not in self.state:
-            self.state["history"] = []
+        if "history" not in self.state or not self.state["history"]:
+            self.state["history"] = self.state.get("inputs", {}).get("history", "")
 
 
         self.state["chunks"] = ""
