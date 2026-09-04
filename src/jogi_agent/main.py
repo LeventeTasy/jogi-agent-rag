@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+import uuid
 import warnings
 import os, dotenv
 from datetime import datetime
@@ -31,6 +32,8 @@ def run():
     is_verbose = config["is_verbose"]
     da_questions = ""
     da_answers = ""
+    chatID = f"T_{uuid.uuid4()}".upper()
+    counter = 0
 
     if is_deep_analysis:
         tasks_config, da_agent = init_deep_analysis(is_verbose)
@@ -59,7 +62,9 @@ def run():
                 'details': "",
                 'da_questions': da_questions,
                 'da_answers': da_answers,
-                'username': "U_1"
+                'username': "U_1",
+                "chatID": chatID,
+                "questionNumber": counter
             }
 
             flow = RouterFlow()
@@ -82,6 +87,7 @@ def run():
             raise Exception(f"An error occurred while running the crew: {e}")
 
         # Következő kérdés bekérése a ciklusban
+        counter += 1
         question = input(": ")
 
 def test():

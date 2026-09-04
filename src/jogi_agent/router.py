@@ -90,6 +90,7 @@ class RouterFlow(Flow):
         self.state["question_id"] = flow.get_question_id()
         self.state["chunks"] = flow.get_chunks()
         self.state["verifier_counter"] = flow.get_verifier_counter()
+        self.state["chatID"] = flow.get_chat_id()
 
         return resp
 
@@ -149,6 +150,9 @@ class RouterFlow(Flow):
 
     def get_verifier_counter(self):
         return self.state["verifier_counter"]
+
+    def get_chat_id(self):
+        return self.state["chat_id"]
 
     def save_log(self):
         BASE_DIR = Path(__file__).resolve().parent.parent.parent
