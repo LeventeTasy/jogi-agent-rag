@@ -36,13 +36,18 @@ class JogiFlow(Flow):
         self.state["prompt_tokens"] = 0
         self.state["completion_tokens"] = 0
         self.state["successful_requests"] = 0
-        self.state["question_id"] = f"Q_{uuid.uuid4()}".upper()
+
 
         self.state["agent1_output"] = ""            # 1. agens
         self.state["rag_chunks"] = ""               # 2. agens
         self.state["cleaned_rag_chunks"] = ""       # 3. agens
         self.state["final_answer"] = ""  # 4/5. agens
         self.state["verifier_feedback"] = ""        # 5. agens
+
+
+        if self.state["inputs"]["chatID"] == "":
+            self.state["inputs"]["chatID"] = f"C_{uuid.uuid4()}".upper()
+        self.state["question_id"] = f'{self.state["inputs"]["chatID"]}-{self.state["inputs"]["questionNumber"]}'
 
         if "inputs" not in self.state:
             self.state["inputs"] = {}
@@ -143,6 +148,9 @@ class JogiFlow(Flow):
 
     def get_verifier_counter(self):
         return self.state.get("verifier_counter")
+
+    def get_chat_id(self):
+        return self.state["inputs"]["chatID"]
 
     @router(run_main_crew)
     def check_answer(self):
@@ -264,12 +272,41 @@ class JogiFlow(Flow):
     def save_log_fb(self):
         db = initialize_firebase()
 
-        db.collection("questions").add(
+        chat_id = self.state["inputs"]["chatID"]
+        question_id = self.state["question_id"]
+        topic = self.state["inputs"]["topic"]
+        now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        conv_ref = db.collection("conversations").document(chat_id)
+        conv_doc = conv_ref.get()
+
+        # 1. Ha a beszélgetés még nem létezik az adatbázisban -> EZ AZ ELSŐ KÉRDÉS!
+        if not conv_doc.exists:
+            # Levágjuk 50 karakternél, hogy tiszta címsor legyen
+            conv_title = (topic[:50] + "...") if len(topic) > 50 else topic
+
+            conv_ref.set(
+                {
+                    "ChatID": chat_id,
+                    "UserID": self.state["inputs"]["username"],
+                    "ConversationName": conv_title,
+                    "CreatedAt": now_str,
+                    "LastUpdated": now_str,
+                    "LastQuestion": topic,
+                }
+            )
+        else:
+            # 2. Ha már létezik a beszélgetés -> KÉSŐBBI KÉRDÉS: a ConversationName-et nem bántjuk!
+            conv_ref.update({"LastUpdated": now_str, "LastQuestion": topic})
+
+        # 3. Kérdés mentése a 'messages' alkollekcióba
+        conv_ref.collection("messages").document(question_id).set(
             {
-                "QuestionID": self.state["question_id"],
+                "QuestionID": question_id,
+                "ChatID": chat_id,
                 "UserID": self.state["inputs"]["username"],
-                "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "Question": self.state["inputs"]["topic"],
+                "Timestamp": now_str,
+                "Question": topic,
                 "Chunks": self.get_chunks(),
                 "Answer": self.state["final_answer"],
                 "Runtime": time.perf_counter() - self.start_time,
@@ -283,7 +320,7 @@ class JogiFlow(Flow):
                 "Agent5_Output": self.state["verifier_feedback"],
                 "Verifier_Agent_Runs": self.state["verifier_counter"],
                 "DeepAnalysis_Questions": self.state["inputs"]["da_questions"],
-                "DeepAnalysis_Answers": self.state["inputs"]["da_answers"]
+                "DeepAnalysis_Answers": self.state["inputs"]["da_answers"],
             }
         )
 

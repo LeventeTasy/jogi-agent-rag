@@ -48,6 +48,8 @@ class QuestionRequest(BaseModel):
     da_questions: str = ""
     da_answers: str = ""
     username: str = ""
+    chatID: str = ""
+    questionNumber: str = ""
 
 
 class LogCommentRequest(BaseModel):
@@ -100,7 +102,9 @@ def ask(
         "history": format_history_for_prompt(request.history),
         "da_questions": request.da_questions or "",
         "da_answers": request.da_answers or "",
-        'username': request.username or "U_2"
+        'username': request.username or "U_2",
+        "chatID": request.chatID or "",
+        "questionNumber": request.questionNumber or "0"
     }
 
     flow = RouterFlow()
@@ -114,12 +118,14 @@ def ask(
     runtime = time.perf_counter() - start
 
     questonId = flow.get_question_id()
+    chatId = flow.get_chat_id()
     history = flow.get_history()
 
     return {
         "answer": remove_legal_references(str(response)),
         "paragraphs": str(flow.get_chunks()),
         "runtime": format_runtime(runtime),
+        "chat_id": chatId,
         "question_id": questonId,
         "history": history
     }

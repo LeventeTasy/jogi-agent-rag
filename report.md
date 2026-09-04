@@ -1,23 +1,20 @@
-# JOGI SZAKVÉLEMÉNY: mikor veheto igenybe a 25 even aluliak adozasi kedvezmenye?
+# JOGI SZAKVÉLEMÉNY: és mikor nem?
 
 ### RÖVID VÁLASZ
-A kedvezmény **részben** vehető igénybe, kizárólag az összevont adóalapba tartozó jövedelmek után, a törvényben rögzített havi keretösszeg erejéig.
+A kedvezmény érvényesítése **korlátozott**, az összevont adóalap köréhez és a kifizető státuszához kötött.
 
 ### JOGI INDOKOLÁS
-A 25 év alatti fiatalok számára biztosított adóalap-kedvezmény alkalmazhatósága **meghatározott körre** korlátozódik. A hatályos szabályozás alapján a kedvezmény az **összevont adóalapba tartozó** önálló és nem önálló tevékenységből származó jövedelmekre, így kiemelten a munkaviszonyból származó jövedelemre vonatkozik (1995. évi CXVII. törvény 29/F. § (1) bekezdés).
+A 25 év alattiak személyi jövedelemadó kedvezménye kizárólag az **összevont adóalapba** tartozó jövedelmekre érvényesíthető. Az Szja. tv. 29/F. § (2) bekezdése alapján nem érvényesíthető olyan jövedelemre, amely külön adózó jövedelem, ideértve különösen az **osztalékot**, az **árfolyamnyereséget** és az ingatlan bérbeadásából származó jövedelmet.
 
-Amennyiben a fiatal több, összevont adóalapba tartozó jövedelemmel is rendelkezik, a jogszabály **prioritási sorrendet** állít fel. A kedvezményt elsődlegesen a munkaviszonyból származó bérjövedelemre, majd azt követően az egyéb, összevont adóalapba tartozó jövedelemre kell érvényesíteni, mindezt a havi keretösszeg erejéig (1995. évi CXVII. törvény 29/F. § (5) bekezdés).
+Az önálló tevékenységből nem származó bérjövedelem esetén a kedvezmény alkalmazhatósága **korlátozott**. Az Szja. tv. 29/F. § (5) bekezdése kimondja, hogy megbízási díj vagy egyéb jogviszony esetén a kedvezmény akkor alkalmazható, ha a jövedelem megfelel az összevont adóalapba tartozó **egyéb jövedelem** kategóriájának.
 
-Fontos korlátozás, hogy a kedvezmény **nem érvényesíthető** azokon a jövedelmeken, amelyek az összevont adóalapnak nem részei (1995. évi CXVII. törvény 29/F. § (3) bekezdés). Ez különösen azokra az ösztöndíjakra vonatkozik, amelyek külön jogszabály alapján adómentesek, vagy amelyeket a törvény nem nevesít a kedvezmény alapjaként (1995. évi CXVII. törvény 29/F. § (3) bekezdés).
+Amennyiben a kifizető nem belföldi illetőségű és nem rendelkezik magyar adóazonosítóval, a kedvezmény az adóelőleg-levonás során **nem érvényesíthető**. Az Szja. tv. 29/F. § (8) bekezdése szerint ilyen esetben a kedvezmény igénybevétele az **adóév végén**, az adóbevallásban lehetséges, a jövedelem megszerzésének igazolása mellett.
 
-### JOGSZABÁLYI HIVATKOZÁSOK
-* **1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (1) bekezdés
-* **1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (3) bekezdés
-* **1995. évi CXVII. törvény a személyi jövedelemadóról** 29/F. § (5) bekezdés
+A magánszemély tájékoztatási kötelezettségének elmulasztása **jogkövetkezményekkel** jár. Az Art. 178. § (3) bekezdése alapján, ha a 25. életév betöltéséről szóló információ eltitkolása miatt jogosulatlan kedvezményigény keletkezik, a magánszemély köteles az **adóhiányt** adóbírsággal és késedelmi pótlékkal növelten megfizetni.
 
-### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szabályozás **szigorú feltételeket** tartalmaz, amelyek figyelmen kívül hagyása adózási kockázatot hordoz.
+### JOGSZABÁLYI HIVATKOZÁSOK - 
+**1995. évi CXVII. törvény a személyi jövedelemadóról (Szja. tv.)** 29/F. § (2), (5), (8) bekezdés
+**2017. évi CL. törvény az adózás rendjéről (Art.)** 178. § (3) bekezdés
 
-* **Adómentes jövedelmek**: Az ösztöndíjak és egyéb, külön jogszabályban adómentesnek minősített jövedelmek **kizártak** a kedvezmény hatálya alól, amennyiben nem részei az összevont adóalapnak.
-* **Keretösszeg korlát**: A kedvezmény nem korlátlan, annak érvényesítése **havi keretösszeghez** kötött, így a keretösszeget meghaladó jövedelem már nem mentesíthető.
-* **Kategorikus kizárás**: A kedvezmény **sosem** alkalmazható az összevont adóalapba nem tartozó jövedelmekre, függetlenül a fiatal életkorától.
+### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK 
+A jogszabály explicit **kivételt** tartalmaz az összevont adóalapba tartozó egyéb jövedelmekre (Szja. tv. 29/F. § (5)), így a kedvezmény nem kizárólag bérjövedelemre korlátozott. A külföldi kifizető esetén a kedvezmény **nem veszik el**, csupán az érvényesítés technikai módja változik adóbevallási szakaszra (Szja. tv. 29/F. § (8)). A kifizető **mentesül** a felelősség alól, amennyiben jóhiszeműen járt el a magánszemély nyilatkozata alapján (Art. 178. § (3)).
