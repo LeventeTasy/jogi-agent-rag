@@ -254,7 +254,9 @@ class JogiFlow(Flow):
             "Agent2_Output": self.state["rag_chunks"],
             "Agent3_Output": self.state["cleaned_rag_chunks"],
             "Agent5_Output": self.state["verifier_feedback"],
-            "Verifier_Agent_Runs": self.state["verifier_counter"]
+            "Verifier_Agent_Runs": self.state["verifier_counter"],
+            "DeepAnalysis_Questions": self.state["inputs"]["da_questions"],
+            "DeepAnalysis_Answers": self.state["inputs"]["da_answers"]
         }
 
         log.to_excel(PATH, index=False)
@@ -279,7 +281,9 @@ class JogiFlow(Flow):
                 "Agent2_Output": self.state["rag_chunks"],
                 "Agent3_Output": self.state["cleaned_rag_chunks"],
                 "Agent5_Output": self.state["verifier_feedback"],
-                "Verifier_Agent_Runs": self.state["verifier_counter"]
+                "Verifier_Agent_Runs": self.state["verifier_counter"],
+                "DeepAnalysis_Questions": self.state["inputs"]["da_questions"],
+                "DeepAnalysis_Answers": self.state["inputs"]["da_answers"]
             }
         )
 
