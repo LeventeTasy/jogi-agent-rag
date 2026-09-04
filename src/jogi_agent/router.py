@@ -28,9 +28,14 @@ class RouterFlow(Flow):
         if "history" not in self.state:
             self.state["history"] = []
 
-        self.state["question_id"] = ""
+
         self.state["chunks"] = ""
         self.state["verifier_counter"] = ""
+
+        if self.state["inputs"]["chatID"] == "":
+            self.state["inputs"]["chatID"] = f"C_{uuid.uuid4()}".upper()
+        self.state["question_id"] = f'{self.state["inputs"]["chatID"]}-{self.state["inputs"]["questionNumber"]}'
+
 
 
     @router(init_flow)
@@ -152,7 +157,7 @@ class RouterFlow(Flow):
         return self.state["verifier_counter"]
 
     def get_chat_id(self):
-        return self.state["chatID"]
+        return self.state["inputs"]["chatID"]
 
     def save_log(self):
         BASE_DIR = Path(__file__).resolve().parent.parent.parent
