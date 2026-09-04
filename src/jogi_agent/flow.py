@@ -326,6 +326,9 @@ class JogiFlow(Flow):
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
+        if not isinstance(self.state.get("history"), list):
+            self.state["history"] = []
+
         if self.state["inputs"]["details"] == "":
             self.state["history"].append({"role": "Felhasználó", "content": self.state["inputs"]["topic"]})
         else:

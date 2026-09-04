@@ -25,8 +25,8 @@ class RouterFlow(Flow):
         self.state["model"] = str(os.getenv("MODEL"))
         self.state["question"] = self.state["inputs"]["topic"]
 
-        if "history" not in self.state or not self.state["history"]:
-            self.state["history"] = self.state.get("inputs", {}).get("history", "")
+        if "history" not in self.state or not isinstance(self.state["history"], list):
+            self.state["history"] = []
 
 
         self.state["chunks"] = ""
@@ -40,13 +40,14 @@ class RouterFlow(Flow):
 
     @router(init_flow)
     def main(self):
+        formatted_history = self.state.get("inputs", {}).get("history", "")
 
         SYSTEM_PROMPT = f'''
         Te egy szigorú, bináris osztályozó modell (Router) vagy egy magyar jogi AI asszisztens rendszer kapujában.
         A feladatod a beérkező felhasználói üzenet szándékának (intent) vizsgálata és besorolása a korábbi beszélgetési kontextus figyelembevételével.
         
         Beszélgetési előzmény:
-        "{self.state["history"]}"
+        "{formatted_history}"
         
         SZABÁLYOK:
         1. Két lehetséges kategória létezik:
