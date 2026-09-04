@@ -152,7 +152,7 @@ class RouterFlow(Flow):
         return self.state["verifier_counter"]
 
     def get_chat_id(self):
-        return self.state["chat_id"]
+        return self.state["chatID"]
 
     def save_log(self):
         BASE_DIR = Path(__file__).resolve().parent.parent.parent
