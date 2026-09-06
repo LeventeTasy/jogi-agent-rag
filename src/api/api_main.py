@@ -2,6 +2,7 @@ import os
 import re
 import secrets
 import time
+import uuid
 from datetime import datetime
 from typing import Literal
 
@@ -53,6 +54,7 @@ class QuestionRequest(BaseModel):
 
 
 class LogCommentRequest(BaseModel):
+    chatID: str
     questionId: str
     correctness: Literal["like", "dislike"]
     comment: str
@@ -160,6 +162,8 @@ def comment(
 
     db = initialize_firebase()
 
+    conv_ref = db.collection("conversations").document(request.chatID)
+
     feedback = {
         "questionId": request.questionId,
         "correctness": request.correctness,
@@ -167,9 +171,9 @@ def comment(
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
-    _, doc_ref = db.collection("feedback").add(feedback)
+    db.collection("conversations").document(request.chatID).collection("messages").document(request.questionId).collection("comments").document(f"CO_{uuid.uuid4()}".upper()).set(feedback)
+
 
     return {
         "success": True,
-        "id": doc_ref.id,
     }
