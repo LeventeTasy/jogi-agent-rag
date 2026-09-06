@@ -171,7 +171,7 @@ def comment(
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
-    db.collection("conversations").document(request.chatID).collection("messages").document(request.questionId).collection("comments").document(f"CO_{uuid.uuid4()}".upper()).set(feedback)
+    db.collection("conversations").document(request.chatID).collection("comments").document(f"CO_{uuid.uuid4()}".upper()).set(feedback)
 
 
     return {
