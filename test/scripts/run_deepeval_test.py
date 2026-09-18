@@ -125,8 +125,11 @@ AGENT_COLUMNS = [
     "Context_Relevancy",
     "Context_Relevancy_Reason",
     "Verifier_Agent_Runs",
-    "Runtime"
-] # str, str, str, str, str, str, float, str, float, str, float, str, int, float
+    "Runtime",
+    "Question_ID",
+    "Timestamp",
+    "Total_Tokens", "Prompt_Tokens", "Completion_Tokens", "Successful_Requests"
+] # str, str, str, str, str, str, float, str, float, str, float, str, int, float, , str, str, int, int, int, int
 
 RAG_COLUMNS = [
     "Torveny",
@@ -146,13 +149,13 @@ RAG_COLUMNS = [
 
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
-    PATH = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
+    PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_base.csv"
 
-    limit = 22
+    limit = 25
     ind = 0
 
     if os.path.exists(PATH):
-        df = pd.read_excel(PATH, dtype=object)
+        df = pd.read_csv(PATH, dtype=object)
         #print(df.dtypes)
 
         for index, row in df.iterrows():
@@ -187,7 +190,7 @@ if __name__ == "__main__":
             for key in eredmenyek.keys():
                 df.at[index, key] = eredmenyek[key]
 
-            df.to_excel(PATH, index=False)
+            df.to_csv(PATH, index=False, encoding="utf-8-sig")
             #print(json.dumps(eredmenyek, indent=4, ensure_ascii=False))
             print("-" * 30)
             print("\n\n")

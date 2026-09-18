@@ -94,56 +94,170 @@ class JogiFlow(Flow):
         self.state["verifier_feedback"] = verifier_task.output.raw
         self.state["verifier_counter"] += 1
 
-
     def get_chunks(self):
-        flow_output_string = self.state.get("cleaned_rag_chunks") or self.state.get("rag_chunks")
+        flow_output_string = (
+                self.state.get("cleaned_rag_chunks")
+                or self.state.get("rag_chunks")
+        )
+
         if not flow_output_string:
             print("Hiba: A RAG chunks és a cleaned_rag_chunks is üres!")
             return []
 
-        if "│" in flow_output_string:
-            flow_output_string = flow_output_string.replace("│", "")
+        # ---------------------------------------------------------
+        # 1. Tisztítás
+        # ---------------------------------------------------------
 
-        clean_str = re.sub(r'```(?:json)?', '', flow_output_string)
-        clean_str = re.sub(r'```', '', clean_str).strip()
+        clean_str = str(flow_output_string)
+
+        clean_str = clean_str.replace("│", "")
+
+        clean_str = re.sub(r"```(?:json)?", "", clean_str, flags=re.IGNORECASE)
+        clean_str = re.sub(r"```", "", clean_str)
+        clean_str = clean_str.strip()
+
+        # ---------------------------------------------------------
+        # 2. JSON parse
+        # ---------------------------------------------------------
+
+        parsed = None
+
         try:
-            match = re.search(r'\[\s*\{.*\}\s*\]', clean_str, re.DOTALL)
-            json_str = match.group(0).strip() if match else clean_str
-            crew_sources = json.loads(json_str)
-            extracted_chunks_list = []
-            for item in crew_sources:
-                if not isinstance(item, dict):
-                    continue
-                results_to_process = item.get("results", [item]) if isinstance(item.get("results"), list) else [item]
-                for res in results_to_process:
-                    if not isinstance(res, dict):
-                        continue
-                    quote = res.get("quote", "").strip()
-                    raw_text = res.get("raw_text", "").strip()
-                    text_alt = res.get("text", "").strip() or res.get("content", "").strip()
+            parsed = json.loads(clean_str)
+        except json.JSONDecodeError as e:
+            print(f"JSON parse sikertelen: {e}")
 
-                    source = res.get("source", "").strip() or res.get("law", "").strip() or "RAG"
-                    article = res.get("article", "").strip() or res.get("page", "").strip()
-                    final_text = raw_text or quote or text_alt
-                    if final_text:
-                        header = f"[{source} - {article}]" if article else f"[{source}]"
-                        extracted_chunks_list.append(f"{header}: {final_text}")
+            # Próbáljuk meg kiszedni a JSON tömböt
+            match = re.search(
+                r"\[\s*\{.*\}\s*\]",
+                clean_str,
+                re.DOTALL
+            )
+
+            if match:
+                try:
+                    parsed = json.loads(match.group(0))
+                except json.JSONDecodeError as e2:
+                    print(f"JSON tömb parse is sikertelen: {e2}")
+
+        # ---------------------------------------------------------
+        # 3. Ha sikerült JSON-t parse-olni
+        # ---------------------------------------------------------
+
+        if parsed is not None:
+
+            extracted_chunks_list = []
+
+            def process_result(res):
+                """
+                Egyetlen RAG result feldolgozása.
+                """
+
+                if not isinstance(res, dict):
+                    return
+
+                raw_text = str(res.get("raw_text", "") or "").strip()
+                quote = str(res.get("quote", "") or "").strip()
+
+                text_alt = (
+                        str(res.get("text", "") or "").strip()
+                        or str(res.get("content", "") or "").strip()
+                )
+
+                final_text = raw_text or quote or text_alt
+
+                if not final_text:
+                    return
+
+                source = (
+                        str(res.get("source", "") or "").strip()
+                        or str(res.get("law", "") or "").strip()
+                        or "RAG"
+                )
+
+                article = (
+                        str(res.get("article", "") or "").strip()
+                        or str(res.get("page", "") or "").strip()
+                )
+
+                if article:
+                    header = f"[{source} - {article}]"
+                else:
+                    header = f"[{source}]"
+
+                extracted_chunks_list.append(
+                    f"{header}: {final_text}"
+                )
+
+            def walk(obj):
+                """
+                Rekurzívan végigjárja a kapott JSON struktúrát.
+
+                Nem számít, hogy:
+                results
+                eredmenyek
+                data
+                resz_kerdes_1
+                section
+                query_index
+                stb.
+                """
+
+                if isinstance(obj, dict):
+
+                    # Ez már egy konkrét RAG result?
+                    if any(
+                            key in obj
+                            for key in ["raw_text", "quote", "text", "content"]
+                    ):
+                        process_result(obj)
+                        return
+
+                    # Egyébként menjünk tovább minden értéken
+                    for value in obj.values():
+                        walk(value)
+
+                elif isinstance(obj, list):
+
+                    for item in obj:
+                        walk(item)
+
+            walk(parsed)
+
             if extracted_chunks_list:
                 return extracted_chunks_list
-        except Exception as e:
-            print(f"JSON feldolgozási figyelmeztetés: {e}")
+
+        # ---------------------------------------------------------
+        # 4. Fallback: ha a JSON teljesen használhatatlan
+        # ---------------------------------------------------------
 
         raw_fallback = self.state.get("rag_chunks", "")
+
         if raw_fallback:
-            clean_raw = re.sub(r'```(?:json)?', '', raw_fallback)
-            clean_raw = re.sub(r'```', '', clean_raw).strip()
+
+            clean_raw = str(raw_fallback)
+
+            clean_raw = re.sub(
+                r"```(?:json)?",
+                "",
+                clean_raw,
+                flags=re.IGNORECASE
+            )
+
+            clean_raw = re.sub(r"```", "", clean_raw)
+            clean_raw = clean_raw.strip()
 
             fallback_lines = [
-                line.strip() for line in clean_raw.split("\n")
-                if line.strip() and not line.strip().startswith("{") and not line.strip().startswith("}")
+                line.strip()
+                for line in clean_raw.split("\n")
+                if line.strip()
+                   and not line.strip().startswith("{")
+                   and not line.strip().startswith("}")
             ]
+
             if fallback_lines:
                 return ["\n".join(fallback_lines)]
+
         return []
 
     def get_verifier_counter(self):
@@ -151,6 +265,12 @@ class JogiFlow(Flow):
 
     def get_chat_id(self):
         return self.state["inputs"]["chatID"]
+
+    def get_metrics(self):
+        return {"totalTokens": self.state["total_tokens"],
+                "promptTokens": self.state["prompt_tokens"],
+                "completionTokens": self.state["completion_tokens"],
+                "successfulRequests": self.state["successful_requests"]}
 
     @router(run_main_crew)
     def check_answer(self):
@@ -323,6 +443,7 @@ class JogiFlow(Flow):
                 "DeepAnalysis_Answers": self.state["inputs"]["da_answers"],
             }
         )
+
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
