@@ -27,7 +27,7 @@ class JogiFlow(Flow):
         config = get_config()
         self.state["is_verbose"] = config["is_verbose"]
         self.state["deep_analysis"] = config["is_deep_analysis_enabled"]
-        self.state["model"] = "unified researcher+grounding"
+        self.state["model"] = "base"
 
         self.state["correction_retries"] = 0
         self.state["verifier_counter"] = 0
@@ -96,44 +96,27 @@ class JogiFlow(Flow):
         self.state["verifier_counter"] += 1
 
     def get_chunks(self):
-        flow_output_string = (
-                self.state.get("cleaned_rag_chunks")
-                or self.state.get("rag_chunks")
-        )
+        flow_output_string = (self.state.get("cleaned_rag_chunks") or self.state.get("rag_chunks"))
 
         if not flow_output_string:
             print("Hiba: A RAG chunks és a cleaned_rag_chunks is üres!")
             return []
-
-        # ---------------------------------------------------------
-        # 1. Tisztítás
-        # ---------------------------------------------------------
+        # Tisztítás
 
         clean_str = str(flow_output_string)
-
         clean_str = clean_str.replace("│", "")
-
         clean_str = re.sub(r"```(?:json)?", "", clean_str, flags=re.IGNORECASE)
         clean_str = re.sub(r"```", "", clean_str)
         clean_str = clean_str.strip()
 
-        # ---------------------------------------------------------
-        # 2. JSON parse
-        # ---------------------------------------------------------
+        #JSON parse
 
         parsed = None
-
         try:
             parsed = json.loads(clean_str)
         except json.JSONDecodeError as e:
             print(f"JSON parse sikertelen: {e}")
-
-            # Próbáljuk meg kiszedni a JSON tömböt
-            match = re.search(
-                r"\[\s*\{.*\}\s*\]",
-                clean_str,
-                re.DOTALL
-            )
+            match = re.search(r"\[\s*\{.*\}\s*\]", clean_str, re.DOTALL)
 
             if match:
                 try:
@@ -141,45 +124,26 @@ class JogiFlow(Flow):
                 except json.JSONDecodeError as e2:
                     print(f"JSON tömb parse is sikertelen: {e2}")
 
-        # ---------------------------------------------------------
-        # 3. Ha sikerült JSON-t parse-olni
-        # ---------------------------------------------------------
+        #Ha sikerült JSON-t parseolni
 
         if parsed is not None:
-
             extracted_chunks_list = []
 
             def process_result(res):
-                """
-                Egyetlen RAG result feldolgozása.
-                """
-
                 if not isinstance(res, dict):
                     return
 
                 raw_text = str(res.get("raw_text", "") or "").strip()
                 quote = str(res.get("quote", "") or "").strip()
 
-                text_alt = (
-                        str(res.get("text", "") or "").strip()
-                        or str(res.get("content", "") or "").strip()
-                )
-
+                text_alt = (str(res.get("text", "") or "").strip() or str(res.get("content", "") or "").strip())
                 final_text = raw_text or quote or text_alt
 
                 if not final_text:
                     return
 
-                source = (
-                        str(res.get("source", "") or "").strip()
-                        or str(res.get("law", "") or "").strip()
-                        or "RAG"
-                )
-
-                article = (
-                        str(res.get("article", "") or "").strip()
-                        or str(res.get("page", "") or "").strip()
-                )
+                source = (str(res.get("source", "") or "").strip() or str(res.get("law", "") or "").strip() or "RAG")
+                article = (str(res.get("article", "") or "").strip() or str(res.get("page", "") or "").strip())
 
                 if article:
                     header = f"[{source} - {article}]"
@@ -191,35 +155,13 @@ class JogiFlow(Flow):
                 )
 
             def walk(obj):
-                """
-                Rekurzívan végigjárja a kapott JSON struktúrát.
-
-                Nem számít, hogy:
-                results
-                eredmenyek
-                data
-                resz_kerdes_1
-                section
-                query_index
-                stb.
-                """
-
                 if isinstance(obj, dict):
-
-                    # Ez már egy konkrét RAG result?
-                    if any(
-                            key in obj
-                            for key in ["raw_text", "quote", "text", "content"]
-                    ):
+                    if any(key in obj for key in ["raw_text", "quote", "text", "content"]):
                         process_result(obj)
                         return
-
-                    # Egyébként menjünk tovább minden értéken
                     for value in obj.values():
                         walk(value)
-
                 elif isinstance(obj, list):
-
                     for item in obj:
                         walk(item)
 
@@ -228,16 +170,12 @@ class JogiFlow(Flow):
             if extracted_chunks_list:
                 return extracted_chunks_list
 
-        # ---------------------------------------------------------
-        # 4. Fallback: ha a JSON teljesen használhatatlan
-        # ---------------------------------------------------------
+        # Fallbacl ha a JSON használhatatlan
 
         raw_fallback = self.state.get("rag_chunks", "")
 
         if raw_fallback:
-
             clean_raw = str(raw_fallback)
-
             clean_raw = re.sub(
                 r"```(?:json)?",
                 "",
@@ -251,11 +189,8 @@ class JogiFlow(Flow):
             fallback_lines = [
                 line.strip()
                 for line in clean_raw.split("\n")
-                if line.strip()
-                   and not line.strip().startswith("{")
-                   and not line.strip().startswith("}")
+                if line.strip() and not line.strip().startswith("{") and not line.strip().startswith("}")
             ]
-
             if fallback_lines:
                 return ["\n".join(fallback_lines)]
 

@@ -1,19 +1,25 @@
-# JOGI SZAKVÉLEMÉNY: és mikor nem vagyok?
+# JOGI SZAKVÉLEMÉNY: mikor nem adhato el egy szantofold?
 
 ### RÖVID VÁLASZ
-A 25 év alattiak kedvezménye **részben** érvényesíthető, kizárólag az összevont adóalapba tartozó jövedelmek után; a mulasztás jogi következményekkel jár.
+**Feltételesen korlátozott.** A szántóföld értékesítése nem tilos, de **szigorú feltételekhez** (elővásárlási jog, hatósági jóváhagyás, dologi terhek kezelése) kötött.
 
 ### JOGI INDOKOLÁS
-A 25 év alattiak kedvezményének alapját az Szja tv. 29/F. § (1) bekezdése szerint az **összevont adóalapba** tartozó jövedelmek képezik. Ebbe a körbe sorolandó a **munkaviszonyból** származó jövedelem, a **vállalkozói kivét**, az **átalányban** megállapított jövedelem, a **mezőgazdasági őstermelői** jövedelem, valamint a **megbízási díj**.
+A szántóföldek forgalmát a **földforgalmi törvény** szabályozza, amely az elővásárlási jog érvényesülését rendeli el. A 18. § (1) bekezdése értelmében a tulajdonjog átruházása során **prioritási sorrendben** elővásárlási jogosultak állnak (pl. állam, földhasználó földműves), akiknek jogaik megsértése az adásvételi szerződés **hatálytalanságát** eredményezi.
 
-Ezzel szemben a 29/F. § (4) bekezdése értelmében a kedvezmény **nem érvényesíthető** a külön adózó jövedelmekre, amelyek nem képezik az összevont adóalap részét. A jogszabály példálózó felsorolással említi az **osztalékot**, az **árfolyamnyereséget**, valamint a **kamatjövedelmet** mint olyan típusokat, amelyekre a mentesség nem terjed ki.
+A szerződés érvényességéhez elengedhetetlen a **hatósági jóváhagyás**. A 37. § (1) bekezdése alapján a mezőgazdasági igazgatási szerv jóváhagyása nélkül a szerződés **nem válik** érvényessé.
 
-A 84. § (1) bekezdés alapján a jogszabály a magánszemélyre hárítja a **tájékoztatási kötelezettséget** a 25. életév betöltését követően. Amennyiben a kedvezményt jogalap nélkül veszik igénybe a mulasztás miatt, a magánszemély **köteles** az adókülönbözetet megfizetni, továbbá az adóhiány után **12 százalékos** jogkövetkezmény terheli, feltéve, hogy a hiány a magánszemély mulasztására vezethető vissza.
+Az ingatlan-nyilvántartásba bejegyzett **dologi terhek** szintén korlátozó tényezők. A 32. § (1) bekezdése kimondja, hogy elidegenítési és terhelési tilalom fennállása esetén a tulajdonjog bejegyzéséhez a jogosult **hozzájárulása szükséges**.
+
+A **haszonélvezeti jog** tekintetében a Polgári Törvénykönyv 5:147. § (1) bekezdése rögzíti, hogy a haszonélvező jogosult a föld **használatára és hasznosítására**. Noha ez a jog önmagában nem gátolja meg az eladást, a tulajdonosváltás a haszonélvezeti jogot **nem szünteti meg**, ami a gyakorlatban korlátozza az új tulajdonos rendelkezési szabadságát.
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-**A személyi jövedelemadóról szóló 1995. évi CXVII. törvény** [29/F. § (1) bekezdés]
-**A személyi jövedelemadól szóló 1995. évi CXVII. törvény** [29/F. § (4) bekezdés]
-**A személyi jövedelemadól szóló 1995. évi CXVII. törvény** [84. § (1) bekezdés]
+* **A mező- és erdőgazdasági földek forgalmáról szóló törvény (2013. évi CXXII. törvény)**: 18. § (1) bekezdés; 37. § (1) bekezdés.
+* **Polgári Törvénykönyv (2013. évi V. törvény)**: 5:147. § (1) bekezdés.
+* **Ingatlan-nyilvántartási törvény (1997. évi CXLI. törvény)**: 32. § (1) bekezdés.
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szabályozásban szereplő felsorolások ("ide tartozik különösen", "így különösen") **nem zártak**, tehát más, összevont adóalapba tartozó jövedelmek is érintettek lehetnek, vagy további külön adózó jövedelmek is kizárhatják a kedvezményt. A jogkövetkezmény alkalmazása **feltételes**, csak akkor állapítható meg, ha az adóhiány közvetlenül a magánszemély **mulasztására** vezethető vissza. **Nincs** automatizmus a jogkövetkezmény megállapításánál, az a bizonyíthatóság függvénye.
+* **Elővásárlási jog**: A felsorolt jogosultak köre **prioritást élvez**, így a vevő kiválasztása nem szabad akaratú.
+* **Hatósági jóváhagyás**: A jogszabályi jóváhagyás elmaradása **érvénytelenséget** eredményez.
+* **Dologi teher**: Elidegenítési tilalom esetén **engedélyköteles** a bejegyzés.
+* **Haszonélvezet**: Nem tiltja az eladást, de **csökkenti a forgalmi értéket**.
+* **Kivétel**: A jogszabályok nem tartalmaznak "soha" kategóriájú tiltást, azonban a **hatósági mérlegelés** és a **jogosulti hozzájárulások** beszerzése a folyamat **bizonytalansági tényezője**.

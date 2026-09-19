@@ -58,7 +58,7 @@ jogszabalyi_megalapozottsag_feladat:
   expected_output: >
     Egy finomított, validált JSON lista, ahol a "quote" mező kizárólag a releváns, hitelesített jogszabályi mondatokat tartalmazza, 
     valamint az "article" mező kiegészül a pontos bekezdésszámmal (pl. 88. cikk (1) bekezdés). Viszont a "raw_text" teljes mértékben, módosítatlanul megmarad.
-  agent: jogi_grounding_verifier
+  agent: jogi_researcher
 
 jogi_tanacsadoi_feladat:
   description: >
