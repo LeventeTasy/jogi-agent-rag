@@ -27,6 +27,7 @@ class JogiFlow(Flow):
         config = get_config()
         self.state["is_verbose"] = config["is_verbose"]
         self.state["deep_analysis"] = config["is_deep_analysis_enabled"]
+        self.state["model"] = "unified researcher+grounding"
 
         self.state["correction_retries"] = 0
         self.state["verifier_counter"] = 0
@@ -384,7 +385,8 @@ class JogiFlow(Flow):
             "Agent5_Output": self.state["verifier_feedback"],
             "Verifier_Agent_Runs": self.state["verifier_counter"],
             "DeepAnalysis_Questions": self.state["inputs"]["da_questions"],
-            "DeepAnalysis_Answers": self.state["inputs"]["da_answers"]
+            "DeepAnalysis_Answers": self.state["inputs"]["da_answers"],
+            "Model": self.state["model"]
         }
 
         log.to_excel(PATH, index=False)
@@ -441,6 +443,7 @@ class JogiFlow(Flow):
                 "Verifier_Agent_Runs": self.state["verifier_counter"],
                 "DeepAnalysis_Questions": self.state["inputs"]["da_questions"],
                 "DeepAnalysis_Answers": self.state["inputs"]["da_answers"],
+                "Model": self.state["model"]
             }
         )
 
