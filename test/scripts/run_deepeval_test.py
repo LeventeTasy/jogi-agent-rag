@@ -149,7 +149,7 @@ RAG_COLUMNS = [
 
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
-    PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_base.csv"
+    PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_grounding.csv"
 
     limit = 25
     ind = 0
@@ -182,7 +182,7 @@ if __name__ == "__main__":
             agent_output = row['Valasz']
             retrieved_rag_chunks = [row["A_chunk"]]
             print("-" * 30)
-            print(f"Kérdés feldolgozása: {input_q}")
+            print(f"{index}: Kérdés feldolgozása: {input_q}")
 
 
             eredmenyek = evaluate_multi_agent_system(input_q,agent_output,retrieved_rag_chunks)
