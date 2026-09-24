@@ -1,6 +1,5 @@
 import os, sys
 from datetime import datetime
-
 import pandas as pd
 import time
 from pathlib import Path
@@ -19,7 +18,7 @@ MODEL_IS_AGENT = True # True -> AGENT | False -> RAG
 PATH = BASE_DIR.parent / "datasets" / "model_comparison" / "test_questions.csv"
 
 if MODEL_IS_AGENT:
-    SAVE_PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_grounding.csv"
+    SAVE_PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_2-4-wo_ver.csv"
 else:
     SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_rag.csv"
 

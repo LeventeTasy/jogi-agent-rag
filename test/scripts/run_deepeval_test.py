@@ -149,7 +149,7 @@ RAG_COLUMNS = [
 
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
-    PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_grounding.csv"
+    PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_2-4-wo_ver.csv"
 
     limit = 25
     ind = 0
