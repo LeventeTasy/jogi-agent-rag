@@ -1,55 +1,69 @@
 import ast
 import pandas as pd
 import random
-from litellm import completion
+from src.rag import build_rag
 from pathlib import Path
-from typing import Tuple
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import os
 import time
-from litellm.exceptions import ServiceUnavailableError
-from google import genai
+from crewai import LLM
 
 load_dotenv()
 
 API_KEY = os.getenv("GOOGLE_API_KEY")
-MODEL_NAME = str(os.getenv("MODEL")).split('/')[1]
 EMBEDDING_MODEL = "models/" + str(os.getenv("EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME"))
+
+# columns = [
+#     "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
+#     "Valasz", "Faithfulness", "Faithfulness_Reason", "Answer_Relevancy", "Answer_Relevancy_Reason", "Context_Relevancy","Context_Relevancy_Reason" ,
+#     "Summarization", "Summarization_Reason" , "Coherance", "Coherance_Reason","Toxicity", "Toxicity_Reason","Bias", "Bias_Reason" # osszesen: 20 oszlop
+#     # str, str, str, str, str, str, float, str, float, str, float, str, float, str, float, str, float, str, float, str
+# ]
 
 columns = [
     "Torveny", "Tipus", "Kerdes", "Q_chunk", "A_chunk",
-    "Valasz", "Faithfulness", "Faithfulness_Reason", "Answer_Relevancy", "Answer_Relevancy_Reason", "Context_Relevancy","Context_Relevancy_Reason" ,
-    "Summarization", "Summarization_Reason" , "Coherance", "Coherance_Reason","Toxicity", "Toxicity_Reason","Bias", "Bias_Reason" # osszesen: 20 oszlop
-    # str, str, str, str, str, str, float, str, float, str, float, str, float, str, float, str, float, str, float, str
+    "Valasz", "Faithfulness", "Faithfulness_Reason", "Answer_Relevancy", "Answer_Relevancy_Reason", "Context_Relevancy","Context_Relevancy_Reason", "Question_ID", "Runtime", "Timestamp",
+    "Total_Tokens", "Prompt_Tokens", "Completion_Tokens", "Successful_Requests"
+    # osszesen: 19 oszlop
+    # str, str, str, str, str, str, float, str, float, str, float, str, int, int ,int ,int
 ]
 
-
-client = genai.Client()
+MODEL = str(os.getenv("MODEL"))
+llm = LLM(model=MODEL)
 
 def add_save_df(law: str, tipus_rovid: str, kerdes: str, rag_context: str):
     BASE_DIR = Path(__file__).resolve().parent
-    file_path = BASE_DIR.parent / "datasets" / "test_questions.xlsx"
+    file_path = BASE_DIR.parent / "datasets" / "model_comparison" / "test_questions.csv"
 
-    extended_data = (law, tipus_rovid, kerdes, rag_context, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+    extended_data = (law, tipus_rovid, kerdes, rag_context, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 
     if os.path.exists(file_path):
-        df = pd.read_excel(file_path)
-        df2 = pd.DataFrame([extended_data], columns=df.columns)
+        df = pd.read_csv(file_path, iterator=False)
+        df2 = pd.DataFrame([extended_data], columns=columns)
 
         final_df = pd.concat([df, df2], ignore_index=True)
-        final_df.to_excel(file_path, index=False)
+        final_df.to_csv(file_path, index=False, encoding="utf-8-sig")
         print("Adatok elmentve Excelbe.")
 
     else:
         df2 = pd.DataFrame([extended_data], columns=columns)
-        df2.to_excel(file_path, index=False)
+        df2.to_csv(file_path, index=False, encoding="utf-8-sig")
 
 #add_save_df(("test2", "test2", "test2", 1, "test2", 1, "test2"))
 
 
-db_path = os.path.abspath(os.path.join(os.getcwd(), "../chroma_db"))
+
+PROJECT_SRC = Path(__file__).resolve().parent.parent.parent
+db_path = str(PROJECT_SRC / "chroma_db")
+
+if not Path(db_path).exists():
+    print("ChromaDB generálása...")
+    build_rag()
+else:
+    print("ChromaDB letöltve...")
+
 embeddings = GoogleGenerativeAIEmbeddings(model=EMBEDDING_MODEL)
 db = Chroma(persist_directory=db_path, embedding_function=embeddings)
 
@@ -78,8 +92,8 @@ for law in torvenyek:
 
 # 1. fazis: torvenyenkent 15 konnyu és 5 nehez kerdes
 kategoriak = {
-    "könnyű, alapvető, egyenes választ igénylő": 15,
-    "nehéz, kivételekre és speciális esetekre fókuszáló": 5
+    "könnyű, alapvető, egyenes választ igénylő": 3,
+    "nehéz, kivételekre és speciális esetekre fókuszáló": 2
 }
 
 print("\nKérdések generálása kategóriűnként")
@@ -115,12 +129,12 @@ for law, chunks in law_chunks_dict.items():
 
         while attempt < max_retries and not success:
             try:
-                interaction = client.interactions.create(
-                    model=MODEL_NAME,
-                    input=PROMPT
-                )
+                messages = [
+                    {"role": "user", "content": PROMPT},
+                ]
+                response = llm.call(messages)
 
-                clean_output = interaction.output_text.replace("```python", "").replace("```", "").strip()
+                clean_output = response.replace("```python", "").replace("```", "").strip()
 
                 success = True
 
@@ -134,9 +148,9 @@ for law, chunks in law_chunks_dict.items():
                 except Exception as e:
                     print(f"Hiba történt: {e}")
 
-            except ServiceUnavailableError:
+            except Exception as e:
                 attempt += 1
-                print(f"503 error, próbálkozás {attempt}/{max_retries}... várjunk 10 mp-et!")
+                print(f"Error: {e}, próbálkozás {attempt}/{max_retries}... várjunk 10 mp-et!")
                 time.sleep(10)
                 if attempt == max_retries:
                     print("Túl sok hiba, átlépés")
@@ -149,7 +163,7 @@ for law, chunks in law_chunks_dict.items():
 # 2. fazis: 20 db osszetett kerdes
 print("\nÖsszetett kérdések generálása")
 
-for i in range(4):
+for i in range(1):
     print(f"{i + 1}. 5 db összetett kérdés generálása...")
 
     mixed_chunks = []
@@ -178,12 +192,12 @@ for i in range(4):
 
     while attempt < max_retries and not success:
         try:
-            interaction = client.interactions.create(
-                model=MODEL_NAME,
-                input=CROSS_DOMAIN_PROMPT
-            )
+            messages = [
+                {"role": "user", "content": CROSS_DOMAIN_PROMPT},
+            ]
+            response = llm.call(messages)
 
-            clean_output = interaction.output_text.replace("```python", "").replace("```", "").strip()
+            clean_output = response.replace("```python", "").replace("```", "").strip()
             success = True
 
             try:
@@ -194,9 +208,9 @@ for i in range(4):
             except Exception as e:
                 print(f"Hiba történt: {e}")
 
-        except ServiceUnavailableError:
+        except Exception as e:
             attempt += 1
-            print(f"Hiba, próbálkozás {attempt}/{max_retries}... várjunk 10 mp-et!")
+            print(f"Hiba: {e}, próbálkozás {attempt}/{max_retries}... várjunk 10 mp-et!")
             time.sleep(10)
             if attempt == max_retries:
                 print("Túl sok hiba, következő")

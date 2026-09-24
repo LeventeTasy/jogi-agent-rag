@@ -5,8 +5,15 @@ from pathlib import Path
 
 def evaluate(path1: str, path2: str):
     if os.path.exists(path1) and os.path.exists(path2):
-        df = pd.read_excel(path1, index_col=0)
-        df2 = pd.read_excel(path2, index_col=0)
+        if "xlsx" in str(path1):
+            df = pd.read_excel(path1, index_col=0)
+        elif "csv" in str(path1):
+            df = pd.read_csv(path1, index_col=0)
+
+        if "xlsx" in str(path2):
+            df2 = pd.read_excel(path2, index_col=0)
+        elif "csv" in str(path2):
+            df2 = pd.read_csv(path2, index_col=0)
 
         metrics = [
             "Faithfulness",
@@ -23,6 +30,8 @@ def evaluate(path1: str, path2: str):
         print(f"Átlagos runtime\t {round(df['Runtime'].mean(), 2)}s")
         if "Verifier_Agent_Runs" in df.columns:
             print(f"Verifier Agent lefutott {df['Verifier_Agent_Runs'].mean()}x")
+        if "Total_Tokens" in df.columns:
+            print(f"Avg. total tokens: {round(df['Total_Tokens'].mean(), 2)}x")
         print("-"*30)
         print(f"Összes kérdés\t{df['Faithfulness'].count()}")
         print()
@@ -33,9 +42,11 @@ def evaluate(path1: str, path2: str):
         print(f"Hallucináció\t{hallucination_2}%")
         atl_masodik = df2[metrics].mean()
         print(atl_masodik)
-        print(f"Átlagos runtime\t {round(df['Runtime'].mean(), 2)}s")
-        if "Verifier_Agent_Runs" in df.columns:
-            print(f"Verifier Agent lefutott {df['Verifier_Agent_Runs'].mean()}x")
+        print(f"Átlagos runtime\t {round(df2['Runtime'].mean(), 2)}s")
+        if "Verifier_Agent_Runs" in df2.columns:
+            print(f"Verifier Agent lefutott {df2['Verifier_Agent_Runs'].mean()}x")
+        if "Total_Tokens" in df2.columns:
+            print(f"Avg. total tokens: {round(df2['Total_Tokens'].mean(), 2)}x")
         print("-" * 30)
         print(f"Összes kérdés\t{df2['Faithfulness'].count()}")
         print()
@@ -69,7 +80,7 @@ def evaluate(path1: str, path2: str):
 
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
-    PATH1 = BASE_DIR.parent / "results" / "answered_questions_rag.xlsx"
-    PATH2 = BASE_DIR.parent / "results" / "answered_questions_agent.xlsx"
+    PATH1 = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_2-4-wo_ver.csv"
+    PATH2 = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_1-3-wo_ver.csv"
 
     evaluate(PATH1, PATH2)

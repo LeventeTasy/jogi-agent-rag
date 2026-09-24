@@ -27,6 +27,7 @@ class JogiFlow(Flow):
         config = get_config()
         self.state["is_verbose"] = config["is_verbose"]
         self.state["deep_analysis"] = config["is_deep_analysis_enabled"]
+        self.state["model"] = "base"
 
         self.state["correction_retries"] = 0
         self.state["verifier_counter"] = 0
@@ -94,56 +95,105 @@ class JogiFlow(Flow):
         self.state["verifier_feedback"] = verifier_task.output.raw
         self.state["verifier_counter"] += 1
 
-
     def get_chunks(self):
-        flow_output_string = self.state.get("cleaned_rag_chunks") or self.state.get("rag_chunks")
+        flow_output_string = (self.state.get("cleaned_rag_chunks") or self.state.get("rag_chunks"))
+
         if not flow_output_string:
             print("Hiba: A RAG chunks és a cleaned_rag_chunks is üres!")
             return []
+        # Tisztítás
 
-        if "│" in flow_output_string:
-            flow_output_string = flow_output_string.replace("│", "")
+        clean_str = str(flow_output_string)
+        clean_str = clean_str.replace("│", "")
+        clean_str = re.sub(r"```(?:json)?", "", clean_str, flags=re.IGNORECASE)
+        clean_str = re.sub(r"```", "", clean_str)
+        clean_str = clean_str.strip()
 
-        clean_str = re.sub(r'```(?:json)?', '', flow_output_string)
-        clean_str = re.sub(r'```', '', clean_str).strip()
+        #JSON parse
+
+        parsed = None
         try:
-            match = re.search(r'\[\s*\{.*\}\s*\]', clean_str, re.DOTALL)
-            json_str = match.group(0).strip() if match else clean_str
-            crew_sources = json.loads(json_str)
-            extracted_chunks_list = []
-            for item in crew_sources:
-                if not isinstance(item, dict):
-                    continue
-                results_to_process = item.get("results", [item]) if isinstance(item.get("results"), list) else [item]
-                for res in results_to_process:
-                    if not isinstance(res, dict):
-                        continue
-                    quote = res.get("quote", "").strip()
-                    raw_text = res.get("raw_text", "").strip()
-                    text_alt = res.get("text", "").strip() or res.get("content", "").strip()
+            parsed = json.loads(clean_str)
+        except json.JSONDecodeError as e:
+            print(f"JSON parse sikertelen: {e}")
+            match = re.search(r"\[\s*\{.*\}\s*\]", clean_str, re.DOTALL)
 
-                    source = res.get("source", "").strip() or res.get("law", "").strip() or "RAG"
-                    article = res.get("article", "").strip() or res.get("page", "").strip()
-                    final_text = raw_text or quote or text_alt
-                    if final_text:
-                        header = f"[{source} - {article}]" if article else f"[{source}]"
-                        extracted_chunks_list.append(f"{header}: {final_text}")
+            if match:
+                try:
+                    parsed = json.loads(match.group(0))
+                except json.JSONDecodeError as e2:
+                    print(f"JSON tömb parse is sikertelen: {e2}")
+
+        #Ha sikerült JSON-t parseolni
+
+        if parsed is not None:
+            extracted_chunks_list = []
+
+            def process_result(res):
+                if not isinstance(res, dict):
+                    return
+
+                raw_text = str(res.get("raw_text", "") or "").strip()
+                quote = str(res.get("quote", "") or "").strip()
+
+                text_alt = (str(res.get("text", "") or "").strip() or str(res.get("content", "") or "").strip())
+                final_text = raw_text or quote or text_alt
+
+                if not final_text:
+                    return
+
+                source = (str(res.get("source", "") or "").strip() or str(res.get("law", "") or "").strip() or "RAG")
+                article = (str(res.get("article", "") or "").strip() or str(res.get("page", "") or "").strip())
+
+                if article:
+                    header = f"[{source} - {article}]"
+                else:
+                    header = f"[{source}]"
+
+                extracted_chunks_list.append(
+                    f"{header}: {final_text}"
+                )
+
+            def walk(obj):
+                if isinstance(obj, dict):
+                    if any(key in obj for key in ["raw_text", "quote", "text", "content"]):
+                        process_result(obj)
+                        return
+                    for value in obj.values():
+                        walk(value)
+                elif isinstance(obj, list):
+                    for item in obj:
+                        walk(item)
+
+            walk(parsed)
+
             if extracted_chunks_list:
                 return extracted_chunks_list
-        except Exception as e:
-            print(f"JSON feldolgozási figyelmeztetés: {e}")
+
+        # Fallbacl ha a JSON használhatatlan
 
         raw_fallback = self.state.get("rag_chunks", "")
+
         if raw_fallback:
-            clean_raw = re.sub(r'```(?:json)?', '', raw_fallback)
-            clean_raw = re.sub(r'```', '', clean_raw).strip()
+            clean_raw = str(raw_fallback)
+            clean_raw = re.sub(
+                r"```(?:json)?",
+                "",
+                clean_raw,
+                flags=re.IGNORECASE
+            )
+
+            clean_raw = re.sub(r"```", "", clean_raw)
+            clean_raw = clean_raw.strip()
 
             fallback_lines = [
-                line.strip() for line in clean_raw.split("\n")
+                line.strip()
+                for line in clean_raw.split("\n")
                 if line.strip() and not line.strip().startswith("{") and not line.strip().startswith("}")
             ]
             if fallback_lines:
                 return ["\n".join(fallback_lines)]
+
         return []
 
     def get_verifier_counter(self):
@@ -151,6 +201,12 @@ class JogiFlow(Flow):
 
     def get_chat_id(self):
         return self.state["inputs"]["chatID"]
+
+    def get_metrics(self):
+        return {"totalTokens": self.state["total_tokens"],
+                "promptTokens": self.state["prompt_tokens"],
+                "completionTokens": self.state["completion_tokens"],
+                "successfulRequests": self.state["successful_requests"]}
 
     @router(run_main_crew)
     def check_answer(self):
@@ -264,7 +320,8 @@ class JogiFlow(Flow):
             "Agent5_Output": self.state["verifier_feedback"],
             "Verifier_Agent_Runs": self.state["verifier_counter"],
             "DeepAnalysis_Questions": self.state["inputs"]["da_questions"],
-            "DeepAnalysis_Answers": self.state["inputs"]["da_answers"]
+            "DeepAnalysis_Answers": self.state["inputs"]["da_answers"],
+            "Model": self.state["model"]
         }
 
         log.to_excel(PATH, index=False)
@@ -321,8 +378,10 @@ class JogiFlow(Flow):
                 "Verifier_Agent_Runs": self.state["verifier_counter"],
                 "DeepAnalysis_Questions": self.state["inputs"]["da_questions"],
                 "DeepAnalysis_Answers": self.state["inputs"]["da_answers"],
+                "Model": self.state["model"]
             }
         )
+
 
     @listen(or_(correction, "complete"))
     def finish_flow(self):
