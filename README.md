@@ -1,4 +1,4 @@
-# ⚖️ JogiAgent Crew – Multi-Agent RAG Architektúra Magyar Jogi Dokumentumokhoz
+# JogiAgent Crew – Multi-Agent RAG Architektúra Magyar Jogi Dokumentumokhoz
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![CrewAI](https://img.shields.io/badge/CrewAI-1.14.4-orange.svg)](https://crewai.com)
@@ -20,7 +20,7 @@ A rendszer konzolos interaktív felületen (CLI) és éles környezetbe illeszth
 
 ---
 
-## 🏗️ Rendszerarchitektúra és Munkafolyamat
+## Rendszerarchitektúra és Munkafolyamat
 
 A rendszer többrétegű vezérlési architektúrát alkalmaz: az intelligens kérés-irányítástól (`RouterFlow`) az opcionális tényállás-tisztázáson (`Deep Analysis`) át a többágenses RAG kutató és auditáló munkafolyamatig (`JogiFlow`).
 
@@ -67,7 +67,7 @@ graph TD
 
 ---
 
-## 🧩 Főbb Komponensek és Szerepkörök
+## Főbb Komponensek és Szerepkörök
 
 ### 1. Intelligens Kérés-Irányító Kapuőr (`RouterFlow` – `src/jogi_agent/router.py`)
 A rendszer legelső védelmi vonala. Mielőtt bármilyen erőforrás-igényes RAG keresés lefutna, a Router bináris osztályozást végez a korábbi beszélgetési kontextus figyelembevételével:
@@ -102,7 +102,7 @@ A hagyományos, karakterszám-alapú darabolás szétvágja a jogi normákat. Em
 
 ---
 
-## 📊 Modell-összehasonlítás és Teszteredmények
+## Modell-összehasonlítás és Teszteredmények
 
 A rendszer pontosságát, megbízhatóságát és hatékonyságát a **DeepEval** keretrendszerrel mértük fel, független bíráló LLM (Azure OpenAI `gpt-5-mini`) segítségével.
 
@@ -124,14 +124,14 @@ A vizsgálat során 6 különböző architektúrális felépítést hasonlított
 | **Átlagos Futási Idő (Runtime)** | 23.34 s | 18.27 s | 20.14 s | 16.37 s | 19.13 s | **16.32 s** |
 | **Verifier lefutások száma (25 kérdés alatt)**| 6 alkalom | – | 3 alkalom | – | – | – |
 
-### 📈 Főbb Következtetések és Tanulságok
+### Főbb Következtetések és Tanulságok
 1.  **Ablation eredmények**: A kutató és a szövegellenőrző ágens összevonása (`Unified Model 2-3 without Verifier`) érte el a legmagasabb tényhűséget (**99.1%**) és a legalacsonyabb hallucinációs arányt (**0.9%**), miközben a válaszidő **30%-kal csökkent** a bázismodellhez képest.
 2.  **A Verifier szerepe és költsége**: A dedikált Verifier ágens hasznos a tárgyi tévedések kiszűrésére, azonban a visszacsatolási hurok miatt jelentősen megnöveli a tokenfelhasználást (~16.8k token) és a válaszidőt (23.3s). 
 3.  **Aktív architektúra**: A jelenleg élesített összevont konfiguráció (`Unified Model 2-4`) a leggyorsabb átlagos futásidőt (**16.32 mp**) és alacsony tokenfogyasztást nyújt kiegyensúlyozott, 98.2%-os jogi pontosság mellett.
 
 ---
 
-## 📂 Projektstruktúra
+## Projektstruktúra
 
 ```
 jogi-agent-rag/
@@ -188,7 +188,7 @@ jogi-agent-rag/
 
 ---
 
-## ⚙️ Telepítés és Konfiguráció
+## Telepítés és Konfiguráció
 
 ### Előfeltételek
 *   **Python**: `>= 3.10` és `< 3.14` közötti verzió.
@@ -245,7 +245,7 @@ deep_analysis_enabled = False
 
 ---
 
-## 🚀 Futtatás és Használat
+## Futtatás és Használat
 
 ### 1. Interaktív Jogi Asszisztens (CLI)
 A konzolos felületen közvetlenül beszélgethet a rendszerrel. A kilépéshez írja be a `break` szót.
@@ -316,7 +316,7 @@ python test/scripts/generate_xlsx.py
 
 ---
 
-## 🔍 Tesztkérdés Példák
+## Tesztkérdés Példák
 
 A rendszer az alábbi komplex szituációkon és határeseteken lett validálva:
 1.  **GDPR**: *„Az adathordozhatósághoz való jog minden adatkezelési jogalap esetén érvényesül?”* (Kivételek és jogalapok szűrése)
@@ -326,5 +326,5 @@ A rendszer az alábbi komplex szituációkon és határeseteken lett validálva:
 
 ---
 
-## 📄 Jogi Nyilatkozat
+## Jogi Nyilatkozat
 Ez a szoftver kutatási és oktatási célból készült. A rendszer által szolgáltatott válaszok mesterséges intelligencia által generált tájékoztató jellegű összefoglalók, és **nem minősülnek hivatalos jogi tanácsadásnak**, sem ügyvédi képviseletnek.
