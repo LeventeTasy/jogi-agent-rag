@@ -3,7 +3,7 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from dotenv import load_dotenv
 from jogi_agent.utils import get_config
-from jogi_agent.tools.custom_tool import MyCustomTool
+from jogi_agent.tools.RAGTool import RagTool
 
 import os
 # If you want to run a snippet of code before or after the crew starts,
@@ -97,7 +97,7 @@ class JogiAgent():
     def jogi_kutatasi_feladat(self) -> Task:
         return Task(
             config=self.tasks_config['jogi_kutatasi_feladat'],  # type: ignore[index]
-            tools=[MyCustomTool()]
+            tools=[RagTool()]
         )
 
     @task

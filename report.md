@@ -1,21 +1,19 @@
-# JOGI SZAKVÉLEMÉNY: mennyire szabalyos a lakberleti_szerzodes.pdf
+# JOGI SZAKVÉLEMÉNY: hany év jár a sitten marihuana termesztesert?
 
 ### RÖVID VÁLASZ
-**Jogellenes és tisztességtelen.** A vizsgált szerződéses kikötések a hatályos jogszabályok értelmében **semmisek**.
+**Fokozatosan változó**, a büntetési tétel az elkövetés körülményeitől függően **egy évtől öt évig**, illetve csekély mennyiség esetén **két évig** terjedő szabadságvesztés lehet.
 
 ### JOGI INDOKOLÁS
-A bérleti díj egyoldalú, mérték nélküli emelésére vonatkozó kikötések a **Polgári Törvénykönyv 6:102. §** alapján **tisztességtelenek**, mivel a jóhiszeműség és tisztesség követelményét sértve a szerződő fél hátrányára indokolatlanul egyoldalúan állapítják meg a jogokat. Fogyasztói szerződés esetén a **6:104. §** értelmében a szolgáltatás egyoldalú módosítása akkor tisztességtelen, ha a szerződés nem jelöl meg **érvényes okot**.
+A hatályos Büntető Törvénykönyv szerint a kábítószer-termesztés alapesetben **egy-öt évig** terjedő szabadságvesztéssel büntetendő bűntettnek minősül. Amennyiben az elkövető a cselekményt **csekély mennyiségű** kábítószerre, **saját használatra** termesztette, a törvényi büntetési tétel kedvezőbb, **két évig** terjedő szabadságvesztésre csökken.
 
-A kaució 180 napos visszatartása ellentétes az **1993. évi LXXVIII. törvény 23. § (1) bekezdésével**, amely kimondja, hogy a bérleti jogviszony megszűnésekor a bérbeadó köteles a kaucióval **elszámolni**, amint a bérlő a lakást elhagyta és a bérbeadónak követelése nincs.
+A büntetés kiszabása során a bíróság **enyhítő körülményként** értékeli különösen a **büntetlen előéletet**, a beismerő vallomást, valamint a kábítószerfüggőséget, amennyiben az elkövető aláveti magát a törvényben meghatározott **megelőző-felvilágosító szolgáltatásnak** vagy kezelésnek. 
 
-A bérbeadó belépési joga tekintetében a **Polgári Törvénykönyv 6:339. §** egyértelmű korlátokat állít: a belépésről a bérlőt **előzetesen tájékoztatni** kell. Minden olyan kikötés, amely a bérlő magánszféráját indokolatlanul korlátozza, **semmis**.
+Amennyiben a termesztés **személyes fogyasztási** célból történik és csekély mennyiségű, a hatóságnak lehetősége van a **büntethetőséget megszüntető** okok alkalmazására, vagy az eljárás felfüggesztésével a **megelőző-felvilágosító** részvétel elrendelésére. A kábítószer mennyiségének minősítése a törvény mellékletében rögzített **hatóanyagtartalom** függvényében történik.
 
-Az adatkezeléssel kapcsolatos kikötések, amelyek a hozzájárulás visszavonhatóságát kizárják, közvetlenül sértik az **EU 2016/679 (GDPR) 6. cikk (1) bekezdését**, amely szerint a hozzájárulást az érintett **bármikor visszavonhatja**.
-
-### JOGSZABÁLYI HIVATKOZÁSOK
-- **Polgári Törvénykönyv (2013. évi V. törvény)** 6:102. §, 6:104. §, 6:339. §
-- **Lakástörvény (1993. évi LXXVIII. törvény a lakások és helyiségek bérletére)** 23. § (1) bekezdés
-- **GDPR (Az Európai Parlament és a Tanács (EU) 2016/679 rendelete)** 6. cikk (1) bekezdés
+### JOGSZABÁLYI HIVATKOZÁSOK - 
+**2012. évi C. törvény a Büntető Törvénykönyvről** 178. § (1) és (6) bekezdés
+**2012. évi C. törvény a Büntető Törvénykönyvről** 81. §
+**2012. évi C. törvény a Büntető Törvénykönyvről** 459. § (1) bekezdés 18. pont
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A szerződéses kikötések **fennálló jogellenessége** miatt a dokumentum érvényessége vitatható. Az adatkezelés körében a hozzájárulás visszavonása **nem érinti** a már megtörtént, visszavonás előtti adatkezelés jogszerűségét. Nincs más releváns kivétel, a hivatkozott jogszabályok **kötelező érvényűek**.
+A büntetés mértéke **nem automatikus**, mivel a bíróság a konkrét eset összes körülményeit mérlegeli. A "csekély mennyiség" meghatározása **hatóanyagfüggő**, így a növények száma nem feltétlenül tükrözi a jogi kategóriát. A büntethetőséget megszüntető okok alkalmazása **lehetőség**, nem kötelező jogi előírás. A **termesztés célja** döntő bizonyítási kérdés, ahol a kereskedelmi szándék gyanúja kizárhatja a kedvezőbb büntetési tételt.

@@ -217,7 +217,7 @@ class JogiFlow(Flow):
                 "promptTokens": self.state["prompt_tokens"],
                 "completionTokens": self.state["completion_tokens"],
                 "successfulRequests": self.state["successful_requests"],
-                'initTokens': self.init_tokens,}
+                'initTokens': self.state["init_tokens"],}
 
     @router(run_main_crew)
     def check_answer(self):

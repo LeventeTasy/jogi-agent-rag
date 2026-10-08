@@ -10,15 +10,15 @@ chatID = f"T_{datetime.now().strftime("%Y-%m-%d %H:%M:%S").upper()}"
 
 if project_root not in sys.path:
     sys.path.append(project_root)
-from src.jogi_agent.flow import JogiFlow
+from src.jogi_agent.router import RouterFlow
 from src.rag import ask_question
 
 BASE_DIR = Path(__file__).resolve().parent
 MODEL_IS_AGENT = True # True -> AGENT | False -> RAG
-PATH = BASE_DIR.parent / "datasets" / "model_comparison" / "test_questions.csv"
+PATH = BASE_DIR.parent / "datasets" / "approved" / "reviewed_questions.csv"
 
 if MODEL_IS_AGENT:
-    SAVE_PATH = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_2-4-wo_ver.csv"
+    SAVE_PATH = BASE_DIR.parent / "results" / "csv" / "100_5_base.csv"
 else:
     SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_rag.csv"
 
@@ -106,6 +106,7 @@ for index, row in df.iterrows():
     inputs = {
             'topic': kerdes,
             'history': "",
+            'pdf_text': "",
             'details': "",
             'da_questions': "",
             'da_answers': "",
@@ -116,7 +117,7 @@ for index, row in df.iterrows():
 
     if MODEL_IS_AGENT:
         start_time = time.perf_counter()
-        flow = JogiFlow()
+        flow = RouterFlow()
         flow.state["inputs"] = inputs
 
         answer = str(flow.kickoff())

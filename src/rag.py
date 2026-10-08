@@ -32,6 +32,8 @@ def detect_law_name(source_path: str) -> str:
         return "Munka Törvénykönyve (Mt.)"
     if filename == "GDPR_2016":
         return "GDPR rendelet"
+    if filename == "2012_C_BTK":
+        return "Büntető Törvénykönyv (Btk.)"
 
     return filename
 
@@ -70,7 +72,7 @@ def split_documents(documents: list[Document]):
         docs_by_source.setdefault(source, []).append(doc)
 
     section_pattern = re.compile(
-        r'(?m)^\s*((?:\d+:\d+|\d+)\.\s*§|\d+\.\s*§|\d+\.\s*[Cc]ikk)\s*'
+        r'(?m)^\s*(\d+(?::\d+)?(?:/[A-Z])?\.\s*(?:§|[Cc]ikk))\s*'
     )
 
     for source, pages in docs_by_source.items():
