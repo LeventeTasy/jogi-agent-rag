@@ -151,7 +151,7 @@ if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
     PATH = BASE_DIR.parent / "results" / "csv" / "100_5_base.csv"
 
-    limit = 25
+    limit = 100
     ind = 0
 
     if os.path.exists(PATH):
