@@ -100,6 +100,7 @@ class RouterFlow(Flow):
         self.state["chunks"] = flow.get_chunks()
         self.state["verifier_counter"] = flow.get_verifier_counter()
         self.state["chatID"] = flow.get_chat_id()
+        self.state["metrics"] = flow.get_metrics()
 
         return resp
 
@@ -150,6 +151,9 @@ class RouterFlow(Flow):
 
     def get_history(self):
         return self.state["history"]
+
+    def get_metrics(self):
+        return self.state["metrics"]
 
     def get_question_id(self):
         return self.state["question_id"]
