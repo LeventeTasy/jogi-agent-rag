@@ -1,17 +1,21 @@
-# JOGI SZAKVÉLEMÉNY: Kovács úr a 2014. adóévre vonatkozó személyi jövedelemadó-kötelezettségének megállapítása során az Szja törvény 1. számú mellékletének a 2015. évi CLXXXVII. törvénnyel megállapított 7. pont 7.21. alpontjában foglalt rendelkezésre kíván hivatkozni, ám adótanácsadója ezt visszautasítja arra hivatkozva, hogy a módosítás csak 2015 végén lépett hatályba; a vita hevében a felindult ügyfél a könyvelőiroda előterének fehér falára egy alkoholos filctollal tiltakozó szöveget ír fel, amellyel a szabálysértési értékhatárt meg nem haladó, mintegy 25 000 forintos tisztítási és újrafestési kárt okoz.
+# JOGI SZAKVÉLEMÉNY: Mit jelent a másolat kiadása?
 
 ### RÖVID VÁLASZ
-**Nem megalapozott.** Kovács úr jogi álláspontja a visszaható hatály miatt téves, a cselekmény pedig **szabálysértésnek** minősül.
+**Köteles.** Az adatkezelőnek az érintetti hozzáférési jog gyakorlása során az adatkezelés tárgyát képező személyes adatokról **másolatot** kell biztosítania.
 
 ### JOGI INDOKOLÁS
-Kovács úr azon törekvése, hogy a 2015. évi CLXXXVII. törvény 1. számú melléklete szerinti módosítást a 2014. adóévre alkalmazza, jogilag **kizárt**. A 2015. évi CLXXXVII. törvény záró rendelkezései alapján a módosítások csak a hatálybalépést követően keletkező jogviszonyokra alkalmazhatóak, a 2014-es adóévre vonatkozóan visszaható hatályú alkalmazásuk az Alaptörvény B) cikk (1) bekezdésével összefüggésben **alkotmányellenes**. Következésképpen az adótanácsadó visszautasítása a hatályos jogszabályoknak megfelelő, szakmailag **helytálló**.
+A GDPR 15. cikk (3) bekezdése alapján az adatkezelő **köteles** az érintett rendelkezésére bocsátani a kezelt személyes adatok másolatát. Az információkat **érthető** formában, tömören és átláthatóan kell szolgáltatni, amint azt a GDPR 12. cikk (1) bekezdése **rögzíti**. Amennyiben a kérelem **elektronikus**, az adatkezelőnek – az érintett eltérő rendelkezése hiányában – az információkat is elektronikus **formátumban** kell megadnia.
 
-A könyvelőiroda falának alkoholos filctollal történő megrongálása kapcsán rögzíthető, hogy a 2012. évi II. törvény (Szabs. tv.) 177. § (1) bekezdése értelmében szabálysértést követ el, aki szabálysértési értékhatárt meg nem haladó kárt okoz idegen dolog megrongálásával. Mivel a szabálysértési értékhatár ötvenezer forint, a 25 000 forintos kár okozása **szabálysértési kategóriába** esik. A Büntető Törvénykönyv (Btk.) 371. § (1) bekezdése szerinti rongálás bűncselekménye – amely büntetendő vétség – a szabálysértési értékhatárt meghaladó kár esetén realizálódik, így jelen esetben a büntetőjogi felelősség **nem állapítható meg**.
+A magyar jogi környezetben, különös tekintettel a Ptk. 2:46. §-ára, fontos **különbséget** tenni a betekintési és a másolatkiadási jog között. A Ptk. értelmében a másolat kiadása **kötelező** erővel akkor bír, ha azt külön jogszabály megengedi, vagy ha a másolati példányhoz való hozzáférés az adott eljárásban a **joggyakorlás** elengedhetetlen feltétele. 
+
+Munkajogi viszonylatban a dokumentumokhoz való hozzáférés **korlátozható**, amennyiben azok üzleti titkot vagy más védett adatot tartalmaznak, kivéve, ha az adott dokumentum a munkavállaló jogainak **érvényesítéséhez** elengedhetetlen. A másolatkiadás első ízben **ingyenes**, azonban ismétlődő vagy túlzó kérelem esetén az adatkezelő adminisztratív **költséget** számíthat fel.
 
 ### JOGSZABÁLYI HIVATKOZÁSOK
-*   **2015. évi CLXXXVII. törvény az egyes adótörvények módosításáról**: 1. számú melléklet 7. pont 7.21. alpont
-*   **2012. évi C. törvény a Büntető Törvénykönyvről**: 371. § (1) bekezdés
-*   **2012. évi II. törvény a szabálysértésekről**: 177. § (1) bekezdés
+- **Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR)**: 15. cikk (3) bekezdés, 12. cikk (1) bekezdés
+- **2013. évi V. törvény (Ptk.)**: 2:46. § (1) bekezdés
+- **2012. évi I. törvény (Mt.)**: 9. § (2) bekezdés
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A vizsgálat során abszolút kizáró tényezőként jelentkezik az adójogi visszaható hatály tilalma, mely alól az Alaptörvény B) cikk (1) bekezdése alapján **nincs kivétel**. A szabálysértési felelősség vonatkozásában kockázatot jelenthet a kárösszeg **újrabecslése**: amennyiben a kár tisztítási és helyreállítási költségei szakértői becslés útján az 50 000 forintos határ fölé emelkednének, a cselekmény **büntetőjogi minősítést** kapna a Btk. 371. § (1) bekezdése alapján.
+- **Üzleti titok**: A munkáltató **korlátozhatja** a másolatkiadást, ha az üzleti titok védelme forog kockán, kivéve a jogérvényesítéshez szükséges dokumentumokat.
+- **Túlzó kérelem**: Az adatkezelő **megtagadhatja** az ingyenes szolgáltatást vagy díjat számíthat fel, ha a kérelem egyértelműen megalapozatlan vagy ismétlődő.
+- **Jogszabályi felhatalmazás**: A Ptk. alapján a másolat kiadása nem feltétlenül **korlátlan**, annak jogszabályi vagy eljárásjogi feltételei lehetnek.
