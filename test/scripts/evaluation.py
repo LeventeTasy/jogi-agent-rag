@@ -80,7 +80,7 @@ def evaluate(path1: str, path2: str):
 
 if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
-    PATH1 = BASE_DIR.parent / "results" / "model_comparison" / "answered_questions_agent_unified_2-4-wo_ver.csv"
+    PATH1 = BASE_DIR.parent / "results" / "csv" / "100_5_base--verifier.csv"
     PATH2 = BASE_DIR.parent / "results" / "csv" / "100_5_base.csv"
 
     evaluate(PATH1, PATH2)

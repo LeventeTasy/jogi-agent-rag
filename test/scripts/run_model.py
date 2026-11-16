@@ -18,7 +18,7 @@ MODEL_IS_AGENT = True # True -> AGENT | False -> RAG
 PATH = BASE_DIR.parent / "datasets" / "approved" / "reviewed_questions.csv"
 
 if MODEL_IS_AGENT:
-    SAVE_PATH = BASE_DIR.parent / "results" / "csv" / "100_5_base.csv"
+    SAVE_PATH = BASE_DIR.parent / "results" / "csv" / "100_5_base--verifier.csv"
 else:
     SAVE_PATH = BASE_DIR.parent / "results" / "answered_questions_rag.csv"
 

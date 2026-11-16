@@ -1,19 +1,20 @@
-# JOGI SZAKVÉLEMÉNY: hany év jár a sitten marihuana termesztesert?
+# JOGI SZAKVÉLEMÉNY: mikor jogserto egy szerzodesfelmondas?
 
 ### RÖVID VÁLASZ
-**Fokozatosan változó**, a büntetési tétel az elkövetés körülményeitől függően **egy évtől öt évig**, illetve csekély mennyiség esetén **két évig** terjedő szabadságvesztés lehet.
+**Eltérő szabályozás.** A felmondás jogszerűsége a szerződés típusától és a felmondó fél jogállásától függően **eltérően alakul**.
 
 ### JOGI INDOKOLÁS
-A hatályos Büntető Törvénykönyv szerint a kábítószer-termesztés alapesetben **egy-öt évig** terjedő szabadságvesztéssel büntetendő bűntettnek minősül. Amennyiben az elkövető a cselekményt **csekély mennyiségű** kábítószerre, **saját használatra** termesztette, a törvényi büntetési tétel kedvezőbb, **két évig** terjedő szabadságvesztésre csökken.
+A munkajogi jogviszonyokban a felmondás jogszerűségének feltétele a **munkáltatói indoklás**. A Munka Törvénykönyve szerint a munkáltató a határozatlan tartamú munkaviszony felmondását köteles indokolni, amely indok kizárólag a munkavállaló magatartásával, képességével vagy a munkáltató működésével összefüggő ok lehet. Ezzel szemben a munkavállaló helyzete **eltérő szabályozás** alá esik, mivel határozatlan tartamú munkaviszonyának felmondását nem köteles indokolni.
 
-A büntetés kiszabása során a bíróság **enyhítő körülményként** értékeli különösen a **büntetlen előéletet**, a beismerő vallomást, valamint a kábítószerfüggőséget, amennyiben az elkövető aláveti magát a törvényben meghatározott **megelőző-felvilágosító szolgáltatásnak** vagy kezelésnek. 
+Polgári jogi viszonyokban, mint például a megbízási szerződés esetén, a jogalkotó **szélesebb körű** felmondási jogot biztosít a megbízónak. A Polgári Törvénykönyv értelmében a megbízó a megbízást bármikor azonnali hatállyal felmondhatja, azonban a felmondást követően köteles a megbízottal elszámolni.
 
-Amennyiben a termesztés **személyes fogyasztási** célból történik és csekély mennyiségű, a hatóságnak lehetősége van a **büntethetőséget megszüntető** okok alkalmazására, vagy az eljárás felfüggesztésével a **megelőző-felvilágosító** részvétel elrendelésére. A kábítószer mennyiségének minősítése a törvény mellékletében rögzített **hatóanyagtartalom** függvényében történik.
+Általános szerződésszegés esetén a felmondás jogszerűsége a **lényeges érdek** sérelméhez kötött. A Ptk. alapján a jogosult akkor mondhatja fel a szerződést a teljesítésig, ha a kötelezett szerződésszegése a jogosult lényeges érdekét sérti.
 
-### JOGSZABÁLYI HIVATKOZÁSOK - 
-**2012. évi C. törvény a Büntető Törvénykönyvről** 178. § (1) és (6) bekezdés
-**2012. évi C. törvény a Büntető Törvénykönyvről** 81. §
-**2012. évi C. törvény a Büntető Törvénykönyvről** 459. § (1) bekezdés 18. pont
+### JOGSZABÁLYI HIVATKOZÁSOK
+- **Munka Törvénykönyve (2012. évi I. törvény)**: 66. § (2) bekezdés
+- **Munka Törvénykönyve (2012. évi I. törvény)**: 67. § (2) bekezdés
+- **Polgári Törvénykönyv (2013. évi V. törvény)**: 6:280. § (1) bekezdés
+- **Polgári Törvénykönyv (2013. évi V. törvény)**: 6:137. § (1) bekezdés
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A büntetés mértéke **nem automatikus**, mivel a bíróság a konkrét eset összes körülményeit mérlegeli. A "csekély mennyiség" meghatározása **hatóanyagfüggő**, így a növények száma nem feltétlenül tükrözi a jogi kategóriát. A büntethetőséget megszüntető okok alkalmazása **lehetőség**, nem kötelező jogi előírás. A **termesztés célja** döntő bizonyítási kérdés, ahol a kereskedelmi szándék gyanúja kizárhatja a kedvezőbb büntetési tételt.
+A megbízási szerződésnél alkalmazott „bármikor” kifejezés **nincs korlátozva** a szerződésszegés fennálltával, de a jogszabály elszámolási kötelezettséget ír elő. Munkajogi jogviszonyban a munkáltatói indoklás hiánya **fokozott kockázatot** jelent a felmondás jogellenessége szempontjából. A szerződésszegés miatti felmondásnál a "lényeges érdek" vizsgálata **szubjektív elemeket** tartalmazhat, így annak bizonyíthatósága jogvitát eredményezhet.

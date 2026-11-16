@@ -223,7 +223,8 @@ class JogiFlow(Flow):
     def check_answer(self):
 
         if "HIBA ÉSZLELVE!" in self.state["verifier_feedback"]:
-            return "javitas"
+            #return "javitas"
+            return "complete"
         elif "SIKER, ELLENŐZÉS BEFEJEZVE" in self.state["verifier_feedback"]:
             return "complete" # Ha a verifier jóváhagyja
         else:
