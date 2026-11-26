@@ -92,10 +92,13 @@ def split_documents(documents: list[Document]):
                         "section_type": "ismeretlen",
                         "section_id": "ismeretlen",
                         "page": "multiple",
+                        "chunk_number": 0
                     },
                 )
             )
             continue
+
+        chunk_number = 0
 
         for i, match in enumerate(matches):
             section_id = match.group(1).strip()
@@ -117,9 +120,11 @@ def split_documents(documents: list[Document]):
                     "section_type": section_type,
                     "section_id": section_id,
                     "page": "multiple",
+                    "chunk_number": chunk_number
                 },
             )
             all_chunks.append(chunk)
+            chunk_number += 1
 
     return all_chunks
 
@@ -156,8 +161,9 @@ def add_chroma(chunks: list[Document]):
         clean_source = os.path.basename(source).replace(".pdf", "")
         clean_law = clean_id_text(law)
         clean_section_id = clean_id_text(section_id)
+        chunk_number = chunk.metadata.get("chunk_number", idx)
 
-        chunk_id = f"{clean_source}:{clean_law}:{section_type}:{clean_section_id}:{idx}"
+        chunk_id = f"{clean_source}:{clean_law}:{section_type}:{clean_section_id}:{idx}:{chunk_number}"
         chunk.metadata["id"] = chunk_id
 
         if chunk_id not in existing_ids:
@@ -192,49 +198,98 @@ def add_chroma(chunks: list[Document]):
         time.sleep(2)
 
 
-def query_rag(query_text: str):
-    db = Chroma(
-        persist_directory=CHROMA_PATH,
-        embedding_function=get_embedding_function()
-    )
-
+def query_rag(query_text: str, db: Chroma):
+    print("RAG started")
     allowed_types = ["cikk", "paragrafus"]
+
     results = db.similarity_search_with_score(
         query_text,
         k=RETRIEVAL_K,
         filter={"section_type": {"$in": allowed_types}}
     )
 
-    formatted_context = ""
-    source_list = []
-    chunks = ""
+    CONTEXT_WINDOW = 2
 
+    source_cache = {}
+    expanded_chunks = {}
+    source_list = []
 
     for doc, score in results:
         meta = doc.metadata
+        source = meta.get("source")
+        chunk_number = meta.get("chunk_number")
+
+        source_list.append({
+            "sid": meta.get("section_id", "N/A"),
+            "law": meta.get("law", "Ismeretlen törvény"),
+            "page": meta.get("page", "multiple"),
+            "src": os.path.basename(source or "file"),
+            "score": float(score)
+        })
+
+        if source is None or chunk_number is None:
+            key = (source, chunk_number, doc.page_content)
+            expanded_chunks[key] = doc
+            continue
+
+        if source not in source_cache:
+            data = db.get(
+                where={"source": source},
+                include=["documents", "metadatas"])
+
+            source_docs = []
+
+            for content, metadata in zip(data["documents"], data["metadatas"]):
+                source_docs.append({"content": content, "metadata": metadata})
+
+            source_docs.sort(key=lambda x: x["metadata"].get("chunk_number", -1))
+            source_cache[source] = source_docs
+
+        source_docs = source_cache[source]
+
+        current_index = next((i for i, item in enumerate(source_docs)
+                if item["metadata"].get("chunk_number") == chunk_number), None)
+
+        if current_index is None:
+            key = (source, chunk_number, doc.page_content)
+            expanded_chunks[key] = doc
+            continue
+
+        start_index = max(0, current_index - CONTEXT_WINDOW)
+        end_index = min(len(source_docs), current_index + CONTEXT_WINDOW + 1)
+
+        for item in source_docs[start_index:end_index]:
+            metadata = item["metadata"]
+
+            key = (
+                metadata.get("source"),
+                metadata.get("chunk_number"),
+                item["content"])
+
+            expanded_chunks[key] = item
+
+    formatted_context = ""
+    chunks = ""
+
+    for item in expanded_chunks.values():
+        if isinstance(item, Document):
+            content = item.page_content
+            meta = item.metadata
+        else:
+            content = item["content"]
+            meta = item["metadata"]
+
         law = meta.get("law", "Ismeretlen törvény")
         sid = meta.get("section_id", "N/A")
         page = meta.get("page", "multiple")
         src = os.path.basename(meta.get("source", "file"))
+        chunk_number = meta.get("chunk_number", "N/A")
 
-        distance_score = round(float(score), 4)
+        #clean_content = (content[:1500] + "... [vágva a stabilitásért]" if len(content) > 1500 else content)
 
-        clean_content = doc.page_content[:1500] + "... [vágva a stabilitásért]" if len(
-            doc.page_content) > 1500 else doc.page_content
-
-        header = f"[Törvény: {law} | Hely: {sid} | Távolság: {distance_score} | Oldal: {page} | Forrásfájl: {src}]"
-        formatted_context += f"{header}\n{clean_content}\n\n---\n\n"
-
-        chunk = f"[{src} - {sid}]: {doc.page_content}"
-        chunks += f"{chunk}\n\n"
-
-        source_list.append({
-            "sid": sid,
-            "law": law,
-            "page": page,
-            "src": src,
-            "score": score
-        })
+        header = (f"[Törvény: {law} | Hely: {sid} | Chunk: {chunk_number} | Oldal: {page} | Forrásfájl: {src}]")
+        formatted_context += (f"{header}\n{content}\n\n---\n\n")
+        chunks += (f"[{src} - {sid} - Chunk {chunk_number}]: {content}\n\n")
 
     return formatted_context, source_list, chunks
 
@@ -255,7 +310,11 @@ def build_rag():
     print("Adatbázis frissítve")
 
 def ask_question(question: str):
-    formatted_context, source_list, chunks = query_rag(question)
+    db = Chroma(
+        persist_directory=CHROMA_PATH,
+        embedding_function=get_embedding_function()
+    )
+    formatted_context, source_list, chunks = query_rag(question, db)
 
     PROMPT_TEMPLATE = """
         Te egy tűpontos jogi asszisztens vagy. KIZÁRÓLAG a megadott kontextus alapján válaszolj.

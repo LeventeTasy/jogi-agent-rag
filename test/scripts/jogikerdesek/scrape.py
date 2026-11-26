@@ -1,5 +1,5 @@
 import time
-
+from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
@@ -8,13 +8,23 @@ URLS_BTK = ["https://web.archive.org/web/20251006013347/http://jogikerdesek.hu/g
         "https://web.archive.org/web/20251113164931/http://www.jogikerdesek.hu/gyakori-kerdesek/b%C3%BCntet%C5%91jog?start=40",
         "https://web.archive.org/web/20251113164931/http://www.jogikerdesek.hu/gyakori-kerdesek/b%C3%BCntet%C5%91jog?start=60"]
 
-URLS = ["https://web.archive.org/web/20251119044719/http://jogikerdesek.hu/gyakori-kerdesek/ad%C3%B3jogi-tan%C3%A1csad%C3%A1s",
-       ]
+URLS_SZJA = ["https://web.archive.org/web/20251119044719/http://jogikerdesek.hu/gyakori-kerdesek/ad%C3%B3jogi-tan%C3%A1csad%C3%A1s"]
 
+URLS_PTK = ["https://web.archive.org/web/20260212170234/http://jogikerdesek.hu/gyakori-kerdesek/polg%C3%A1ri-jog"]
+
+URLS_MT = ["https://web.archive.org/web/20260208145515/http://jogikerdesek.hu/gyakori-kerdesek/munkajog",
+    "https://web.archive.org/web/20260510045942/http://jogikerdesek.hu/gyakori-kerdesek/munkajog?start=20",
+    "https://web.archive.org/web/20260510045942/http://jogikerdesek.hu/gyakori-kerdesek/munkajog?start=40",
+    "https://web.archive.org/web/20260510045942/http://jogikerdesek.hu/gyakori-kerdesek/munkajog?start=60",
+    "https://web.archive.org/web/20260510045942/http://jogikerdesek.hu/gyakori-kerdesek/munkajog?start=80",
+    "https://web.archive.org/web/20260510045942/http://jogikerdesek.hu/gyakori-kerdesek/munkajog?start=100",
+    "https://web.archive.org/web/20260510045942/http://jogikerdesek.hu/gyakori-kerdesek/munkajog?start=120",
+    "https://web.archive.org/web/20260510045942/http://jogikerdesek.hu/gyakori-kerdesek/munkajog?start=140"
+        ]
 article_urls = []
 questions = [] # kerdes, valasz
 
-for url in URLS:
+for url in URLS_SZJA:
     for s in range(5):
         try:
             response = requests.get(url)
@@ -29,17 +39,25 @@ for url in URLS:
 
     soup = BeautifulSoup(response.text, "html.parser")
 
-    divs = soup.find_all("div", class_="qa-q-list-item")
+    for div in soup.find_all("div", class_="qa-q-list-item"):
+        answer_count = div.find("span", class_="qa-a-count-data")
 
-    for div in divs:
-        if div.find("span", class_="qa-a-count-data").get_text(strip=True) == "1":
-            for d in div.find_all(class_="qa-q-item-title"):
-                for a in d.find_all("a"):
-                    a_url = "https://web.archive.org"+a.get("href")
-                    article_urls.append(a_url)
-        else:
-            print("Nem érvényes")
+        if answer_count is None:
+            print("Nem található válaszszám!")
+            continue
 
+        if answer_count.get_text(strip=True) != "1":
+            print(f"Nem érvényes: {div.get('id')}")
+            continue
+
+        link = div.select_one(".qa-q-item-title a[href]")
+
+        if link is None:
+            print("Nem található kérdéslink!")
+            continue
+
+        a_url = urljoin("https://web.archive.org", link["href"])
+        article_urls.append(a_url)
 time.sleep(30)
 
 print(article_urls)

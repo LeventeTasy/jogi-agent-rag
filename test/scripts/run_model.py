@@ -15,7 +15,7 @@ from src.rag import ask_question
 
 BASE_DIR = Path(__file__).resolve().parent
 MODEL_IS_AGENT = True # True -> AGENT | False -> RAG
-PATH = BASE_DIR.parent / "datasets" / "approved" / "reviewed_questions.csv"
+PATH = BASE_DIR.parent / "datasets" / "jogikerdesek.csv"
 
 if MODEL_IS_AGENT:
     SAVE_PATH = BASE_DIR.parent / "results" / "csv" / "100_5_base--verifier.csv"

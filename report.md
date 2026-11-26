@@ -1,20 +1,20 @@
-# JOGI SZAKVÉLEMÉNY: mikor jogserto egy szerzodesfelmondas?
+# JOGI SZAKVÉLEMÉNY: milyen feltetelei vannak a 25 even aluliak adokedvezmenyenek?
 
 ### RÖVID VÁLASZ
-**Eltérő szabályozás.** A felmondás jogszerűsége a szerződés típusától és a felmondó fél jogállásától függően **eltérően alakul**.
+**Jogosultak.** A kedvezmény a 25. életév betöltésének hónapjáig vehető igénybe az összevont adóalapba tartozó meghatározott jövedelmek után.
 
 ### JOGI INDOKOLÁS
-A munkajogi jogviszonyokban a felmondás jogszerűségének feltétele a **munkáltatói indoklás**. A Munka Törvénykönyve szerint a munkáltató a határozatlan tartamú munkaviszony felmondását köteles indokolni, amely indok kizárólag a munkavállaló magatartásával, képességével vagy a munkáltató működésével összefüggő ok lehet. Ezzel szemben a munkavállaló helyzete **eltérő szabályozás** alá esik, mivel határozatlan tartamú munkaviszonyának felmondását nem köteles indokolni.
+A 25 év alatti fiatalok kedvezményére való jogosultság alapvető feltétele, hogy a magánszemély a **25. életévét** még nem töltötte be. A Szja tv. 29/F. § (3) bekezdése értelmében jogosultsági hónapként azok a hónapok vehetők figyelembe, amelyekben a fiatal a 25. életévét még nem töltötte be, az utolsó ilyen hónap a **25. életév** betöltésének hónapja.
 
-Polgári jogi viszonyokban, mint például a megbízási szerződés esetén, a jogalkotó **szélesebb körű** felmondási jogot biztosít a megbízónak. A Polgári Törvénykönyv értelmében a megbízó a megbízást bármikor azonnali hatállyal felmondhatja, azonban a felmondást követően köteles a megbízottal elszámolni.
+A kedvezmény az összevont adóalapba tartozó jövedelmekre alkalmazható, melyek körét a törvény tételesen felsorolja. Ide tartozik a törvény szerinti **bérnek minősülő** jövedelem, valamint az egyéb, nem önálló tevékenységből származó jövedelem, kivéve a munkaviszony megszüntetésekor kapott végkielégítés törvényi mértéket meghaladó részét. Ezen felül érvényesíthető a kedvezmény az **önálló tevékenységből** származó meghatározott jövedelmekre is, úgymint az egyéni vállalkozói kivét, az átalányban megállapított jövedelem, a mezőgazdasági őstermelői jövedelem, valamint a képviselői és könyvvizsgálói díjazás, illetve az egyéb, díjazás ellenében végzett munkavégzésre irányuló szerződésekből származó jövedelem. Az önálló tevékenységből származó jövedelem kedvezménye adóévenként **maximált összegű**, a jogosultsági hónapok száma és a tárgyévet megelőző év július havi nemzetgazdasági bruttó átlagkereset szorzata.
 
-Általános szerződésszegés esetén a felmondás jogszerűsége a **lényeges érdek** sérelméhez kötött. A Ptk. alapján a jogosult akkor mondhatja fel a szerződést a teljesítésig, ha a kötelezett szerződésszegése a jogosult lényeges érdekét sérti.
+A kedvezmény érvényesítése a kifizető oldalán **automata** folyamat. A kifizető a fiatal adóelőleg-alapját jogosultsági hónaponként csökkenti, kivéve, ha a fiatal kifejezetten kéri a kedvezmény érvényesítésének részbeni vagy egészbeni **mellőzését**. Az állampolgársági feltétel alapján a kedvezmény az EGT-államok és a Magyarországgal határos, nem EGT-államok állampolgára számára **elérhető**.
 
-### JOGSZABÁLYI HIVATKOZÁSOK
-- **Munka Törvénykönyve (2012. évi I. törvény)**: 66. § (2) bekezdés
-- **Munka Törvénykönyve (2012. évi I. törvény)**: 67. § (2) bekezdés
-- **Polgári Törvénykönyv (2013. évi V. törvény)**: 6:280. § (1) bekezdés
-- **Polgári Törvénykönyv (2013. évi V. törvény)**: 6:137. § (1) bekezdés
+### JOGSZABÁLYI HIVATKOZÁSOK - 
+**1995. évi CXVII. törvény a személyi jövedelemadóról** [29/F. § (1), (2), (3), (6)]
+**1995. évi CXVII. törvény a személyi jövedelemadóról** [48. § (3d), (4a)]
 
 ### KOCKÁZATI TÉNYEZŐK ÉS KIVÉTELEK
-A megbízási szerződésnél alkalmazott „bármikor” kifejezés **nincs korlátozva** a szerződésszegés fennálltával, de a jogszabály elszámolási kötelezettséget ír elő. Munkajogi jogviszonyban a munkáltatói indoklás hiánya **fokozott kockázatot** jelent a felmondás jogellenessége szempontjából. A szerződésszegés miatti felmondásnál a "lényeges érdek" vizsgálata **szubjektív elemeket** tartalmazhat, így annak bizonyíthatósága jogvitát eredményezhet.
+**Jövedelmi limit.** Az önálló tevékenységből származó jövedelmekre vonatkozó kedvezmény összege **felső korláthoz** kötött. 
+**Végkielégítés kivétel.** A munkaviszony megszüntetésére kapott végkielégítés törvényben előírt mértéket **meghaladó része** nem minősül kedvezményezett jövedelemnek. 
+**Nyilatkozati kötelezettség.** A fiatalnak nyilatkozatot kell tennie a kedvezmény mellőzéséről, amennyiben az adóév egészére vetített befizetési különbözet várhatóan **meghaladja** a 10 ezer forintot, elkerülendő az adóév végi fizetési kötelezettséget.

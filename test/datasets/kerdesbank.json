@@ -1,0 +1,602 @@
+[
+  {
+    "input": "Valaki a halgazdálkodási vízterületen az engem megillető jogok gyakorlásából szerzett bevételt. Követelhetem tőle ezt az összeget?",
+    "expected_output": "Igen. Aki más rovására jogalap nélkül gazdagodott, köteles a gazdagodást visszatéríteni (Ptk. 6:579. § (1)). Az ügyben a halgazdálkodásra jogosult felperest illette volna a bevétel, ezért az alperest a jogalap nélkül szerzett összeg (nettó 15 488 000 Ft) megfizetésére marasztalták. Kúria Pfv.20420/2019/7 (2020-04-30).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:579.§ (1)']"
+  },
+  {
+    "input": "Ha többen jogalap nélkül gazdagodtak, hivatkozhat-e az egyikük sortartásra?",
+    "expected_output": "Nem: a jogalap nélküli gazdagodás visszatérítésére irányuló igénnyel szemben a sortartási kifogás eredménytelen; a közösen gazdagodók egyetemleges kötelezettségét a Ptk. 6:582. § rendezi (alapszabály: 6:579. §). Kúria Gfv.30140/2024/8 (2024-10-08).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:579.§', 'PTK 6:582.§']"
+  },
+  {
+    "input": "Mérsékelheti-e a bíróság a túlzottnak tartott kötbért, és milyen szempontok szerint?",
+    "expected_output": "Igen, a bíróság az eset összes körülményei alapján mérsékelheti a kötbért (kötbér: Ptk. 6:186. §; mérséklés: Ptk. 6:188. §). Szempontok: a teljesítés elmaradt/késedelmes része, a szolgáltatás értéke és a kötbér nagysága közötti arányosság, a szerződésszegés körülményei. Kúria Gfv.30018/2025/7 (2025-11-19).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:186.§', 'PTK 6:188.§']"
+  },
+  {
+    "input": "A vállalkozó túllépte a végső építési határidőt. Követelhetek kötbért és kártérítést is?",
+    "expected_output": "A szerződésszegő a szerződésszegéssel okozott kárért felel (Ptk. 6:142. §), a kártérítés terjedelmét a Ptk. 6:143. § határozza meg; a kötbér és a kártérítés viszonyát a Ptk. 6:154. § (3) szabályozza. Az ügyben a bíróság kötbérfizetésre kötelezett és a kártérítési igényt e szabályok szerint vizsgálta. Kúria Pfv.20823/2024/6 (2024-11-26).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:142.§', 'PTK 6:143.§', 'PTK 6:154.§ (3)']"
+  },
+  {
+    "input": "A szállító nem teljesített, ezért máshol szereztem be az árut drágábban. Megtérítheti a többletköltséget?",
+    "expected_output": "A fedezeti szerződés megkötéséből eredő költségek megtérítése a Ptk. 6:141. § szerinti igény, amely a szerződésszegési kártérítés speciális esete, ezért a szerződésszegésért való felelősség szabályai (Ptk. 6:142. §) irányadók. Kúria Gfv.30183/2025/4 (2026-01-28).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:141.§', 'PTK 6:142.§']"
+  },
+  {
+    "input": "Baleset után kártérítést és sérelemdíjat kérek. Mely Ptk. szabályokra alapíthatom a keresetet?",
+    "expected_output": "A felperes a keresetét a személyiségi jogok megsértésére (Ptk. 2:43. §, sérelemdíj: 2:52. § (2)–(3), 2:53. §) és a veszélyes üzemi felelősségre (Ptk. 6:526. §) alapította; a vagyoni kár a Ptk. 6:142. §, 6:144–6:145. § szerint is vizsgálandó. Kúria Pfv.20033/2022/5 (2022-10-05).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 2:43.§', 'PTK 2:52.§ (2)', 'PTK 2:52.§ (3)', 'PTK 2:53.§', 'PTK 6:526.§']"
+  },
+  {
+    "input": "Sportesemény közben megsérültem. Szerződéses vagy szerződésen kívüli felelősség alapján kérhetek sérelemdíjat az alperesektől?",
+    "expected_output": "Ha a felperes és az alperesek között nincs jogviszony, a sérelemdíj iránti igény a deliktuális (szerződésen kívüli) felelősség szabályai szerint bírálandó el, nem a kontraktuális szabályok szerint (Ptk. 6:519. §, 6:522. §). Kúria Pfv.20239/2023/5 (2023-11-21).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:519.§', 'PTK 6:522.§']"
+  },
+  {
+    "input": "Munkavégzés közben ért baleset. Ki felel a kárért?",
+    "expected_output": "Az elsőfokú bíróság a Ptk. 6:540. §-a alapján úgy ítélte meg, hogy a munkaviszonyban, munkavégzés keretében bekövetkezett káresemény miatt a munkáltató tartozik kártérítési felelősséggel (általános szabály: Ptk. 6:519. §). Kúria Pfv.21245/2023/2 (2024-03-06).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:540.§ (1)', 'PTK 6:519.§']"
+  },
+  {
+    "input": "Hozzátartozóm halála miatt temetési költséget és tartást pótló járadékot kérünk. Mely Ptk. szabályokra hivatkozhatunk?",
+    "expected_output": "A felperesek a keresetet a Ptk. 6:519. §, 6:522. §, 6:527. § (1) bekezdés (halál okozása esetén kártérítés), 6:529. § (járadék) és a sérelemdíjra vonatkozó 2:52. § alapján terjesztették elő; a temetési költség és a tartást pótló járadék indokoltságát a bíróság vizsgálta. Kúria Pfv.20277/2026/7 (2026-06-03).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:519.§', 'PTK 6:522.§', 'PTK 6:527.§ (1)', 'PTK 6:529.§', 'PTK 2:52.§ (1)']"
+  },
+  {
+    "input": "Ha az ajánlatot nem írták alá, akkor is ajánlatnak minősül és létrejön az adásvételi szerződés?",
+    "expected_output": "A jogszabály által kötelezően nem írásbelihez kötött adásvételnél (Ptk. 6:70. § (1) csak kötelező alakiság esetén alkalmazandó) az aláírás hiányában is ajánlatnak minősült a megküldött szerződéstervezet (Ptk. 6:7. § (3)). Kúria Pfv.20598/2023/5 (2024-02-06).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:70.§ (1)', 'PTK 6:7.§ (3)']"
+  },
+  {
+    "input": "A feles bérleti szerződést csak két évvel később jegyezték be a földhivatalnál. Érvénytelen emiatt a szerződés?",
+    "expected_output": "Az alperesek álláspontja szerint a szerződés érvényességét nem érinti az, hogy a szakigazgatási jóváhagyás után a nyilvántartásba vétel később történt; az érvénytelenség a Ptk. 6:92. § (2) és 6:95. § (jogszabályba ütközés) szerint bírálandó. Kúria Pfv.20247/2019/5 (2020-02-18).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:92.§ (2)', 'PTK 6:95.§']"
+  },
+  {
+    "input": "A vevő nem fizeti az ingatlan vételárának részleteit. Milyen szabályok szerint léphet fel az eladó?",
+    "expected_output": "A vevő fő kötelezettsége a vételár megfizetése (Ptk. 6:213. § (1)); a nemteljesítés a szerződésszegés általános szabályai szerint (Ptk. 6:140. §, 6:154. §) vizsgálandó. Az eladók és a vevő között a részletfizetésre alapított adásvétel körüli jogvitát a Kúria Pfv.20120/2023/8 (2023-10-25) számú ügyben bírálta.",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:213.§ (1)', 'PTK 6:140.§', 'PTK 6:154.§']"
+  },
+  {
+    "input": "Semmis-e a szerződés azért, mert az egyik fél nem teljesített?",
+    "expected_output": "Nem. A teljesítés elmaradása szerződésszegés, amelyhez a Ptk. nem az érvénytelenséget fűzi; a jó erkölcsbe ütközés miatti semmisség (Ptk. 6:96. §) csak a szerződéssel elérni kívánt joghatás jóerkölcsbe ütközése esetén áll fenn. Kúria Pfv.20282/2022/11 (2023-02-14).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:96.§']"
+  },
+  {
+    "input": "A közös tulajdonú ingatlan korábbi tulajdonosai rendezték a használatot. Kötelező ez az új tulajdonosokra is?",
+    "expected_output": "A használat rendezése az utánuk következő tulajdonosokra is kiható hatályú; a tulajdonosok személyének változása önmagában nem ad alapot a használati mód megváltoztatására (Ptk. 5:74. §, 5:79. § (3)). Kúria Pfv.21155/2022/5 (2023-10-17).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 5:74.§', 'PTK 5:79.§ (3)']"
+  },
+  {
+    "input": "Egyenlő arányú közös tulajdonosok írásban megállapodtak az ingatlanrészek használatáról. Mi a megállapodás jelentősége?",
+    "expected_output": "A közös tulajdon használatát a tulajdonostársak megállapodással rendezhetik; a használati megállapodás keretein belül gyakorolhatják jogaikat (Ptk. 5:73. § (1), 5:80. §). Kúria Pfv.20926/2021/7 (2022-05-18).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 5:73.§ (1)', 'PTK 5:80.§']"
+  },
+  {
+    "input": "A közös tulajdonostárs többször megszegte a használati megállapodást és akadályoz a kizárólagos használatban. Mit tehetek?",
+    "expected_output": "A tulajdonostársak a használati megállapodásban rögzített keretek között gyakorolhatják jogaikat; az ügyben a bíróság megállapította, hogy az I. rendű alperes a megállapodásban foglalt kötelezettségét többször megszegte (Ptk. 5:73. § (1), 5:74. §). Kúria Pfv.20052/2021/5 (2021-10-27).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 5:73.§ (1)', 'PTK 5:74.§']"
+  },
+  {
+    "input": "A szomszéd szükségtelen zavarása miatt lakhatatlanná vált az ingatlanom. Kérhetek sérelemdíjat a személyiségi jogaim sérelme miatt?",
+    "expected_output": "A felperes a szükségtelen zavarásra (Ptk. 5:23. §) és a magánélet, a magánlakás használatának zavartalansága, valamint az egészséghez fűződő jog sérelmére (Ptk. 2:42. §, 2:43. §) alapítva kért sérelemdíjat (2:52. §). Kúria Pfv.21500/2021/5 (2022-04-27).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 5:23.§', 'PTK 2:42.§', 'PTK 2:43.§', 'PTK 2:52.§']"
+  },
+  {
+    "input": "Mérsékelhető-e a kötbér, ha a kötelezett szerint a másik félnél számottevő kár nem keletkezett?",
+    "expected_output": "A kötbér bírósági mérséklése azon alapul, hogy a kötbér összege eltúlzott-e; ennek a megállapításához a kár nagysága is figyelembe vehető (Ptk. 6:186. § szerinti kötbér). Kúria Gfv.30180/2024/4.",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:186.§']"
+  },
+  {
+    "input": "A felbontási megállapodás megszegése esetén követelhető-e kártérítés?",
+    "expected_output": "A szerződésszegésért való felelősség és a kártérítés mértéke a Ptk. 6:142. §, 6:143. § szerint bírálandó el. Kúria Gfv.30159/2025/6.",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 6:142.§', 'PTK 6:143.§']"
+  },
+  {
+    "input": "Közös tulajdon megszüntetése iránti per: mi a Ptk. alapszabálya a közös tulajdon használatára és megszüntetésére?",
+    "expected_output": "A közös tulajdon használatára, a tulajdonostársak jogaira és a megszüntetésre a Ptk. közös tulajdonról szóló szabályai (5:73. §, 5:74. §, 5:75. §) irányadók; a tulajdonostársak megegyezése hiányában a bíróság dönt. Kúria Pfv.21353/2021/6 (2022-10-13).",
+    "law": "új Ptk. (2013. évi V. törvény)",
+    "references": "['PTK 5:22.§', 'PTK 5:73.§ (1)', 'PTK 5:74.§', 'PTK 5:75.§']"
+  },
+  {
+    "input": "Mikor számít csalásnak, ha valaki másokat tévedésbe ejt és ezzel kárt okoz?",
+    "expected_output": "Csalást követ el, aki jogtalan haszonszerzés végett mást tévedésbe ejt vagy tévedésben tart, és ezzel kárt okoz (Btk. 373. § (1)). Kúria Bfv.1436/2024/10 (2025-10-14).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 373.§ (1)']"
+  },
+  {
+    "input": "Két ember együtt elvesz egy árut egy áruházból. Milyen bűncselekmény ez?",
+    "expected_output": "Közös elkövetéssel megvalósított lopás, ha jogtalan eltulajdonítás végett idegen dolgot vesznek el (Btk. 370. § (1)–(2)); erőszakkal vagy fenyegetéssel rablás (Btk. 365. § (1)–(2)). Kúria Bfv.700/2022/8 (2023-02-07).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 370.§ (1)', 'BTK 370.§ (2)', 'BTK 365.§ (1)', 'BTK 365.§ (2)']"
+  },
+  {
+    "input": "Milyen bűncselekménnyel vádolható az a hivatalos személy, aki előnyt fogad el hivatali működésével összefüggésben?",
+    "expected_output": "Hivatali vesztegetés elfogadásának bűntettével (Btk. 294. § (1)). Az ügyben a Legfőbb Ügyészség indítványa szerint a vádlottat ebben kellett volna bűnösnek mondani. Kúria Bhar.148/2025/5 (2025-05-13).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 294.§ (1)']"
+  },
+  {
+    "input": "Egységes bűncselekménynek számít-e a több költségvetési csalás, ha a terhelt egyikben csak részes volt?",
+    "expected_output": "Az ügyben kifejtett álláspont szerint költségvetési csalásnál (Btk. 396. §) cselekményegység csak akkor áll fenn, ha a terhelt valamennyi részcselekményt tettesként valósította meg; részesi magatartásnál az egy bűncselekményként elbírálás kizárt. Kúria Hkf.1096/2021/5 (2021-12-07).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 396.§ (1)', 'BTK 396.§ (5)']"
+  },
+  {
+    "input": "Három ember a táskájába tett árut jogtalan eltulajdonítási szándékkal az üzletben. Hogyan minősül?",
+    "expected_output": "Jogtalan eltulajdonítás: lopás (Btk. 370. § (1)–(3)); erőszak vagy fenyegetés esetén rablás (Btk. 365. §), illetve a Btk. 367. § szerinti minősítés jöhet szóba. Kúria Bfv.310/2025/9 (2025-11-13).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 370.§ (1)', 'BTK 370.§ (3)', 'BTK 365.§', 'BTK 367.§']"
+  },
+  {
+    "input": "Milyen bűncselekmény, ha valaki rendszeresen kábítószert vesz és haszonnal továbbértékesít?",
+    "expected_output": "Kábítószerrel visszaélés bűntette (kereskedelem): Btk. 176. § (1)–(3). Kúria Bfv.738/2024/10 (2025-04-15).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 176.§ (1)', 'BTK 176.§ (2)', 'BTK 176.§ (3)']"
+  },
+  {
+    "input": "Ha valaki saját fogyasztásra is és továbbértékesítésre is vásárol kábítószert, hogyan minősül a cselekménye?",
+    "expected_output": "Az értékesítés a Btk. 176. § (1), (3) szerinti kábítószerrel visszaélés, a saját fogyasztásra történő birtoklás a Btk. 178. § (1) szerinti. Kúria Bfv.305/2022/11 (2022-12-13).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 176.§ (1)', 'BTK 176.§ (3)', 'BTK 178.§ (1)']"
+  },
+  {
+    "input": "A terhelt több fajta kábítószert vásárolt haszonnal történő továbbértékesítés céljából és részben saját fogyasztásra. Mely Btk. helyek irányadók?",
+    "expected_output": "Kereskedelem: Btk. 176. § (1), (3); saját fogyasztásra történő birtoklás: Btk. 178. § (6) szerinti rendelkezés is vizsgálandó. Kúria Bfv.26/2019/11 (2019-06-05).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 176.§ (1)', 'BTK 176.§ (3)', 'BTK 178.§ (6)']"
+  },
+  {
+    "input": "Ismeretlen személyek postán 50 ecstasy tablettát küldtek a terhelt nevére. Felelős-e a terhelt kábítószerrel való visszaélésért?",
+    "expected_output": "A kábítószerrel visszaélés (Btk. 176. § (1), (3)) és kábítószer birtoklása (Btk. 178. § (1)) miatti felelősség az irányadó tényállás alapján vizsgálandó; a felülvizsgálatban a tényállás nem támadható. Kúria Bfv.642/2025/7 (2026-01-08).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 176.§ (1)', 'BTK 176.§ (3)', 'BTK 178.§ (1)']"
+  },
+  {
+    "input": "Hivatkozhat-e a terhelt a kábítószer jellegére vonatkozó tévedésre?",
+    "expected_output": "A tévedésre (Btk. 15. §) akkor lehetne eredményesen hivatkozni, ha az elkövetési tárgy jellegét illetően az irányadó tényállás ezt támasztaná alá; a kábítószerrel visszaélés (Btk. 176. §) elkövetési tárgya a Btk. 459. § (1) szerinti kábítószer. Kúria Bfv.1433/2024/12 (2025-10-07).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 15.§', 'BTK 176.§ (1)', 'BTK 176.§ (3)', 'BTK 459.§ (1)']"
+  },
+  {
+    "input": "Milyen minősítés irányadó, ha a testi sértés a sértett halálát okozza?",
+    "expected_output": "A testi sértés bűntette (Btk. 164. § (1)) halált okozó eredmény esetén súlyosabban minősül (Btk. 164. § (8)–(9)). Kúria Bfv.1421/2024/14 (2025-10-07).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 164.§ (1)', 'BTK 164.§ (8)', 'BTK 164.§ (9)']"
+  },
+  {
+    "input": "Milyen bűncselekmény miatt felel, aki folytatólagosan elsíkkaszt pénzt és hamis magánokiratot használ fel?",
+    "expected_output": "Folytatólagosan elkövetett sikkasztás (Btk. 372. § (1), (2), (5)) és hamis magánokirat felhasználása (Btk. 345. §). Kúria Bfv.1227/2024/9 (2025-05-29).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 372.§ (1)', 'BTK 372.§ (2)', 'BTK 372.§ (5)', 'BTK 345.§']"
+  },
+  {
+    "input": "A terhelt meghamisított bankszámlakivonatokkal leplezte, hogy elsíkkasztotta a cég pénzét. Milyen bűncselekmények valósultak meg?",
+    "expected_output": "Sikkasztás (Btk. 372. § (1), (2), (6)) és hamis magánokirat felhasználása (Btk. 345. §). Kúria Bfv.470/2021/16 (2021-11-29).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 372.§ (1)', 'BTK 372.§ (2)', 'BTK 372.§ (6)', 'BTK 345.§']"
+  },
+  {
+    "input": "Sikkasztás-e, ha a végrehajtó a letéti számláján lévő pénzt elveszi?",
+    "expected_output": "A végrehajtói letéti számlán elhelyezett pénzösszeg a végrehajtóra rábízott, számára idegen dolog, ezért felhasználása sikkasztásnak minősülhet (Btk. 372. § (1)); ezt az ügyészi álláspont és az eljárt bíróságok is így ítélték meg. Kúria Bfv.1019/2018/5 (2019-01-16).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 372.§ (1)', 'BTK 372.§ (2)', 'BTK 372.§ (6)']"
+  },
+  {
+    "input": "Milyen bűncselekmények valósulnak meg, ha valaki sikkaszt és közokiratot hamisít?",
+    "expected_output": "Sikkasztás (Btk. 372. § (1), (4) a)), közokirat-hamisítás (Btk. 342. § (1) c)), hamis magánokirat felhasználása (Btk. 345. §). Kúria Bfv.629/2024/11 (2025-03-06).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 372.§ (1)', 'BTK 372.§ (4)', 'BTK 342.§ (1)', 'BTK 345.§']"
+  },
+  {
+    "input": "Milyen bűncselekmény a bűnös pénz eredetének leplezése?",
+    "expected_output": "Pénzmosás (Btk. 399. § (1) a) aa), (4) a)); az ügyben társtettesként, folytatólagosan elkövetett pénzmosás bűntettében mondták ki a terheltet bűnösnek. Kúria Bfv.966/2025/13 (2026-03-03).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 399.§ (1)', 'BTK 399.§ (4)', 'BTK 342.§ (1)']"
+  },
+  {
+    "input": "Mikor valósul meg a hűtlen kezelés, sikkasztás és költségvetési csalás halmazata?",
+    "expected_output": "Az ügyben a terhelt hűtlen kezelés bűntettében (Btk. 376. § (1), (5) a)), sikkasztásban (Btk. 372. §), költségvetési csalásban (Btk. 396. §) és okirati bűncselekményben (Btk. 345. §) volt érintett. Kúria Bfv.130/2023/14 (2023-11-16).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 376.§ (1)', 'BTK 376.§ (5)', 'BTK 372.§ (1)', 'BTK 396.§ (1)', 'BTK 345.§']"
+  },
+  {
+    "input": "Milyen minősítés irányadó hűtlen kezelés és költségvetési csalás együttes elkövetésénél?",
+    "expected_output": "Hűtlen kezelés (Btk. 376. § (1), (3) a)), költségvetési csalás (Btk. 396. § (1) c), (3) a)), sikkasztás (Btk. 372. §). Kúria Bfv.1117/2022/7 (2023-06-01).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 376.§ (1)', 'BTK 376.§ (3)', 'BTK 396.§ (1)', 'BTK 396.§ (3)', 'BTK 372.§']"
+  },
+  {
+    "input": "Milyen büntetés szabható ki sikkasztás miatt kisebb értéknél?",
+    "expected_output": "Sikkasztás bűntette (Btk. 372. § (1), (3) a)); az ügyben a másodrendű terheltet pénzbüntetésre ítélték. Kúria Bfv.95/2019/8 (2019-05-27).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 372.§ (1)', 'BTK 372.§ (3)']"
+  },
+  {
+    "input": "Mi a minősítése annak, ha valaki baltával többször megüt egy másik embert?",
+    "expected_output": "Az élet kioltására alkalmas eszközzel elkövetett támadás emberölés (kísérlet) minősítésénél a Btk. 160. § (1)–(2) irányadó. Kúria Bfv.618/2024/16 (2025-03-11).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 160.§ (1)', 'BTK 160.§ (2)']"
+  },
+  {
+    "input": "Milyen minősítés irányadó, ha a sértettet kikötözik és a nyakába hurkot vetnek?",
+    "expected_output": "Emberölés (Btk. 160. § (1)–(2)), a minősített eset szabályaival együtt vizsgálandó. Kúria Bfv.474/2025/15 (2025-09-30).",
+    "law": "új Btk. (2012. évi C. törvény)",
+    "references": "['BTK 160.§ (1)', 'BTK 160.§ (2)']"
+  },
+  {
+    "input": "A munkáltató közös megegyezésről szóló iratot készített, de én ilyet nem akartam. Megszűnt a munkaviszonyom közös megegyezéssel?",
+    "expected_output": "Nem. Közös megegyezéssel (Mt. 64. § (1) a)) csak a felek egybehangzó nyilatkozata esetén szűnik meg a munkaviszony; az ügyben a munkáltató jogellenesen szüntette meg a munkaviszonyt. Kúria Mfv.10490/2015/1 (2016-04-06).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 64.§ (1)']"
+  },
+  {
+    "input": "Felmondhat-e a munkáltató, ha szerinte a munkavállaló nem végez munkát a kijelölt telephelyeken?",
+    "expected_output": "A munkáltató felmondással megszüntetheti a munkaviszonyt (Mt. 64. § (1) b)); az indok valódiságát és okszerűségét a bíróság vizsgálja. Kúria Mfv.10499/2014/1 (2015-03-11).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 64.§ (1)']"
+  },
+  {
+    "input": "Mennyi időm van keresetet indítani, ha jogellenesnek tartom a munkaviszonyom megszüntetését?",
+    "expected_output": "A jogellenesség megállapítása iránti keresetet 30 napon belül kell benyújtani (Mt. 287. § (1)); a jogkövetkezményeket az Mt. 82. §-a szabályozza. Kúria Mfv.10125/2019/5 (2020-01-15).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 287.§ (1)', 'MT 82.§']"
+  },
+  {
+    "input": "Alkalmatlanságra hivatkozva felmondtak néhány hiba miatt. Elég ez indoknak?",
+    "expected_output": "A felmondás indokának valósnak és okszerűnek kell lennie (Mt. 64. § (2)); alkalmatlanság csak objektíven igazolt hiányosság esetén állhat fenn, egy-egy eset önmagában nem elegendő. Kúria Mfv.10014/2018/7 (2019-01-07).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 64.§ (2)']"
+  },
+  {
+    "input": "A munkáltató azonnali hatállyal felmondott összeférhetetlenség miatt, pedig egy éve tudott a helyzetről. Jogszerű?",
+    "expected_output": "Az elsőfokú bíróság szerint a helyzet megszüntetése a munkáltató kötelezettsége volt, és az azonnali hatályú felmondás közlése előtt már egy éve ismert volt; a jogellenes megszüntetés jogkövetkezményei: Mt. 82. § (1)–(2), 83. § (1). Kúria Mfv.10010/2026/6 (2026-04-08).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 82.§ (1)', 'MT 82.§ (2)', 'MT 83.§ (1)']"
+  },
+  {
+    "input": "Azonnali hatállyal felmondhat-e a munkavállaló, ha a munkáltató érdekkörében felmerült okból elmaradt a megbeszélés?",
+    "expected_output": "A munkavállaló az Mt. 78. § (1) bekezdés a) pontja alapján azonnali hatállyal felmondhat; a felmondás következményeit az Mt. 78. § (3) és 69. § szabályozza. Kúria Mfv.10071/2021/7 (2021-10-13).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 78.§ (1)', 'MT 78.§ (3)', 'MT 77.§ (3)']"
+  },
+  {
+    "input": "Mennyi időn belül lehet azonnali hatályú felmondást közölni?",
+    "expected_output": "A munkáltatónak az azonnali hatályú felmondást a tudomásszerzéstől számított 15 napon belül kell közölnie (Mt. 78. § (2)). Kúria Mfv.10005/2022/7 (2022-05-18).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 78.§ (2)', 'MT 78.§ (1)']"
+  },
+  {
+    "input": "Jogellenes munkaviszony-megszüntetés esetén milyen követeléseket érvényesíthetek?",
+    "expected_output": "Elmaradt jövedelem és végkielégítés igényelhető (Mt. 82. § (1), (3)); az azonnali hatályú felmondásra vonatkozó 15 napos határidőt az Mt. 78. § (2) szabályozza. Kúria Mfv.10132/2021/5 (2022-04-06).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 82.§ (1)', 'MT 82.§ (3)', 'MT 78.§ (2)', 'MT 52.§ (1)']"
+  },
+  {
+    "input": "Mennyi lehet a próbaidő, és mi történik, ha hosszabbat kötöttek ki?",
+    "expected_output": "A próbaidő legfeljebb 3 hónap lehet; a hosszabb kikötés a 3 hónapon túli részében semmis, de a próbaidő kikötése ettől még érvényes marad (elsőfokú indokolás, Mt. 45. §). Kúria Mfv.10121/2020/5 (2021-02-17).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 45.§']"
+  },
+  {
+    "input": "Legfeljebb mekkora kártérítést állapíthat meg a bíróság az elmaradt jövedelem címén?",
+    "expected_output": "Az elmaradt jövedelem legfeljebb 12 havi távolléti díj összegéig terjedhet (Mt. 82. § (2)); az ügyben 5 havi távolléti díj összegét állapították meg. Kúria Mfv.10208/2018/5 (2018-12-17).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 82.§ (2)', 'MT 82.§ (1)']"
+  },
+  {
+    "input": "Számít-e a kárenyhítés körében, hogy az új munkáltatónál milyen okból szűnt meg a munkaviszonyom?",
+    "expected_output": "A későbbi munkaviszony megszűnésének oka nem az okozati összefüggés, hanem a kárenyhítési kötelezettség körében vizsgálandó (Mt. 82. §, 83. §). Kúria Mfv.10126/2023/4 (2024-01-10).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 82.§ (1)', 'MT 82.§ (2)', 'MT 83.§']"
+  },
+  {
+    "input": "Milyen feltételekkel köthető munkaviszony megszűnése utáni versenytilalmi megállapodás?",
+    "expected_output": "A versenytilalmi megállapodás a munkaviszony megszűnése utáni időszakra korlátozottan és ellenérték fejében köthető (Mt. 228. § (1), (2)); az ellenérték mértékét és következményeit a bíróság vizsgálja. Kúria Mfv.10052/2020/8 (2020-07-08).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 228.§ (1)', 'MT 228.§ (2)', 'MT 228.§ (6)']"
+  },
+  {
+    "input": "Elrendelheti-e a munkáltató, hogy átmenetileg a munkaszerződéstől eltérő munkakörben dolgozzak?",
+    "expected_output": "Igen, a munkáltató egyoldalú döntéssel átmenetileg a munkaszerződéstől eltérően foglalkoztathatja a munkavállalót (Mt. 53. § (1)–(2)); a részletszabályokat az Mt. 53. § (5) tartalmazza. Kúria Mfv.10007/2022/7 (2022-05-18).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 53.§ (1)', 'MT 53.§ (2)', 'MT 53.§ (5)']"
+  },
+  {
+    "input": "Felmondhat-e a munkáltató átszervezésre hivatkozva a jogutódlás napján?",
+    "expected_output": "A felmondás indokának valósnak és okszerűnek kell lennie (Mt. 64. § (2), 66. §); jogutódlásnál az Mt. 36. §, 38. § szabályai is irányadók. Kúria Mfv.10136/2023/4 (2024-02-14).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 36.§', 'MT 38.§ (1)', 'MT 64.§ (2)', 'MT 66.§ (1)', 'MT 82.§ (1)']"
+  },
+  {
+    "input": "Jár-e vasárnapi pótlék, ha a beosztás szerint dolgozom vasárnap?",
+    "expected_output": "A vasárnapi pótlék jogosultságát az Mt. 140. § (1)–(2) szabályai szerint kell vizsgálni; a munkaidő-beosztás szerinti munka esetén is lehet pótlékra jogosultság. Kúria Mfv.10087/2020/5 (2020-09-30).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 140.§ (1)', 'MT 140.§ (2)']"
+  },
+  {
+    "input": "Mit kell bizonyítania a munkáltatónak, ha kártérítést követel a munkavállalótól?",
+    "expected_output": "A munkavállaló felelősségének megállapításához a munkáltatónak a kárt és annak összegét is bizonyítania kell (Mt. 179. § (1)); az ügyben a felperes nem bizonyította a kárát. Kúria Mfv.10141/2022/4 (2023-01-18).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 179.§ (1)', 'MT 179.§ (3)', 'MT 179.§ (5)']"
+  },
+  {
+    "input": "Jogszerű-e az azonnali felmondás, ha a munkavállaló hosszú betegszabadság után nem reagál a munkáltató megkereséseire?",
+    "expected_output": "A munkáltató az alapvető együttműködési kötelezettség megszegésére hivatkozott (Mt. 6. § (1)–(2)); ennek megítélése a konkrét körülményektől függ. Kúria Mfv.10546/2018/5 (2019-09-11).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 6.§ (1)', 'MT 6.§ (2)']"
+  },
+  {
+    "input": "Félreérthető indulati kijelentés felmondásnak minősül-e?",
+    "expected_output": "A szóváltásban tett félreérthető, indulati nyilatkozat nem tekinthető felmondási szándék kinyilvánításának; a felmondás indokolása az Mt. 64. § (2), az azonnali hatályú felmondás az Mt. 78. § (1) szerint történik. Kúria Mfv.10035/2022/7 (2022-09-07).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 64.§ (2)', 'MT 78.§ (1)', 'MT 82.§ (1)']"
+  },
+  {
+    "input": "Kifizethető-e pénzben a ki nem adott szabadság?",
+    "expected_output": "A szabadság főszabály szerint nem váltható meg pénzben, kivéve ha a munkaviszony megszűnésekor a szabadságot nem adták ki (Mt. 125. §). Kúria Mfv.10031/2024/3 (2024-05-28).",
+    "law": "Mt. (2012. évi I. törvény)",
+    "references": "['MT 125.§']"
+  },
+  {
+    "input": "Ha valaki magánszemélytől 17,7 millió Ft-ot átvett és csak részben számolt el, adóztathatja-e a hatóság a különbözetet?",
+    "expected_output": "A hatóság az el nem számolt összeget a magánszemély önálló tevékenységéből származó jövedelmeként vizsgálta (Szja tv. 1. § (3), 4. § (1)–(2), 7. § (1), 28–29. §). Kúria Kfv.35073/2025/8 (2025-05-27).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 7.§ (1)', 'SZJA 28.§', 'SZJA 29.§']"
+  },
+  {
+    "input": "445 millió forintos szja-adóhiányt állapított meg az adóhatóság. Mely Szja tv. szabályok alapján vizsgálják?",
+    "expected_output": "Szja tv. 1. § (3)–(4), 4. § (1)–(2), 9. § (2), 28. § (1). Kúria Kfv.35265/2024/2 (2024-11-28).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 9.§ (2)', 'SZJA 28.§ (1)']"
+  },
+  {
+    "input": "A kuratórium elnöke nem nyújtott be szja-bevallást 2018-ra, de az adóhatóság jövedelmet állapított meg nála. Mi alapján?",
+    "expected_output": "A be nem vallott jövedelemre az Szja tv. 1. § (3)–(4), 2. § (6), 4. § (1)–(2), 9. § (2), 28. § (1)–(2) szabályai irányadók. Kúria Kfv.35096/2023/8 (2023-09-07).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 2.§ (6)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 9.§ (2)', 'SZJA 28.§ (1)', 'SZJA 28.§ (2)']"
+  },
+  {
+    "input": "Magánszemélyeknek adott kölcsön kamata hogyan adózik?",
+    "expected_output": "A kamatjövedelem adózását az Szja tv. 1. § (4), 4. § (2), 7. § (10), 8. § (1) és 72. § (1)–(2) szerint vizsgálták. Kúria Kfv.35028/2025/6 (2025-05-22).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (4)', 'SZJA 4.§ (2)', 'SZJA 7.§ (10)', 'SZJA 8.§ (1)', 'SZJA 72.§ (1)', 'SZJA 72.§ (2)']"
+  },
+  {
+    "input": "Megállapítható-e szja-különbözet adóellenőrzéssel 2020. májusra?",
+    "expected_output": "Igen, tevékenységet lezáró adóellenőrzés eredményeként; szja-szabályok: Szja tv. 3. §, 4. § (2), 5. § (1)–(4), 8. § (1), 61. § (1), 68. § (2), (7), (8), (10). Kúria Kfv.35639/2021/5 (2022-03-10).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 3.§', 'SZJA 4.§ (2)', 'SZJA 5.§ (1)', 'SZJA 8.§ (1)', 'SZJA 61.§ (1)', 'SZJA 68.§ (2)']"
+  },
+  {
+    "input": "Hogyan adózik az ingatlan értékesítéséből származó jövedelem?",
+    "expected_output": "Az ingatlan értékesítéséből származó jövedelmet az Szja tv. 16. § (1) általános szabálya mellett az ingatlan átruházására vonatkozó különös szabályok (62. §) szerint kell megállapítani. Kúria Kfv.35643/2019/6 (2020-10-08).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 16.§ (1)', 'SZJA 62.§ (3a)', 'SZJA 3.§']"
+  },
+  {
+    "input": "Külföldi adóügyi illetőségű magánszemély osztalékát miként adóztatják Magyarországon?",
+    "expected_output": "A külföldi illetőség és az osztalékjövedelem adókötelezettsége az Szja tv. 1. § (5), 2. § (4)–(6), 46. § (9) szerint bírálandó el. Kúria Kfv.35645/2021/8 (2022).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (5)', 'SZJA 2.§ (4)', 'SZJA 3.§', 'SZJA 15.§ (4)', 'SZJA 46.§ (9)']"
+  },
+  {
+    "input": "Kapcsolt vállalkozásnál a piaci ártól eltérő ellenérték adózási következménye?",
+    "expected_output": "A vételár és a használati jog szokásos piaci ára közötti eltérést az adóhatóság jövedelemként vizsgálta (Szja tv. 3. § (9a), 28. § (1), 61. § (1)–(2)). Kúria Kfv.35091/2025/2 (2025-05-08).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 3.§ (9a)', 'SZJA 28.§ (1)', 'SZJA 61.§ (1)', 'SZJA 61.§ (2)']"
+  },
+  {
+    "input": "Adóköteles-e a keresetpótló járadék?",
+    "expected_output": "A kifizetőtől kapott keresetpótló járadék az Szja tv. 3. § (21) f) pont szerinti jövedelem; a jövedelem jogosultját adófizetési kötelezettség terheli (Szja tv. 1. § (3)–(4), 4. § (1)). Kúria Kfv.35321/2022/5 (2022-09-08).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 3.§ (21)', 'SZJA 4.§ (1)']"
+  },
+  {
+    "input": "Mi minősül adóköteles jövedelemnek a magánszemélynél?",
+    "expected_output": "A magánszemély minden jövedelme adóköteles; jövedelem az adóévben bármilyen címen és formában megszerzett bevétel (Szja tv. 1. § (3), 4. § (1)). Kúria Kfv.35515/2020/7 (2021-06-10).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 28.§ (1)']"
+  },
+  {
+    "input": "Jövedelemnek minősülhet a magánszemély által megszerzett 115 millió Ft bevétel egyéb jogcímen?",
+    "expected_output": "Igen: az Szja tv. 1. § (3)–(5), 4. § (1)–(2), 9. § (2) a) és 28. § (1) alapján a bevétel a magánszemély egyéb jogcímen kapott jövedelme. Kúria Kfv.35033/2022/7 (2022-03-10).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 1.§ (5)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 9.§ (2)', 'SZJA 28.§ (1)']"
+  },
+  {
+    "input": "Be nem vallott ingatlanértékesítés esetén milyen szja-szabályok irányadók?",
+    "expected_output": "Az adóhatóság az ingatlan-értékesítésből származó, be nem vallott jövedelmet vizsgálta (Szja tv. 1. § (4), 4. § (3), 62. § (1)–(3)). Kúria Kfv.35021/2024/2 (2024-02-15).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (4)', 'SZJA 4.§ (3)', 'SZJA 62.§ (1)', 'SZJA 62.§ (2)', 'SZJA 62.§ (3)']"
+  },
+  {
+    "input": "A cégtől felvett pénzt a tulajdonos nem tudja elszámolni. Jövedelemként adóztatható?",
+    "expected_output": "Az el nem számolt összeg jövedelemként adóztatható; releváns szabályok: Szja tv. 1. § (1), (3), (4), 2. § (4), 4. § (1)–(2), 7. § (1), 28. § (1), 46. § (3). Kúria Kfv.35407/2020/8 (2021-03-25).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (1)', 'SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 2.§ (4)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 7.§ (1)', 'SZJA 28.§ (1)', 'SZJA 46.§ (3)']"
+  },
+  {
+    "input": "Kell-e adózni olyan jövedelem után, amelyet a magánszemély bármilyen címen megszerez?",
+    "expected_output": "Igen: a magánszemély minden jövedelme adóköteles (Szja tv. 1. § (3)), az adómentességet a magánszemélynek kell igazolnia. Kúria Kfv.35224/2025/3 (2025-10-21).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 2.§ (6)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 7.§ (1)', 'SZJA 8.§ (1)']"
+  },
+  {
+    "input": "A cég elengedte a követelését a magánszeméllyel szemben (elévülés). Keletkezik-e adóköteles bevétel?",
+    "expected_output": "Igen: az elengedett követelés összege a magánszemély adóköteles bevétele lehet (Szja tv. 1. § (3), 2. § (1)). Kúria Kfv.35271/2019/6 (2020-03-18).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 2.§ (1)']"
+  },
+  {
+    "input": "Kinek kell bizonyítania, hogy a jövedelem adómentes?",
+    "expected_output": "Az adómentesség vagy adókedvezmény bizonyítása a magánszemélyt terheli (Szja tv. 1. § (4)); a magánszemély minden jövedelme adóköteles (1. § (3)). Kúria Kfv.35085/2025/2 (2025-04-24).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 7.§ (1)', 'SZJA 28.§ (1)']"
+  },
+  {
+    "input": "A kft. bankszámlájáról felvett készpénz a tulajdonos jövedelme?",
+    "expected_output": "Az el nem számolt készpénzfelvételek a felperes egyéb jövedelmének minősülnek (Szja tv. 1. § (3)–(4), 4. § (1)–(2), 7. § (1) g), 9. § (2) a), 28. § (1)). Kúria Kfv.35061/2024/7 (2024-05-16).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 1.§ (3)', 'SZJA 1.§ (4)', 'SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 7.§ (1)', 'SZJA 9.§ (2)', 'SZJA 28.§ (1)']"
+  },
+  {
+    "input": "Ingatlan eladásánál mely költségek igazolása szükséges a jövedelem csökkentéséhez?",
+    "expected_output": "A bevételből az igazolt költségek (vételár, illeték, felújítás) vehetők figyelembe (Szja tv. 4. § (1)–(3), 62. § (6), 64. §). Kúria Kfv.35294/2023/5 (2024-03-28).",
+    "law": "Szja tv. (1995. évi CXVII. törvény)",
+    "references": "['SZJA 4.§ (1)', 'SZJA 4.§ (2)', 'SZJA 4.§ (3)', 'SZJA 59.§', 'SZJA 62.§ (6)', 'SZJA 64.§']"
+  },
+  {
+    "input": "Hivatkozhat-e a cég szerződés teljesítésére az adatok kezeléséhez, ha az érintett nem járult hozzá?",
+    "expected_output": "A hatóság határozata szerint nem: a GDPR 6. cikk (1) b) pontjára hivatkozva az adatkezelő jogszerűen nem kezelhette az adatokat. Kúria Kf.39291/2020/5 (2020-09-14).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1) b)']"
+  },
+  {
+    "input": "Kérhetem, hogy egy cég tájékoztasson arról, milyen személyes adataimat kezeli?",
+    "expected_output": "Igen, az érintettnek hozzáférési joga van (GDPR 15. cikk). Kúria Kf.39065/2020/5 (2020-06-10).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 15. cikk']"
+  },
+  {
+    "input": "Az adatkezelő a szerződés teljesítésére hivatkozva egy második fázisban is kezelte az adataimat. Van jogalapja?",
+    "expected_output": "Nincs: a második fázisú adatkezelés jogalapja nem lehet a szerződés teljesítése (GDPR 6. cikk (1) b)). Kúria Pfv.20003/2024/13 (2024-06-26).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1) b)']"
+  },
+  {
+    "input": "Kérhetem a mulasztási adataim törlését?",
+    "expected_output": "A törlési kérelem a GDPR 17. cikke szerinti kérelem; ez más, mint a Khrtv. 16. § (1) szerinti kifogás. Kúria Kfv.37348/2023/5 (2023).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 17. cikk']"
+  },
+  {
+    "input": "Jár-e kártérítés, ha jogsértő adatkezelés miatt nem vagyoni kárt szenvedtem?",
+    "expected_output": "Igen: GDPR 82. cikk (1); a kereset a 79. cikk (2) szerinti bíróság előtt indítható (82. cikk (6)). Fővárosi Törvényszék P.20491/2019/6 (2019-07-09); Kúria Pfv.20423/2020/4.",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 82. cikk (1)', 'GDPR 82. cikk (6)']"
+  },
+  {
+    "input": "Köteles-e a cég tájékoztatni az érintettet hangfelvétel-elemzésről?",
+    "expected_output": "Igen: tájékoztatási kötelezettség (GDPR 12–14. cikk), a tiltakozás joga (21. cikk), az elszámoltathatóság (5. cikk (2), 24. cikk) és a beépített adatvédelem (25. cikk). Kúria Kfv.37336/2023/2 (2023-06-06).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 5. cikk (1)', 'GDPR 5. cikk (2)', 'GDPR 12. cikk (1)', 'GDPR 13. cikk', 'GDPR 14. cikk (2)', 'GDPR 21. cikk (1)', 'GDPR 24. cikk (1)', 'GDPR 25. cikk (1)']"
+  },
+  {
+    "input": "Megfigyelhetem kamerával a közterületet és a szomszéd magánterületét?",
+    "expected_output": "Nem jogalap nélkül: a hatóság megállapította a GDPR 6. cikk (1) megsértését. Kúria Kfv.37415/2022/4 (2022-06-23).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1)']"
+  },
+  {
+    "input": "Jogszerű-e a munkavállalók és lakók kamerás megfigyelése érdekmérlegelés nélkül?",
+    "expected_output": "Nem: jogos érdek (GDPR 6. cikk (1) f)) alapján csak érdekmérlegelést követően. Fővárosi Törvényszék K.703539/2021/10 (2021-11-11).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1) f)']"
+  },
+  {
+    "input": "Köteles-e a bank kiadni a biztonsági kamerafelvételt magánvádlónak?",
+    "expected_output": "A kérdést a GDPR 5. cikk (1), (2), 6. cikk (1), 24. cikk (1) alapján kell megítélni. Kúria Kfv.37185/2021/2 (2021-03-23).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 5. cikk (1)', 'GDPR 5. cikk (2)', 'GDPR 6. cikk (1)', 'GDPR 24. cikk (1)']"
+  },
+  {
+    "input": "Mikor tekinthető jogszerűnek a közérdekű vagy jogos érdekre alapított adatkezelés?",
+    "expected_output": "GDPR 6. cikk (1) e), f): érdekmérlegelés szükséges. Kúria Pfv.20387/2024/5 (2024).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1) e)', 'GDPR 6. cikk (1) f)']"
+  },
+  {
+    "input": "Mi történik, ha az adatkezelő nem végzett megfelelő érdekmérlegelést?",
+    "expected_output": "Jogsértés a GDPR 6. cikk (1) f) szerint. Kúria Kfv.37365/2022/10.",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1) f)']"
+  },
+  {
+    "input": "Kell-e kártérítést fizetni, ha csak jogsértés történt, kár nélkül?",
+    "expected_output": "Nem: a GDPR 82. cikk (1) kárt követel; nincs bagatell-küszöb, de a puszta jogsértés nem elég. CJEU C-300/21 (2023-05-04).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 82. cikk (1)']"
+  },
+  {
+    "input": "Jár-e kártérítés munkavállalónak az egészségügyi adatai jogsértő kezeléséért?",
+    "expected_output": "A GDPR 82. cikk (1) szerint kártérítés jár; a kártérítés kompenzáló. CJEU C-667/21 (2023-12-21).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 82. cikk (1)']"
+  },
+  {
+    "input": "Mentesülhet-e az adatkezelő a kártérítés alól?",
+    "expected_output": "Csak ha bizonyítja, hogy a kárért semmilyen módon nem felelős (GDPR 82. cikk (1)–(3)). CJEU C-741/21 (2024-04-11).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 82. cikk (1)', 'GDPR 82. cikk (2)', 'GDPR 82. cikk (3)']"
+  },
+  {
+    "input": "Tárolhatók-e adatok tesztadatbázisban?",
+    "expected_output": "Csak ha a cél összeegyeztethető, és a tárolás nem tart tovább a szükségesnél (GDPR 5. cikk (1) b), e)). CJEU C-77/21 (2022-10-20).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 5. cikk (1) b)', 'GDPR 5. cikk (1) e)']"
+  },
+  {
+    "input": "Korlátlanul gyűjthet adatokat a közösségi platform célzott hirdetéshez?",
+    "expected_output": "Nem: az adatminimalizálás (GDPR 5. cikk (1) c)) ezt kizárja. CJEU C-446/21 (2024-10-04).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 5. cikk (1) b)', 'GDPR 5. cikk (1) c)', 'GDPR 6. cikk (1) a)', 'GDPR 6. cikk (1) b)', 'GDPR 9. cikk (1)', 'GDPR 9. cikk (2) e)']"
+  },
+  {
+    "input": "Automatizált döntésnek minősül-e a hitelképességi pontszám?",
+    "expected_output": "Igen, ha a harmadik fél azt erősen alapul veszi (GDPR 22. cikk (1)). CJEU C-634/21 (2023-12-07).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1)', 'GDPR 22. cikk (1)']"
+  },
+  {
+    "input": "Lehet-e kereskedelmi érdek jogos érdek?",
+    "expected_output": "Igen (GDPR 6. cikk (1) f)). CJEU C-621/22 (2024-10-04).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 6. cikk (1) f)']"
+  },
+  {
+    "input": "Személyes adat-e a TC String?",
+    "expected_output": "Igen; az IAB Europe közös adatkezelő (GDPR 4. cikk (1), (7), 24. cikk (1)). CJEU C-604/22 (2024-03-07).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 4. cikk (1)', 'GDPR 4. cikk (7)', 'GDPR 24. cikk (1)']"
+  },
+  {
+    "input": "Melyik felügyeleti hatóság járhat el határon átnyúló adatkezelésnél?",
+    "expected_output": "Főszabály: vezető felügyeleti hatóság (GDPR 55–66. cikk). CJEU C-645/19 (2021-06-15).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 55. cikk (1)', 'GDPR 56. cikk', 'GDPR 58. cikk', 'GDPR 60. cikk']"
+  },
+  {
+    "input": "Kell-e fizetnem a kórlapom első másolatáért?",
+    "expected_output": "Nem: az első másolat díjmentes (GDPR 15. cikk (3), 12. cikk (5)). CJEU C-307/22 (2023-06-22).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 15. cikk (3)', 'GDPR 12. cikk (5)']"
+  },
+  {
+    "input": "Mit jelent a másolat kiadása?",
+    "expected_output": "Az adatok hű és érthető másolata (GDPR 15. cikk (3)). CJEU C-487/21 (2023-05-04).",
+    "law": "GDPR ((EU) 2016/679 rendelet)",
+    "references": "['GDPR 15. cikk (3)']"
+  }
+]
